@@ -21,6 +21,35 @@
     <p>2. Types of Pages</p>
     <p>* Identify lesson page types.</p>
     <p>* Become familiar with lesson structure.</p>
+    <go id="next" to="P100"/>
     <go id="back" to="P15"/>
+  </page>
+  <page id="P300" n="4">
+    <p>EQUIPMENT REQUIRED</p>
+    <p>1. IBM PC Compatible Computer</p>
+    <go id="next" to="P300"/>
+    <go id="back" to="P100"/>
+  </page>
+  <page id="P400" n="5">
+    <p>INTRODUCTION</p>
+    <p>Congratulations on your decision to use Computer Assisted Instruction (CAI). CAI is like having your own private teacher.</p>
+    <go id="next" to="P410"/>
+    <go id="back" to="P300"/>
+  </page>
+  <page id="P410" n="6">
+    <p>The lessons are interesting and learning is exciting with CAI.</p>
+    <go id="next" to="P7"/>
+    <go id="back" to="P400"/>
+  </page>
+  <page id="P420" n="7">
+    <p>Let's begin the lesson on INTRODUCTION TO CAI.</p>
+    <go id="next" to="P420"/>
+    <go id="back" to="P410"/>
+  </page>
+  <page id="P500" n="8">
+    <p>LESSON MENU</p>
+    <go id="back" to="P420"/>
+    <go id="go" to="P1001" label="1. Computer Communication"/>
+    <go id="go" to="P2001" label="2. Types of Pages"/>
   </page>
 </book>
