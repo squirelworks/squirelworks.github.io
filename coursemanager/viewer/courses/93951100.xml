@@ -3,12 +3,14 @@
   <page id="PINFO" n="1">
     <p>Hello Student, this lesson is about:</p>
     <p>INTRODUCTION TO CAI</p>
+    <go id="next" to="P15"/>
   </page>
   <page id="P15" n="2">
     <p>To view new information press the Enter key on your keyboard or select the Next arrow using the mouse.</p>
     <p>To view previous information press the Left Arrow key on your keyboard or select the Back arrow using the mouse.</p>
     <p>To view available function keys press F1.</p>
     <p>*Note: The Left Arrow key is available in this lesson only.</p>
+    <go id="next" to="P100"/>
     <go id="back" to="PINFO"/>
   </page>
   <page id="P100" n="3">
