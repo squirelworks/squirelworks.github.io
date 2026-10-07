@@ -43,7 +43,7 @@
   </page>
   <page id="P420" n="7">
     <p>Let's begin the lesson on INTRODUCTION TO CAI.</p>
-    <go id="next" to="P420"/>
+    <go id="next" to="P500"/>
     <go id="back" to="P410"/>
   </page>
   <page id="P500" n="8">
