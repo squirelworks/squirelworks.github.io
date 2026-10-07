@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<book id="93950309" title="Conic Sections: Circles and Parabolas">
+  <page id="PINFO" n="1" kind="menu">
+    <p>Conic Sections: Circles and Parabolas. Begin opens the lesson. The blue bar is this book title.</p>
+    <go id="start" to="P400" label="Begin"/>
+  </page>
+  <page id="P400" n="2">
+    <p>Lesson page for Conic Sections: Circles and Parabolas. Next enters the question.</p>
+    <go id="next" to="Q1"/>
+    <go id="back" to="PINFO"/>
+  </page>
+  <page id="Q1" n="3" kind="quiz">
+    <p>Sample check for Conic Sections: Circles and Parabolas. Choose the matching answer.</p>
+    <quiz type="choice">
+      <choice to="PDONE" correct="yes">Conic Sections: Circles and Parabolas</choice>
+      <choice to="Q1bad">A different lesson</choice>
+    </quiz>
+    <go id="back" to="P400"/>
+  </page>
+  <page id="Q1bad" n="4">
+    <p>Not that one.</p>
+    <go id="back" to="Q1" label="Return"/>
+  </page>
+  <page id="PDONE" n="5" kind="finish">
+    <p>Congratulations on finishing:</p>
+    <booktitle/>
+    <go id="menu" to="PINFO" label="Lesson menu"/>
+  </page>
+</book>
