@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<book id="93953313" title="Voltage Doubler Operation">
+  <page id="PINFO" n="1" kind="menu">
+    <p>Voltage Doubler Operation. Begin opens the lesson. The blue bar is this book title.</p>
+    <go id="start" to="P400" label="Begin"/>
+  </page>
+  <page id="P400" n="2">
+    <p>Lesson page for Voltage Doubler Operation. Next enters the question.</p>
+    <go id="next" to="Q1"/>
+    <go id="back" to="PINFO"/>
+  </page>
+  <page id="Q1" n="3" kind="quiz">
+    <p>Sample check for Voltage Doubler Operation. Choose the matching answer.</p>
+    <quiz type="choice">
+      <choice to="PDONE" correct="yes">Voltage Doubler Operation</choice>
+      <choice to="Q1bad">A different lesson</choice>
+    </quiz>
+    <go id="back" to="P400"/>
+  </page>
+  <page id="Q1bad" n="4">
+    <p>Not that one.</p>
+    <go id="back" to="Q1" label="Return"/>
+  </page>
+  <page id="PDONE" n="5" kind="finish">
+    <p>Congratulations on finishing:</p>
+    <booktitle/>
+    <go id="menu" to="PINFO" label="Lesson menu"/>
+  </page>
+</book>
