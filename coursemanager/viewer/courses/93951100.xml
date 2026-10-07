@@ -21,13 +21,13 @@
     <p>2. Types of Pages</p>
     <p>* Identify lesson page types.</p>
     <p>* Become familiar with lesson structure.</p>
-    <go id="next" to="P100"/>
+    <go id="next" to="P300"/>
     <go id="back" to="P15"/>
   </page>
   <page id="P300" n="4">
     <p>EQUIPMENT REQUIRED</p>
     <p>1. IBM PC Compatible Computer</p>
-    <go id="next" to="P300"/>
+    <go id="next" to="P400"/>
     <go id="back" to="P100"/>
   </page>
   <page id="P400" n="5">
@@ -38,7 +38,7 @@
   </page>
   <page id="P410" n="6">
     <p>The lessons are interesting and learning is exciting with CAI.</p>
-    <go id="next" to="P7"/>
+    <go id="next" to="P420"/>
     <go id="back" to="P400"/>
   </page>
   <page id="P420" n="7">
