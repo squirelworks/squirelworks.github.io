@@ -46,10 +46,65 @@
     <go id="next" to="P500"/>
     <go id="back" to="P410"/>
   </page>
-  <page id="P500" n="8">
+  <page id="P900" n="8">
     <p>LESSON MENU</p>
+    <p>Use your mouse to select one of the items from the menu.</p>
     <go id="back" to="P420"/>
     <go id="go" to="P1001" label="1. Computer Communication"/>
     <go id="go" to="P2001" label="2. Types of Pages"/>
+    <go id="go" to="PEXIT" label="Lesson Exit"/>
+  </page>
+  <page id="P1001" n="9">
+    <p>COMPUTER COMMUNICATION</p>
+    <go id="back" to="P900"/>
+    <go id="go" to="P1020" label="Discussion"/>
+    <go id="go" to="P1920" label="Summary"/>
+  </page>
+  <page id="P1020" n="10">
+    <p>DISCUSSION</p>
+    <p>The computer is your teacher, and you need to know how to talk to the computer. There are two input devices you can use to communicate with the computer: the keyboard and the mouse.</p>
+    <go id="next" to="P1030"/>
+    <go id="back" to="P1001"/>
+  </page>
+  <page id="P1030" n="11">
+    <p>The mouse is used to navigate through the lesson and make selections from the displayed page. To make a selection with the mouse, move the mouse until the pointer is over an active item and press one of the buttons on the mouse. The pressing action is referred to as &quot;clicking&quot;.</p>
+    <go id="next" to="P1040"/>
+    <go id="back" to="P1020"/>
+  </page>
+  <page id="P1040" n="12">
+    <p>Selectable items on pages are identified by cyan buttons or highlighted areas. When the caption of a button is gray the button can not be selected, it is not active (OFF).</p>
+    <p>* This button is not active. It cannot be selected.</p>
+    <p>* This button is active. It can be selected.</p>
+    <go id="next" to="P1050"/>
+    <go id="back" to="P1030"/>
+  </page>
+  <page id="P1050" n="13">
+    <p>You move forward by clicking the Next button and backward by selecting the Back button. You ask for assistance by selecting the help button. Definitions are provided when you select cyan words from the main body of text.</p>
+    <go id="next" to="P1060"/>
+    <go id="back" to="P1040"/>
+  </page>
+  <page id="P1060" n="14">
+    <p>The mouse is used to make selections from the menus in the lesson. You have already seen an example of this, you used the mouse to select options from the menus to get this far.</p>
+    <go id="next" to="P1110"/>
+    <go id="back" to="P1050"/>
+  </page>
+  <page id="P1110" n="15">
+    <p>The mouse is also used to answer questions. On the following page, answer the question by placing the pointer over the correct answer and clicking.</p>
+    <go id="next" to="P1120"/>
+    <go id="back" to="P1060"/>
+  </page>
+  <page id="P1120" n="16">
+    <p>Which of the following squares is WHITE? Select the answer with your mouse.</p>
+    <quiz type="choice">
+      <choice to="P1120">Green</choice>
+      <choice to="P1120">Yellow</choice>
+      <choice to="P1124" correct="yes">White</choice>
+    </quiz>
+    <go id="back" to="P1110"/>
+    <go id="go" to="P1124" label="White"/>
+  </page>
+  <page id="P1124" n="17">
+    <p>You selected the color WHITE. If you did not see feedback for an incorrect answer go back to the question and select a wrong answer.</p>
+    <go id="back" to="P1120"/>
   </page>
 </book>
