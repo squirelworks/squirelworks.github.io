@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Built from Toolbook/courses.xml Menu courseid="0_MASTER3".
+  Main Course List is the level-1 menu. Modules are the menus under that.
+  Course List is each Item. file points at courses/<lessonid>.xml even if that file is absent.
+-->
+<catalog title="ATT Master_3">
+  <main id="m0" title="DC Circuits">
+    <sub id="m0s0" title="Mod 01 Indoc">
+    </sub>
+    <sub id="m0s1" title="Mod 02 Introduction to Electricity">
+      <course id="93951100" title="Introduction to CAI" file="courses/93951100.xml"/>
+      <course id="10001001" title="Intro to PDAs" file="courses/10001001.xml"/>
+      <course id="93951101" title="Safety Practices" file="courses/93951101.xml"/>
+      <course id="93951102" title="Equipment Familarization" file="courses/93951102.xml"/>
+      <course id="93951103" title="Metric Notation" file="courses/93951103.xml"/>
+      <course id="93951104" title="Voltage and Current" file="courses/93951104.xml"/>
+      <course id="93951105" title="Resistors" file="courses/93951105.xml"/>
+      <course id="93951106" title="Switches, Fuses and Breakers" file="courses/93951106.xml"/>
+      <course id="93951108" title="Introduction to Technical Graphics" file="courses/93951108.xml"/>
+    </sub>
+    <sub id="m0s2" title="Mod 03 Multimeter Measurements">
+      <course id="93951201" title="Magnetism, Relays &amp; Meters" file="courses/93951201.xml"/>
+      <course id="93951202" title="Intro to Multimeters" file="courses/93951202.xml"/>
+      <course id="93951203" title="Multimeter Use" file="courses/93951203.xml"/>
+      <course id="93951204" title="Voltage Measurements" file="courses/93951204.xml"/>
+      <course id="93951205" title="Current Measurements" file="courses/93951205.xml"/>
+      <course id="93951206" title="Resistance Measurements" file="courses/93951206.xml"/>
+    </sub>
+    <sub id="m0s3" title="Mod 04 Basic DC Circuits">
+      <course id="93951301" title="Ohm's Law" file="courses/93951301.xml"/>
+      <course id="93951302" title="Series Circuits" file="courses/93951302.xml"/>
+      <course id="93951303" title="Series TS Theory" file="courses/93951303.xml"/>
+      <course id="93951304" title="Series TS Experiment" file="courses/93951304.xml"/>
+      <course id="93951306" title="Parallel Circuits" file="courses/93951306.xml"/>
+      <course id="93951307" title="Parallel TS Theory" file="courses/93951307.xml"/>
+      <course id="93951308" title="Parallel TS Experiment" file="courses/93951308.xml"/>
+      <course id="93951310" title="Series-Parallel Circuits" file="courses/93951310.xml"/>
+      <course id="93951311" title="Series-Parallel TS Theory" file="courses/93951311.xml"/>
+      <course id="93951312" title="Series-Parallel TS Exp" file="courses/93951312.xml"/>
+    </sub>
+    <sub id="m0s4" title="Mod 05 Complex DC Circuits">
+      <course id="93951401" title="Voltage Divider Circuits" file="courses/93951401.xml"/>
+      <course id="93951402" title="Bridge Circuits" file="courses/93951402.xml"/>
+      <course id="93951403" title="Kirchhoff" file="courses/93951403.xml"/>
+      <course id="93951404" title="Norton's Theorem" file="courses/93951404.xml"/>
+      <course id="93951405" title="Thevenin's Theorem" file="courses/93951405.xml"/>
+      <course id="93951406" title="Meter Loading" file="courses/93951406.xml"/>
+    </sub>
+    <sub id="m0s5" title="Mod 06 Wiring">
+      <course id="93951601" title="PC Component Insertion/Extraction Tech." file="courses/93951601.xml"/>
+      <course id="93951602" title="Basic Soldering Techniques" file="courses/93951602.xml"/>
+      <course id="93951603" title="Basic Connector Termination Techniques" file="courses/93951603.xml"/>
+      <course id="93951604" title="Basic Wire Wrapping Techniques" file="courses/93951604.xml"/>
+      <course id="93951605" title="Basic Wiring and Connector TS Theory" file="courses/93951605.xml"/>
+      <course id="93951606" title="Wire Troubleshooting" file="courses/93951606.xml"/>
+    </sub>
+  </main>
+  <main id="m1" title="AC Circuits">
+    <sub id="m1s0" title="Mod 07 Introduction to AC">
+      <course id="93952101" title="Alternating Current" file="courses/93952101.xml"/>
+      <course id="93952102" title="Generating AC Electricity" file="courses/93952102.xml"/>
+      <course id="93952103" title="Non-Sinusoidal Waves" file="courses/93952103.xml"/>
+      <course id="93952104" title="Resistance in AC Circuits" file="courses/93952104.xml"/>
+    </sub>
+    <sub id="m1s1" title="Mod 08 AC Test Equipment">
+      <course id="93952201" title="Intro to Oscilloscopes" file="courses/93952201.xml"/>
+      <course id="93952202" title="Oscilloscope Use" file="courses/93952202.xml"/>
+      <course id="93952203" title="Intro to Function Generators - 440" file="courses/93952203.xml"/>
+      <course id="93952204" title="Function Generator Use - 440" file="courses/93952204.xml"/>
+      <course id="93952205" title="Intro to Frequency Counters" file="courses/93952205.xml"/>
+      <course id="93952206" title="Frequency Counter Use" file="courses/93952206.xml"/>
+      <course id="93952207" title="Oscilloscope Use - 444" file="courses/93952207.xml"/>
+      <course id="93952208" title="Intro to Function Generators - 444" file="courses/93952208.xml"/>
+      <course id="93952209" title="Function Generator Use - 444" file="courses/93952209.xml"/>
+      <course id="93952210" title="Intro to Function Generators - 4040" file="courses/93952210.xml"/>
+      <course id="93952211" title="Function Generator Use - 4040" file="courses/93952211.xml"/>
+      <course id="93952212" title="Intro to Oscilloscopes" file="courses/93952212.xml"/>
+      <course id="93952213" title="Oscilloscope Use - 444" file="courses/93952213.xml"/>
+      <course id="93952214" title="Oscilloscope Use - 804" file="courses/93952214.xml"/>
+    </sub>
+    <sub id="m1s2" title="Mod 09 Inductance and RL Circuits">
+      <course id="93952301" title="Intro to Inductors" file="courses/93952301.xml"/>
+      <course id="93952302" title="Inductor Identification" file="courses/93952302.xml"/>
+      <course id="93952303" title="RL Series Circuits" file="courses/93952303.xml"/>
+      <course id="93952304" title="RL Series Circuit Operation" file="courses/93952304.xml"/>
+      <course id="93952305" title="RL Series Circuit TS Exp" file="courses/93952305.xml"/>
+      <course id="93952307" title="RL Parallel Circuits" file="courses/93952307.xml"/>
+      <course id="93952308" title="RL Parallel Circuit Oper" file="courses/93952308.xml"/>
+      <course id="93952309" title="RL Parallel Circuit TS Exp" file="courses/93952309.xml"/>
+      <course id="93952311" title="RL Filters" file="courses/93952311.xml"/>
+    </sub>
+    <sub id="m1s3" title="Mod 10 Capacitance and RC Circuits">
+      <course id="93952401" title="Intro to Capacitors" file="courses/93952401.xml"/>
+      <course id="93952402" title="Capacitor Identification" file="courses/93952402.xml"/>
+      <course id="93952403" title="RC Series Circuits" file="courses/93952403.xml"/>
+      <course id="93952404" title="RC Series Circuit Operation" file="courses/93952404.xml"/>
+      <course id="93952405" title="RC Series Circuit TS Exp" file="courses/93952405.xml"/>
+      <course id="93952408" title="RC Parallel Circuits" file="courses/93952408.xml"/>
+      <course id="93952409" title="RC Parallel Circuit Oper" file="courses/93952409.xml"/>
+      <course id="93952410" title="RC Parallel Circuit TS Exp" file="courses/93952410.xml"/>
+      <course id="93952413" title="RC Filters" file="courses/93952413.xml"/>
+    </sub>
+    <sub id="m1s4" title="Mod 11 RC Time Constants and Transients">
+      <course id="93952501" title="RC and RL Time Constants" file="courses/93952501.xml"/>
+      <course id="93952502" title="RC Time Constants Operation" file="courses/93952502.xml"/>
+      <course id="93952503" title="RC Circuit Transients" file="courses/93952503.xml"/>
+      <course id="93952504" title="RC Cir Transients Exp" file="courses/93952504.xml"/>
+      <course id="93952505" title="RC Cir Transient TS Exp" file="courses/93952505.xml"/>
+    </sub>
+    <sub id="m1s5" title="Mod 12 Resonance">
+      <course id="93952601" title="Capacitive/Inductive &amp; LCR" file="courses/93952601.xml"/>
+      <course id="93952602" title="LCR Series &amp; Par Circuit Exp" file="courses/93952602.xml"/>
+      <course id="93952603" title="LCR Circuit TS" file="courses/93952603.xml"/>
+      <course id="93952604" title="Series Resonance" file="courses/93952604.xml"/>
+      <course id="93952605" title="Series Resonant Circuits" file="courses/93952605.xml"/>
+      <course id="93952606" title="Parallel Resonance" file="courses/93952606.xml"/>
+      <course id="93952607" title="Parallel Resonant Circuits" file="courses/93952607.xml"/>
+      <course id="93952608" title="Resonant Cir TS Experiment" file="courses/93952608.xml"/>
+    </sub>
+    <sub id="m1s6" title="Mod 13 Transformers">
+      <course id="93952701" title="Intro to Transformers" file="courses/93952701.xml"/>
+      <course id="93952702" title="Transformer Operation" file="courses/93952702.xml"/>
+      <course id="93952703" title="Troubleshooting Transformers" file="courses/93952703.xml"/>
+    </sub>
+    <sub id="m1s7" title="Mod 14 Relays &amp; Switches">
+      <course id="93952801" title="Relays and Switches" file="courses/93952801.xml"/>
+      <course id="93952802" title="Relay and Switches Operation Experiment" file="courses/93952802.xml"/>
+      <course id="93952803" title="TS Relays and Switches" file="courses/93952803.xml"/>
+      <course id="93952804" title="Electrical Circuits" file="courses/93952804.xml"/>
+      <course id="93952805" title="Electrical Circuits Exp" file="courses/93952805.xml"/>
+      <course id="93952806" title="Electrical Circuits TS" file="courses/93952806.xml"/>
+    </sub>
+  </main>
+  <main id="m2" title="Analog Circuits">
+    <sub id="m2s0" title="Mod 15 Diodes and Diode Circuits">
+      <course id="93953101" title="Intro to Diodes" file="courses/93953101.xml"/>
+      <course id="93953102" title="Junction Diodes" file="courses/93953102.xml"/>
+      <course id="93953103" title="Junction Diode Operation" file="courses/93953103.xml"/>
+      <course id="93953104" title="Junction Diode TS Exp" file="courses/93953104.xml"/>
+      <course id="93953106" title="Diode Limiter Operation" file="courses/93953106.xml"/>
+      <course id="93953107" title="Diode Clamper Operation" file="courses/93953107.xml"/>
+      <course id="93953108" title="Limiter &amp; Clamper TS Exp" file="courses/93953108.xml"/>
+      <course id="93953110" title="Vacuum Tube Theory" file="courses/93953110.xml"/>
+    </sub>
+    <sub id="m2s1" title="Mod 16 Transistor Circuits">
+      <course id="93953201" title="Intro to Transistors" file="courses/93953201.xml"/>
+      <course id="93953202" title="Transistor Operation" file="courses/93953202.xml"/>
+      <course id="93953203" title="Intro to Transistor Amps" file="courses/93953203.xml"/>
+      <course id="93953204" title="Common Emitter Amplifiers" file="courses/93953204.xml"/>
+      <course id="93953205" title="Common Emitter Amp Exp" file="courses/93953205.xml"/>
+      <course id="93953206" title="Common Collector Amplifier" file="courses/93953206.xml"/>
+      <course id="93953207" title="Common Collector Amp Exp" file="courses/93953207.xml"/>
+      <course id="93953208" title="Common Base Amplifier" file="courses/93953208.xml"/>
+      <course id="93953209" title="Common Base Amp Exp" file="courses/93953209.xml"/>
+    </sub>
+    <sub id="m2s2" title="Mod 17 Power Supplies">
+      <course id="93953301" title="Intro to Power Supplies" file="courses/93953301.xml"/>
+      <course id="93953302" title="Full &amp; Half Wave Rectifiers" file="courses/93953302.xml"/>
+      <course id="93953303" title="Bridge Rectifier Operation" file="courses/93953303.xml"/>
+      <course id="93953306" title="Intro to Voltage Regulators" file="courses/93953306.xml"/>
+      <course id="93953307" title="Zener Diode Operation" file="courses/93953307.xml"/>
+      <course id="93953308" title="Zener Diode Regulator Oper" file="courses/93953308.xml"/>
+      <course id="93953309" title="Voltage Regulator Operation" file="courses/93953309.xml"/>
+      <course id="93953310" title="Voltage Regulator TS Exp" file="courses/93953310.xml"/>
+      <course id="93953312" title="IC Regulator Operation" file="courses/93953312.xml"/>
+      <course id="93953313" title="Voltage Doubler Operation" file="courses/93953313.xml"/>
+    </sub>
+    <sub id="m2s3" title="Mod 18 Transistor Amplifiers">
+      <course id="93953401" title="Multistage Transistor Amps" file="courses/93953401.xml"/>
+      <course id="93953402" title="RC Coupled Transistor Amps" file="courses/93953402.xml"/>
+      <course id="93953403" title="Push-Pull Amplifier Oper" file="courses/93953403.xml"/>
+      <course id="93953404" title="Multistage Amp TS Exp" file="courses/93953404.xml"/>
+      <course id="93953406" title="Field Effect Transistor Amp" file="courses/93953406.xml"/>
+      <course id="93953407" title="Fet Amplifier TS Exp" file="courses/93953407.xml"/>
+      <course id="93953409" title="MOSFETS" file="courses/93953409.xml"/>
+    </sub>
+    <sub id="m2s4" title="Mod 19 Transistor Oscillators">
+      <course id="93953501" title="Intro to Sine Oscillators" file="courses/93953501.xml"/>
+      <course id="93953502" title="Hartley Oscillator Operation" file="courses/93953502.xml"/>
+      <course id="93953503" title="Colpitts Oscillator Oper" file="courses/93953503.xml"/>
+      <course id="93953504" title="RC Phase Shift Oscillator" file="courses/93953504.xml"/>
+      <course id="93953505" title="Crystal Controlled Osc" file="courses/93953505.xml"/>
+      <course id="93953506" title="Sine Wave Osc TS Exp I" file="courses/93953506.xml"/>
+      <course id="93953507" title="Sine Wave Osc TS Exp II" file="courses/93953507.xml"/>
+      <course id="93953508" title="Sawtooth Oscillator" file="courses/93953508.xml"/>
+      <course id="93953509" title="Blocking Oscillator" file="courses/93953509.xml"/>
+      <course id="93953510" title="Non-Sine Osc TS Exp" file="courses/93953510.xml"/>
+    </sub>
+    <sub id="m2s5" title="Mod 20 Transistor Pulse Circuits">
+      <course id="93953601" title="Intro to Multivibrator Cir" file="courses/93953601.xml"/>
+      <course id="93953602" title="Astable Multivibrator Oper" file="courses/93953602.xml"/>
+      <course id="93953603" title="Monostable Multivibrator Op" file="courses/93953603.xml"/>
+      <course id="93953604" title="Bistable Multivibrator Op" file="courses/93953604.xml"/>
+      <course id="93953605" title="Multivibrator TS Exp" file="courses/93953605.xml"/>
+      <course id="93953607" title="Schmitt Trigger Operation" file="courses/93953607.xml"/>
+      <course id="93953608" title="Schmitt Trigger TS Exp" file="courses/93953608.xml"/>
+    </sub>
+    <sub id="m2s6" title="Mod 21 Trigger Device Circuits">
+      <course id="93953701" title="Intro to Trigger Devices" file="courses/93953701.xml"/>
+      <course id="93953702" title="Unijunction Transistor Osc" file="courses/93953702.xml"/>
+      <course id="93953703" title="SCR Trigger Operation" file="courses/93953703.xml"/>
+      <course id="93953704" title="SCR Power Control Operation" file="courses/93953704.xml"/>
+      <course id="93953705" title="SCR Circuit TS Exp" file="courses/93953705.xml"/>
+      <course id="93953707" title="DIACs, TRIACs, &amp; 4 Layer Diodes" file="courses/93953707.xml"/>
+      <course id="93953708" title="Programmable UJTs" file="courses/93953708.xml"/>
+    </sub>
+    <sub id="m2s7" title="Mod 22 Operational Amplifiers">
+      <course id="93953801" title="Intro to Operational Amps" file="courses/93953801.xml"/>
+      <course id="93953802" title="Operational Amp Operation" file="courses/93953802.xml"/>
+      <course id="93953803" title="Operational Amp TS Exp" file="courses/93953803.xml"/>
+    </sub>
+    <sub id="m2s8" title="Mod 23 RF Electronics">
+      <course id="93953901" title="Intro to AM Receivers" file="courses/93953901.xml"/>
+      <course id="93953902" title="AM Receiver Operation" file="courses/93953902.xml"/>
+      <course id="93953903" title="AM Receiver Troubleshooting" file="courses/93953903.xml"/>
+    </sub>
+  </main>
+  <main id="m3" title="Digital Circuits">
+    <sub id="m3s0" title="Mod 24 Introduction to Digital Circuits">
+      <course id="93954101" title="Intro to Digital Electronics" file="courses/93954101.xml"/>
+      <course id="93954102" title="Digital Electronics Hardware" file="courses/93954102.xml"/>
+      <course id="93954103" title="Buffers and Inverters" file="courses/93954103.xml"/>
+      <course id="93954104" title="Digital Test Equipment" file="courses/93954104.xml"/>
+      <course id="93954106" title="Intro to ICs" file="courses/93954106.xml"/>
+      <course id="93954107" title="Electrostatic Devices" file="courses/93954107.xml"/>
+    </sub>
+    <sub id="m3s1" title="Mod 25 Digital Logic Functions">
+      <course id="93954207" title="Intro to Logic Functions" file="courses/93954207.xml"/>
+      <course id="93954201" title="AND Gates" file="courses/93954201.xml"/>
+      <course id="93954202" title="OR Gates" file="courses/93954202.xml"/>
+      <course id="93954203" title="NOT Gates" file="courses/93954203.xml"/>
+      <course id="93954204" title="NAND Gates" file="courses/93954204.xml"/>
+      <course id="93954205" title="NOR Gates" file="courses/93954205.xml"/>
+      <course id="93954206" title="XOR Gates" file="courses/93954206.xml"/>
+      <course id="9E954D03" title="Troubleshooting Digital Systems" file="courses/9E954D03.xml"/>
+    </sub>
+    <sub id="m3s2" title="Mod 26 Combination Logic Functions">
+      <course id="93954301" title="Intro to Combinational Cir" file="courses/93954301.xml"/>
+      <course id="93954302" title="Logic Families" file="courses/93954302.xml"/>
+      <course id="93954303" title="Number Systems" file="courses/93954303.xml"/>
+      <course id="93954304" title="Base 10 to Binary Conversion" file="courses/93954304.xml"/>
+      <course id="93954305" title="Binary to 7 Segment Conv" file="courses/93954305.xml"/>
+      <course id="93954306" title="4 Bit Comparator" file="courses/93954306.xml"/>
+    </sub>
+    <sub id="m3s3" title="Mod 27 Flip-Flop Circuits">
+      <course id="93954401" title="Intro to Flip-Flops" file="courses/93954401.xml"/>
+      <course id="93954402" title="RS Flip-Flop" file="courses/93954402.xml"/>
+      <course id="93954105" title="555 Timer" file="courses/93954105.xml"/>
+      <course id="93954403" title="Clocked RS Flip-Flop" file="courses/93954403.xml"/>
+      <course id="93954404" title="D-Type Flip-Flop" file="courses/93954404.xml"/>
+      <course id="93954405" title="J-K Flip-Flop" file="courses/93954405.xml"/>
+      <course id="93954406" title="Master Slave Flip-Flop" file="courses/93954406.xml"/>
+    </sub>
+    <sub id="m3s4" title="Mod 28 Register Memory Circuits">
+      <course id="93954501" title="Intro to Register &amp; Memory" file="courses/93954501.xml"/>
+      <course id="93954502" title="4 Bit Storage Register" file="courses/93954502.xml"/>
+      <course id="93954503" title="4 Bit Shift Register" file="courses/93954503.xml"/>
+      <course id="93954504" title="8 Bit Shift Register" file="courses/93954504.xml"/>
+      <course id="93954505" title="64 Bit Memory Circuit" file="courses/93954505.xml"/>
+    </sub>
+    <sub id="m3s5" title="Mod 29 Arithmetic Counting Circuits">
+      <course id="93954601" title="Intro to Arithmetic Counting" file="courses/93954601.xml"/>
+      <course id="93954602" title="Ripple Counter" file="courses/93954602.xml"/>
+      <course id="93954603" title="Up Counter" file="courses/93954603.xml"/>
+      <course id="93954604" title="Down Counter" file="courses/93954604.xml"/>
+      <course id="93954605" title="4 Bit Adders" file="courses/93954605.xml"/>
+      <course id="93954606" title="4 Bit Subtractors" file="courses/93954606.xml"/>
+    </sub>
+    <sub id="m3s6" title="Mod 30 Conversion and Data Circuits">
+      <course id="93954701" title="Intro to Conversion &amp; Data" file="courses/93954701.xml"/>
+      <course id="93954702" title="D to A Conversion" file="courses/93954702.xml"/>
+      <course id="93954703" title="Data Selector Circuits" file="courses/93954703.xml"/>
+      <course id="93954704" title="Data Distribution Circuits" file="courses/93954704.xml"/>
+    </sub>
+    <sub id="m3s7" title="Mod 31 Microprocessor Circuits">
+      <course id="9395T821" title="Introduction to Microprocessors" file="courses/9395T821.xml"/>
+      <course id="9395T822" title="Basic Microprocessor Operation" file="courses/9395T822.xml"/>
+      <course id="9395T823" title="Number Systems" file="courses/9395T823.xml"/>
+      <course id="9395T831" title="8085 Microprocessor Circuit" file="courses/9395T831.xml"/>
+      <course id="9395T832" title="Operation of the 8085 Microprocessor" file="courses/9395T832.xml"/>
+      <course id="9395T833" title="Interfacing with the 8085" file="courses/9395T833.xml"/>
+      <course id="9395T834" title="Troubleshooting the 8085" file="courses/9395T834.xml"/>
+    </sub>
+  </main>
+  <main id="m4" title="Advanced Electronics">
+    <sub id="m4s0" title="Mod 32 Basic Motors">
+      <course id="9395T301" title="Intro to Rotating Machinery" file="courses/9395T301.xml"/>
+      <course id="93955102" title="Characteristics, Rotating Mach" file="courses/93955102.xml"/>
+      <course id="9395T302" title="DC Motors and Generators" file="courses/9395T302.xml"/>
+      <course id="9395T303" title="Stepper Motors" file="courses/9395T303.xml"/>
+      <course id="9395T304" title="AC Motors and Generators" file="courses/9395T304.xml"/>
+      <course id="9395Z203" title="Three-phase Power Generation" file="courses/9395Z203.xml"/>
+    </sub>
+    <sub id="m4s1" title="Mod 33 Advanced Motor Operation">
+      <course id="93955601" title="DC Motors" file="courses/93955601.xml"/>
+      <course id="9395T312" title="Brushless DC Motors" file="courses/9395T312.xml"/>
+      <course id="93955602" title="DC Shunt Motors" file="courses/93955602.xml"/>
+      <course id="93955603" title="DC Series Motors" file="courses/93955603.xml"/>
+      <course id="93955604" title="DC Compound Motors" file="courses/93955604.xml"/>
+      <course id="93955605" title="Time Control of DC Motors" file="courses/93955605.xml"/>
+      <course id="93955606" title="Feedback of DC Motors" file="courses/93955606.xml"/>
+      <course id="93955608" title="TS Closed Loop Feedback" file="courses/93955608.xml"/>
+      <course id="93955609" title="Amp Cont of DC Motors" file="courses/93955609.xml"/>
+      <course id="93955702" title="AC Motors" file="courses/93955702.xml"/>
+      <course id="93955703" title="AC Motor Characteristics" file="courses/93955703.xml"/>
+      <course id="9395T314" title="Troubleshooting AC Motors" file="courses/9395T314.xml"/>
+      <course id="93955801" title="Stepper Motors" file="courses/93955801.xml"/>
+      <course id="93955802" title="Stepper Controllers" file="courses/93955802.xml"/>
+      <course id="93955901" title="Generators" file="courses/93955901.xml"/>
+      <course id="93955902" title="Motor Generators" file="courses/93955902.xml"/>
+    </sub>
+    <sub id="m4s2" title="Mod 34 Basic Synchro/Servo">
+      <course id="9395T315" title="Pulse Width Modulation &amp; Amplification" file="courses/9395T315.xml"/>
+      <course id="9395T316" title="Open Loop Motor System Experiment" file="courses/9395T316.xml"/>
+      <course id="9395T321" title="Motion Detection" file="courses/9395T321.xml"/>
+      <course id="9395T322" title="Error Detection &amp; Feedback" file="courses/9395T322.xml"/>
+      <course id="9395T323" title="Troubleshooting Closed Loop Systems" file="courses/9395T323.xml"/>
+      <course id="9395T331" title="Position Detection" file="courses/9395T331.xml"/>
+      <course id="9395T332" title="Proportional, Integral, &amp; Derivative" file="courses/9395T332.xml"/>
+      <course id="9395T333" title="PID Control System Experiment" file="courses/9395T333.xml"/>
+    </sub>
+    <sub id="m4s3" title="Mod 35 Advanced Synchro/Servo">
+      <course id="93956401" title="Introduction to Synchros" file="courses/93956401.xml"/>
+      <course id="93956402" title="Differential Transmitters" file="courses/93956402.xml"/>
+      <course id="93956403" title="Control Synchro Systems" file="courses/93956403.xml"/>
+      <course id="93956404" title="Troubleshooting Synchro Systems" file="courses/93956404.xml"/>
+      <course id="93956405" title="Gyroscopes" file="courses/93956405.xml"/>
+    </sub>
+    <sub id="m4s4" title="Mod 36 Basic Radar Systems">
+      <course id="9395TD01" title="Introduction to Radar" file="courses/9395TD01.xml"/>
+      <course id="9395TD02" title="Radar Operation" file="courses/9395TD02.xml"/>
+      <course id="9395TD03" title="Radar Transmitters and Receivers" file="courses/9395TD03.xml"/>
+      <course id="9395TD04" title="Transmission Lines" file="courses/9395TD04.xml"/>
+      <course id="9395TD05" title="Waveguide Theory" file="courses/9395TD05.xml"/>
+      <course id="9395TD06" title="Radar Antennas" file="courses/9395TD06.xml"/>
+      <course id="9395TD07" title="Cavity Resonators &amp; Tube Devices" file="courses/9395TD07.xml"/>
+      <course id="9395TD08" title="Semiconductor Microwave Devices" file="courses/9395TD08.xml"/>
+      <course id="9395TD09" title="Electromagnetic Compatibility CM" file="courses/9395TD09.xml"/>
+      <course id="9395TD10" title="Radar Auxiliary Systems" file="courses/9395TD10.xml"/>
+    </sub>
+    <sub id="m4s5" title="Mod 37 Communications Systems">
+      <course id="9395T901" title="Introduction to Communications" file="courses/9395T901.xml"/>
+      <course id="9395T921" title="Wave Propagation" file="courses/9395T921.xml"/>
+      <course id="9395T922" title="HF Fundamentals" file="courses/9395T922.xml"/>
+      <course id="9395TB01" title="Phase Lock Loop" file="courses/9395TB01.xml"/>
+      <course id="9395T902" title="Amplitude Modulation (AM) Receivers" file="courses/9395T902.xml"/>
+      <course id="9395T903" title="AM Receiver Analysis" file="courses/9395T903.xml"/>
+      <course id="9395T904" title="AM Receiver Troubleshooting" file="courses/9395T904.xml"/>
+      <course id="9395T905" title="Frequency Modulation (FM) Receivers" file="courses/9395T905.xml"/>
+      <course id="9395T906" title="FM Receiver Analysis" file="courses/9395T906.xml"/>
+      <course id="9395T907" title="FM Receiver Troubleshooting" file="courses/9395T907.xml"/>
+      <course id="9395T908" title="Citizen Band (CB) Radio" file="courses/9395T908.xml"/>
+      <course id="9395T909" title="CB Transceiver Analysis" file="courses/9395T909.xml"/>
+      <course id="9395T910" title="CB Transceiver Troubleshooting" file="courses/9395T910.xml"/>
+      <course id="9395T911" title="Single Sideband Transmitters/Receivers" file="courses/9395T911.xml"/>
+      <course id="9395T912" title="SSB Analysis" file="courses/9395T912.xml"/>
+      <course id="9395T913" title="SSB Troubleshooting" file="courses/9395T913.xml"/>
+      <course id="9395T914" title="Narrowband FM" file="courses/9395T914.xml"/>
+      <course id="9395T915" title="Narrowband FM Troubleshooting" file="courses/9395T915.xml"/>
+      <course id="9395T916" title="Communications Troubleshooting" file="courses/9395T916.xml"/>
+    </sub>
+    <sub id="m4s6" title="Mod 38 Fiber Optics">
+      <course id="9395A201" title="Intro to Fiberoptics" file="courses/9395A201.xml"/>
+      <course id="9395A202" title="Fiberoptic Components" file="courses/9395A202.xml"/>
+      <course id="9395A203" title="Signal Transmission" file="courses/9395A203.xml"/>
+      <course id="9395A204" title="Fiberoptic Cable Connection" file="courses/9395A204.xml"/>
+      <course id="9395A205" title="Fiberoptic Troubleshooting Exp" file="courses/9395A205.xml"/>
+    </sub>
+    <sub id="m4s7" title="Mod 39 Computer Technology">
+      <course id="9395P301" title="The Personal Computer" file="courses/9395P301.xml"/>
+      <course id="9395P302" title="Operating Systems" file="courses/9395P302.xml"/>
+      <course id="9395P303" title="The System Case and Power Supply" file="courses/9395P303.xml"/>
+      <course id="9395P304" title="The Motherboard" file="courses/9395P304.xml"/>
+      <course id="9395P305" title="The Central Processing Unit" file="courses/9395P305.xml"/>
+      <course id="9395P306" title="Computer Memory" file="courses/9395P306.xml"/>
+      <course id="9395P307" title="Input/Output and Interfaces" file="courses/9395P307.xml"/>
+      <course id="9395P308" title="Expansion" file="courses/9395P308.xml"/>
+      <course id="9395P311" title="Applications" file="courses/9395P311.xml"/>
+      <course id="9395P401" title="Network Systems" file="courses/9395P401.xml"/>
+    </sub>
+    <sub id="m4s8" title="Mod 40 Hydraulic/Pneumatic Systems">
+      <course id="9395TC01" title="Introduction to Hydraulic Systems" file="courses/9395TC01.xml"/>
+      <course id="9395TC02" title="Introduction to Pneumatic Systems" file="courses/9395TC02.xml"/>
+      <course id="9395TC03" title="Fluid System Valve Operation" file="courses/9395TC03.xml"/>
+      <course id="9395TC04" title="Hydraulic/Pneumatic Pumps" file="courses/9395TC04.xml"/>
+      <course id="9395TC05" title="TS Hydraulic/Pneumatic Systems" file="courses/9395TC05.xml"/>
+    </sub>
+    <sub id="m4s9" title="Mod 41 Basic Telephone Systems">
+      <course id="9395T601" title="Introduction to Communication Systems" file="courses/9395T601.xml"/>
+      <course id="9395T602" title="Telephone Systems" file="courses/9395T602.xml"/>
+      <course id="9395T603" title="Telephone Equipment" file="courses/9395T603.xml"/>
+      <course id="9395T610" title="Introduction to Telecommunications" file="courses/9395T610.xml"/>
+      <course id="9395T605" title="Types of Telecommunications Careers" file="courses/9395T605.xml"/>
+      <course id="9395T606" title="History of Telecommunications" file="courses/9395T606.xml"/>
+      <course id="9395T607" title="Special Interest Groups and Forums" file="courses/9395T607.xml"/>
+      <course id="9395T608" title="Telecommunications Jargon and Acronyms" file="courses/9395T608.xml"/>
+      <course id="9395T611" title="Connection Links" file="courses/9395T611.xml"/>
+      <course id="9395T612" title="Introduction to Network Systems" file="courses/9395T612.xml"/>
+      <course id="9395T613" title="Broadcast Systems" file="courses/9395T613.xml"/>
+      <course id="9395T614" title="Spread Spectrum" file="courses/9395T614.xml"/>
+      <course id="9395T615" title="Cellular Telephony" file="courses/9395T615.xml"/>
+      <course id="9395T616" title="Information Systems" file="courses/9395T616.xml"/>
+      <course id="9395T617" title="Satellite Systems" file="courses/9395T617.xml"/>
+    </sub>
+    <sub id="m4s10" title="Mod 42 Transducer Systems">
+      <course id="93957107" title="Introduction to Transducers" file="courses/93957107.xml"/>
+      <course id="93957101" title="Nature of Light" file="courses/93957101.xml"/>
+      <course id="93957102" title="Light Transducers" file="courses/93957102.xml"/>
+      <course id="93957103" title="Light Transducer Operation" file="courses/93957103.xml"/>
+      <course id="93957104" title="Nature of Heat" file="courses/93957104.xml"/>
+      <course id="93957105" title="Heat Transducers" file="courses/93957105.xml"/>
+      <course id="93957106" title="Heat Transducer Operation" file="courses/93957106.xml"/>
+      <course id="93957201" title="Nature of Motion" file="courses/93957201.xml"/>
+      <course id="93957202" title="Motion Transducers" file="courses/93957202.xml"/>
+      <course id="93957203" title="Motion Transducer Operation" file="courses/93957203.xml"/>
+      <course id="93957204" title="Nature of Position" file="courses/93957204.xml"/>
+      <course id="93957205" title="Position Transducers" file="courses/93957205.xml"/>
+      <course id="93957206" title="Position Transducer Opr" file="courses/93957206.xml"/>
+    </sub>
+    <sub id="m4s11" title="Mod 43 Programmable Logic Controllers">
+      <course id="9395N101" title="Intro to PLCs" file="courses/9395N101.xml"/>
+      <course id="9395N105" title="PLC Familiarization" file="courses/9395N105.xml"/>
+      <course id="9395N102" title="PLC Hardware" file="courses/9395N102.xml"/>
+      <course id="9395N103" title="PLC Programming" file="courses/9395N103.xml"/>
+      <course id="9395N104" title="PLC Troubleshooting" file="courses/9395N104.xml"/>
+      <course id="9395N200" title="RSLogix Familiarization" file="courses/9395N200.xml"/>
+      <course id="9395N201" title="APS Familiarization" file="courses/9395N201.xml"/>
+      <course id="9395N202" title="Bit Instructions" file="courses/9395N202.xml"/>
+      <course id="9395N203" title="Timer and Counter Instructions" file="courses/9395N203.xml"/>
+      <course id="9395N204" title="I/O and Interrupt Instructions" file="courses/9395N204.xml"/>
+      <course id="9395N205" title="Comparison Instructions" file="courses/9395N205.xml"/>
+      <course id="9395N206" title="Math Instructions" file="courses/9395N206.xml"/>
+      <course id="9395N207" title="Move and Logical Instructions" file="courses/9395N207.xml"/>
+      <course id="9395N208" title="File Instructions" file="courses/9395N208.xml"/>
+      <course id="9395N209" title="Bit Shift, FIFO, and LIFO Instructions" file="courses/9395N209.xml"/>
+      <course id="9395N210" title="Sequencer Instructions" file="courses/9395N210.xml"/>
+      <course id="9395N211" title="Control Instructions" file="courses/9395N211.xml"/>
+    </sub>
+  </main>
+  <main id="m5" title="Math">
+    <sub id="m5s0" title="Mod 44 Basic Mathematics">
+      <course id="93950101" title="Addition &amp; Subtraction" file="courses/93950101.xml"/>
+      <course id="93950102" title="Multiplication &amp; Division" file="courses/93950102.xml"/>
+      <course id="93950103" title="Fractions" file="courses/93950103.xml"/>
+      <course id="93950104" title="Fraction Operation" file="courses/93950104.xml"/>
+      <course id="93950105" title="Decimal Fractions" file="courses/93950105.xml"/>
+      <course id="93950106" title="Signed Numbers" file="courses/93950106.xml"/>
+      <course id="93950107" title="Percents" file="courses/93950107.xml"/>
+      <course id="93950108" title="Exponents &amp; Square Roots" file="courses/93950108.xml"/>
+      <course id="93950109" title="Metric Notation" file="courses/93950109.xml"/>
+    </sub>
+    <sub id="m5s1" title="Mod 45 Algebra">
+      <course id="93950201" title="Fundamentals of Algebra" file="courses/93950201.xml"/>
+      <course id="93950202" title="Linear Equations" file="courses/93950202.xml"/>
+      <course id="93950203" title="Solving Linear Equations" file="courses/93950203.xml"/>
+      <course id="93950204" title="Exponents &amp; Monomials" file="courses/93950204.xml"/>
+      <course id="93950205" title="Polynomials" file="courses/93950205.xml"/>
+      <course id="93950206" title="Factoring Polynomials" file="courses/93950206.xml"/>
+      <course id="93950207" title="Roots and Radicals" file="courses/93950207.xml"/>
+      <course id="93950208" title="Graphs" file="courses/93950208.xml"/>
+      <course id="93950209" title="Systems of Linear Equations" file="courses/93950209.xml"/>
+      <course id="93950210" title="Introduction to Statistics" file="courses/93950210.xml"/>
+    </sub>
+    <sub id="m5s2" title="Mod 46 Trigonometry">
+      <course id="93950301" title="Fundamentals of Trigonometry" file="courses/93950301.xml"/>
+      <course id="93950302" title="Trigonometric Functions" file="courses/93950302.xml"/>
+      <course id="93950303" title="Graphing Trigonometric Functions" file="courses/93950303.xml"/>
+      <course id="93950304" title="Trigonometric Identities" file="courses/93950304.xml"/>
+      <course id="93950305" title="Angle Formulas" file="courses/93950305.xml"/>
+      <course id="93950306" title="Inverse Trigonometric Functions" file="courses/93950306.xml"/>
+      <course id="93950307" title="Applications of Trigonometry" file="courses/93950307.xml"/>
+      <course id="93950308" title="Graphing Polar Equations" file="courses/93950308.xml"/>
+      <course id="93950309" title="Conic Sections: Circles and Parabolas" file="courses/93950309.xml"/>
+      <course id="93950310" title="Conic Sections: Ellipses and Hyperbolas" file="courses/93950310.xml"/>
+    </sub>
+    <sub id="m5s3" title="Mod 47 Calculus">
+      <course id="93950401" title="Fundamentals of Calculus" file="courses/93950401.xml"/>
+      <course id="93950402" title="Limits" file="courses/93950402.xml"/>
+      <course id="93950403" title="Limits: Continuity and Infinity" file="courses/93950403.xml"/>
+      <course id="93950404" title="Derivatives" file="courses/93950404.xml"/>
+      <course id="93950405" title="The Chain Rule" file="courses/93950405.xml"/>
+      <course id="93950406" title="Additional Differential Methods" file="courses/93950406.xml"/>
+      <course id="93950407" title="Applications of Derivatives" file="courses/93950407.xml"/>
+      <course id="93950408" title="Integration" file="courses/93950408.xml"/>
+      <course id="93950409" title="Definite Integrals" file="courses/93950409.xml"/>
+      <course id="93950410" title="Applications of Definite Integrals" file="courses/93950410.xml"/>
+    </sub>
+    <sub id="m5s4" title="Mod 48 Computer Math">
+      <course id="93950501" title="Fundamentals of Computer Math" file="courses/93950501.xml"/>
+      <course id="93950502" title="Number Systems (Base 10 to Base 2)" file="courses/93950502.xml"/>
+      <course id="93950503" title="Number Systems (Base 8 to Base 16)" file="courses/93950503.xml"/>
+      <course id="93950504" title="Logic Expressions" file="courses/93950504.xml"/>
+      <course id="93950505" title="Boolean Algebra Rules" file="courses/93950505.xml"/>
+      <course id="93950506" title="Gate Networks" file="courses/93950506.xml"/>
+      <course id="93950507" title="Boolean Algebra Equations" file="courses/93950507.xml"/>
+      <course id="93950508" title="Karnaugh Maps" file="courses/93950508.xml"/>
+      <course id="93950509" title="Algorithms and Flow Charts" file="courses/93950509.xml"/>
+      <course id="93950510" title="Sequences and Matrices" file="courses/93950510.xml"/>
+    </sub>
+    <sub id="m5s5" title="Mod 49 Measurements">
+      <course id="93950601" title="Introduction to Measurements" file="courses/93950601.xml"/>
+      <course id="93950602" title="Metric Conversion" file="courses/93950602.xml"/>
+      <course id="93950603" title="Angular and Circular Measurements" file="courses/93950603.xml"/>
+      <course id="93950604" title="Area Measurements" file="courses/93950604.xml"/>
+      <course id="93950605" title="Volume Measurements" file="courses/93950605.xml"/>
+      <course id="93950606" title="Velocity and Acceleration Measurements" file="courses/93950606.xml"/>
+      <course id="93950607" title="Force Measurements" file="courses/93950607.xml"/>
+      <course id="93950608" title="Work and Power Measurements" file="courses/93950608.xml"/>
+    </sub>
+  </main>
+  <main id="m6" title="Miscelleanous Systems">
+    <sub id="m6s0" title="Mod 50 Specialized Comm Systems">
+      <course id="9395D801" title="Acoustics" file="courses/9395D801.xml"/>
+      <course id="9395D802" title="Shipboard Telephones" file="courses/9395D802.xml"/>
+      <course id="9395D803" title="Sound Powered Telephones" file="courses/9395D803.xml"/>
+      <course id="9395D804" title="Misc S/P Phone Equipment" file="courses/9395D804.xml"/>
+      <course id="9395D805" title="S/P Fault Recognition" file="courses/9395D805.xml"/>
+      <course id="9395D806" title="Amplified Voice System" file="courses/9395D806.xml"/>
+      <course id="9395D807" title="Sound Powered Amplifiers" file="courses/9395D807.xml"/>
+      <course id="9395D808" title="Central Announcing Systems" file="courses/9395D808.xml"/>
+      <course id="9395D809" title="Intercommunicating Units" file="courses/9395D809.xml"/>
+      <course id="9395D810" title="Basic Alarm, Safety and Warning" file="courses/9395D810.xml"/>
+      <course id="9395D811" title="IC/SM Alarm Panel" file="courses/9395D811.xml"/>
+      <course id="9395D812" title="Alarm Sensors" file="courses/9395D812.xml"/>
+    </sub>
+  </main>
+</catalog>
