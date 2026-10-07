@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Course editor</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #d4d0c8; color: #000;
+    font: 14px/1.35 Tahoma, "MS Sans Serif", sans-serif; }
+  header { background: #000080; color: #fff; padding: 6px 10px; display: flex; gap: 8px; align-items: center; }
+  header b { flex: 1; }
+  button, input, select, textarea { font: 14px Tahoma, sans-serif; }
+  button, .filebtn { background: #d4d0c8; color: #000; border: 2px solid; border-color: #fff #404040 #404040 #fff; padding: 2px 8px; }
+  header input[type=file] { color: #fff; }
+  button:active { border-color: #404040 #fff #fff #404040; }
+  main { display: grid; grid-template-columns: 200px 1fr 280px; height: calc(100% - 36px); }
+  aside, section { overflow: auto; padding: 8px; }
+  aside { border-right: 2px solid #808080; }
+  #xmlpane { border-left: 2px solid #fff; background: #fff; }
+  label { display: block; margin: 6px 0 2px; }
+  input[type=text], input[type=number], select, textarea { width: 100%; box-sizing: border-box;
+    border: 2px solid; border-color: #808080 #fff #fff #808080; }
+  textarea { min-height: 72px; }
+  .row { display: flex; gap: 6px; align-items: end; }
+  .row > * { flex: 1; }
+  .pages button { display: block; width: 100%; text-align: left; margin: 2px 0; background: #fff; }
+  .pages button.on { background: #000080; color: #fff; }
+  .card { background: #fff; border: 2px solid; border-color: #808080 #fff #fff #808080; padding: 6px; margin: 6px 0; }
+  pre, #out { white-space: pre-wrap; word-break: break-word; font: 12px Consolas, monospace; }
+  .stage { position: relative; height: 220px; background: #fff; border: 2px solid; border-color: #808080 #fff #fff #808080; overflow: hidden; }
+  .stage img { position: absolute; image-rendering: pixelated; }
+  .muted { color: #404040; }
+  #status { font-weight: normal; }
+</style>
+</head>
+<body>
+<header>
+  <b id="bar">Course editor</b>
+  <span id="status"></span>
+  <button id="newbook" type="button">New book</button>
+  <label>Book file <input id="file" type="file"></label>
+  <button id="save" type="button">Download XML</button>
+</header>
+<main>
+  <aside>
+    <div class="row">
+      <button id="add" type="button">Add page</button>
+      <button id="nextpage" type="button">Next page</button>
+    </div>
+    <div class="pages" id="pages"></div>
+    <button id="del" type="button">Delete page</button>
+  </aside>
+  <section>
+    <div class="card">
+      <label>Or paste the book XML
+        <textarea id="paste" placeholder="Paste a course file here, then Read pasted XML"></textarea>
+      </label>
+      <button id="readpaste" type="button">Read pasted XML</button>
+    </div>
+    <div id="form"></div>
+  </section>
+  <aside id="xmlpane">
+    <div class="muted">Preview</div>
+    <div class="stage" id="stage"></div>
+    <div class="muted">This page, and the full book after Download</div>
+    <textarea id="out" readonly></textarea>
+  </aside>
+</main>
+<script>
+function imageSize(buf, file) {
+  const bytes = new Uint8Array(buf);
+  if (bytes.length > 26 && bytes[0] === 0x42 && bytes[1] === 0x4d) {
+    const view = new DataView(buf);
+    return { w: view.getInt32(18, true), h: Math.abs(view.getInt32(22, true)) };
+  }
+  if (file && file.type && file.type.indexOf("image/") === 0) return null;
+  return null;
+}
+function esc(s) {
+  return String(s == null ? "" : s).split("&").join("&amp;").split("<").join("&lt;").split('"').join("&quot;");
+}
+let book = { id: "93950000", title: "New course", pages: [] };
+let current = 0;
+let imageUrls = new Map();
+function say(text) { document.getElementById("status").textContent = text; }
+function blank(id, n, back) {
+  return { id: id, n: n, paras: [""], images: [], next: "", back: back || "", buttons: [], quiz: null, finish: false };
+}
+function loadBook(text) {
+  try {
+  const doc = new DOMParser().parseFromString(text, "application/xml");
+  if (doc.querySelector("parsererror")) {
+    say("XML did not parse");
+    document.getElementById("out").value = doc.querySelector("parsererror").textContent;
+    return;
+  }
+  const b = doc.querySelector("book");
+  if (!b) { say("No book element"); return; }
+  book = { id: b.getAttribute("id") || "", title: b.getAttribute("title") || "", pages: [] };
+  const pages = b.querySelectorAll("page");
+  for (let i = 0; i < pages.length; i++) {
+    const p = pages[i];
+    const page = blank(p.getAttribute("id") || "P0", p.getAttribute("n") || "", "");
+    const ps = p.querySelectorAll("p");
+    page.paras = [];
+    for (let j = 0; j < ps.length; j++) if (ps[j].parentNode === p) page.paras.push(ps[j].textContent);
+    if (!page.paras.length) page.paras = [""];
+    page.finish = false;
+    const kids = p.children;
+    for (let j = 0; j < kids.length; j++) if (kids[j].tagName.toLowerCase() === "booktitle") page.finish = true;
+    const imgs = p.querySelectorAll("image");
+    for (let j = 0; j < imgs.length; j++) {
+      const im = imgs[j];
+      if (im.parentNode !== p) continue;
+      page.images.push({ src: im.getAttribute("src") || "", x: im.getAttribute("x") || "", y: im.getAttribute("y") || "", w: im.getAttribute("w") || "", h: im.getAttribute("h") || "" });
+    }
+    const gos = p.querySelectorAll("go");
+    for (let j = 0; j < gos.length; j++) {
+      const g = gos[j];
+      if (g.parentNode !== p) continue;
+      const id = g.getAttribute("id") || "";
+      if (id === "next") page.next = g.getAttribute("to") || "";
+      else if (id === "back") page.back = g.getAttribute("to") || "";
+      else page.buttons.push({ id: id, to: g.getAttribute("to") || "", label: g.getAttribute("label") || "" });
+    }
+    const quiz = p.querySelector("quiz");
+    if (quiz && quiz.parentNode === p) {
+      page.quiz = { type: quiz.getAttribute("type") || "choice", match: quiz.getAttribute("match") || "", tolerance: quiz.getAttribute("tolerance") || "0", casefold: quiz.getAttribute("case") || "", ok: quiz.getAttribute("ok") || "", bad: quiz.getAttribute("bad") || "", choices: [] };
+      const cs = quiz.querySelectorAll("choice");
+      for (let j = 0; j < cs.length; j++) page.quiz.choices.push({ text: cs[j].textContent, to: cs[j].getAttribute("to") || "", correct: cs[j].getAttribute("correct") === "yes" });
+    }
+    book.pages.push(page);
+  }
+  if (!book.pages.length) book.pages.push(blank("PINFO", "1", ""));
+  current = 0;
+  say("Loaded " + book.pages.length + " pages from " + (book.title || book.id));
+  draw();
+  } catch (err) {
+    say("Load failed");
+    document.getElementById("out").value = String(err && err.stack || err);
+  }
+}
+function pageXml(p) {
+  const lines = ['  <page id="' + esc(p.id) + '" n="' + esc(p.n) + '">'];
+  for (let i = 0; i < p.paras.length; i++) if (p.paras[i].trim()) lines.push("    <p>" + esc(p.paras[i]) + "</p>");
+  for (let i = 0; i < p.images.length; i++) {
+    const im = p.images[i];
+    if (!im.src) continue;
+    lines.push('    <image src="' + esc(im.src) + '"' + (im.x ? ' x="' + esc(im.x) + '"' : "") + (im.y ? ' y="' + esc(im.y) + '"' : "") + (im.w ? ' w="' + esc(im.w) + '"' : "") + (im.h ? ' h="' + esc(im.h) + '"' : "") + "/>");
+  }
+  if (p.finish) lines.push("    <booktitle/>");
+  if (p.quiz) {
+    const q = p.quiz;
+    if (q.type === "choice") {
+      lines.push('    <quiz type="choice">');
+      for (let i = 0; i < q.choices.length; i++) {
+        const c = q.choices[i];
+        lines.push('      <choice to="' + esc(c.to) + '"' + (c.correct ? ' correct="yes"' : "") + ">" + esc(c.text) + "</choice>");
+      }
+      lines.push("    </quiz>");
+    } else {
+      lines.push('    <quiz type="' + esc(q.type) + '" match="' + esc(q.match) + '"' + (q.type === "number" ? ' tolerance="' + esc(q.tolerance || "0") + '"' : "") + (q.casefold === "no" ? ' case="no"' : "") + ' ok="' + esc(q.ok) + '" bad="' + esc(q.bad) + '"/>');
+    }
+  }
+  if (p.next) lines.push('    <go id="next" to="' + esc(p.next) + '"/>');
+  if (p.back) lines.push('    <go id="back" to="' + esc(p.back) + '"/>');
+  for (let i = 0; i < p.buttons.length; i++) {
+    const g = p.buttons[i];
+    if (g.id && g.to) lines.push('    <go id="' + esc(g.id) + '" to="' + esc(g.to) + '"' + (g.label ? ' label="' + esc(g.label) + '"' : "") + "/>");
+  }
+  lines.push("  </page>");
+  return lines.join("\n");
+}
+function bookXml() {
+  return '<?xml version="1.0" encoding="UTF-8"?>\n<book id="' + esc(book.id) + '" title="' + esc(book.title) + '">\n' + book.pages.map(pageXml).join("\n") + "\n</book>\n";
+}
+function field(label, value, on) {
+  const wrap = document.createElement("label");
+  wrap.append(document.createTextNode(label));
+  const input = document.createElement("input");
+  input.type = "text";
+  input.value = value;
+  input.addEventListener("input", function () { on(input.value); });
+  wrap.append(input);
+  return wrap;
+}
+function draw() {
+  document.getElementById("bar").textContent = book.title || "Course editor";
+  const list = document.getElementById("pages");
+  list.innerHTML = "";
+  for (let i = 0; i < book.pages.length; i++) {
+    const p = book.pages[i];
+    const b = document.createElement("button");
+    b.type = "button";
+    b.textContent = (p.n || "?") + "  " + (p.id || "(no id)");
+    if (i === current) b.className = "on";
+    b.addEventListener("click", function (i) { return function () { current = i; draw(); }; }(i));
+    list.append(b);
+  }
+  const p = book.pages[current];
+  const form = document.getElementById("form");
+  form.innerHTML = "";
+  const bookcard = document.createElement("div");
+  bookcard.className = "card";
+  bookcard.append(field("Book id", book.id, function (v) { book.id = v; }));
+  bookcard.append(field("Book title (blue bar)", book.title, function (v) { book.title = v; document.getElementById("bar").textContent = v; }));
+  form.append(bookcard);
+  if (!p) return;
+  const card = document.createElement("div");
+  card.className = "card";
+  card.append(field("Page id", p.id, function (v) { p.id = v; refreshXml(); }));
+  card.append(field("Status number n", p.n, function (v) { p.n = v; refreshXml(); }));
+  const paras = document.createElement("textarea");
+  paras.value = p.paras.join("\n");
+  paras.addEventListener("input", function () { p.paras = paras.value.split("\n"); refreshXml(); });
+  const pl = document.createElement("label");
+  pl.append(document.createTextNode("Paragraphs, one per line"));
+  pl.append(paras);
+  card.append(pl);
+  const fin = document.createElement("label");
+  const fc = document.createElement("input");
+  fc.type = "checkbox";
+  fc.checked = !!p.finish;
+  fc.addEventListener("change", function () { p.finish = fc.checked; refreshXml(); });
+  fin.append(fc, document.createTextNode(" Finish page (print book title)"));
+  card.append(fin);
+  card.append(field("Next goes to", p.next, function (v) { p.next = v; refreshXml(); }));
+  card.append(field("Back goes to (or last)", p.back, function (v) { p.back = v; refreshXml(); }));
+  form.append(card);
+  const images = document.createElement("div");
+  images.className = "card";
+  const ih = document.createElement("b");
+  ih.textContent = "Images";
+  images.append(ih);
+  const hint = document.createElement("div");
+  hint.className = "muted";
+  hint.textContent = "Add image copies the filename into the page as ../images/name.bmp";
+  images.append(hint);
+  for (let i = 0; i < p.images.length; i++) {
+    const im = p.images[i];
+    const block = document.createElement("div");
+    block.style.marginTop = "8px";
+    const src = document.createElement("input");
+    src.type = "text";
+    src.placeholder = "../images/figure.bmp";
+    src.value = im.src;
+    src.addEventListener("input", function () { im.src = src.value; refreshXml(); });
+    const srcLabel = document.createElement("label");
+    srcLabel.textContent = "Image path";
+    srcLabel.append(src);
+    block.append(srcLabel);
+    const row = document.createElement("div");
+    row.className = "row";
+    [["x", "x"], ["y", "y"], ["w", "width"], ["h", "height"]].forEach(function (pair) {
+      const input = document.createElement("input");
+      input.type = "text";
+      input.placeholder = pair[1];
+      input.value = im[pair[0]];
+      input.addEventListener("input", function () { im[pair[0]] = input.value; refreshXml(); });
+      row.append(input);
+    });
+    const remove = document.createElement("button");
+    remove.type = "button";
+    remove.textContent = "Remove image";
+    remove.addEventListener("click", function () { p.images.splice(i, 1); draw(); });
+    block.append(row, remove);
+    images.append(block);
+  }
+  const name = document.createElement("input");
+  name.type = "text";
+  name.placeholder = "or type figure.bmp";
+  function addNamed(filename) {
+    const base = String(filename || "").trim().split(/[\/\\]/).pop();
+    if (!base) { say("Choose a picture, or type a filename"); return; }
+    const im = { src: "../images/" + base, x: "40", y: "88", w: "", h: "" };
+    const size = base.match(/(\d+)x(\d+)/i);
+    if (size) { im.w = size[1]; im.h = size[2]; }
+    p.images.push(im);
+    name.value = "";
+    say("Added " + base);
+    draw();
+  }
+  const addImageBtn = document.createElement("label");
+  addImageBtn.className = "filebtn";
+  addImageBtn.textContent = "Add image";
+  const addFile = document.createElement("input");
+  addFile.type = "file";
+  addFile.accept = "image/*,.bmp";
+  addFile.addEventListener("change", function () {
+    const f = addFile.files && addFile.files[0];
+    addFile.value = "";
+    if (!f) { say("No picture selected"); return; }
+    addNamed(f.name);
+  });
+  addImageBtn.append(addFile);
+  name.addEventListener("keydown", function (ev) { if (ev.key === "Enter") addNamed(name.value); });
+  const useTyped = document.createElement("button");
+  useTyped.type = "button";
+  useTyped.textContent = "Use typed name";
+  useTyped.addEventListener("click", function () { addNamed(name.value); });
+  images.append(addImageBtn, name, useTyped);
+  form.append(images);
+  const quiz = document.createElement("div");
+  quiz.className = "card";
+  quiz.append(document.createTextNode("Quiz"));
+  const type = document.createElement("select");
+  ["none", "choice", "number", "text"].forEach(function (opt) {
+    const o = document.createElement("option");
+    o.value = opt; o.textContent = opt;
+    if ((p.quiz && p.quiz.type) === opt || (!p.quiz && opt === "none")) o.selected = true;
+    type.append(o);
+  });
+  type.addEventListener("change", function () {
+    if (type.value === "none") p.quiz = null;
+    else if (!p.quiz || p.quiz.type !== type.value) p.quiz = { type: type.value, match: "", tolerance: "0", casefold: "no", ok: "", bad: "", choices: [{ text: "", to: "", correct: true }, { text: "", to: "", correct: false }] };
+    else p.quiz.type = type.value;
+    draw();
+  });
+  quiz.append(type);
+  if (p.quiz && p.quiz.type === "choice") {
+    for (let i = 0; i < p.quiz.choices.length; i++) {
+      const c = p.quiz.choices[i];
+      const row = document.createElement("div");
+      row.className = "row";
+      const text = document.createElement("input"); text.placeholder = "answer"; text.value = c.text;
+      const to = document.createElement("input"); to.placeholder = "goes to"; to.value = c.to;
+      const right = document.createElement("input"); right.type = "checkbox"; right.checked = c.correct; right.title = "correct";
+      text.addEventListener("input", function () { c.text = text.value; refreshXml(); });
+      to.addEventListener("input", function () { c.to = to.value; refreshXml(); });
+      right.addEventListener("change", function () { c.correct = right.checked; refreshXml(); });
+      row.append(text, to, right);
+      quiz.append(row);
+    }
+    const more = document.createElement("button");
+    more.type = "button"; more.textContent = "Add choice";
+    more.addEventListener("click", function () { p.quiz.choices.push({ text: "", to: "", correct: false }); draw(); });
+    quiz.append(more);
+  } else if (p.quiz) {
+    quiz.append(field("Match", p.quiz.match, function (v) { p.quiz.match = v; refreshXml(); }));
+    if (p.quiz.type === "number") quiz.append(field("Tolerance", p.quiz.tolerance, function (v) { p.quiz.tolerance = v; refreshXml(); }));
+    quiz.append(field("Right page", p.quiz.ok, function (v) { p.quiz.ok = v; refreshXml(); }));
+    quiz.append(field("Wrong page", p.quiz.bad, function (v) { p.quiz.bad = v; refreshXml(); }));
+  }
+  form.append(quiz);
+  const buttons = document.createElement("div");
+  buttons.className = "card";
+  buttons.append(document.createTextNode("Other buttons"));
+  for (let i = 0; i < p.buttons.length; i++) {
+    const g = p.buttons[i];
+    const row = document.createElement("div");
+    row.className = "row";
+    ["id", "to", "label"].forEach(function (key) {
+      const input = document.createElement("input");
+      input.placeholder = key;
+      input.value = g[key];
+      input.addEventListener("input", function () { g[key] = input.value; refreshXml(); });
+      row.append(input);
+    });
+    buttons.append(row);
+  }
+  const addBtn = document.createElement("button");
+  addBtn.type = "button"; addBtn.textContent = "Add button";
+  addBtn.addEventListener("click", function () { p.buttons.push({ id: "fig", to: "", label: "Figures" }); draw(); });
+  buttons.append(addBtn);
+  form.append(buttons);
+  refreshXml();
+}
+function refreshXml() {
+  const p = book.pages[current];
+  document.getElementById("out").value = p ? pageXml(p) : "";
+  const stage = document.getElementById("stage");
+  stage.innerHTML = "";
+  if (!p) return;
+  for (let i = 0; i < p.paras.length; i++) if (p.paras[i].trim()) {
+    const el = document.createElement("p");
+    el.textContent = p.paras[i];
+    stage.append(el);
+  }
+  if (p.finish) {
+    const el = document.createElement("p");
+    el.textContent = book.title;
+    el.style.fontWeight = "bold";
+    stage.append(el);
+  }
+  for (let i = 0; i < p.images.length; i++) {
+    const im = p.images[i];
+    if (!im.src) continue;
+    const el = document.createElement("img");
+    el.src = imageUrls.get(im.src) || im.src;
+    if (im.x) el.style.left = im.x + "px";
+    if (im.y) el.style.top = im.y + "px";
+    if (im.w) el.width = +im.w;
+    if (im.h) el.height = +im.h;
+    if (!im.x) el.style.position = "static";
+    stage.append(el);
+  }
+}
+function bind(id, fn) {
+  document.getElementById(id).addEventListener("click", fn);
+}
+bind("add", function () {
+  const n = String(book.pages.length + 1);
+  const back = book.pages[current] ? book.pages[current].id : "";
+  book.pages.push(blank("P" + n, n, back));
+  current = book.pages.length - 1;
+  say("Added page " + current);
+  draw();
+});
+bind("nextpage", function () {
+  const p = book.pages[current];
+  const n = String(book.pages.length + 1);
+  const id = "P" + (Number(p.n || n) + 1);
+  const made = blank(id, n, p.id);
+  p.next = id;
+  book.pages.splice(current + 1, 0, made);
+  current += 1;
+  say("Next page " + id);
+  draw();
+});
+bind("del", function () {
+  if (book.pages.length < 2) { say("Keep at least one page"); return; }
+  book.pages.splice(current, 1);
+  current = Math.max(0, current - 1);
+  say("Deleted page");
+  draw();
+});
+bind("newbook", function () {
+  book = { id: "93950000", title: "New course", pages: [blank("PINFO", "1", "")] };
+  current = 0;
+  say("New book");
+  draw();
+});
+document.getElementById("file").addEventListener("change", function () {
+  const f = document.getElementById("file").files[0];
+  if (!f) { say("No file selected"); return; }
+  say("Reading " + f.name);
+  const reader = new FileReader();
+  reader.onload = function () {
+    document.getElementById("paste").value = String(reader.result || "");
+    loadBook(String(reader.result || ""));
+  };
+  reader.onerror = function () { say("Could not read " + f.name); };
+  reader.readAsText(f);
+});
+document.getElementById("readpaste").addEventListener("click", function () {
+  loadBook(document.getElementById("paste").value);
+});
+document.body.addEventListener("dragover", function (ev) { ev.preventDefault(); });
+document.body.addEventListener("drop", function (ev) {
+  ev.preventDefault();
+  const f = ev.dataTransfer && ev.dataTransfer.files && ev.dataTransfer.files[0];
+  if (!f) return;
+  say("Reading " + f.name);
+  const reader = new FileReader();
+  reader.onload = function () { loadBook(String(reader.result || "")); };
+  reader.readAsText(f);
+});
+bind("save", function () {
+  const xml = bookXml();
+  document.getElementById("out").value = xml;
+  const blob = new Blob([xml], { type: "application/xml" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = (book.id || "course") + ".xml";
+  document.body.append(a);
+  a.click();
+  a.remove();
+  say("Downloaded " + a.download + ". Full book is in the right pane.");
+});
+book.pages.push(blank("PINFO", "1", ""));
+draw();
+say("Ready");
+</script>
+</body>
+</html>
