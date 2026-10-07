@@ -1,29 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<book id="93951100" title="Introduction to CAI">
-  <page id="PINFO" n="1" kind="menu">
-    <p>Introduction to CAI. Begin opens the lesson. The blue bar is this book title.</p>
-    <go id="start" to="P400" label="Begin"/>
+<book id="93950000" title="Introduction to CAI">
+  <page id="PINFO" n="1">
+    <p>Hello Student, this lesson is about:</p>
+    <p>INTRODUCTION TO CAI</p>
   </page>
-  <page id="P400" n="2">
-    <p>Lesson page for Introduction to CAI. Next enters the question.</p>
-    <go id="next" to="Q1"/>
+  <page id="P15" n="2">
+    <p>To view new information press the Enter key on your keyboard or select the Next arrow using the mouse.</p>
+    <p>To view previous information press the Left Arrow key on your keyboard or select the Back arrow using the mouse.</p>
+    <p>To view available function keys press F1.</p>
+    <p>*Note: The Left Arrow key is available in this lesson only.</p>
     <go id="back" to="PINFO"/>
   </page>
-  <page id="Q1" n="3" kind="quiz">
-    <p>Sample check for Introduction to CAI. Choose the matching answer.</p>
-    <quiz type="choice">
-      <choice to="PDONE" correct="yes">Introduction to CAI</choice>
-      <choice to="Q1bad">A different lesson</choice>
-    </quiz>
-    <go id="back" to="P400"/>
-  </page>
-  <page id="Q1bad" n="4">
-    <p>Not that one.</p>
-    <go id="back" to="Q1" label="Return"/>
-  </page>
-  <page id="PDONE" n="5" kind="finish">
-    <p>Congratulations on finishing:</p>
-    <booktitle/>
-    <go id="menu" to="PINFO" label="Lesson menu"/>
+  <page id="P100" n="3">
+    <p>OBJECTIVES</p>
+    <p>1. Computer Communication</p>
+    <p>* Learn how the mouse is used in a CAI lesson.</p>
+    <p>* Learn how the keyboard is used in a CAI lesson.</p>
+    <p>2. Types of Pages</p>
+    <p>* Identify lesson page types.</p>
+    <p>* Become familiar with lesson structure.</p>
+    <go id="back" to="P15"/>
   </page>
 </book>
