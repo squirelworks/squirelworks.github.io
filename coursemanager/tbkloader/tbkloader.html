@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ToolBook loader</title>
+<style>
+  body { font: 16px/1.45 Georgia, serif; margin: 0; background: #f3f1ea; color: #1c1a17; }
+  header { background: #1e3a5f; color: #fff; padding: 12px 20px; display: flex; gap: 16px; align-items: center; }
+  header strong { font-family: sans-serif; letter-spacing: .04em; }
+  input, button { font: 14px sans-serif; }
+  #bar { font-family: sans-serif; font-size: 13px; margin-left: auto; }
+  main { max-width: 760px; margin: 24px auto; background: #fff; padding: 28px 32px 40px; box-shadow: 0 1px 4px #0002; }
+  h1 { font-size: 22px; margin: 0 0 12px; }
+  .meta { font-family: sans-serif; font-size: 12px; color: #666; }
+  p { margin: 10px 0; }
+  .page { border-top: 1px solid #ddd; padding: 18px 0 8px; }
+  .page h2 { font-size: 18px; margin: 0; }
+  .note { font-family: sans-serif; font-size: 13px; color: #555; }
+</style>
+</head>
+<body>
+<header>
+  <strong>TOOLBOOK</strong>
+  <input id="file" type="file" accept=".tbk,.TBK">
+  <span id="bar"></span>
+</header>
+<main>
+  <h1 id="title">Load a .tbk</h1>
+  <p class="note">Reads every page object in the book and lists them on this page. No next or back.</p>
+  <div id="body"></div>
+</main>
+<script>
+const MARK = [0x80, 0x65, 0x00, 0x05, 0x00, 0x02, 0x02];
+let pages = [];
+
+document.getElementById('file').addEventListener('change', async (ev) => {
+  const file = ev.target.files[0];
+  if (!file) return;
+  const buf = new Uint8Array(await file.arrayBuffer());
+  pages = parseBook(buf);
+  document.getElementById('title').textContent = file.name;
+  show();
+});
+
+function parseBook(data) {
+  const hits = [];
+  for (let i = 0; i + MARK.length <= data.length; i++) {
+    let ok = true;
+    for (let k = 0; k < MARK.length; k++) if (data[i + k] !== MARK[k]) { ok = false; break; }
+    if (ok) hits.push(i);
+  }
+  const objects = hits.map((off, n) => {
+    const next = n + 1 < hits.length ? hits[n + 1] : data.length;
+    const name = cstr(data, off + 11, 32);
+    const prop = data.subarray(off + 43, next);
+    return { id: name || ('obj' + n), off, text: textRuns(prop), targets: clickTargets(prop) };
+  });
+  return objects.filter(o => /^P/i.test(o.id));
+}
+
+function cstr(data, off, n) {
+  let s = '';
+  for (let i = 0; i < n && off + i < data.length; i++) {
+    const c = data[off + i];
+    if (c === 0) break;
+    if (c < 32 || c > 126) break;
+    s += String.fromCharCode(c);
+  }
+  return s;
+}
+
+function textRuns(prop) {
+  const runs = [];
+  let s = '';
+  for (const c of prop) {
+    if (c >= 32 && c < 127) s += String.fromCharCode(c);
+    else { if (s.length >= 12) runs.push(s); s = ''; }
+  }
+  if (s.length >= 12) runs.push(s);
+  return runs.filter(s => !/^(buttonClick|END|true|false|text|fill|Next|Back|ASYM)/.test(s));
+}
+
+function clickTargets(prop) {
+  const out = [];
+  const seen = new Set();
+  const add = (id) => { if (id && !seen.has(id)) { seen.add(id); out.push(id); } };
+  for (let i = 0; i + 8 < prop.length; i++) {
+    if (prop[i] !== 0x50) continue; // P
+    let id = '';
+    let j = i;
+    while (j < prop.length && prop[j] >= 48 && prop[j] <= 90) { id += String.fromCharCode(prop[j]); j++; }
+    if (id.length < 2 || j >= prop.length || prop[j] !== 0) continue;
+    const next = cstr(prop, j + 1, 16);
+    if (next === 'buttonClick') add(id);
+  }
+  const s = Array.from(prop, c => (c >= 32 && c < 127) ? String.fromCharCode(c) : ' ').join('');
+  let m;
+  const re = /\("?(P[A-Z0-9]+)"?\)/gi;
+  while ((m = re.exec(s))) add(m[1]);
+  return out;
+}
+
+function show() {
+  const bar = document.getElementById('bar');
+  const body = document.getElementById('body');
+  if (!pages.length) { body.textContent = 'No page objects found.'; return; }
+  bar.textContent = pages.length + ' pages';
+  body.innerHTML = pages.map(page =>
+    '<section class="page" id="' + page.id + '"><h2>' + escape(page.id) + '</h2>' +
+    '<p class="meta">file ' + page.off + '</p>' +
+    (page.text.length ? page.text.map(t => '<p>' + escape(t) + '</p>').join('')
+      : '<p class="note">No paragraph text in this property block.</p>') +
+    '</section>'
+  ).join('');
+}
+
+function escape(s) {
+  return s.replace(/[&<>]/g, c => ({'&':'&','<':'<','>':'>'}[c]));
+}
+</script>
+</body>
+</html>
