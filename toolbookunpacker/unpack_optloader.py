@@ -1,3 +1,6 @@
+# credit goes to https://github.com/moralrecordings for their win16-debug project
+# otherwise, I never would have gotten this far due to Optloader (screw Grok AI)
+
 #!/usr/bin/env python3
 """Unpack SLR OPTLOADER (1993) Win16 NE images.
 
