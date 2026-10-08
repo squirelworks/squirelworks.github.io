@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>9395Z198</title>
+<style>
+  body { margin: 0; background: #1c2430; color: #e8eef6; font: 16px/1.45 Georgia, serif; }
+  header { background: #1e4d8c; padding: 10px 16px; display: flex; justify-content: space-between; }
+  header b { font-family: system-ui, sans-serif; }
+  main { max-width: 760px; margin: 24px auto; background: #f4f1e8; color: #1b1b1b; min-height: 420px; padding: 28px 32px 20px; }
+  p { margin: 0 0 12px; }
+  .empty { color: #666; font-style: italic; }
+  .jumps { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px; }
+  button { font: 14px system-ui, sans-serif; padding: 6px 12px; border: 1px solid #1e4d8c; background: #fff; cursor: pointer; }
+  button:hover { background: #e4eef8; }
+  footer { max-width: 760px; margin: 0 auto 24px; display: flex; justify-content: space-between; color: #c5d0dc; font: 13px system-ui, sans-serif; }
+</style>
+</head>
+<body>
+<header><b id="title"></b><span id="count"></span></header>
+<main id="stage"></main>
+<footer>
+  <span>
+    <button id="back" type="button">Back</button>
+    <button id="next" type="button">Next</button>
+  </span>
+  <span id="pid"></span>
+</footer>
+<script>
+const book = {"title": "9395Z198", "pages": [{"id": "P10", "text": [], "jumps": []}, {"id": "P01159", "text": ["A Split-Bus Power Distribution system should work under?"], "jumps": []}, {"id": "P01160", "text": ["If a generator fails in a 2 generator Split-Bus system, non-essential loads will be removed from the system."], "jumps": []}, {"id": "P01161", "text": ["In this rectifier, which components rectify the phase two input? evator/Stabilator"], "jumps": []}, {"id": "P01162", "text": [], "jumps": []}, {"id": "P01168", "text": ["Some BITE systems have the ability to radio the information to the repair facility during the flight. This allows the repair facility to have the parts and equipment ready when the aircraft lands."], "jumps": []}, {"id": "P10006", "text": [], "jumps": []}, {"id": "P0", "text": ["Nida Corporation 1997 - 2002 This software and its supporting programs are protected by federal copyright law and all rights are reserved by Nida Corporation. No part or section of this software or its supporting programs may be copied, distributed, transmitted in any form or medium electronic or otherwise, disclosed to third parties, or used in any manner not specified in the License Agreement furnished by Nida Corporation. This courseware was created with Asymetrix ToolBook I I ."], "jumps": []}, {"id": "P01155", "text": ["The tricycle gear arrangement allows more forceful application of the brakes at higher landing speeds without nosing over."], "jumps": []}, {"id": "P01156", "text": ["The jet engine has a set of _______ to direct the high pressure gas in to the turbine blades."], "jumps": []}, {"id": "P01157", "text": [], "jumps": []}, {"id": "P01158", "text": ["What does an ammeter indicate to a pilot or copilot? }"], "jumps": []}, {"id": "P10301", "text": ["You skipped X question(s). Do you want to _________"], "jumps": []}, {"id": "P10302", "text": ["You skipped X question(s). Do you want to _________", "end the test? t is 10 point arial. This is the second line of text for the distractor. This is the third line of text for the distractor. This is the fourth line of text for the distractor. X"], "jumps": []}, {"id": "P10303", "text": ["The test is complete and your score is 0%. Do you want to __________"], "jumps": []}, {"id": "Pxxxxx", "text": [], "jumps": []}, {"id": "P1", "text": [], "jumps": []}, {"id": "P01153", "text": ["A gravity type fuel system is normally used on what type of aircraft?"], "jumps": []}, {"id": "P01154", "text": ["ADF systems determine the _______ of a radio station?"], "jumps": []}, {"id": "Pxxxxx", "text": [], "jumps": []}, {"id": "P01150", "text": ["What was the first power driven aircraft to fly across the Atlantic Ocean?"], "jumps": []}, {"id": "P01151", "text": ["What primary control changes a plane's position in the yaw axis?"], "jumps": []}, {"id": "P01152", "text": ["The _______ ignition system has a coil for each engine cylinder to reduce the effects of high voltage to the system.", "Are you sure you want to Exit the Lesson?", "You skipped X question(s). Do you want to _________", "The test is complete and your score is XX%. Do you want to _________"], "jumps": []}, {"id": "P10005", "text": [], "jumps": []}, {"id": "P01163", "text": ["In this pulse width modulated switching power supply, if the output voltage increases, what happens to the output of U3?"], "jumps": []}, {"id": "P01164", "text": ["In this circuit, part of a full pulse width modulated switching power supply, what is the purpose of R8?"], "jumps": []}, {"id": "P01165", "text": ["To identify the exact fault with the aircraft, the pilot would investigate which indicator panel?", "Master Caution and Warning System indicator"], "jumps": []}, {"id": "P01166", "text": ["What will a loss of electrical power to the Master Caution and Warning SCRs do?", "The individual local indication is reset."], "jumps": []}, {"id": "P01167", "text": ["What system is used for normal flight operation and displays flight data?", "Engine Indicating and Crew Alerting System (EICAS)", "Electronic Centralized Aircraft Monitoring (ECAM)", "Electronic Flight Instrument System (EFIS)"], "jumps": []}, {"id": "P01169", "text": ["The Bi-metallic Switch and the Differential expansion (Fenwal) are considered to be _______ type heat detectors."], "jumps": []}, {"id": "P01170", "text": ["What type of air condition system is used in aircraft?"], "jumps": []}, {"id": "P01171", "text": ["What is two-way simultaneous communication?"], "jumps": []}, {"id": "P01172", "text": ["Tri-state devices connected to a bus allow the output of the device to be disconnected."], "jumps": []}, {"id": "P01173", "text": ["What are the three types of IEEE 488 interface messages?", "Universal Multi-line, Status, and Asynchronous.", "Addressed Multi-line, System Multi-line, and I/O Line.", "Uni-line, Universal Multi-line, and Addressed Multi-line."], "jumps": []}, {"id": "P01174", "text": ["Which timer is the most important in the periodic mode of operation?"], "jumps": []}, {"id": "Pinfo", "text": ["11-12-03 Inserted Pinfo page. -Penny 08-05-04 Changed __questersequence from 0 to 1. -Penny"], "jumps": []}, {"id": "P10004", "text": ["Windows 98 offers new and improved features.  These features affect the system, hardware, and interface process.", "Windows 98 offers new and improved features. These features affect the system, hardware, and interface process.installation process.", "Hardware tings Mouse IRQ = 4 COM 1 IRQ = 2 Printer IRQ = 4"], "jumps": []}, {"id": "P2070", "text": ["# #\" #& \"\"# &\"###2' &2#&.22&# 25--283-.#285255232/238882-.-5:38832222882282-213:22::82-22225:8-33-22282232.22258558.5822385:235:222283538::2585582::2:", "&&#&# #/2.#.& -8 \"#.-&23..22'/.#212&-2258\"588:52", "### ## /# #/&# \" \"/##\"#/&//..#/..&/28.&...&824/&.88-8588..2222858852.28:582228588358282228258.888:825:583.8828::8228828588828583:35558.555.85::88::85588:88:5555::38::85:::5:5:52::85::88::", ":85:855::83:5:5.5:55:855:52.5:5283822242348522...252...2..82/.4..22//2./..##/.8.#&./#&/..##// ##\",##/## #. / /& # ## ## ## ## ## \" #/# ## /# ## #.\" ./ #//###,//.&/#.\"#/.##/./#&/2.&/.../&//....//&2222.2/252.&28.8522582.824828828::255:::5:", "/,,,,,,,,,,,,,/, ,, ,,,,,,6, ,,,6,,, ,,,,,//6//6,,,,/6/,,,/,4/,,/6/4494,,494/6846446/4884664;44;889448489888<8648<<8;44;88988<88948;98<44<;:<44<<8;44<48<<8;48<48<88;48<88<<8;<898<<84;<<<88<;8<88<8<<<<<8<<;8<:<;:<<<<<<<88", "++++++++++++++++++++333333332222226666999,:::===<=1111101111(((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((4444444(4DDEDDDDDDDDDDDDD@@@@@@@@DDDDDDDEEEEEEEEEEEEDDDE**) )!", "+++++++++++++++++++++++++++333333332322222226999:=0101110110(((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((444444444DDDDDDDDDDDD@@CCCCCCCCCCC@@@@@@@@@CC@@@CCCCCCB?8 )"], "jumps": ["P2040"]}]};
+let i = 0;
+const stage = document.getElementById("stage");
+document.getElementById("title").textContent = book.title;
+function show(n) {
+  i = Math.max(0, Math.min(book.pages.length - 1, n));
+  const page = book.pages[i];
+  document.getElementById("count").textContent = (i + 1) + " / " + book.pages.length;
+  document.getElementById("pid").textContent = page.id;
+  stage.replaceChildren();
+  if (!page.text.length) {
+    const p = document.createElement("p");
+    p.className = "empty";
+    p.textContent = "This page has no lesson text in the book.";
+    stage.appendChild(p);
+  }
+  for (const line of page.text) {
+    const p = document.createElement("p");
+    p.textContent = line;
+    stage.appendChild(p);
+  }
+  if (page.jumps.length) {
+    const box = document.createElement("div");
+    box.className = "jumps";
+    for (const id of page.jumps) {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.textContent = id;
+      b.addEventListener("click", () => go(id));
+      box.appendChild(b);
+    }
+    stage.appendChild(box);
+  }
+}
+function go(id) {
+  const n = book.pages.findIndex(p => p.id === id);
+  if (n >= 0) show(n);
+}
+document.getElementById("next").addEventListener("click", () => show(i + 1));
+document.getElementById("back").addEventListener("click", () => show(i - 1));
+show(0);
+</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>9395B198</title>
+<style>
+  body { margin: 0; background: #1c2430; color: #e8eef6; font: 16px/1.45 Georgia, serif; }
+  header { background: #1e4d8c; padding: 10px 16px; display: flex; justify-content: space-between; }
+  header b { font-family: system-ui, sans-serif; }
+  main { max-width: 760px; margin: 24px auto; background: #f4f1e8; color: #1b1b1b; min-height: 420px; padding: 28px 32px 20px; }
+  p { margin: 0 0 12px; }
+  .empty { color: #666; font-style: italic; }
+  .jumps { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px; }
+  button { font: 14px system-ui, sans-serif; padding: 6px 12px; border: 1px solid #1e4d8c; background: #fff; cursor: pointer; }
+  button:hover { background: #e4eef8; }
+  footer { max-width: 760px; margin: 0 auto 24px; display: flex; justify-content: space-between; color: #c5d0dc; font: 13px system-ui, sans-serif; }
+</style>
+</head>
+<body>
+<header><b id="title"></b><span id="count"></span></header>
+<main id="stage"></main>
+<footer>
+  <span>
+    <button id="back" type="button">Back</button>
+    <button id="next" type="button">Next</button>
+  </span>
+  <span id="pid"></span>
+</footer>
+<script>
+const book = {"title": "9395B198", "pages": [{"id": "Pinfo", "text": ["11-12-03 Inserted Pinfo page. -Penny 08-05-04 Changed __questersequence from 0 to 1. -Penny", "e range of frequencies between the upper and lower sidebands."], "jumps": []}, {"id": "P01159", "text": ["e information signal added or subtracted from the carrier signal", "e highest frequency in the information signal"], "jumps": []}, {"id": "P01161", "text": ["distributed inductance and capacitance of the line"], "jumps": []}, {"id": "P10006", "text": [], "jumps": []}, {"id": "P10", "text": [], "jumps": []}, {"id": "P01156", "text": ["What is the purpose of the transmitter?n the brown dog chased him over the fence? X XXXX", "Changes electromagnetic waves into output information.is is the second line of text for the distractor. This is the third line of text for the distractor. This is the fourth line of text for the distractor. X", "Connects from transmission medium to receiver.", "Converts input information into an electrical signal.his is the second line of text for the distractor. This is the third line of text for the distractor. This is the fourth line of text for the distractor. X", "Breaks down waveforms into individual components.. This is the second line of text for the distractor. This is the third line of text for the distractor. This is the fourth line of text for the distractor."], "jumps": []}, {"id": "P01157", "text": ["What are the limitations of a basic communication system?ased him over the fence? X XXXX", "bandwidth choice is d, and it is 10 point arial. This is the second line of text for the distractor. This is the third line of text for the distractor. This is the fourth line of text for the distractor. X", "noisee C choice is d, and it is 10 point arial. This is the second line of text for the distractor. This is the third line of text for the distractor. This is the fourth line of text for the distractor. X", "both A and Cboice is d, and it is 10 point arial. This is the second line of text for the distractor. This is the third line of text for the distractor. This is the fourth line of text for the distractor."], "jumps": []}, {"id": "P01158", "text": ["In what two basic ways does multiplexer/demultiplexer circuits combine separate signals?XXX", "time and frequencyis d, and it is 10 point arial. This is the second line of text for the distractor. This is the third line of text for the distractor. This is the fourth line of text for the distractor. X", "frequency and phases d, and it is 10 point arial. This is the second line of text for the distractor. This is the third line of text for the distractor. This is the fourth line of text for the distractor. X"], "jumps": []}, {"id": "Pxxxxx", "text": [], "jumps": []}, {"id": "P10301", "text": ["You skipped X question(s). Do you want to _________"], "jumps": []}, {"id": "P10302", "text": ["You skipped X question(s). Do you want to _________", "end the test? t is 10 point arial. This is the second line of text for the distractor. This is the third line of text for the distractor. This is the fourth line of text for the distractor. X"], "jumps": []}, {"id": "P10303", "text": ["The test is complete and your score is 0%. Do you want to __________"], "jumps": []}, {"id": "Pxxxxx", "text": [], "jumps": []}, {"id": "P1", "text": [], "jumps": []}, {"id": "P01154", "text": ["What circuit raises the upper and lower sidebands and suppresses the carrier?"], "jumps": []}, {"id": "P01155", "text": ["distributed inductance and capacitance of the line"], "jumps": []}, {"id": "P01150", "text": ["What is the purpose of the transmitter?n the brown dog chased him over the fence? X XXXX", "Changes electromagnetic waves into output information.is is the second line of text for the distractor. This is the third line of text for the distractor. This is the fourth line of text for the distractor. X", "Connects from transmission medium to receiver.", "Converts input information into an electrical signal.his is the second line of text for the distractor. This is the third line of text for the distractor. This is the fourth line of text for the distractor. X", "Breaks down waveforms into individual components.. This is the second line of text for the distractor. This is the third line of text for the distractor. This is the fourth line of text for the distractor."], "jumps": []}, {"id": "P01151", "text": ["The quality of information transmission over a digital communication system is measured by the system's BER.", "truece A choice is d, and it is 10 point arial. This is the second line of text for the distractor. This is the third line of text for the distractor. This is the fourth line of text for the distractor. X"], "jumps": []}, {"id": "P01152", "text": ["How is a carrier signal changed in AM signal processing?", "Are you sure you want to Exit the Lesson?", "You skipped X question(s). Do you want to _________", "The test is complete and your score is XX%. Do you want to _________"], "jumps": []}, {"id": "P0", "text": ["Nida Corporation 1997 - 2002 This software and its supporting programs are protected by federal copyright law and all rights are reserved by Nida Corporation. No part or section of this software or its supporting programs may be copied, distributed, transmitted in any form or medium electronic or otherwise, disclosed to third parties, or used in any manner not specified in the License Agreement furnished by Nida Corporation. This courseware was created with Asymetrix ToolBook I I ."], "jumps": []}, {"id": "P1", "text": [], "jumps": []}, {"id": "P10", "text": ["e range of frequencies between the upper and lower sidebands."], "jumps": []}, {"id": "P01162", "text": [], "jumps": []}, {"id": "P01163", "text": ["What is the purpose of the input amplifier in the pulse code modulator circuit?", "compensate of attenuation and distortion"], "jumps": []}, {"id": "P01164", "text": ["What do the high and low levels in a Level DM system represent?", "High, positive signal - Low, negative signal", "High, increasing signal - Low, decreasing signal ?", "Positive, decreasing signal - Negative, increasing signal", "Positive, increasing signal - Negative, decreasing signal"], "jumps": []}, {"id": "P01165", "text": ["What type of circuit does the integrator in a DM demodulator resemble?"], "jumps": []}, {"id": "P01166", "text": ["Amplitude modulating a digital signal with an analog signal", "Frequency modulating a digital signal with an analog signal", "Frequency modulating an analog signal with a digital signal", "Amplitude modulating an analog signal with a digital signal"], "jumps": []}, {"id": "P01167", "text": [], "jumps": []}, {"id": "P01168", "text": [], "jumps": []}, {"id": "P01169", "text": ["What is the bandwidth of a TDM system that uses 4 information signals with bandwidths of 5 kHz each?"], "jumps": []}, {"id": "P01170", "text": ["Which circuit in the TDM multiplexer connects a particular input to the TDM output?"], "jumps": []}, {"id": "P01171", "text": ["What type of output signal is normally used in TDM demultiplexers?"], "jumps": []}, {"id": "P01172", "text": ["Combining several analog information signals by AM or FM modulation.", "Combining several digital information signals by AM or FM modulation.", "Combining several digital information signals by phase shifting.", "Combining several analog information signals by phase shifting."], "jumps": []}, {"id": "P01173", "text": ["Using PCM, FSK, PSK, or delta modulation and demodulation."], "jumps": []}, {"id": "P01174", "text": ["What type of circuits do typical FDM demultiplexers consist of?"], "jumps": []}, {"id": "P10004", "text": [], "jumps": []}, {"id": "P10005", "text": ["# #\" #& \"\"# &\"###2' &2#&.22&# 25--283-.#285255232/238882-.-5:38832222882282-213:22::82-22225:8-33-22282232.22258558.5822385:235:222283538::2585582::2:", "&&#&# #/2.#.& -8 \"#.-&23..22'/.#212&-2258\"588:52", "### ## /# #/&# \" \"/##\"#/&//..#/..&/28.&...&824/&.88-8588..2222858852.28:582228588358282228258.888:825:583.8828::8228828588828583:35558.555.85::88::85588:88:5555::38::85:::5:5:52::85::88::", ":85:855::83:5:5.5:55:855:52.5:5283822242348522...252...2..82/.4..22//2./..##/.8.#&./#&/..##// ##\",##/## #. / /& # ## ## ## ## ## \" #/# ## /# ## #.\" ./ #//###,//.&/#.\"#/.##/./#&/2.&/.../&//....//&2222.2/252.&28.8522582.824828828::255:::5:", "/,,,,,,,,,,,,,/, ,, ,,,,,,6, ,,,6,,, ,,,,,//6//6,,,,/6/,,,/,4/,,/6/4494,,494/6846446/4884664;44;889448489888<8648<<8;44;88988<88948;98<44<;:<44<<8;44<48<<8;48<48<88;48<88<<8;<898<<84;<<<88<;8<88<8<<<<<8<<;8<:<;:<<<<<<<88", "++++++++++++++++++++333333332222226666999,:::===<=1111101111(((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((4444444(4DDEDDDDDDDDDDDDD@@@@@@@@DDDDDDDEEEEEEEEEEEEDDDE**) )!", "+++++++++++++++++++++++++++333333332322222226999:=0101110110(((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((444444444DDDDDDDDDDDD@@CCCCCCCCCCC@@@@@@@@@CC@@@CCCCCCB?8 )"], "jumps": []}]};
+let i = 0;
+const stage = document.getElementById("stage");
+document.getElementById("title").textContent = book.title;
+function show(n) {
+  i = Math.max(0, Math.min(book.pages.length - 1, n));
+  const page = book.pages[i];
+  document.getElementById("count").textContent = (i + 1) + " / " + book.pages.length;
+  document.getElementById("pid").textContent = page.id;
+  stage.replaceChildren();
+  if (!page.text.length) {
+    const p = document.createElement("p");
+    p.className = "empty";
+    p.textContent = "This page has no lesson text in the book.";
+    stage.appendChild(p);
+  }
+  for (const line of page.text) {
+    const p = document.createElement("p");
+    p.textContent = line;
+    stage.appendChild(p);
+  }
+  if (page.jumps.length) {
+    const box = document.createElement("div");
+    box.className = "jumps";
+    for (const id of page.jumps) {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.textContent = id;
+      b.addEventListener("click", () => go(id));
+      box.appendChild(b);
+    }
+    stage.appendChild(box);
+  }
+}
+function go(id) {
+  const n = book.pages.findIndex(p => p.id === id);
+  if (n >= 0) show(n);
+}
+document.getElementById("next").addEventListener("click", () => show(i + 1));
+document.getElementById("back").addEventListener("click", () => show(i - 1));
+show(0);
+</script>
+</body>
+</html>

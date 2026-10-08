@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>9395T998</title>
+<style>
+  body { margin: 0; background: #1c2430; color: #e8eef6; font: 16px/1.45 Georgia, serif; }
+  header { background: #1e4d8c; padding: 10px 16px; display: flex; justify-content: space-between; }
+  header b { font-family: system-ui, sans-serif; }
+  main { max-width: 760px; margin: 24px auto; background: #f4f1e8; color: #1b1b1b; min-height: 420px; padding: 28px 32px 20px; }
+  p { margin: 0 0 12px; }
+  .empty { color: #666; font-style: italic; }
+  .jumps { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px; }
+  button { font: 14px system-ui, sans-serif; padding: 6px 12px; border: 1px solid #1e4d8c; background: #fff; cursor: pointer; }
+  button:hover { background: #e4eef8; }
+  footer { max-width: 760px; margin: 0 auto 24px; display: flex; justify-content: space-between; color: #c5d0dc; font: 13px system-ui, sans-serif; }
+</style>
+</head>
+<body>
+<header><b id="title"></b><span id="count"></span></header>
+<main id="stage"></main>
+<footer>
+  <span>
+    <button id="back" type="button">Back</button>
+    <button id="next" type="button">Next</button>
+  </span>
+  <span id="pid"></span>
+</footer>
+<script>
+const book = {"title": "9395T998", "pages": [{"id": "P01154", "text": ["Which is not a benefit of frequency synthesis? w", "versatility to interface with microprocessors"], "jumps": []}, {"id": "P01155", "text": ["RF section, Mixer, LO, IF Amp, AM Detector, AGC and AF Amp.", "AF Amp, RF section, Phase Detector, IF Amp and LO. /", "LO, RF section, IF Amp, AF Amp, AM Detector and Mixer.", "Mixer, LO, IF Amp, RF Detector, AM section, AGC and AF Amp."], "jumps": []}, {"id": "P01156", "text": ["The VCO's output is always _______ above the incoming RF."], "jumps": []}, {"id": "P01157", "text": ["The Automatic Gain Control uses _______ to the _______ stage to compensate for variations of the _______ signal."], "jumps": []}, {"id": "P01158", "text": ["Phase-Lock is achieved when _______ of U4, PC130-438, are the same _______ and _______."], "jumps": []}, {"id": "P01159", "text": ["When the tuning select switch is in the PLL position, manual tuning is _______"], "jumps": []}, {"id": "P01160", "text": ["Each mixer consists of _______ and _______"], "jumps": []}, {"id": "P01161", "text": ["In SSB Communication Systems, the _______ is only present when there is a _______ signal."], "jumps": []}, {"id": "P01162", "text": ["When operating the Nida SSB transmitter/receiver, the test consoles should not be closer than _______ apart."], "jumps": []}, {"id": "P01163", "text": ["The Control Signal is sometimes called a(n) _______"], "jumps": []}, {"id": "P01164", "text": ["Narrow-band FM is primarily used for _______"], "jumps": []}, {"id": "P01165", "text": ["What is not an advantage of NBFM Communications? y", "reduced transmitter power to cover assigned area"], "jumps": []}, {"id": "P01166", "text": ["FM sidebands have _______ amplitudes and are always an equal distance from the _______ frequency."], "jumps": []}, {"id": "P01167", "text": ["If the PLL's output is 38.5 MHz, the tuned RF is at _______"], "jumps": []}, {"id": "Pxxxxx", "text": [], "jumps": []}, {"id": "P1", "text": [], "jumps": []}, {"id": "P10005", "text": [], "jumps": []}, {"id": "P10006", "text": [], "jumps": []}, {"id": "P01150", "text": ["What is not a component of a typical communications system?"], "jumps": []}, {"id": "P01151", "text": ["Unwanted disruptions or variations that contaminate the RF carrier are _______", "!!!!!! ! !! !!!!! !!!!!! !!!! !! !!!! !! ! !!!! !!! ! !!! !! !! !!!!! !!! !!! ! ! !! !!!!!!! ! !!!!!!! !!!!!!! !!!!!!!!! !!!!!!! !!!!!!!!!!!!!!!!!!!!! ! !! ! !! !", "! ! !! !! !! !! !! ! !! !! ! ! ! !! !! ! !! !! !! ! ! !! ! ! ! ! ! !!! !!!! ! !!! !! ! !!! !!", "!!!!! !!! !!!!!!!!! !!! ! !!! ! ! !!! !! !! !!!! !!!!!!! !!!! ! ! !!!!! ! !!!!! !!!!! !!!!!!! !!!!! !!!!!!!!!!!!!!!!!! ! ! ! !", "! ! ! ! ! !! ! ! !! ! ! ! ! !! ! ! ! !! ! !!! ! ! !! !!! ! !! !! !! !"], "jumps": []}, {"id": "P10008", "text": [], "jumps": []}, {"id": "P10009", "text": [], "jumps": []}, {"id": "P10301", "text": ["You skipped X question(s). Do you want to _________"], "jumps": []}, {"id": "P10302", "text": ["You skipped X question(s). Do you want to _________", "end the test? t is 10 point arial. This is the second line of text for the distractor. This is the third line of text for the distractor. This is the fourth line of text for the distractor. X"], "jumps": []}, {"id": "P10303", "text": ["The test is complete and your score is 0%. Do you want to __________"], "jumps": []}, {"id": "Pxxxxx", "text": [], "jumps": []}, {"id": "P10", "text": [], "jumps": []}, {"id": "P10007", "text": [], "jumps": []}, {"id": "P0", "text": ["Nida Corporation 1998 - 2002 This software and its supporting programs are protected by federal copyright law and all rights are reserved by Nida Corporation. No part or section of this software or its supporting programs may be copied, distributed, transmitted in any form or medium electronic or otherwise, disclosed to third parties, or used in any manner not specified in the License Agreement furnished by Nida Corporation. This courseware was created with Asymetrix ToolBook I I ."], "jumps": []}, {"id": "P01152", "text": ["Amplitude Modulation may be defined as _______", "the varying of the audio amplitude by the carrier frequency.", "changing the frequency of the carrier by the instantaneous changes in the audio amplitude.", "varying the carrier amplitude with the instantaneous changes of the audio signal.", "dividing the amplitude of the carrier with the audio frequency."], "jumps": []}, {"id": "P01153", "text": ["phase shifting the intermediate frequency.", "changing the frequency of a signal to another frequency without losing the intelligence from the original frequency. }", "changing the audio frequency without losing the carrier frequency.", "eliminating the harmonics associated with amplitude modulation.", "You skipped X question(s). Do you want to _________", "The test is complete and your score is XX%. Do you want to _________", "Are you sure you want to Exit the Lesson?", "# #\" #& \"\"# &\"###2' &2#&.22&# 25--283-.#285255232/238882-.-5:38832222882282-213:22::82-22225:8-33-22282232.22258558.5822385:235:222283538::2585582::2:", "&&#&# #/2.#.& -8 \"#.-&23..22'/.#212&-2258\"588:52", "### ## /# #/&# \" \"/##\"#/&//..#/..&/28.&...&824/&.88-8588..2222858852.28:582228588358282228258.888:825:583.8828::8228828588828583:35558.555.85::88::85588:88:5555::38::85:::5:5:52::85::88::", ":85:855::83:5:5.5:55:855:52.5:5283822242348522...252...2..82/.4..22//2./..##/.8.#&./#&/..##// ##\",##/## #. / /& # ## ## ## ## ## \" #/# ## /# ## #.\" ./ #//###,//.&/#.\"#/.##/./#&/2.&/.../&//....//&2222.2/252.&28.8522582.824828828::255:::5:", "/,,,,,,,,,,,,,/, ,, ,,,,,,6, ,,,6,,, ,,,,,//6//6,,,,/6/,,,/,4/,,/6/4494,,494/6846446/4884664;44;889448489888<8648<<8;44;88988<88948;98<44<;:<44<<8;44<48<<8;48<48<88;48<88<<8;<898<<84;<<<88<;8<88<8<<<<<8<<;8<:<;:<<<<<<<88"], "jumps": []}, {"id": "P1", "text": [], "jumps": []}, {"id": "P10004", "text": [], "jumps": []}, {"id": "P01168", "text": ["The third phase of the troubleshooting method is _______"], "jumps": []}, {"id": "P01169", "text": ["There are _______ IF stages in the Nida NBFM Communications system."], "jumps": []}, {"id": "P01170", "text": ["In troubleshooting, localization refers to _______", "keeping a problem from spreading to other circuit. 3", "narrowing the problem down to a particular stage or section."], "jumps": []}, {"id": "P01171", "text": ["Cellular telephones only used _______ as a form of transmission."], "jumps": []}, {"id": "P01172", "text": ["What is not a part of the troubleshooting process? {"], "jumps": []}, {"id": "P01173", "text": ["The process of determining the bad component in a particular stage or section is known as _______"], "jumps": []}, {"id": "P01174", "text": ["A diode that registers high in both directions during a resistance check is _______"], "jumps": []}]};
+let i = 0;
+const stage = document.getElementById("stage");
+document.getElementById("title").textContent = book.title;
+function show(n) {
+  i = Math.max(0, Math.min(book.pages.length - 1, n));
+  const page = book.pages[i];
+  document.getElementById("count").textContent = (i + 1) + " / " + book.pages.length;
+  document.getElementById("pid").textContent = page.id;
+  stage.replaceChildren();
+  if (!page.text.length) {
+    const p = document.createElement("p");
+    p.className = "empty";
+    p.textContent = "This page has no lesson text in the book.";
+    stage.appendChild(p);
+  }
+  for (const line of page.text) {
+    const p = document.createElement("p");
+    p.textContent = line;
+    stage.appendChild(p);
+  }
+  if (page.jumps.length) {
+    const box = document.createElement("div");
+    box.className = "jumps";
+    for (const id of page.jumps) {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.textContent = id;
+      b.addEventListener("click", () => go(id));
+      box.appendChild(b);
+    }
+    stage.appendChild(box);
+  }
+}
+function go(id) {
+  const n = book.pages.findIndex(p => p.id === id);
+  if (n >= 0) show(n);
+}
+document.getElementById("next").addEventListener("click", () => show(i + 1));
+document.getElementById("back").addEventListener("click", () => show(i - 1));
+show(0);
+</script>
+</body>
+</html>

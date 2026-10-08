@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>9395T398</title>
+<style>
+  body { margin: 0; background: #1c2430; color: #e8eef6; font: 16px/1.45 Georgia, serif; }
+  header { background: #1e4d8c; padding: 10px 16px; display: flex; justify-content: space-between; }
+  header b { font-family: system-ui, sans-serif; }
+  main { max-width: 760px; margin: 24px auto; background: #f4f1e8; color: #1b1b1b; min-height: 420px; padding: 28px 32px 20px; }
+  p { margin: 0 0 12px; }
+  .empty { color: #666; font-style: italic; }
+  .jumps { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px; }
+  button { font: 14px system-ui, sans-serif; padding: 6px 12px; border: 1px solid #1e4d8c; background: #fff; cursor: pointer; }
+  button:hover { background: #e4eef8; }
+  footer { max-width: 760px; margin: 0 auto 24px; display: flex; justify-content: space-between; color: #c5d0dc; font: 13px system-ui, sans-serif; }
+</style>
+</head>
+<body>
+<header><b id="title"></b><span id="count"></span></header>
+<main id="stage"></main>
+<footer>
+  <span>
+    <button id="back" type="button">Back</button>
+    <button id="next" type="button">Next</button>
+  </span>
+  <span id="pid"></span>
+</footer>
+<script>
+const book = {"title": "9395T398", "pages": [{"id": "P10005", "text": [], "jumps": []}, {"id": "P01158", "text": ["What principle of magnetism allows the use of electromagnet stators??", "passing a current through a conductor produces a magnet", "passing a conductor through a magnetic field produces voltage q"], "jumps": []}, {"id": "P01159", "text": ["In a generator, when the armature rotation is parallel to the stator magnetic field, what is the output voltage?", "In the automatic speed control circuit, what is the purpose of U2?"], "jumps": []}, {"id": "P01161", "text": ["In the motor's voltage source circuit, what is the purpose of U1?"], "jumps": []}, {"id": "P01162", "text": ["How do you troubleshoot an automatic speed control circuit in a motor-generator set?"], "jumps": []}, {"id": "P01163", "text": ["How many stators does a stepper motor use? s"], "jumps": []}, {"id": "P10006", "text": [], "jumps": []}, {"id": "P10004", "text": [], "jumps": []}, {"id": "P01155", "text": ["What term is used to describe the amount of work accomplished?"], "jumps": []}, {"id": "P01156", "text": ["What is the efficiency of a motor that uses a 10 watt input and has an 8 watt output?"], "jumps": []}, {"id": "P01157", "text": ["What principle of magnetism do motors operate on?", "passing a current through a conductor produces a magnet", "passing a conductor through a magnetic field produces voltage ;"], "jumps": []}, {"id": "P1", "text": [], "jumps": []}, {"id": "P10301", "text": ["You skipped X question(s). Do you want to _________"], "jumps": []}, {"id": "P10302", "text": ["You skipped X question(s). Do you want to _________", "end the test? t is 10 point arial. This is the second line of text for the distractor. This is the third line of text for the distractor. This is the fourth line of text for the distractor. X"], "jumps": []}, {"id": "P10303", "text": ["The test is complete and your score is 0%. Do you want to __________"], "jumps": []}, {"id": "Pxxxxx", "text": [], "jumps": []}, {"id": "Pxxxxx", "text": ["Nida Corporation 1998 - 2001 This software and its supporting programs are protected by federal copyright law and all rights are reserved by Nida Corporation. No part or section of this software or its supporting programs may be copied, distributed, transmitted in any form or medium electronic or otherwise, disclosed to third parties, or used in any manner not specified in the License Agreement furnished by Nida Corporation. This courseware was created with Asymetrix ToolBook I I ."], "jumps": []}, {"id": "P01153", "text": ["In a motor, if the applied voltage increases, RPM _______ to the RPM?"], "jumps": []}, {"id": "P01154", "text": ["What term describes the object that receives the output of a motor or generator?"], "jumps": []}, {"id": "P01150", "text": ["A device that has a spinning shaft and uses electricity as the input or output is called _______?"], "jumps": []}, {"id": "P0", "text": ["Nida Corporation 1997 - 2002 This software and its supporting programs are protected by federal copyright law and all rights are reserved by Nida Corporation. No part or section of this software or its supporting programs may be copied, distributed, transmitted in any form or medium electronic or otherwise, disclosed to third parties, or used in any manner not specified in the License Agreement furnished by Nida Corporation. This courseware was created with Asymetrix ToolBook I I ."], "jumps": []}, {"id": "P01151", "text": ["What type of device uses an electrical input and converts it to a rotating mechanical output?"], "jumps": []}, {"id": "P01152", "text": ["What type of power is used to operate a continuous motor?", "Are you sure you want to Exit the Lesson?", "You skipped X question(s). Do you want to _________", "The test is complete and your score is XX%. Do you want to _________"], "jumps": []}, {"id": "P01164", "text": ["What is the advantage and disadvantage of the two phase energized sequence?"], "jumps": []}, {"id": "P01165", "text": ["What is the term used to describe the action of starting and stopping stepper motors slower than the running speed?"], "jumps": []}, {"id": "P01166", "text": ["Which circuit in a stepper motor system develops the proper sequence of energizing the stator coils?"], "jumps": []}, {"id": "P01167", "text": ["What is the purpose of D2 in the driver circuit? y", "prevents D1 from receiving reverse current", "prevents stator coil from magnetizing South"], "jumps": []}, {"id": "P01168", "text": ["If a stepper motor operates in the STEP mode but does not operate in the RUN mode, what is the probable faulted area?"], "jumps": []}, {"id": "P01169", "text": ["What principle of magnetism do generators operate on?", "passing a current through a conductor produces a magnet", "passing a conductor through a magnetic field produces voltage ?"], "jumps": []}, {"id": "P01170", "text": ["What part of a motor allows reversing the magnetic poles in the rotor?"], "jumps": []}, {"id": "P01171", "text": ["A single-phase alternator physically resembles a _______"], "jumps": []}, {"id": "P01172", "text": ["In an AC generator, the output voltage across the load in the external circuit reverses polarity with every _______ rotation."], "jumps": []}, {"id": "P01173", "text": ["In balanced Wye loads all the resistors are _______"], "jumps": []}, {"id": "P01174", "text": ["What level of voltage is produced in an AC generator when the armature movement is parallel to the stator field?"], "jumps": []}, {"id": "Pinfo", "text": ["11-12-03 Inserted Pinfo page. -Penny 08-05-04 Changed __questersequence from 0 to 1. -Penny", "!!!!!! ! !! !!!!! !!!!!! !!!! !! !!!! !! ! !!!! !!! ! !!! !! !! !!!!! !!! !!! ! ! !! !!!!!!! ! !!!!!!! !!!!!!! !!!!!!!!! !!!!!!! !!!!!!!!!!!!!!!!!!!!! ! !! ! !! !", "! ! !! !! !! !! !! ! !! !! ! ! ! !! !! ! !! !! !! ! ! !! ! ! ! ! ! !!! !!!! ! !!! !! ! !!! !!"], "jumps": []}, {"id": "P10004", "text": [], "jumps": []}, {"id": "P10", "text": ["# #\" #& \"\"# &\"###2' &2#&.22&# 25--283-.#285255232/238882-.-5:38832222882282-213:22::82-22225:8-33-22282232.22258558.5822385:235:222283538::2585582::2:", "&&#&# #/2.#.& -8 \"#.-&23..22'/.#212&-2258\"588:52", "### ## /# #/&# \" \"/##\"#/&//..#/..&/28.&...&824/&.88-8588..2222858852.28:582228588358282228258.888:825:583.8828::8228828588828583:35558.555.85::88::85588:88:5555::38::85:::5:5:52::85::88::", ":85:855::83:5:5.5:55:855:52.5:5283822242348522...252...2..82/.4..22//2./..##/.8.#&./#&/..##// ##\",##/## #. / /& # ## ## ## ## ## \" #/# ## /# ## #.\" ./ #//###,//.&/#.\"#/.##/./#&/2.&/.../&//....//&2222.2/252.&28.8522582.824828828::255:::5:", "/,,,,,,,,,,,,,/, ,, ,,,,,,6, ,,,6,,, ,,,,,//6//6,,,,/6/,,,/,4/,,/6/4494,,494/6846446/4884664;44;889448489888<8648<<8;44;88988<88948;98<44<;:<44<<8;44<48<<8;48<48<88;48<88<<8;<898<<84;<<<88<;8<88<8<<<<<8<<;8<:<;:<<<<<<<88", "++++++++++++++++++++333333332222226666999,:::===<=1111101111(((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((4444444(4DDEDDDDDDDDDDDDD@@@@@@@@DDDDDDDEEEEEEEEEEEEDDDE**) )!", "+++++++++++++++++++++++++++333333332322222226999:=0101110110(((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((444444444DDDDDDDDDDDD@@CCCCCCCCCCC@@@@@@@@@CC@@@CCCCCCB?8 )"], "jumps": []}]};
+let i = 0;
+const stage = document.getElementById("stage");
+document.getElementById("title").textContent = book.title;
+function show(n) {
+  i = Math.max(0, Math.min(book.pages.length - 1, n));
+  const page = book.pages[i];
+  document.getElementById("count").textContent = (i + 1) + " / " + book.pages.length;
+  document.getElementById("pid").textContent = page.id;
+  stage.replaceChildren();
+  if (!page.text.length) {
+    const p = document.createElement("p");
+    p.className = "empty";
+    p.textContent = "This page has no lesson text in the book.";
+    stage.appendChild(p);
+  }
+  for (const line of page.text) {
+    const p = document.createElement("p");
+    p.textContent = line;
+    stage.appendChild(p);
+  }
+  if (page.jumps.length) {
+    const box = document.createElement("div");
+    box.className = "jumps";
+    for (const id of page.jumps) {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.textContent = id;
+      b.addEventListener("click", () => go(id));
+      box.appendChild(b);
+    }
+    stage.appendChild(box);
+  }
+}
+function go(id) {
+  const n = book.pages.findIndex(p => p.id === id);
+  if (n >= 0) show(n);
+}
+document.getElementById("next").addEventListener("click", () => show(i + 1));
+document.getElementById("back").addEventListener("click", () => show(i - 1));
+show(0);
+</script>
+</body>
+</html>

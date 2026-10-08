@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>9395TD99</title>
+<style>
+  body { margin: 0; background: #1c2430; color: #e8eef6; font: 16px/1.45 Georgia, serif; }
+  header { background: #1e4d8c; padding: 10px 16px; display: flex; justify-content: space-between; }
+  header b { font-family: system-ui, sans-serif; }
+  main { max-width: 760px; margin: 24px auto; background: #f4f1e8; color: #1b1b1b; min-height: 420px; padding: 28px 32px 20px; }
+  p { margin: 0 0 12px; }
+  .empty { color: #666; font-style: italic; }
+  .jumps { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px; }
+  button { font: 14px system-ui, sans-serif; padding: 6px 12px; border: 1px solid #1e4d8c; background: #fff; cursor: pointer; }
+  button:hover { background: #e4eef8; }
+  footer { max-width: 760px; margin: 0 auto 24px; display: flex; justify-content: space-between; color: #c5d0dc; font: 13px system-ui, sans-serif; }
+</style>
+</head>
+<body>
+<header><b id="title"></b><span id="count"></span></header>
+<main id="stage"></main>
+<footer>
+  <span>
+    <button id="back" type="button">Back</button>
+    <button id="next" type="button">Next</button>
+  </span>
+  <span id="pid"></span>
+</footer>
+<script>
+const book = {"title": "9395TD99", "pages": [{"id": "P01154", "text": ["Which section does a pulse RADAR depends on for timing?"], "jumps": []}, {"id": "P01155", "text": ["There are two types of transmitters in common use; the _______ and the _______."], "jumps": []}, {"id": "P01156", "text": ["Which type of antenna is shaped like a dish? u"], "jumps": []}, {"id": "P01157", "text": ["Which RADAR receiver component converts the IF pulses to video pulses?"], "jumps": []}, {"id": "P01158", "text": ["How does FTC affect receiver gain, if at all?"], "jumps": []}, {"id": "P01159", "text": ["What type of loss is due to high frequency currents flowing near the outer surface of the conductor?"], "jumps": []}, {"id": "P01160", "text": ["What type of loss is due to the capacitance formed between transmission lines?"], "jumps": []}, {"id": "P01161", "text": ["A waveguide is defined as a system of material boundaries, capable of guiding _______"], "jumps": []}, {"id": "P01162", "text": ["What is the physical handling and installation of waveguides called?"], "jumps": []}, {"id": "P01163", "text": ["How is an antenna's power gain measured?", "In relation to a reference waveguide system."], "jumps": []}, {"id": "P01164", "text": ["A truncated parabolic antenna is normally used in what type microwave system?"], "jumps": []}, {"id": "P01165", "text": ["Why can't a conventional capacitor and inductor be used to produce a resonant circuit at microwave frequencies?", "The size of the components would be too large.", "The size of the components would be too small.", "The components cannot be manufactured with small enough values.", "The components cannot be manufactured with large enough values."], "jumps": []}, {"id": "P01167", "text": ["What is the principle of gunn diode operation? w", "Electrons flowing across the PN junction before the barrier voltage is reached."], "jumps": []}, {"id": "P01168", "text": ["Electrons flowing across the PN junction before the barrier voltage is reached."], "jumps": []}, {"id": "P1", "text": [], "jumps": []}, {"id": "P10005", "text": [], "jumps": []}, {"id": "P10006", "text": [], "jumps": []}, {"id": "P01150", "text": ["What is RF energy reflected from an object called? ? em?"], "jumps": []}, {"id": "P01151", "text": ["What is the length of the LOS known as _______", "!!!!!! ! !! !!!!! !!!!!! !!!! !! !!!! !! ! !!!! !!! ! !!! !! !! !!!!! !!! !!! ! ! !! !!!!!!! ! !!!!!!! !!!!!!! !!!!!!!!! !!!!!!! !!!!!!!!!!!!!!!!!!!!! ! !! ! !! !", "! ! !! !! !! !! !! ! !! !! ! ! ! !! !! ! !! !! !! ! ! !! ! ! ! ! ! !!! !!!! ! !!! !! ! !!! !!", "!!!!! !!! !!!!!!!!! !!! ! !!! ! ! !!! !! !! !!!! !!!!!!! !!!! ! ! !!!!! ! !!!!! !!!!! !!!!!!! !!!!! !!!!!!!!!!!!!!!!!! ! ! ! !", "! ! ! ! ! !! ! ! !! ! ! ! ! !! ! ! ! !! ! !!! ! ! !! !!! ! !! !! !! !"], "jumps": []}, {"id": "P10008", "text": [], "jumps": []}, {"id": "P10009", "text": [], "jumps": []}, {"id": "P10301", "text": ["You skipped X question(s). Do you want to _________"], "jumps": []}, {"id": "P10302", "text": ["You skipped X question(s). Do you want to _________", "end the test? t is 10 point arial. This is the second line of text for the distractor. This is the third line of text for the distractor. This is the fourth line of text for the distractor. X"], "jumps": []}, {"id": "P10303", "text": ["The test is complete and your score is 0%. Do you want to __________"], "jumps": []}, {"id": "Pxxxxx", "text": [], "jumps": []}, {"id": "P10", "text": [], "jumps": []}, {"id": "P10007", "text": [], "jumps": []}, {"id": "P0", "text": ["Nida Corporation 1998 - 2002 This software and its supporting programs are protected by federal copyright law and all rights are reserved by Nida Corporation. No part or section of this software or its supporting programs may be copied, distributed, transmitted in any form or medium electronic or otherwise, disclosed to third parties, or used in any manner not specified in the License Agreement furnished by Nida Corporation. This courseware was created with Asymetrix ToolBook I I ."], "jumps": []}, {"id": "P01152", "text": ["What happens to the frequency of the CW RADAR RF energy if it reflects off an inbound object?"], "jumps": []}, {"id": "P01153", "text": ["What is the phase shift of a stationary object?", "You skipped X question(s). Do you want to _________", "The test is complete and your score is XX%. Do you want to _________", "Are you sure you want to Exit the Lesson?", "# #\" #& \"\"# &\"###2' &2#&.22&# 25--283-.#285255232/238882-.-5:38832222882282-213:22::82-22225:8-33-22282232.22258558.5822385:235:222283538::2585582::2:", "&&#&# #/2.#.& -8 \"#.-&23..22'/.#212&-2258\"588:52", "### ## /# #/&# \" \"/##\"#/&//..#/..&/28.&...&824/&.88-8588..2222858852.28:582228588358282228258.888:825:583.8828::8228828588828583:35558.555.85::88::85588:88:5555::38::85:::5:5:52::85::88::", ":85:855::83:5:5.5:55:855:52.5:5283822242348522...252...2..82/.4..22//2./..##/.8.#&./#&/..##// ##\",##/## #. / /& # ## ## ## ## ## \" #/# ## /# ## #.\" ./ #//###,//.&/#.\"#/.##/./#&/2.&/.../&//....//&2222.2/252.&28.8522582.824828828::255:::5:", "/,,,,,,,,,,,,,/, ,, ,,,,,,6, ,,,6,,, ,,,,,//6//6,,,,/6/,,,/,4/,,/6/4494,,494/6846446/4884664;44;889448489888<8648<<8;44;88988<88948;98<44<;:<44<<8;44<48<<8;48<48<88;48<88<<8;<898<<84;<<<88<;8<88<8<<<<<8<<;8<:<;:<<<<<<<88", "++++++++++++++++++++333333332222226666999,:::===<=1111101111(((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((4444444(4DDEDDDDDDDDDDDDD@@@@@@@@DDDDDDDEEEEEEEEEEEEDDDE**) )!", "+++++++++++++++++++++++++++333333332322222226999:=0101110110(((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((444444444DDDDDDDDDDDD@@CCCCCCCCCCC@@@@@@@@@CC@@@CCCCCCB?8 )"], "jumps": []}, {"id": "P1", "text": [], "jumps": []}, {"id": "P10004", "text": [], "jumps": []}, {"id": "P02150", "text": ["What does the RF energy reflected from an object provide to the RADAR system?"], "jumps": []}, {"id": "P02151", "text": ["What is the most commonly used reference level in the decibel measurement system for RADAR?"], "jumps": []}, {"id": "P01166", "text": ["At high frequencies, which value of interelectrode capacitance can cause oscillations?"], "jumps": []}, {"id": "P01169", "text": ["What type of jammer transmits constant-amplitude, constant-frequency, unmodulated jamming signals to change the signal-to-noise ratio of a RADAR receiver?"], "jumps": []}, {"id": "P01170", "text": ["Active ECM is sometimes referred to as _______"], "jumps": []}, {"id": "P01171", "text": [], "jumps": []}, {"id": "P01172", "text": ["What does a Type 1 dehydrator use to remove liquid and oil?"], "jumps": []}, {"id": "P01173", "text": ["Why are some equipment enclosures hermetically sealed?", "Keep dust and debris out of the enclosure. o"], "jumps": []}, {"id": "P01174", "text": ["The _______ system transfers the heat load from the electronic equipment."], "jumps": []}, {"id": "P02152", "text": ["Why are CW RADARs that use a single antenna and a ferrite circulator duplexer limited to low power?"], "jumps": []}, {"id": "P02153", "text": ["Compensates for drift and age of components."], "jumps": []}, {"id": "P02154", "text": ["The A Scan indicator is common in a _______"], "jumps": []}, {"id": "P02155", "text": ["The orange-peel parabolic antenna is _______ in the horizontal plane and _______ in the vertical."], "jumps": []}, {"id": "P02156", "text": ["What antenna type is used by some 3D air search and ground control precision approach RADARs?"], "jumps": []}, {"id": "P02157", "text": ["What type of receiver is most often used in RADAR systems?"], "jumps": []}, {"id": "P02158", "text": ["What RADAR receiver circuit actually produces the IF frequency?"], "jumps": []}, {"id": "P02159", "text": ["When a portion of electric energy is lost to the atmosphere, not a nearby object, it is called _______ __ and not to a nearby object"], "jumps": []}, {"id": "P02160", "text": ["What type of loss is due to resistance, especially in long lines?"], "jumps": []}, {"id": "P02161", "text": ["difference in potential between two points"], "jumps": []}, {"id": "P02162", "text": ["Which dimension determines the power handling capability of a waveguide?"], "jumps": []}, {"id": "P02163", "text": ["The ability of an antenna to act as a transmitter or receiver antenna is called _______"], "jumps": []}, {"id": "P02164", "text": ["To determine the bearing of an object, a RADAR system would use an antenna that has a narrow _______"], "jumps": []}, {"id": "P02165", "text": ["A waveguide can be changed into a cavity resonator by _______", "making the waveguide 1/4 wavelength long.", "making the waveguide 1/4 wavelength wide.", "sealing the open ends of a waveguide section.", "opening the closed ends of a waveguide section."], "jumps": []}, {"id": "P02166", "text": ["At high frequencies, which value of lead inductance can cause attenuation of the input signal? ?"], "jumps": []}, {"id": "P02167", "text": ["What is the principle of Varactor operation? u", "Electrons flowing across the PN junction before the barrier voltage is reached."], "jumps": []}, {"id": "P02168", "text": ["What is the principle of tunnel diode operation? y", "Electrons flowing across the PN junction before the barrier voltage is reached."], "jumps": []}, {"id": "P02169", "text": ["What type of jammer generates RF noise in a particular band or frequency channel to change the signal-to-noise ratio of a RADAR receiver?"], "jumps": []}, {"id": "P02170", "text": ["What methods are employed to combat ECM? q"], "jumps": []}, {"id": "P02171", "text": ["What are the operational pressures of high and low power dry air systems?"], "jumps": []}, {"id": "P02172", "text": ["When should the element in the telltale oil filter be changed?", "Annually or when the indicator passes the red line.", "Just before the red element indicator reaches the red line.", "Monthly or when the element turns completely red.", "Weekly or when the element turns pink. /"], "jumps": []}, {"id": "P02173", "text": ["What is the least efficient type of equipment cooling?"], "jumps": []}, {"id": "P02174", "text": ["The _______ system provides the initial source of cooling water that can either be seawater or chilled water."], "jumps": []}]};
+let i = 0;
+const stage = document.getElementById("stage");
+document.getElementById("title").textContent = book.title;
+function show(n) {
+  i = Math.max(0, Math.min(book.pages.length - 1, n));
+  const page = book.pages[i];
+  document.getElementById("count").textContent = (i + 1) + " / " + book.pages.length;
+  document.getElementById("pid").textContent = page.id;
+  stage.replaceChildren();
+  if (!page.text.length) {
+    const p = document.createElement("p");
+    p.className = "empty";
+    p.textContent = "This page has no lesson text in the book.";
+    stage.appendChild(p);
+  }
+  for (const line of page.text) {
+    const p = document.createElement("p");
+    p.textContent = line;
+    stage.appendChild(p);
+  }
+  if (page.jumps.length) {
+    const box = document.createElement("div");
+    box.className = "jumps";
+    for (const id of page.jumps) {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.textContent = id;
+      b.addEventListener("click", () => go(id));
+      box.appendChild(b);
+    }
+    stage.appendChild(box);
+  }
+}
+function go(id) {
+  const n = book.pages.findIndex(p => p.id === id);
+  if (n >= 0) show(n);
+}
+document.getElementById("next").addEventListener("click", () => show(i + 1));
+document.getElementById("back").addEventListener("click", () => show(i - 1));
+show(0);
+</script>
+</body>
+</html>

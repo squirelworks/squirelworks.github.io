@@ -1,0 +1,732 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog title="Viewer3">
+  <main id="m0" title="DC Circuits">
+    <sub id="m0s0" title="Mod 01 Indoc">
+    </sub>
+    <sub id="m0s1" title="Mod 02 Introduction to Electricity">
+      <course id="93951100" title="Introduction to CAI" file="books/93951100.html"/>
+      <course id="10001001" title="Intro to PDAs" file="books/10001001.html"/>
+      <course id="93951101" title="Safety Practices" file="books/93951101.html"/>
+      <course id="93951102" title="Equipment Familarization" file="books/93951102.html"/>
+      <course id="93951103" title="Metric Notation" file="books/93951103.html"/>
+      <course id="93951104" title="Voltage and Current" file="books/93951104.html"/>
+      <course id="93951105" title="Resistors" file="books/93951105.html"/>
+      <course id="93951106" title="Switches, Fuses and Breakers" file="books/93951106.html"/>
+      <course id="93951108" title="Introduction to Technical Graphics" file="books/93951108.html"/>
+    </sub>
+    <sub id="m0s2" title="Mod 03 Multimeter Measurements">
+      <course id="93951201" title="Magnetism, Relays &amp; Meters" file="books/93951201.html"/>
+      <course id="93951202" title="Intro to Multimeters" file="books/93951202.html"/>
+      <course id="93951203" title="Multimeter Use" file="books/93951203.html"/>
+      <course id="93951204" title="Voltage Measurements" file="books/93951204.html"/>
+      <course id="93951205" title="Current Measurements" file="books/93951205.html"/>
+      <course id="93951206" title="Resistance Measurements" file="books/93951206.html"/>
+    </sub>
+    <sub id="m0s3" title="Mod 04 Basic DC Circuits">
+      <course id="93951301" title="Ohm&#x27;s Law" file="books/93951301.html"/>
+      <course id="93951302" title="Series Circuits" file="books/93951302.html"/>
+      <course id="93951303" title="Series TS Theory" file="books/93951303.html"/>
+      <course id="93951304" title="Series TS Experiment" file="books/93951304.html"/>
+      <course id="93951306" title="Parallel Circuits" file="books/93951306.html"/>
+      <course id="93951307" title="Parallel TS Theory" file="books/93951307.html"/>
+      <course id="93951308" title="Parallel TS Experiment" file="books/93951308.html"/>
+      <course id="93951310" title="Series-Parallel Circuits" file="books/93951310.html"/>
+      <course id="93951311" title="Series-Parallel TS Theory" file="books/93951311.html"/>
+      <course id="93951312" title="Series-Parallel TS Exp" file="books/93951312.html"/>
+    </sub>
+    <sub id="m0s4" title="Mod 05 Complex DC Circuits">
+      <course id="93951401" title="Voltage Divider Circuits" file="books/93951401.html"/>
+      <course id="93951402" title="Bridge Circuits" file="books/93951402.html"/>
+      <course id="93951403" title="Kirchhoff" file="books/93951403.html"/>
+      <course id="93951404" title="Norton&#x27;s Theorem" file="books/93951404.html"/>
+      <course id="93951405" title="Thevenin&#x27;s Theorem" file="books/93951405.html"/>
+      <course id="93951406" title="Meter Loading" file="books/93951406.html"/>
+    </sub>
+    <sub id="m0s5" title="Mod 06 Wiring">
+      <course id="93951601" title="PC Component Insertion/Extraction Tech." file="books/93951601.html"/>
+      <course id="93951602" title="Basic Soldering Techniques" file="books/93951602.html"/>
+      <course id="93951603" title="Basic Connector Termination Techniques" file="books/93951603.html"/>
+      <course id="93951604" title="Basic Wire Wrapping Techniques" file="books/93951604.html"/>
+      <course id="93951605" title="Basic Wiring and Connector TS Theory" file="books/93951605.html"/>
+      <course id="93951606" title="Wire Troubleshooting" file="books/93951606.html"/>
+    </sub>
+  </main>
+  <main id="m1" title="AC Circuits">
+    <sub id="m1s0" title="Mod 07 Introduction to AC">
+      <course id="93952101" title="Alternating Current" file="books/93952101.html"/>
+      <course id="93952102" title="Generating AC Electricity" file="books/93952102.html"/>
+      <course id="93952103" title="Non-Sinusoidal Waves" file="books/93952103.html"/>
+      <course id="93952104" title="Resistance in AC Circuits" file="books/93952104.html"/>
+    </sub>
+    <sub id="m1s1" title="Mod 08 AC Test Equipment">
+      <course id="93952201" title="Intro to Oscilloscopes" file="books/93952201.html"/>
+      <course id="93952202" title="Oscilloscope Use" file="books/93952202.html"/>
+      <course id="93952203" title="Intro to Function Generators - 440" file="books/93952203.html"/>
+      <course id="93952204" title="Function Generator Use - 440" file="books/93952204.html"/>
+      <course id="93952205" title="Intro to Frequency Counters" file="books/93952205.html"/>
+      <course id="93952206" title="Frequency Counter Use" file="books/93952206.html"/>
+      <course id="93952207" title="Oscilloscope Use - 444" file="books/93952207.html"/>
+      <course id="93952208" title="Intro to Function Generators - 444" file="books/93952208.html"/>
+      <course id="93952209" title="Function Generator Use - 444" file="books/93952209.html"/>
+      <course id="93952210" title="Intro to Function Generators - 4040" file="books/93952210.html"/>
+      <course id="93952211" title="Function Generator Use - 4040" file="books/93952211.html"/>
+      <course id="93952212" title="Intro to Oscilloscopes" file="books/93952212.html"/>
+      <course id="93952213" title="Oscilloscope Use - 444" file="books/93952213.html"/>
+      <course id="93952214" title="Oscilloscope Use - 804" file="books/93952214.html"/>
+    </sub>
+    <sub id="m1s2" title="Mod 09 Inductance and RL Circuits">
+      <course id="93952301" title="Intro to Inductors" file="books/93952301.html"/>
+      <course id="93952302" title="Inductor Identification" file="books/93952302.html"/>
+      <course id="93952303" title="RL Series Circuits" file="books/93952303.html"/>
+      <course id="93952304" title="RL Series Circuit Operation" file="books/93952304.html"/>
+      <course id="93952305" title="RL Series Circuit TS Exp" file="books/93952305.html"/>
+      <course id="93952307" title="RL Parallel Circuits" file="books/93952307.html"/>
+      <course id="93952308" title="RL Parallel Circuit Oper" file="books/93952308.html"/>
+      <course id="93952309" title="RL Parallel Circuit TS Exp" file="books/93952309.html"/>
+      <course id="93952311" title="RL Filters" file="books/93952311.html"/>
+    </sub>
+    <sub id="m1s3" title="Mod 10 Capacitance and RC Circuits">
+      <course id="93952401" title="Intro to Capacitors" file="books/93952401.html"/>
+      <course id="93952402" title="Capacitor Identification" file="books/93952402.html"/>
+      <course id="93952403" title="RC Series Circuits" file="books/93952403.html"/>
+      <course id="93952404" title="RC Series Circuit Operation" file="books/93952404.html"/>
+      <course id="93952405" title="RC Series Circuit TS Exp" file="books/93952405.html"/>
+      <course id="93952408" title="RC Parallel Circuits" file="books/93952408.html"/>
+      <course id="93952409" title="RC Parallel Circuit Oper" file="books/93952409.html"/>
+      <course id="93952410" title="RC Parallel Circuit TS Exp" file="books/93952410.html"/>
+      <course id="93952413" title="RC Filters" file="books/93952413.html"/>
+    </sub>
+    <sub id="m1s4" title="Mod 11 RC Time Constants and Transients">
+      <course id="93952501" title="RC and RL Time Constants" file="books/93952501.html"/>
+      <course id="93952502" title="RC Time Constants Operation" file="books/93952502.html"/>
+      <course id="93952503" title="RC Circuit Transients" file="books/93952503.html"/>
+      <course id="93952504" title="RC Cir Transients Exp" file="books/93952504.html"/>
+      <course id="93952505" title="RC Cir Transient TS Exp" file="books/93952505.html"/>
+    </sub>
+    <sub id="m1s5" title="Mod 12 Resonance">
+      <course id="93952601" title="Capacitive/Inductive &amp; LCR" file="books/93952601.html"/>
+      <course id="93952602" title="LCR Series &amp; Par Circuit Exp" file="books/93952602.html"/>
+      <course id="93952603" title="LCR Circuit TS" file="books/93952603.html"/>
+      <course id="93952604" title="Series Resonance" file="books/93952604.html"/>
+      <course id="93952605" title="Series Resonant Circuits" file="books/93952605.html"/>
+      <course id="93952606" title="Parallel Resonance" file="books/93952606.html"/>
+      <course id="93952607" title="Parallel Resonant Circuits" file="books/93952607.html"/>
+      <course id="93952608" title="Resonant Cir TS Experiment" file="books/93952608.html"/>
+    </sub>
+    <sub id="m1s6" title="Mod 13 Transformers">
+      <course id="93952701" title="Intro to Transformers" file="books/93952701.html"/>
+      <course id="93952702" title="Transformer Operation" file="books/93952702.html"/>
+      <course id="93952703" title="Troubleshooting Transformers" file="books/93952703.html"/>
+    </sub>
+    <sub id="m1s7" title="Mod 14 Relays &amp; Switches">
+      <course id="93952801" title="Relays and Switches" file="books/93952801.html"/>
+      <course id="93952802" title="Relay and Switches Operation Experiment" file="books/93952802.html"/>
+      <course id="93952803" title="TS Relays and Switches" file="books/93952803.html"/>
+      <course id="93952804" title="Electrical Circuits" file="books/93952804.html"/>
+      <course id="93952805" title="Electrical Circuits Exp" file="books/93952805.html"/>
+      <course id="93952806" title="Electrical Circuits TS" file="books/93952806.html"/>
+    </sub>
+  </main>
+  <main id="m2" title="Analog Circuits">
+    <sub id="m2s0" title="Mod 15 Diodes and Diode Circuits">
+      <course id="93953101" title="Intro to Diodes" file="books/93953101.html"/>
+      <course id="93953102" title="Junction Diodes" file="books/93953102.html"/>
+      <course id="93953103" title="Junction Diode Operation" file="books/93953103.html"/>
+      <course id="93953104" title="Junction Diode TS Exp" file="books/93953104.html"/>
+      <course id="93953106" title="Diode Limiter Operation" file="books/93953106.html"/>
+      <course id="93953107" title="Diode Clamper Operation" file="books/93953107.html"/>
+      <course id="93953108" title="Limiter &amp; Clamper TS Exp" file="books/93953108.html"/>
+      <course id="93953110" title="Vacuum Tube Theory" file="books/93953110.html"/>
+    </sub>
+    <sub id="m2s1" title="Mod 16 Transistor Circuits">
+      <course id="93953201" title="Intro to Transistors" file="books/93953201.html"/>
+      <course id="93953202" title="Transistor Operation" file="books/93953202.html"/>
+      <course id="93953203" title="Intro to Transistor Amps" file="books/93953203.html"/>
+      <course id="93953204" title="Common Emitter Amplifiers" file="books/93953204.html"/>
+      <course id="93953205" title="Common Emitter Amp Exp" file="books/93953205.html"/>
+      <course id="93953206" title="Common Collector Amplifier" file="books/93953206.html"/>
+      <course id="93953207" title="Common Collector Amp Exp" file="books/93953207.html"/>
+      <course id="93953208" title="Common Base Amplifier" file="books/93953208.html"/>
+      <course id="93953209" title="Common Base Amp Exp" file="books/93953209.html"/>
+    </sub>
+    <sub id="m2s2" title="Mod 17 Power Supplies">
+      <course id="93953301" title="Intro to Power Supplies" file="books/93953301.html"/>
+      <course id="93953302" title="Full &amp; Half Wave Rectifiers" file="books/93953302.html"/>
+      <course id="93953303" title="Bridge Rectifier Operation" file="books/93953303.html"/>
+      <course id="93953306" title="Intro to Voltage Regulators" file="books/93953306.html"/>
+      <course id="93953307" title="Zener Diode Operation" file="books/93953307.html"/>
+      <course id="93953308" title="Zener Diode Regulator Oper" file="books/93953308.html"/>
+      <course id="93953309" title="Voltage Regulator Operation" file="books/93953309.html"/>
+      <course id="93953310" title="Voltage Regulator TS Exp" file="books/93953310.html"/>
+      <course id="93953312" title="IC Regulator Operation" file="books/93953312.html"/>
+      <course id="93953313" title="Voltage Doubler Operation" file="books/93953313.html"/>
+    </sub>
+    <sub id="m2s3" title="Mod 18 Transistor Amplifiers">
+      <course id="93953401" title="Multistage Transistor Amps" file="books/93953401.html"/>
+      <course id="93953402" title="RC Coupled Transistor Amps" file="books/93953402.html"/>
+      <course id="93953403" title="Push-Pull Amplifier Oper" file="books/93953403.html"/>
+      <course id="93953404" title="Multistage Amp TS Exp" file="books/93953404.html"/>
+      <course id="93953406" title="Field Effect Transistor Amp" file="books/93953406.html"/>
+      <course id="93953407" title="Fet Amplifier TS Exp" file="books/93953407.html"/>
+      <course id="93953409" title="MOSFETS" file="books/93953409.html"/>
+    </sub>
+    <sub id="m2s4" title="Mod 19 Transistor Oscillators">
+      <course id="93953501" title="Intro to Sine Oscillators" file="books/93953501.html"/>
+      <course id="93953502" title="Hartley Oscillator Operation" file="books/93953502.html"/>
+      <course id="93953503" title="Colpitts Oscillator Oper" file="books/93953503.html"/>
+      <course id="93953504" title="RC Phase Shift Oscillator" file="books/93953504.html"/>
+      <course id="93953505" title="Crystal Controlled Osc" file="books/93953505.html"/>
+      <course id="93953506" title="Sine Wave Osc TS Exp I" file="books/93953506.html"/>
+      <course id="93953507" title="Sine Wave Osc TS Exp II" file="books/93953507.html"/>
+      <course id="93953508" title="Sawtooth Oscillator" file="books/93953508.html"/>
+      <course id="93953509" title="Blocking Oscillator" file="books/93953509.html"/>
+      <course id="93953510" title="Non-Sine Osc TS Exp" file="books/93953510.html"/>
+    </sub>
+    <sub id="m2s5" title="Mod 20 Transistor Pulse Circuits">
+      <course id="93953601" title="Intro to Multivibrator Cir" file="books/93953601.html"/>
+      <course id="93953602" title="Astable Multivibrator Oper" file="books/93953602.html"/>
+      <course id="93953603" title="Monostable Multivibrator Op" file="books/93953603.html"/>
+      <course id="93953604" title="Bistable Multivibrator Op" file="books/93953604.html"/>
+      <course id="93953605" title="Multivibrator TS Exp" file="books/93953605.html"/>
+      <course id="93953607" title="Schmitt Trigger Operation" file="books/93953607.html"/>
+      <course id="93953608" title="Schmitt Trigger TS Exp" file="books/93953608.html"/>
+    </sub>
+    <sub id="m2s6" title="Mod 21 Trigger Device Circuits">
+      <course id="93953701" title="Intro to Trigger Devices" file="books/93953701.html"/>
+      <course id="93953702" title="Unijunction Transistor Osc" file="books/93953702.html"/>
+      <course id="93953703" title="SCR Trigger Operation" file="books/93953703.html"/>
+      <course id="93953704" title="SCR Power Control Operation" file="books/93953704.html"/>
+      <course id="93953705" title="SCR Circuit TS Exp" file="books/93953705.html"/>
+      <course id="93953707" title="DIACs, TRIACs, &amp; 4 Layer Diodes" file="books/93953707.html"/>
+      <course id="93953708" title="Programmable UJTs" file="books/93953708.html"/>
+    </sub>
+    <sub id="m2s7" title="Mod 22 Operational Amplifiers">
+      <course id="93953801" title="Intro to Operational Amps" file="books/93953801.html"/>
+      <course id="93953802" title="Operational Amp Operation" file="books/93953802.html"/>
+      <course id="93953803" title="Operational Amp TS Exp" file="books/93953803.html"/>
+    </sub>
+    <sub id="m2s8" title="Mod 23 RF Electronics">
+      <course id="93953901" title="Intro to AM Receivers" file="books/93953901.html"/>
+      <course id="93953902" title="AM Receiver Operation" file="books/93953902.html"/>
+      <course id="93953903" title="AM Receiver Troubleshooting" file="books/93953903.html"/>
+    </sub>
+  </main>
+  <main id="m3" title="Digital Circuits">
+    <sub id="m3s0" title="Mod 24 Introduction to Digital Circuits">
+      <course id="93954101" title="Intro to Digital Electronics" file="books/93954101.html"/>
+      <course id="93954102" title="Digital Electronics Hardware" file="books/93954102.html"/>
+      <course id="93954103" title="Buffers and Inverters" file="books/93954103.html"/>
+      <course id="93954104" title="Digital Test Equipment" file="books/93954104.html"/>
+      <course id="93954106" title="Intro to ICs" file="books/93954106.html"/>
+      <course id="93954107" title="Electrostatic Devices" file="books/93954107.html"/>
+    </sub>
+    <sub id="m3s1" title="Mod 25 Digital Logic Functions">
+      <course id="93954207" title="Intro to Logic Functions" file="books/93954207.html"/>
+      <course id="93954201" title="AND Gates" file="books/93954201.html"/>
+      <course id="93954202" title="OR Gates" file="books/93954202.html"/>
+      <course id="93954203" title="NOT Gates" file="books/93954203.html"/>
+      <course id="93954204" title="NAND Gates" file="books/93954204.html"/>
+      <course id="93954205" title="NOR Gates" file="books/93954205.html"/>
+      <course id="93954206" title="XOR Gates" file="books/93954206.html"/>
+      <course id="9e954d03" title="Troubleshooting Digital Systems" file="books/9e954d03.html"/>
+    </sub>
+    <sub id="m3s2" title="Mod 26 Combination Logic Functions">
+      <course id="93954301" title="Intro to Combinational Cir" file="books/93954301.html"/>
+      <course id="93954302" title="Logic Families" file="books/93954302.html"/>
+      <course id="93954303" title="Number Systems" file="books/93954303.html"/>
+      <course id="93954304" title="Base 10 to Binary Conversion" file="books/93954304.html"/>
+      <course id="93954305" title="Binary to 7 Segment Conv" file="books/93954305.html"/>
+      <course id="93954306" title="4 Bit Comparator" file="books/93954306.html"/>
+    </sub>
+    <sub id="m3s3" title="Mod 27 Flip-Flop Circuits">
+      <course id="93954401" title="Intro to Flip-Flops" file="books/93954401.html"/>
+      <course id="93954402" title="RS Flip-Flop" file="books/93954402.html"/>
+      <course id="93954105" title="555 Timer" file="books/93954105.html"/>
+      <course id="93954403" title="Clocked RS Flip-Flop" file="books/93954403.html"/>
+      <course id="93954404" title="D-Type Flip-Flop" file="books/93954404.html"/>
+      <course id="93954405" title="J-K Flip-Flop" file="books/93954405.html"/>
+      <course id="93954406" title="Master Slave Flip-Flop" file="books/93954406.html"/>
+    </sub>
+    <sub id="m3s4" title="Mod 28 Register Memory Circuits">
+      <course id="93954501" title="Intro to Register &amp; Memory" file="books/93954501.html"/>
+      <course id="93954502" title="4 Bit Storage Register" file="books/93954502.html"/>
+      <course id="93954503" title="4 Bit Shift Register" file="books/93954503.html"/>
+      <course id="93954504" title="8 Bit Shift Register" file="books/93954504.html"/>
+      <course id="93954505" title="64 Bit Memory Circuit" file="books/93954505.html"/>
+    </sub>
+    <sub id="m3s5" title="Mod 29 Arithmetic Counting Circuits">
+      <course id="93954601" title="Intro to Arithmetic Counting" file="books/93954601.html"/>
+      <course id="93954602" title="Ripple Counter" file="books/93954602.html"/>
+      <course id="93954603" title="Up Counter" file="books/93954603.html"/>
+      <course id="93954604" title="Down Counter" file="books/93954604.html"/>
+      <course id="93954605" title="4 Bit Adders" file="books/93954605.html"/>
+      <course id="93954606" title="4 Bit Subtractors" file="books/93954606.html"/>
+    </sub>
+    <sub id="m3s6" title="Mod 30 Conversion and Data Circuits">
+      <course id="93954701" title="Intro to Conversion &amp; Data" file="books/93954701.html"/>
+      <course id="93954702" title="D to A Conversion" file="books/93954702.html"/>
+      <course id="93954703" title="Data Selector Circuits" file="books/93954703.html"/>
+      <course id="93954704" title="Data Distribution Circuits" file="books/93954704.html"/>
+    </sub>
+    <sub id="m3s7" title="Mod 31 Microprocessor Circuits">
+      <course id="9395T821" title="Introduction to Microprocessors" file="books/9395T821.html"/>
+      <course id="9395T822" title="Basic Microprocessor Operation" file="books/9395T822.html"/>
+      <course id="9395T823" title="Number Systems" file="books/9395T823.html"/>
+      <course id="9395T831" title="8085 Microprocessor Circuit" file="books/9395T831.html"/>
+      <course id="9395T832" title="Operation of the 8085 Microprocessor" file="books/9395T832.html"/>
+      <course id="9395T833" title="Interfacing with the 8085" file="books/9395T833.html"/>
+      <course id="9395T834" title="Troubleshooting the 8085" file="books/9395T834.html"/>
+    </sub>
+  </main>
+  <main id="m4" title="Advanced Electronics">
+    <sub id="m4s0" title="Mod 32 Basic Motors">
+      <course id="9395T301" title="Intro to Rotating Machinery" file="books/9395T301.html"/>
+      <course id="93955102" title="Characteristics, Rotating Mach" file="books/93955102.html"/>
+      <course id="9395T302" title="DC Motors and Generators" file="books/9395T302.html"/>
+      <course id="9395T303" title="Stepper Motors" file="books/9395T303.html"/>
+      <course id="9395T304" title="AC Motors and Generators" file="books/9395T304.html"/>
+      <course id="9395Z203" title="Three-phase Power Generation" file="books/9395Z203.html"/>
+    </sub>
+    <sub id="m4s1" title="Mod 33 Advanced Motor Operation">
+      <course id="93955601" title="DC Motors" file="books/93955601.html"/>
+      <course id="9395T312" title="Brushless DC Motors" file="books/9395T312.html"/>
+      <course id="93955602" title="DC Shunt Motors" file="books/93955602.html"/>
+      <course id="93955603" title="DC Series Motors" file="books/93955603.html"/>
+      <course id="93955604" title="DC Compound Motors" file="books/93955604.html"/>
+      <course id="93955605" title="Time Control of DC Motors" file="books/93955605.html"/>
+      <course id="93955606" title="Feedback of DC Motors" file="books/93955606.html"/>
+      <course id="93955608" title="TS Closed Loop Feedback" file="books/93955608.html"/>
+      <course id="93955609" title="Amp Cont of DC Motors" file="books/93955609.html"/>
+      <course id="93955702" title="AC Motors" file="books/93955702.html"/>
+      <course id="93955703" title="AC Motor Characteristics" file="books/93955703.html"/>
+      <course id="9395T314" title="Troubleshooting AC Motors" file="books/9395T314.html"/>
+      <course id="93955801" title="Stepper Motors" file="books/93955801.html"/>
+      <course id="93955802" title="Stepper Controllers" file="books/93955802.html"/>
+      <course id="93955901" title="Generators" file="books/93955901.html"/>
+      <course id="93955902" title="Motor Generators" file="books/93955902.html"/>
+    </sub>
+    <sub id="m4s2" title="Mod 34 Basic Synchro/Servo">
+      <course id="9395T315" title="Pulse Width Modulation &amp; Amplification" file="books/9395T315.html"/>
+      <course id="9395T316" title="Open Loop Motor System Experiment" file="books/9395T316.html"/>
+      <course id="9395T321" title="Motion Detection" file="books/9395T321.html"/>
+      <course id="9395T322" title="Error Detection &amp; Feedback" file="books/9395T322.html"/>
+      <course id="9395T323" title="Troubleshooting Closed Loop Systems" file="books/9395T323.html"/>
+      <course id="9395T331" title="Position Detection" file="books/9395T331.html"/>
+      <course id="9395T332" title="Proportional, Integral, &amp; Derivative" file="books/9395T332.html"/>
+      <course id="9395T333" title="PID Control System Experiment" file="books/9395T333.html"/>
+    </sub>
+    <sub id="m4s3" title="Mod 35 Advanced Synchro/Servo">
+      <course id="93956401" title="Introduction to Synchros" file="books/93956401.html"/>
+      <course id="93956402" title="Differential Transmitters" file="books/93956402.html"/>
+      <course id="93956403" title="Control Synchro Systems" file="books/93956403.html"/>
+      <course id="93956404" title="Troubleshooting Synchro Systems" file="books/93956404.html"/>
+      <course id="93956405" title="Gyroscopes" file="books/93956405.html"/>
+    </sub>
+    <sub id="m4s4" title="Mod 36 Basic Radar Systems">
+      <course id="9395TD01" title="Introduction to Radar" file="books/9395TD01.html"/>
+      <course id="9395TD02" title="Radar Operation" file="books/9395TD02.html"/>
+      <course id="9395TD03" title="Radar Transmitters and Receivers" file="books/9395TD03.html"/>
+      <course id="9395TD04" title="Transmission Lines" file="books/9395TD04.html"/>
+      <course id="9395TD05" title="Waveguide Theory" file="books/9395TD05.html"/>
+      <course id="9395TD06" title="Radar Antennas" file="books/9395TD06.html"/>
+      <course id="9395TD07" title="Cavity Resonators &amp; Tube Devices" file="books/9395TD07.html"/>
+      <course id="9395TD08" title="Semiconductor Microwave Devices" file="books/9395TD08.html"/>
+      <course id="9395TD09" title="Electromagnetic Compatibility CM" file="books/9395TD09.html"/>
+      <course id="9395TD10" title="Radar Auxiliary Systems" file="books/9395TD10.html"/>
+    </sub>
+    <sub id="m4s5" title="Mod 37 Communications Systems">
+      <course id="9395T901" title="Introduction to Communications" file="books/9395T901.html"/>
+      <course id="9395T921" title="Wave Propagation" file="books/9395T921.html"/>
+      <course id="9395T922" title="HF Fundamentals" file="books/9395T922.html"/>
+      <course id="9395TB01" title="Phase Lock Loop" file="books/9395TB01.html"/>
+      <course id="9395T902" title="Amplitude Modulation (AM) Receivers" file="books/9395T902.html"/>
+      <course id="9395T903" title="AM Receiver Analysis" file="books/9395T903.html"/>
+      <course id="9395T904" title="AM Receiver Troubleshooting" file="books/9395T904.html"/>
+      <course id="9395T905" title="Frequency Modulation (FM) Receivers" file="books/9395T905.html"/>
+      <course id="9395T906" title="FM Receiver Analysis" file="books/9395T906.html"/>
+      <course id="9395T907" title="FM Receiver Troubleshooting" file="books/9395T907.html"/>
+      <course id="9395T908" title="Citizen Band (CB) Radio" file="books/9395T908.html"/>
+      <course id="9395T909" title="CB Transceiver Analysis" file="books/9395T909.html"/>
+      <course id="9395T910" title="CB Transceiver Troubleshooting" file="books/9395T910.html"/>
+      <course id="9395T911" title="Single Sideband Transmitters/Receivers" file="books/9395T911.html"/>
+      <course id="9395T912" title="SSB Analysis" file="books/9395T912.html"/>
+      <course id="9395T913" title="SSB Troubleshooting" file="books/9395T913.html"/>
+      <course id="9395T914" title="Narrowband FM" file="books/9395T914.html"/>
+      <course id="9395T915" title="Narrowband FM Troubleshooting" file="books/9395T915.html"/>
+      <course id="9395T916" title="Communications Troubleshooting" file="books/9395T916.html"/>
+    </sub>
+    <sub id="m4s6" title="Mod 38 Fiber Optics">
+      <course id="9395A201" title="Intro to Fiberoptics" file="books/9395A201.html"/>
+      <course id="9395A202" title="Fiberoptic Components" file="books/9395A202.html"/>
+      <course id="9395A203" title="Signal Transmission" file="books/9395A203.html"/>
+      <course id="9395A204" title="Fiberoptic Cable Connection" file="books/9395A204.html"/>
+      <course id="9395A205" title="Fiberoptic Troubleshooting Exp" file="books/9395A205.html"/>
+    </sub>
+    <sub id="m4s7" title="Mod 39 Computer Technology">
+      <course id="9395P301" title="The Personal Computer" file="books/9395P301.html"/>
+      <course id="9395P302" title="Operating Systems" file="books/9395P302.html"/>
+      <course id="9395p303" title="The System Case and Power Supply" file="books/9395p303.html"/>
+      <course id="9395p304" title="The Motherboard" file="books/9395p304.html"/>
+      <course id="9395p305" title="The Central Processing Unit" file="books/9395p305.html"/>
+      <course id="9395p306" title="Computer Memory" file="books/9395p306.html"/>
+      <course id="9395p307" title="Input/Output and Interfaces" file="books/9395p307.html"/>
+      <course id="9395P308" title="Expansion" file="books/9395P308.html"/>
+      <course id="9395p311" title="Applications" file="books/9395p311.html"/>
+      <course id="9395P401" title="Network Systems" file="books/9395P401.html"/>
+    </sub>
+    <sub id="m4s8" title="Mod 40 Hydraulic/Pneumatic Systems">
+      <course id="9395TC01" title="Introduction to Hydraulic Systems" file="books/9395TC01.html"/>
+      <course id="9395TC02" title="Introduction to Pneumatic Systems" file="books/9395TC02.html"/>
+      <course id="9395TC03" title="Fluid System Valve Operation" file="books/9395TC03.html"/>
+      <course id="9395TC04" title="Hydraulic/Pneumatic Pumps" file="books/9395TC04.html"/>
+      <course id="9395TC05" title="TS Hydraulic/Pneumatic Systems" file="books/9395TC05.html"/>
+    </sub>
+    <sub id="m4s9" title="Mod 41 Basic Telephone Systems">
+      <course id="9395T601" title="Introduction to Communication Systems" file="books/9395T601.html"/>
+      <course id="9395T602" title="Telephone Systems" file="books/9395T602.html"/>
+      <course id="9395T603" title="Telephone Equipment" file="books/9395T603.html"/>
+      <course id="9395T610" title="Introduction to Telecommunications" file="books/9395T610.html"/>
+      <course id="9395T605" title="Types of Telecommunications Careers" file="books/9395T605.html"/>
+      <course id="9395T606" title="History of Telecommunications" file="books/9395T606.html"/>
+      <course id="9395T607" title="Special Interest Groups and Forums" file="books/9395T607.html"/>
+      <course id="9395T608" title="Telecommunications Jargon and Acronyms" file="books/9395T608.html"/>
+      <course id="9395T611" title="Connection Links" file="books/9395T611.html"/>
+      <course id="9395T612" title="Introduction to Network Systems" file="books/9395T612.html"/>
+      <course id="9395T613" title="Broadcast Systems" file="books/9395T613.html"/>
+      <course id="9395T614" title="Spread Spectrum" file="books/9395T614.html"/>
+      <course id="9395T615" title="Cellular Telephony" file="books/9395T615.html"/>
+      <course id="9395T616" title="Information Systems" file="books/9395T616.html"/>
+      <course id="9395T617" title="Satellite Systems" file="books/9395T617.html"/>
+    </sub>
+    <sub id="m4s10" title="Mod 42 Transducer Systems">
+      <course id="93957107" title="Introduction to Transducers" file="books/93957107.html"/>
+      <course id="93957101" title="Nature of Light" file="books/93957101.html"/>
+      <course id="93957102" title="Light Transducers" file="books/93957102.html"/>
+      <course id="93957103" title="Light Transducer Operation" file="books/93957103.html"/>
+      <course id="93957104" title="Nature of Heat" file="books/93957104.html"/>
+      <course id="93957105" title="Heat Transducers" file="books/93957105.html"/>
+      <course id="93957106" title="Heat Transducer Operation" file="books/93957106.html"/>
+      <course id="93957201" title="Nature of Motion" file="books/93957201.html"/>
+      <course id="93957202" title="Motion Transducers" file="books/93957202.html"/>
+      <course id="93957203" title="Motion Transducer Operation" file="books/93957203.html"/>
+      <course id="93957204" title="Nature of Position" file="books/93957204.html"/>
+      <course id="93957205" title="Position Transducers" file="books/93957205.html"/>
+      <course id="93957206" title="Position Transducer Opr" file="books/93957206.html"/>
+    </sub>
+    <sub id="m4s11" title="Mod 43 Programmable Logic Controllers">
+      <course id="9395N101" title="Intro to PLCs" file="books/9395N101.html"/>
+      <course id="9395N105" title="PLC Familiarization" file="books/9395N105.html"/>
+      <course id="9395N102" title="PLC Hardware" file="books/9395N102.html"/>
+      <course id="9395N103" title="PLC Programming" file="books/9395N103.html"/>
+      <course id="9395N104" title="PLC Troubleshooting" file="books/9395N104.html"/>
+      <course id="9395N200" title="RSLogix Familiarization" file="books/9395N200.html"/>
+      <course id="9395N201" title="APS Familiarization" file="books/9395N201.html"/>
+      <course id="9395N202" title="Bit Instructions" file="books/9395N202.html"/>
+      <course id="9395N203" title="Timer and Counter Instructions" file="books/9395N203.html"/>
+      <course id="9395N204" title="I/O and Interrupt Instructions" file="books/9395N204.html"/>
+      <course id="9395N205" title="Comparison Instructions" file="books/9395N205.html"/>
+      <course id="9395N206" title="Math Instructions" file="books/9395N206.html"/>
+      <course id="9395N207" title="Move and Logical Instructions" file="books/9395N207.html"/>
+      <course id="9395N208" title="File Instructions" file="books/9395N208.html"/>
+      <course id="9395N209" title="Bit Shift, FIFO, and LIFO Instructions" file="books/9395N209.html"/>
+      <course id="9395N210" title="Sequencer Instructions" file="books/9395N210.html"/>
+      <course id="9395N211" title="Control Instructions" file="books/9395N211.html"/>
+    </sub>
+  </main>
+  <main id="m5" title="Math">
+    <sub id="m5s0" title="Mod 44 Basic Mathematics">
+      <course id="93950101" title="Addition &amp; Subtraction" file="books/93950101.html"/>
+      <course id="93950102" title="Multiplication &amp; Division" file="books/93950102.html"/>
+      <course id="93950103" title="Fractions" file="books/93950103.html"/>
+      <course id="93950104" title="Fraction Operation" file="books/93950104.html"/>
+      <course id="93950105" title="Decimal Fractions" file="books/93950105.html"/>
+      <course id="93950106" title="Signed Numbers" file="books/93950106.html"/>
+      <course id="93950107" title="Percents" file="books/93950107.html"/>
+      <course id="93950108" title="Exponents &amp; Square Roots" file="books/93950108.html"/>
+      <course id="93950109" title="Metric Notation" file="books/93950109.html"/>
+    </sub>
+    <sub id="m5s1" title="Mod 45 Algebra">
+      <course id="93950201" title="Fundamentals of Algebra" file="books/93950201.html"/>
+      <course id="93950202" title="Linear Equations" file="books/93950202.html"/>
+      <course id="93950203" title="Solving Linear Equations" file="books/93950203.html"/>
+      <course id="93950204" title="Exponents &amp; Monomials" file="books/93950204.html"/>
+      <course id="93950205" title="Polynomials" file="books/93950205.html"/>
+      <course id="93950206" title="Factoring Polynomials" file="books/93950206.html"/>
+      <course id="93950207" title="Roots and Radicals" file="books/93950207.html"/>
+      <course id="93950208" title="Graphs" file="books/93950208.html"/>
+      <course id="93950209" title="Systems of Linear Equations" file="books/93950209.html"/>
+      <course id="93950210" title="Introduction to Statistics" file="books/93950210.html"/>
+    </sub>
+    <sub id="m5s2" title="Mod 46 Trigonometry">
+      <course id="93950301" title="Fundamentals of Trigonometry" file="books/93950301.html"/>
+      <course id="93950302" title="Trigonometric Functions" file="books/93950302.html"/>
+      <course id="93950303" title="Graphing Trigonometric Functions" file="books/93950303.html"/>
+      <course id="93950304" title="Trigonometric Identities" file="books/93950304.html"/>
+      <course id="93950305" title="Angle Formulas" file="books/93950305.html"/>
+      <course id="93950306" title="Inverse Trigonometric Functions" file="books/93950306.html"/>
+      <course id="93950307" title="Applications of Trigonometry" file="books/93950307.html"/>
+      <course id="93950308" title="Graphing Polar Equations" file="books/93950308.html"/>
+      <course id="93950309" title="Conic Sections: Circles and Parabolas" file="books/93950309.html"/>
+      <course id="93950310" title="Conic Sections: Ellipses and Hyperbolas" file="books/93950310.html"/>
+    </sub>
+    <sub id="m5s3" title="Mod 47 Calculus">
+      <course id="93950401" title="Fundamentals of Calculus" file="books/93950401.html"/>
+      <course id="93950402" title="Limits" file="books/93950402.html"/>
+      <course id="93950403" title="Limits: Continuity and Infinity" file="books/93950403.html"/>
+      <course id="93950404" title="Derivatives" file="books/93950404.html"/>
+      <course id="93950405" title="The Chain Rule" file="books/93950405.html"/>
+      <course id="93950406" title="Additional Differential Methods" file="books/93950406.html"/>
+      <course id="93950407" title="Applications of Derivatives" file="books/93950407.html"/>
+      <course id="93950408" title="Integration" file="books/93950408.html"/>
+      <course id="93950409" title="Definite Integrals" file="books/93950409.html"/>
+      <course id="93950410" title="Applications of Definite Integrals" file="books/93950410.html"/>
+    </sub>
+    <sub id="m5s4" title="Mod 48 Computer Math">
+      <course id="93950501" title="Fundamentals of Computer Math" file="books/93950501.html"/>
+      <course id="93950502" title="Number Systems (Base 10 to Base 2)" file="books/93950502.html"/>
+      <course id="93950503" title="Number Systems (Base 8 to Base 16)" file="books/93950503.html"/>
+      <course id="93950504" title="Logic Expressions" file="books/93950504.html"/>
+      <course id="93950505" title="Boolean Algebra Rules" file="books/93950505.html"/>
+      <course id="93950506" title="Gate Networks" file="books/93950506.html"/>
+      <course id="93950507" title="Boolean Algebra Equations" file="books/93950507.html"/>
+      <course id="93950508" title="Karnaugh Maps" file="books/93950508.html"/>
+      <course id="93950509" title="Algorithms and Flow Charts" file="books/93950509.html"/>
+      <course id="93950510" title="Sequences and Matrices" file="books/93950510.html"/>
+    </sub>
+    <sub id="m5s5" title="Mod 49 Measurements">
+      <course id="93950601" title="Introduction to Measurements" file="books/93950601.html"/>
+      <course id="93950602" title="Metric Conversion" file="books/93950602.html"/>
+      <course id="93950603" title="Angular and Circular Measurements" file="books/93950603.html"/>
+      <course id="93950604" title="Area Measurements" file="books/93950604.html"/>
+      <course id="93950605" title="Volume Measurements" file="books/93950605.html"/>
+      <course id="93950606" title="Velocity and Acceleration Measurements" file="books/93950606.html"/>
+      <course id="93950607" title="Force Measurements" file="books/93950607.html"/>
+      <course id="93950608" title="Work and Power Measurements" file="books/93950608.html"/>
+    </sub>
+  </main>
+  <main id="m6" title="Miscelleanous Systems">
+    <sub id="m6s0" title="Mod 50 Specialized Comm Systems">
+      <course id="9395D801" title="Acoustics" file="books/9395D801.html"/>
+      <course id="9395D808" title="Central Announcing Systems" file="books/9395D808.html"/>
+      <course id="9395D809" title="Intercommunicating Units" file="books/9395D809.html"/>
+      <course id="9395D810" title="Basic Alarm, Safety and Warning" file="books/9395D810.html"/>
+    </sub>
+  </main>
+  <main id="disk" title="On disk">
+    <sub id="disks0" title="Not in courses.xml">
+      <course id="93950198" title="93950198" file="books/93950198.html"/>
+      <course id="93950199" title="93950199" file="books/93950199.html"/>
+      <course id="93950298" title="93950298" file="books/93950298.html"/>
+      <course id="93950299" title="93950299" file="books/93950299.html"/>
+      <course id="93950398" title="93950398" file="books/93950398.html"/>
+      <course id="93950399" title="93950399" file="books/93950399.html"/>
+      <course id="93950498" title="93950498" file="books/93950498.html"/>
+      <course id="93950499" title="93950499" file="books/93950499.html"/>
+      <course id="93950598" title="93950598" file="books/93950598.html"/>
+      <course id="93950599" title="93950599" file="books/93950599.html"/>
+      <course id="93950698" title="93950698" file="books/93950698.html"/>
+      <course id="93950699" title="93950699" file="books/93950699.html"/>
+      <course id="93951107" title="93951107" file="books/93951107.html"/>
+      <course id="93951305" title="93951305" file="books/93951305.html"/>
+      <course id="93951309" title="93951309" file="books/93951309.html"/>
+      <course id="93951313" title="93951313" file="books/93951313.html"/>
+      <course id="93951607" title="93951607" file="books/93951607.html"/>
+      <course id="93952306" title="93952306" file="books/93952306.html"/>
+      <course id="93952310" title="93952310" file="books/93952310.html"/>
+      <course id="93952406" title="93952406" file="books/93952406.html"/>
+      <course id="93952407" title="93952407" file="books/93952407.html"/>
+      <course id="93952411" title="93952411" file="books/93952411.html"/>
+      <course id="93952412" title="93952412" file="books/93952412.html"/>
+      <course id="93952506" title="93952506" file="books/93952506.html"/>
+      <course id="93952507" title="93952507" file="books/93952507.html"/>
+      <course id="93952609" title="93952609" file="books/93952609.html"/>
+      <course id="93952610" title="93952610" file="books/93952610.html"/>
+      <course id="93953105" title="93953105" file="books/93953105.html"/>
+      <course id="93953109" title="93953109" file="books/93953109.html"/>
+      <course id="93953311" title="93953311" file="books/93953311.html"/>
+      <course id="93953405" title="93953405" file="books/93953405.html"/>
+      <course id="93953408" title="93953408" file="books/93953408.html"/>
+      <course id="93953511" title="93953511" file="books/93953511.html"/>
+      <course id="93953606" title="93953606" file="books/93953606.html"/>
+      <course id="93953609" title="93953609" file="books/93953609.html"/>
+      <course id="93953706" title="93953706" file="books/93953706.html"/>
+      <course id="93953804" title="93953804" file="books/93953804.html"/>
+      <course id="93955101" title="93955101" file="books/93955101.html"/>
+      <course id="93955103" title="93955103" file="books/93955103.html"/>
+      <course id="93955104" title="93955104" file="books/93955104.html"/>
+      <course id="93955198" title="93955198" file="books/93955198.html"/>
+      <course id="93955199" title="93955199" file="books/93955199.html"/>
+      <course id="93955201" title="93955201" file="books/93955201.html"/>
+      <course id="93955202" title="93955202" file="books/93955202.html"/>
+      <course id="93955203" title="93955203" file="books/93955203.html"/>
+      <course id="93955204" title="93955204" file="books/93955204.html"/>
+      <course id="93955205" title="93955205" file="books/93955205.html"/>
+      <course id="93955206" title="93955206" file="books/93955206.html"/>
+      <course id="93955207" title="93955207" file="books/93955207.html"/>
+      <course id="93955208" title="93955208" file="books/93955208.html"/>
+      <course id="93955209" title="93955209" file="books/93955209.html"/>
+      <course id="93955299" title="93955299" file="books/93955299.html"/>
+      <course id="93955301" title="93955301" file="books/93955301.html"/>
+      <course id="93955302" title="93955302" file="books/93955302.html"/>
+      <course id="93955303" title="93955303" file="books/93955303.html"/>
+      <course id="93955399" title="93955399" file="books/93955399.html"/>
+      <course id="93955401" title="93955401" file="books/93955401.html"/>
+      <course id="93955402" title="93955402" file="books/93955402.html"/>
+      <course id="93955499" title="93955499" file="books/93955499.html"/>
+      <course id="93955501" title="93955501" file="books/93955501.html"/>
+      <course id="93955502" title="93955502" file="books/93955502.html"/>
+      <course id="93955503" title="93955503" file="books/93955503.html"/>
+      <course id="93955599" title="93955599" file="books/93955599.html"/>
+      <course id="93957198" title="93957198" file="books/93957198.html"/>
+      <course id="93957199" title="93957199" file="books/93957199.html"/>
+      <course id="93957299" title="93957299" file="books/93957299.html"/>
+      <course id="93958101" title="93958101" file="books/93958101.html"/>
+      <course id="93958102" title="93958102" file="books/93958102.html"/>
+      <course id="93958103" title="93958103" file="books/93958103.html"/>
+      <course id="93958104" title="93958104" file="books/93958104.html"/>
+      <course id="93958105" title="93958105" file="books/93958105.html"/>
+      <course id="93958106" title="93958106" file="books/93958106.html"/>
+      <course id="93958107" title="93958107" file="books/93958107.html"/>
+      <course id="93958108" title="93958108" file="books/93958108.html"/>
+      <course id="93958198" title="93958198" file="books/93958198.html"/>
+      <course id="93958199" title="93958199" file="books/93958199.html"/>
+      <course id="9395A298" title="9395A298" file="books/9395A298.html"/>
+      <course id="9395A299" title="9395A299" file="books/9395A299.html"/>
+      <course id="9395B101" title="9395B101" file="books/9395B101.html"/>
+      <course id="9395B102" title="9395B102" file="books/9395B102.html"/>
+      <course id="9395B103" title="9395B103" file="books/9395B103.html"/>
+      <course id="9395B104" title="9395B104" file="books/9395B104.html"/>
+      <course id="9395B198" title="9395B198" file="books/9395B198.html"/>
+      <course id="9395B199" title="9395B199" file="books/9395B199.html"/>
+      <course id="9395B201" title="9395B201" file="books/9395B201.html"/>
+      <course id="9395B202" title="9395B202" file="books/9395B202.html"/>
+      <course id="9395B203" title="9395B203" file="books/9395B203.html"/>
+      <course id="9395B204" title="9395B204" file="books/9395B204.html"/>
+      <course id="9395B205" title="9395B205" file="books/9395B205.html"/>
+      <course id="9395B206" title="9395B206" file="books/9395B206.html"/>
+      <course id="9395B207" title="9395B207" file="books/9395B207.html"/>
+      <course id="9395B208" title="9395B208" file="books/9395B208.html"/>
+      <course id="9395B209" title="9395B209" file="books/9395B209.html"/>
+      <course id="9395B210" title="9395B210" file="books/9395B210.html"/>
+      <course id="9395B299" title="9395B299" file="books/9395B299.html"/>
+      <course id="9395B301" title="9395B301" file="books/9395B301.html"/>
+      <course id="9395B302" title="9395B302" file="books/9395B302.html"/>
+      <course id="9395B303" title="9395B303" file="books/9395B303.html"/>
+      <course id="9395B304" title="9395B304" file="books/9395B304.html"/>
+      <course id="9395B305" title="9395B305" file="books/9395B305.html"/>
+      <course id="9395B306" title="9395B306" file="books/9395B306.html"/>
+      <course id="9395B307" title="9395B307" file="books/9395B307.html"/>
+      <course id="9395B308" title="9395B308" file="books/9395B308.html"/>
+      <course id="9395B309" title="9395B309" file="books/9395B309.html"/>
+      <course id="9395B310" title="9395B310" file="books/9395B310.html"/>
+      <course id="9395B311" title="9395B311" file="books/9395B311.html"/>
+      <course id="9395B312" title="9395B312" file="books/9395B312.html"/>
+      <course id="9395B399" title="9395B399" file="books/9395B399.html"/>
+      <course id="9395B401" title="9395B401" file="books/9395B401.html"/>
+      <course id="9395B402" title="9395B402" file="books/9395B402.html"/>
+      <course id="9395B403" title="9395B403" file="books/9395B403.html"/>
+      <course id="9395B404" title="9395B404" file="books/9395B404.html"/>
+      <course id="9395B405" title="9395B405" file="books/9395B405.html"/>
+      <course id="9395B406" title="9395B406" file="books/9395B406.html"/>
+      <course id="9395B499" title="9395B499" file="books/9395B499.html"/>
+      <course id="9395P201" title="9395P201" file="books/9395P201.html"/>
+      <course id="9395P202" title="9395P202" file="books/9395P202.html"/>
+      <course id="9395P203" title="9395P203" file="books/9395P203.html"/>
+      <course id="9395P204" title="9395P204" file="books/9395P204.html"/>
+      <course id="9395P205" title="9395P205" file="books/9395P205.html"/>
+      <course id="9395P206" title="9395P206" file="books/9395P206.html"/>
+      <course id="9395P207" title="9395P207" file="books/9395P207.html"/>
+      <course id="9395p309" title="9395p309" file="books/9395p309.html"/>
+      <course id="9395T311" title="9395T311" file="books/9395T311.html"/>
+      <course id="9395T398" title="9395T398" file="books/9395T398.html"/>
+      <course id="9395T399" title="9395T399" file="books/9395T399.html"/>
+      <course id="9395T620" title="9395T620" file="books/9395T620.html"/>
+      <course id="9395T621" title="9395T621" file="books/9395T621.html"/>
+      <course id="9395T622" title="9395T622" file="books/9395T622.html"/>
+      <course id="9395T698" title="9395T698" file="books/9395T698.html"/>
+      <course id="9395T801" title="9395T801" file="books/9395T801.html"/>
+      <course id="9395T802" title="9395T802" file="books/9395T802.html"/>
+      <course id="9395T803" title="9395T803" file="books/9395T803.html"/>
+      <course id="9395T804" title="9395T804" file="books/9395T804.html"/>
+      <course id="9395T805" title="9395T805" file="books/9395T805.html"/>
+      <course id="9395T806" title="9395T806" file="books/9395T806.html"/>
+      <course id="9395T807" title="9395T807" file="books/9395T807.html"/>
+      <course id="9395T808" title="9395T808" file="books/9395T808.html"/>
+      <course id="9395T809" title="9395T809" file="books/9395T809.html"/>
+      <course id="9395T810" title="9395T810" file="books/9395T810.html"/>
+      <course id="9395T811" title="9395T811" file="books/9395T811.html"/>
+      <course id="9395T819" title="9395T819" file="books/9395T819.html"/>
+      <course id="9395T829" title="9395T829" file="books/9395T829.html"/>
+      <course id="9395T839" title="9395T839" file="books/9395T839.html"/>
+      <course id="9395T841" title="9395T841" file="books/9395T841.html"/>
+      <course id="9395T842" title="9395T842" file="books/9395T842.html"/>
+      <course id="9395T843" title="9395T843" file="books/9395T843.html"/>
+      <course id="9395T844" title="9395T844" file="books/9395T844.html"/>
+      <course id="9395T845" title="9395T845" file="books/9395T845.html"/>
+      <course id="9395T846" title="9395T846" file="books/9395T846.html"/>
+      <course id="9395T847" title="9395T847" file="books/9395T847.html"/>
+      <course id="9395T848" title="9395T848" file="books/9395T848.html"/>
+      <course id="9395T849" title="9395T849" file="books/9395T849.html"/>
+      <course id="9395T851" title="9395T851" file="books/9395T851.html"/>
+      <course id="9395T852" title="9395T852" file="books/9395T852.html"/>
+      <course id="9395T853" title="9395T853" file="books/9395T853.html"/>
+      <course id="9395T854" title="9395T854" file="books/9395T854.html"/>
+      <course id="9395T859" title="9395T859" file="books/9395T859.html"/>
+      <course id="9395T898" title="9395T898" file="books/9395T898.html"/>
+      <course id="9395T998" title="9395T998" file="books/9395T998.html"/>
+      <course id="9395T999" title="9395T999" file="books/9395T999.html"/>
+      <course id="9395TC99" title="9395TC99" file="books/9395TC99.html"/>
+      <course id="9395TD99" title="9395TD99" file="books/9395TD99.html"/>
+      <course id="9395Z101" title="9395Z101" file="books/9395Z101.html"/>
+      <course id="9395Z102" title="9395Z102" file="books/9395Z102.html"/>
+      <course id="9395Z103" title="9395Z103" file="books/9395Z103.html"/>
+      <course id="9395Z104" title="9395Z104" file="books/9395Z104.html"/>
+      <course id="9395Z105" title="9395Z105" file="books/9395Z105.html"/>
+      <course id="9395Z106" title="9395Z106" file="books/9395Z106.html"/>
+      <course id="9395Z107" title="9395Z107" file="books/9395Z107.html"/>
+      <course id="9395Z108" title="9395Z108" file="books/9395Z108.html"/>
+      <course id="9395Z198" title="9395Z198" file="books/9395Z198.html"/>
+      <course id="9395Z199" title="9395Z199" file="books/9395Z199.html"/>
+      <course id="9395Z201" title="9395Z201" file="books/9395Z201.html"/>
+      <course id="9395Z202" title="9395Z202" file="books/9395Z202.html"/>
+      <course id="9395Z204" title="9395Z204" file="books/9395Z204.html"/>
+      <course id="9395Z299" title="9395Z299" file="books/9395Z299.html"/>
+      <course id="9395Z301" title="9395Z301" file="books/9395Z301.html"/>
+      <course id="9395Z302" title="9395Z302" file="books/9395Z302.html"/>
+      <course id="9395Z303" title="9395Z303" file="books/9395Z303.html"/>
+      <course id="9395Z304" title="9395Z304" file="books/9395Z304.html"/>
+      <course id="9395Z399" title="9395Z399" file="books/9395Z399.html"/>
+      <course id="9395Z401" title="9395Z401" file="books/9395Z401.html"/>
+      <course id="9395Z402" title="9395Z402" file="books/9395Z402.html"/>
+      <course id="9395Z403" title="9395Z403" file="books/9395Z403.html"/>
+      <course id="9395Z404" title="9395Z404" file="books/9395Z404.html"/>
+      <course id="9395Z405" title="9395Z405" file="books/9395Z405.html"/>
+      <course id="9395Z406" title="9395Z406" file="books/9395Z406.html"/>
+      <course id="9395Z407" title="9395Z407" file="books/9395Z407.html"/>
+      <course id="9395Z499" title="9395Z499" file="books/9395Z499.html"/>
+      <course id="9395Z601" title="9395Z601" file="books/9395Z601.html"/>
+      <course id="9395Z602" title="9395Z602" file="books/9395Z602.html"/>
+      <course id="9395Z603" title="9395Z603" file="books/9395Z603.html"/>
+      <course id="9395Z604" title="9395Z604" file="books/9395Z604.html"/>
+      <course id="9395Z605" title="9395Z605" file="books/9395Z605.html"/>
+      <course id="9395Z611" title="9395Z611" file="books/9395Z611.html"/>
+      <course id="9395Z614" title="9395Z614" file="books/9395Z614.html"/>
+      <course id="9395Z622" title="9395Z622" file="books/9395Z622.html"/>
+      <course id="9395Z812" title="9395Z812" file="books/9395Z812.html"/>
+      <course id="9395Z813" title="9395Z813" file="books/9395Z813.html"/>
+      <course id="9395Z814" title="9395Z814" file="books/9395Z814.html"/>
+      <course id="9395Z821" title="9395Z821" file="books/9395Z821.html"/>
+      <course id="9395Z822" title="9395Z822" file="books/9395Z822.html"/>
+      <course id="9395Z823" title="9395Z823" file="books/9395Z823.html"/>
+      <course id="9395Z824" title="9395Z824" file="books/9395Z824.html"/>
+      <course id="9e954d01" title="9e954d01" file="books/9e954d01.html"/>
+      <course id="9E954D02" title="9E954D02" file="books/9E954D02.html"/>
+      <course id="9e954d04" title="9e954d04" file="books/9e954d04.html"/>
+      <course id="9e954d05" title="9e954d05" file="books/9e954d05.html"/>
+      <course id="9e954d06" title="9e954d06" file="books/9e954d06.html"/>
+      <course id="9e954d07" title="9e954d07" file="books/9e954d07.html"/>
+      <course id="9e954d08" title="9e954d08" file="books/9e954d08.html"/>
+      <course id="9E954D09" title="9E954D09" file="books/9E954D09.html"/>
+    </sub>
+  </main>
+</catalog>
