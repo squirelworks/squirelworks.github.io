@@ -1,0 +1,5765 @@
+{
+  "book": "/workspace/artifacts/courses/93950101.TBK",
+  "pages": 299,
+  "pages_with_handlers": 124,
+  "handlers": 207,
+  "opcode_bytes": [
+    {
+      "byte": "e0",
+      "count": 1164
+    },
+    {
+      "byte": "92",
+      "count": 442
+    },
+    {
+      "byte": "83",
+      "count": 377
+    },
+    {
+      "byte": "90",
+      "count": 348
+    },
+    {
+      "byte": "e2",
+      "count": 300
+    },
+    {
+      "byte": "80",
+      "count": 298
+    },
+    {
+      "byte": "ff",
+      "count": 277
+    },
+    {
+      "byte": "91",
+      "count": 270
+    },
+    {
+      "byte": "c5",
+      "count": 264
+    },
+    {
+      "byte": "b3",
+      "count": 185
+    },
+    {
+      "byte": "af",
+      "count": 158
+    },
+    {
+      "byte": "b1",
+      "count": 151
+    },
+    {
+      "byte": "e1",
+      "count": 141
+    },
+    {
+      "byte": "b0",
+      "count": 135
+    },
+    {
+      "byte": "88",
+      "count": 133
+    },
+    {
+      "byte": "82",
+      "count": 120
+    },
+    {
+      "byte": "95",
+      "count": 102
+    },
+    {
+      "byte": "c8",
+      "count": 64
+    },
+    {
+      "byte": "8e",
+      "count": 59
+    },
+    {
+      "byte": "a3",
+      "count": 56
+    },
+    {
+      "byte": "c0",
+      "count": 44
+    },
+    {
+      "byte": "ad",
+      "count": 42
+    },
+    {
+      "byte": "87",
+      "count": 38
+    },
+    {
+      "byte": "fd",
+      "count": 38
+    },
+    {
+      "byte": "e6",
+      "count": 38
+    },
+    {
+      "byte": "96",
+      "count": 35
+    },
+    {
+      "byte": "8d",
+      "count": 33
+    },
+    {
+      "byte": "89",
+      "count": 32
+    },
+    {
+      "byte": "b2",
+      "count": 31
+    },
+    {
+      "byte": "94",
+      "count": 30
+    },
+    {
+      "byte": "8b",
+      "count": 30
+    },
+    {
+      "byte": "a4",
+      "count": 30
+    },
+    {
+      "byte": "8c",
+      "count": 28
+    },
+    {
+      "byte": "a8",
+      "count": 28
+    },
+    {
+      "byte": "dc",
+      "count": 26
+    },
+    {
+      "byte": "a2",
+      "count": 25
+    },
+    {
+      "byte": "f5",
+      "count": 24
+    },
+    {
+      "byte": "de",
+      "count": 23
+    },
+    {
+      "byte": "f0",
+      "count": 19
+    },
+    {
+      "byte": "86",
+      "count": 18
+    },
+    {
+      "byte": "84",
+      "count": 15
+    },
+    {
+      "byte": "ca",
+      "count": 15
+    },
+    {
+      "byte": "85",
+      "count": 11
+    },
+    {
+      "byte": "a5",
+      "count": 11
+    },
+    {
+      "byte": "e9",
+      "count": 10
+    },
+    {
+      "byte": "8a",
+      "count": 9
+    },
+    {
+      "byte": "93",
+      "count": 8
+    },
+    {
+      "byte": "d1",
+      "count": 8
+    },
+    {
+      "byte": "d3",
+      "count": 7
+    },
+    {
+      "byte": "d6",
+      "count": 6
+    },
+    {
+      "byte": "8f",
+      "count": 5
+    },
+    {
+      "byte": "e3",
+      "count": 4
+    },
+    {
+      "byte": "97",
+      "count": 3
+    },
+    {
+      "byte": "e8",
+      "count": 3
+    },
+    {
+      "byte": "c7",
+      "count": 2
+    },
+    {
+      "byte": "a7",
+      "count": 2
+    },
+    {
+      "byte": "bf",
+      "count": 2
+    },
+    {
+      "byte": "d9",
+      "count": 2
+    },
+    {
+      "byte": "fc",
+      "count": 2
+    },
+    {
+      "byte": "f4",
+      "count": 2
+    },
+    {
+      "byte": "c1",
+      "count": 1
+    },
+    {
+      "byte": "9f",
+      "count": 1
+    },
+    {
+      "byte": "9e",
+      "count": 1
+    },
+    {
+      "byte": "e7",
+      "count": 1
+    },
+    {
+      "byte": "ec",
+      "count": 1
+    },
+    {
+      "byte": "dd",
+      "count": 1
+    },
+    {
+      "byte": "e4",
+      "count": 1
+    },
+    {
+      "byte": "a9",
+      "count": 1
+    },
+    {
+      "byte": "b9",
+      "count": 1
+    },
+    {
+      "byte": "da",
+      "count": 1
+    },
+    {
+      "byte": "b6",
+      "count": 1
+    },
+    {
+      "byte": "d5",
+      "count": 1
+    },
+    {
+      "byte": "d7",
+      "count": 1
+    },
+    {
+      "byte": "99",
+      "count": 1
+    }
+  ],
+  "pages_detail": [
+    {
+      "page": "P0",
+      "file": 707300,
+      "captions": [],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "EnterPage",
+          "off": 602,
+          "goes": [],
+          "text": "To Handle EnterPage...4logical __import...4lastbook...4nextpage..... = .p...8.... = \"p10\"... .; = .. .F.....~= \"..\"..F.........\"P0\" ..8getLogoBook().......... __beenToP1 ...8= .. .",
+          "hex": "546f2048616e646c6520456e74657250616765e00992346c6f676963616c205f5f696d706f7274e00992346c617374626f6f6be00992346e65787470616765e0e009c514203d209170888eb038e009c515203d202270313022e0098320c53b203d20909420b246e0090983937e3d2022b1c122f0b246e009090990af80918322503022208890386765744c6f676f426f6f6b2829e00909b085e009090983205f5f6265656e546f503120888e90383d20909420b2"
+        }
+      ]
+    },
+    {
+      "page": "P10",
+      "file": 714452,
+      "captions": [
+        "Next"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "ButtonClick",
+          "off": 986,
+          "goes": [],
+          "text": "To Handle ButtonClick..4lastbook...=.p...8..4nextpage...=.p..........\"P20001\" ..8\"nida81.tbk\" ......................................................................................",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be192346c617374626f6f6be2c5063d9170888eb038e292346e65787470616765e2c5063d9170888eb183e290af809183225032303030312220889038226e69646138312e74626b2220e0a2e000009f04000002020000000000000000000100b301b301000000008900000000000000010095019501000000008a000000000000000000000000000000000000000000000000000100b301b301000000008b00"
+        }
+      ]
+    },
+    {
+      "page": "P100",
+      "file": 716986,
+      "captions": [
+        "Next",
+        "Back",
+        "Menu"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 773,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go ..t..}...t..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20809174b1837de287b174e0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 1483,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .....}......END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f208091a5b1837de287b1a5e0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P410",
+      "file": 723670,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P420",
+        "P400"
+      ],
+      "fields": [
+        "Also, the mathematical process of adding and subtracting whole numbers is covered."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "PINFO",
+      "file": 725984,
+      "captions": [
+        "Next",
+        "Back",
+        "Menu"
+      ],
+      "goes": [
+        "P430",
+        "P410",
+        "P440",
+        "P420",
+        "P450",
+        "P420"
+      ],
+      "fields": [
+        "Whole numbers are used every day!  How many people will be at dinner?  How many days until Christmas?  Which TV channel has the game?",
+        "When you hear that 8 people will be at dinner, you know how much food to prepare, you know what 8 means.  But what does the symbol 8 indicate?",
+        "If you find out that two of your guests are bringing 2 extra people and one guest is not coming, how many total guests will there be?"
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P450",
+      "file": 826710,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P460",
+        "P420"
+      ],
+      "fields": [
+        "Last, if there only ten numbers, 0 to 9, how can you count more than 9 people?"
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P460",
+      "file": 828660,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P470",
+        "P420"
+      ],
+      "fields": [
+        "All these questions require the use of a number system, including addition and subtraction."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P470",
+      "file": 834172,
+      "captions": [
+        "Back",
+        "Menu"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 339,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .....}......END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f208091a5b1837de287b1a5e0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P900",
+      "file": 901421,
+      "captions": [
+        "Back",
+        "Menu"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 1289,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .....}......END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f208091a5b1837de287b1a5e0e0454e44"
+        },
+        {
+          "kind": "ButtonClick",
+          "off": 1676,
+          "goes": [],
+          "text": "To Handle ButtonClick..4lastbook...=.p...8..4nextpage...=.p..........\"P20001\" ..8\"nida81.tbk\" .....Q................................................................................",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be192346c617374626f6f6be2c5063d9170888eb038e292346e65787470616765e2c5063d9170888eb183e290af809183225032303030312220889038226e69646138312e74626b2220e0a2e000005107000002020000000000000000000100b301b301000000008900000000000000010095019501000000008a000000000000000000000000000000000000000000000000000100b301b301000000008b00"
+        }
+      ]
+    },
+    {
+      "page": "P1001",
+      "file": 912143,
+      "captions": [
+        "Back",
+        "Menu"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "ButtonClick",
+          "off": 3086,
+          "goes": [],
+          "text": "To Handle ButtonClick..4lastbook...=.p...8..4nextpage...=.p..........\"P20001\" ..8\"nida81.tbk\" ......................................................................................",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be192346c617374626f6f6be2c5063d9170888eb038e292346e65787470616765e2c5063d9170888eb183e290af809183225032303030312220889038226e69646138312e74626b2220e0a2e00000d30c000002020000000000000000000100b301b301000000008900000000000000010095019501000000008a000000000000000000000000000000000000000000000000000100b301b301000000008b00"
+        }
+      ]
+    },
+    {
+      "page": "P1020",
+      "file": 917719,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1025",
+        "P1001"
+      ],
+      "fields": [
+        "A number system is considered to be any set of symbols or characters used for the purpose of counting objects and performing mathematical computations."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1025",
+      "file": 920279,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1030",
+        "P1020"
+      ],
+      "fields": [
+        "Mathematical computations include addition, subtraction, multiplication, and division."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1030",
+      "file": 924933,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1040",
+        "P1020"
+      ],
+      "fields": [
+        "The most common numbering system in use today is the Hindu-Arabic system, or more commonly referred to as the Decimal system."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1040",
+      "file": 927001,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1050",
+        "P1020"
+      ],
+      "fields": [
+        "It is the numbering system you have always used!"
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1050",
+      "file": 928973,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1060",
+        "P1020"
+      ],
+      "fields": [
+        "Each symbol or character is called a digit.  The decimal system uses 10 digits, hence, the name decimal."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1060",
+      "file": 931009,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1070",
+        "P1020"
+      ],
+      "fields": [
+        "Ancient civilizations used a system for counting, record keeping, and measurements rather than a numbering system."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1070",
+      "file": 934115,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1080",
+        "P1060"
+      ],
+      "fields": [
+        "Numbering systems could not be more than a system of tick marks without: 0 1 2 3 4 5 6 7 8 9"
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1080",
+      "file": 936229,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P1070"
+      ],
+      "fields": [
+        "How many digits are there in the decimal number system?"
+      ],
+      "handlers": [
+        {
+          "kind": "ButtonClick",
+          "off": 1007,
+          "goes": [],
+          "text": "To Handle ButtonClick.--{...z.tries}....IncorrectEmbedded..--{..lastpage}...4........ = .p......--{Goes .Try Again Page}........\"p1082\"............................................@",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be02d2d7b90c5917a8874726965737de00990ad496e636f7272656374456d626564646564e0e02d2d7b91dc6c617374706167657de0099234920dc50ce009c510203d209170888eb183e0e02d2d7b476f6573208054727920416761696e20506167657df0e00990af80918322703130383222e0e0a2e000930400000f000e00d3040a000800000014001000ffff08d604150086011b12af0583130000000040"
+        },
+        {
+          "kind": "ButtonClick",
+          "off": 1379,
+          "goes": [],
+          "text": "To Handle ButtonClick.--{...z.tries}....IncorrectEmbedded..--{..lastpage}...4........ = .p......--{Goes .Try Aagain Page}........\"p1083\"..............I..............L...h.K........",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be02d2d7b90c5917a8874726965737de00990ad496e636f7272656374456d626564646564e0e02d2d7b91dc6c617374706167657de0099234920dc50ce009c510203d209170888eb183e0e02d2d7b476f657320805472792041616761696e20506167657df0e00990af80918322703130383322e0e0a2e0000009060000ffff110049060a000900000014001200ffff084c06140068014b0faf05a410000000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 1940,
+          "goes": [],
+          "text": "TO HANDLE buttonClick..--{..response}...saveEmbedded(testno ....,.questionno ...., \"area2\")..--{..lastpage}..4....... = .p......--{..nextpage}..4....... = \"p1090\"..--{Highlight Col",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be0e02d2d7b91dc726573706f6e73657de290ad73617665456d62656464656428746573746e6f20888eb1832cf07175657374696f6e6e6f20888eb1832c202261726561322229e0e02d2d7b91dc6c617374706167657de29234920dc50be2c50e203d209170888e9183e1e02d2d7b87806e657874706167657de29234920dc50be2c50e203d2022703130393022e0e02d2d7b486967686c6967687420436f6c"
+        }
+      ]
+    },
+    {
+      "page": "P1081",
+      "file": 1033533,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 401,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .nextpage}..4.............--{Dehighlight Correct}.rgbfill ...\"correct\" ...\"p1080\" = 64,255,255...o..s...................................................",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806e657874706167657de29234920dc50be290af809183c513e02d2d7b4465686967686c6967687420436f72726563747de272676266696c6c2088909622636f7272656374222088918322703130383022203d2036342c3235352c323535e082c86fe0007302000002020000000000000000000100b301b30100000000830000000000000001009501950100000000840000000000000000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 804,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage............9........................................................................................................U...",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e082c839e00000d103000002020000000000000000000100b301b3010000000086000000000000000100950195010000000087000000000000000000000000000000000000000000000000000100b301b3010000000088000005040b000b00000014000700ffff000000ffff550cca17"
+        }
+      ]
+    },
+    {
+      "page": "P1082",
+      "file": 1035593,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "The largest digit in the decimal numbering system is 9 but, remember 0 is also a digit."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 402,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage..........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 752,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage........ ..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50b20e2e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P1083",
+      "file": 1037793,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "There are not 11 digits in the decimal numbering system.  The word decimal means ten."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 402,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage..........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 752,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage........ ..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50b20e2e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P1090",
+      "file": 1039993,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1100",
+        "P1080"
+      ],
+      "fields": [
+        "The concept of zero is easy to understand.   Zero indicates the absence of an object or thing."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1100",
+      "file": 1041771,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1110",
+        "P1090"
+      ],
+      "fields": [
+        "The concept of positional value may be a little harder to understand.  It is based on:"
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1110",
+      "file": 1043855,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1120",
+        "P1100"
+      ],
+      "fields": [
+        "A digits' inherent value is simple.  The symbol 1 has a value of one.  The symbol 2 has a value of two."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1120",
+      "file": 1052083,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1130",
+        "P1110"
+      ],
+      "fields": [
+        "The weighted value depends on how many digits are in a number.   For example the number 5 has only one digit."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1130",
+      "file": 1055603,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1140",
+        "P1120"
+      ],
+      "fields": [
+        "Since the five is in the tens column it holds a value of fifty.  There is a zero in the units column meaning there are no ones.  This is the positional value times the inherent values."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1140",
+      "file": 1063559,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1150",
+        "P1120"
+      ],
+      "fields": [
+        "A five in the units column means 5 ones are added to fifty, this equals fifty five."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1150",
+      "file": 1068199,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1160",
+        "P1120",
+        "P1155"
+      ],
+      "fields": [
+        "The table shown illustrates some of the positional values."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1155",
+      "file": 1071809,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "POSITIONAL VALUES"
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 628,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .lastpage}..4................+.....................................................................................A..............D.....B...............",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806c617374706167657de29234920dc50be290af809183c513e0e082c82be1e0001303000002020000000000000000000100b301b301000000008c00000000000000010095019501000000008d000000000000000000000000000000000000000000000000000100b301b301000000008e00004103090008000000140009001c000044031400fdff4218b001e61900000000ffffff000300"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 964,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .lastpage}..4................+...c....................................................................................................i.................",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806c617374706167657de29234920dc50be290af809183c513e0e082c82be000006304000002020000000000000000000100b301b301000000008f000000000000000100950195010000000090000000000000000000000000000000000000000000000000000100b301b3010000000091000097040b000f0000001400ffffffff00000011006907c70b9e1de71800000000000000000100"
+        },
+        {
+          "kind": "ButtonClick",
+          "off": 4266,
+          "goes": [],
+          "text": "To Handle ButtonClick..4lastbook...=.p...8..4nextpage...=.p..........\"P20001\" ..8\"nida81.tbk\" .......................\"3.............................................................",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be192346c617374626f6f6be2c5063d9170888eb038e292346e65787470616765e2c5063d9170888eb183e290af809183225032303030312220889038226e69646138312e74626b2220e0a2e000008b030000020200000000000000000001000b223309000000009500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "page": "P1160",
+      "file": 1076799,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1170",
+        "P1150"
+      ],
+      "fields": [
+        "The number 5,390 would be shown as:"
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1170",
+      "file": 1080435,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1180",
+        "P1150"
+      ],
+      "fields": [
+        "Notice the importance of the 0.  Without the 0 you would not know the positional value of the digits."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1180",
+      "file": 1082471,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P1150"
+      ],
+      "fields": [
+        "What is the inherent value of the digit 6 in the number 362?"
+      ],
+      "handlers": [
+        {
+          "kind": "ButtonClick",
+          "off": 1007,
+          "goes": [],
+          "text": "To Handle ButtonClick.--{...z.tries}....IncorrectEmbedded..--{..lastpage}...4........ = .p......--{Goes .Try Again Page}........\"p1182\"................................w...........@",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be02d2d7b90c5917a8874726965737de00990ad496e636f7272656374456d626564646564e0e02d2d7b91dc6c617374706167657de0099234920dc50ce009c510203d209170888eb183e0e02d2d7b476f6573208054727920416761696e20506167657df0e00990af80918322703131383222e0e0a2e000930400000f000e00d3040a000800000014001000ffff08d60415007701a212dc050a140000000040"
+        },
+        {
+          "kind": "ButtonClick",
+          "off": 1379,
+          "goes": [],
+          "text": "To Handle ButtonClick.--{...z.tries}....IncorrectEmbedded..--{..lastpage}...4........ = .p......--{Goes .Try Aagain Page}........\"p1183\"..............I..............L...w.N........",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be02d2d7b90c5917a8874726965737de00990ad496e636f7272656374456d626564646564e0e02d2d7b91dc6c617374706167657de0099234920dc50ce009c510203d209170888eb183e0e02d2d7b476f657320805472792041616761696e20506167657df0e00990af80918322703131383322e0e0a2e0000009060000ffff110049060a000900000014001200ffff084c06140077014e0cdc05a70d000000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 1940,
+          "goes": [],
+          "text": "TO HANDLE buttonClick..--{..response}...saveEmbedded(testno ....,.questionno ...., \"area1\")..--{..lastpage}..4....... = .p......--{..nextpage}..4....... = \"p1190\"..--{Highlight Col",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be0e02d2d7b91dc726573706f6e73657de290ad73617665456d62656464656428746573746e6f20888eb1832cf07175657374696f6e6e6f20888eb1832c202261726561312229e0e02d2d7b91dc6c617374706167657de29234920dc50be2c50e203d209170888e9183e1e02d2d7b87806e657874706167657de29234920dc50be2c50e203d2022703131393022e0e02d2d7b486967686c6967687420436f6c"
+        }
+      ]
+    },
+    {
+      "page": "P1181",
+      "file": 1085887,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 401,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .nextpage}..4.............--{Dehighlight Correct}.rgbfill ...\"correct\" ...\"p1180\" = 64,255,255...o..s...................................................",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806e657874706167657de29234920dc50be290af809183c513e02d2d7b4465686967686c6967687420436f72726563747de272676266696c6c2088909622636f7272656374222088918322703131383022203d2036342c3235352c323535e082c86fe0007302000002020000000000000000000100b301b30100000000830000000000000001009501950100000000840000000000000000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 804,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage............9........................................................................................................U...",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e082c839e00000d103000002020000000000000000000100b301b3010000000086000000000000000100950195010000000087000000000000000000000000000000000000000000000000000100b301b3010000000088000005040b000b00000014000700ffff000000ffff550cca17"
+        }
+      ]
+    },
+    {
+      "page": "P1182",
+      "file": 1087947,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "The 10 is not the inherent value, it is the positional value."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 402,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage..........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 752,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage........ ..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50b20e2e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P1183",
+      "file": 1090147,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "60 is the inherent value times the positional value, not just the inherent value."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 402,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage..........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 752,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage........ ..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50b20e2e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P1190",
+      "file": 1092347,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P1180"
+      ],
+      "fields": [
+        "What is the positional value of the digit 6 in the number 362?"
+      ],
+      "handlers": [
+        {
+          "kind": "ButtonClick",
+          "off": 1007,
+          "goes": [],
+          "text": "To Handle ButtonClick.--{...z.tries}....IncorrectEmbedded..--{..lastpage}...4........ = .p......--{Goes .Try Again Page}........\"p1192\"................................h.*.$.......@",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be02d2d7b90c5917a8874726965737de00990ad496e636f7272656374456d626564646564e0e02d2d7b91dc6c617374706167657de0099234920dc50ce009c510203d209170888eb183e0e02d2d7b476f6573208054727920416761696e20506167657df0e00990af80918322703131393222e0e0a2e000930400000f000e00d3040a000800000014001000ffff08d604150068012a12240992130000000040"
+        },
+        {
+          "kind": "ButtonClick",
+          "off": 1379,
+          "goes": [],
+          "text": "To Handle ButtonClick.--{...z.tries}....IncorrectEmbedded..--{..lastpage}...4........ = .p......--{Goes .Try Aagain Page}........\"p1193\"..............I..............L...h.K.$......",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be02d2d7b90c5917a8874726965737de00990ad496e636f7272656374456d626564646564e0e02d2d7b91dc6c617374706167657de0099234920dc50ce009c510203d209170888eb183e0e02d2d7b476f657320805472792041616761696e20506167657df0e00990af80918322703131393322e0e0a2e0000009060000ffff110049060a000900000014001200ffff084c06140068014b0f2409a410000000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 1940,
+          "goes": [],
+          "text": "TO HANDLE buttonClick..--{..response}...saveEmbedded(testno ....,.questionno ...., \"area2\")..--{..lastpage}..4....... = .p......--{..nextpage}..4....... = \"p1200\"..--{Highlight Col",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be0e02d2d7b91dc726573706f6e73657de290ad73617665456d62656464656428746573746e6f20888eb1832cf07175657374696f6e6e6f20888eb1832c202261726561322229e0e02d2d7b91dc6c617374706167657de29234920dc50be2c50e203d209170888e9183e1e02d2d7b87806e657874706167657de29234920dc50be2c50e203d2022703132303022e0e02d2d7b486967686c6967687420436f6c"
+        }
+      ]
+    },
+    {
+      "page": "P1191",
+      "file": 1095763,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 401,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .nextpage}..4.............--{Dehighlight Correct}.rgbfill ...\"correct\" ...\"p1190\" = 64,255,255...o..s...................................................",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806e657874706167657de29234920dc50be290af809183c513e02d2d7b4465686967686c6967687420436f72726563747de272676266696c6c2088909622636f7272656374222088918322703131393022203d2036342c3235352c323535e082c86fe0007302000002020000000000000000000100b301b30100000000830000000000000001009501950100000000840000000000000000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 804,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage............9........................................................................................................U...",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e082c839e00000d103000002020000000000000000000100b301b3010000000086000000000000000100950195010000000087000000000000000000000000000000000000000000000000000100b301b3010000000088000005040b000b00000014000700ffff000000ffff550cca17"
+        }
+      ]
+    },
+    {
+      "page": "P1192",
+      "file": 1097823,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "Units represent the first digit on the right.  6 is not the first digit on the right, the first digit on the right is 2."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 402,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage..........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 752,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage........ ..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50b20e2e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P1193",
+      "file": 1100057,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "Hundreds is the third digit from the right.  6 is not the third digit, the third digit is 3."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 402,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage..........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 752,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage........ ..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50b20e2e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P1200",
+      "file": 1102291,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1210",
+        "P1190"
+      ],
+      "fields": [
+        "The decimal numbering system allows you to count conveniently.  Can you imagine counting to 168 using tick marks!"
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1210",
+      "file": 1124769,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1220",
+        "P1200"
+      ],
+      "fields": [
+        "To count in a number system, start with 0, the first digit."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1220",
+      "file": 1127459,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1230",
+        "P1210"
+      ],
+      "fields": [
+        "Then the next digit is used, 1."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1230",
+      "file": 1129741,
+      "captions": [
+        "Next",
+        "Back",
+        "Continue"
+      ],
+      "goes": [
+        "P1240",
+        "P1210"
+      ],
+      "fields": [
+        "Continue until all the digits have been used for the units."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1240",
+      "file": 1132181,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1250",
+        "P1210"
+      ],
+      "fields": [
+        "After all the digits have been used the unit becomes a 0 and a new set of digits are started on the left in the tens column."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1250",
+      "file": 1135067,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1260",
+        "P1210"
+      ],
+      "fields": [
+        "Once again, count the digits in the units column."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1260",
+      "file": 1137425,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1270",
+        "P1210"
+      ],
+      "fields": [
+        "After which the nine becomes 0 again and the ten digit is increased."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1270",
+      "file": 1139815,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1280",
+        "P1210"
+      ],
+      "fields": [
+        "When the number 99 is reached, both the nine digits are changed into 0 and a new place is added, the hundreds."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1280",
+      "file": 1142679,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1290",
+        "P1210"
+      ],
+      "fields": [
+        "This process continues indefinitely!"
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1290",
+      "file": 1144645,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P1280"
+      ],
+      "fields": [
+        "Why is the digit 0 important in a numbering system when counting?"
+      ],
+      "handlers": [
+        {
+          "kind": "ButtonClick",
+          "off": 1007,
+          "goes": [],
+          "text": "To Handle ButtonClick.--{...z.tries}....IncorrectEmbedded..--{..lastpage}...4........ = .p......--{Goes .Try Again Page}........\"p1292\"................................w.i.(.......@",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be02d2d7b90c5917a8874726965737de00990ad496e636f7272656374456d626564646564e0e02d2d7b91dc6c617374706167657de0099234920dc50ce009c510203d209170888eb183e0e02d2d7b476f6573208054727920416761696e20506167657df0e00990af80918322703132393222e0e0a2e000930400000f000e00d3040a000800000014001000ffff08d60415007701690f2814d1100000000040"
+        },
+        {
+          "kind": "ButtonClick",
+          "off": 1379,
+          "goes": [],
+          "text": "To Handle ButtonClick.--{...z.tries}....IncorrectEmbedded..--{..lastpage}...4........ = .p......--{Goes .Try Aagain Page}........\"p1293\"..............I..............L.....f.(......",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be02d2d7b90c5917a8874726965737de00990ad496e636f7272656374456d626564646564e0e02d2d7b91dc6c617374706167657de0099234920dc50ce009c510203d209170888eb183e0e02d2d7b476f657320805472792041616761696e20506167657df0e00990af80918322703132393322e0e0a2e0000009060000ffff110049060a000900000014001200ffff084c061400860166122814bf13000000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 1940,
+          "goes": [],
+          "text": "TO HANDLE buttonClick..--{..response}...saveEmbedded(testno ....,.questionno ...., \"area3\")..--{..lastpage}..4....... = .p......--{..nextpage}..4....... = \"p1300\"..--{Highlight Col",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be0e02d2d7b91dc726573706f6e73657de290ad73617665456d62656464656428746573746e6f20888eb1832cf07175657374696f6e6e6f20888eb1832c202261726561332229e0e02d2d7b91dc6c617374706167657de29234920dc50be2c50e203d209170888e9183e1e02d2d7b87806e657874706167657de29234920dc50be2c50e203d2022703133303022e0e02d2d7b486967686c6967687420436f6c"
+        }
+      ]
+    },
+    {
+      "page": "P1291",
+      "file": 1148055,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 401,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .nextpage}..4.............--{Dehighlight Correct}.rgbfill ...\"correct\" ...\"p1290\" = 64,255,255...o..s...................................................",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806e657874706167657de29234920dc50be290af809183c513e02d2d7b4465686967686c6967687420436f72726563747de272676266696c6c2088909622636f7272656374222088918322703132393022203d2036342c3235352c323535e082c86fe0007302000002020000000000000000000100b301b30100000000830000000000000001009501950100000000840000000000000000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 804,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage............9........................................................................................................U...",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e082c839e00000d103000002020000000000000000000100b301b3010000000086000000000000000100950195010000000087000000000000000000000000000000000000000000000000000100b301b3010000000088000005040b000b00000014000700ffff000000ffff550cca17"
+        }
+      ]
+    },
+    {
+      "page": "P1292",
+      "file": 1150115,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "The zero is important, it is part of the 10 digits in the decimal numbering system and holds positional values."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 402,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage..........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 752,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage........ ..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50b20e2e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P1293",
+      "file": 1152349,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "Zeros are more than just the first digit.  For example, the numbers 102 and 800 use zeros for other reasons, they hold a place in a number column."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 402,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage..........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 752,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage........ ..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50b20e2e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P1300",
+      "file": 1154615,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1310",
+        "P1290"
+      ],
+      "fields": [
+        "The last part of the discussion on the decimal numbering system is the whole number line."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1310",
+      "file": 1160211,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1320",
+        "P1300"
+      ],
+      "fields": [
+        "The line illustrates the numbering system and is used to add and subtract."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1320",
+      "file": 1162215,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1330",
+        "P1300"
+      ],
+      "fields": [
+        "The line has equally spaced points which extend endlessly.  The first point is numbered 0, each point has a number."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1330",
+      "file": 1164253,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1340",
+        "P1300"
+      ],
+      "fields": [
+        "If you move to the right along the number line, the numbers increase in value.  You are counting up."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1340",
+      "file": 1166553,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1350",
+        "P1300"
+      ],
+      "fields": [
+        "If you move to the left along the number line , the numbers decrease in value.  You are counting down."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1350",
+      "file": 1168857,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1360",
+        "P1300"
+      ],
+      "fields": [
+        "For example, if you start at point 5 and move two spaces to the right, you are at point 7."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1360",
+      "file": 1171485,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1370",
+        "P1300"
+      ],
+      "fields": [
+        "If you start at point 5 and move two spaces to the left, you are at point 3."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1370",
+      "file": 1174113,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1380",
+        "P1300"
+      ],
+      "fields": [
+        "The line also represents the order relationships between numbers."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1380",
+      "file": 1179701,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1390",
+        "P1370"
+      ],
+      "fields": [
+        "For example, if you compare the number 8 with the number 6, you can say that 8 is greater than 6 because 6 is to the left of 8."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1390",
+      "file": 1182393,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1400",
+        "P1370"
+      ],
+      "fields": [
+        "Also, if you compare 8 with 10, you can say that 8 is less than 10 because 10 is to the right of 8."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1400",
+      "file": 1185053,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P1370"
+      ],
+      "fields": [
+        "Using the number line, if you move to the right four spaces from 4, what number is represented?"
+      ],
+      "handlers": [
+        {
+          "kind": "ButtonClick",
+          "off": 1007,
+          "goes": [],
+          "text": "To Handle ButtonClick.--{...z.tries}....IncorrectEmbedded..--{..lastpage}...4........ = .p......--{Goes .Try Again Page}........\"p1402\"..............................?.w.i.........@",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be02d2d7b90c5917a8874726965737de00990ad496e636f7272656374456d626564646564e0e02d2d7b91dc6c617374706167657de0099234920dc50ce009c510203d209170888eb183e0e02d2d7b476f6573208054727920416761696e20506167657df0e00990af80918322703134303222e0e0a2e00093040000ffff0e00d3040a000800000014000f00ffff08d6043f007701690fec04d1100000000040"
+        },
+        {
+          "kind": "ButtonClick",
+          "off": 1379,
+          "goes": [],
+          "text": "To Handle ButtonClick.--{...z.tries}....IncorrectEmbedded..--{..lastpage}...4........ = .p......--{Goes .Try Aagain Page}........\"p1403\"..............I..............L.>.w.f........",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be02d2d7b90c5917a8874726965737de00990ad496e636f7272656374456d626564646564e0e02d2d7b91dc6c617374706167657de0099234920dc50ce009c510203d209170888eb183e0e02d2d7b476f657320805472792041616761696e20506167657df0e00990af80918322703134303322e0e0a2e0000009060000ffff100049060a000900000014001100ffff084c063e0077016612dd04bf13000000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 1940,
+          "goes": [],
+          "text": "TO HANDLE buttonClick..--{..response}...saveEmbedded(testno ....,.questionno ...., \"area3\")..--{..lastpage}..4....... = .p......--{..nextpage}..4....... = \"p1410\"..--{Highlight Col",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be0e02d2d7b91dc726573706f6e73657de290ad73617665456d62656464656428746573746e6f20888eb1832cf07175657374696f6e6e6f20888eb1832c202261726561332229e0e02d2d7b91dc6c617374706167657de29234920dc50be2c50e203d209170888e9183e1e02d2d7b87806e657874706167657de29234920dc50be2c50e203d2022703134313022e0e02d2d7b486967686c6967687420436f6c"
+        }
+      ]
+    },
+    {
+      "page": "P1401",
+      "file": 1192457,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 401,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .nextpage}..4.............--{Dehighlight Correct}.rgbfill ...\"correct\" ...\"p1400\" = 64,255,255...o..s...................................................",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806e657874706167657de29234920dc50be290af809183c513e02d2d7b4465686967686c6967687420436f72726563747de272676266696c6c2088909622636f7272656374222088918322703134303022203d2036342c3235352c323535e082c86fe0007302000002020000000000000000000100b301b30100000000830000000000000001009501950100000000840000000000000000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 804,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage............9........................................................................................................U...",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e082c839e00000d103000002020000000000000000000100b301b3010000000086000000000000000100950195010000000087000000000000000000000000000000000000000000000000000100b301b3010000000088000005040b000b00000014000700ffff000000ffff550cca17"
+        }
+      ]
+    },
+    {
+      "page": "P1402",
+      "file": 1194517,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "0 is four places to the left of 4."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 402,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage..........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 752,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage........ ..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50b20e2e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P1403",
+      "file": 1196717,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "4 is the starting point."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 402,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage..........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 752,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage........ ..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50b20e2e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P1410",
+      "file": 1198917,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P1400"
+      ],
+      "fields": [
+        "Comparing the number 3 to the number 2 on the number line you can say,"
+      ],
+      "handlers": [
+        {
+          "kind": "ButtonClick",
+          "off": 1007,
+          "goes": [],
+          "text": "To Handle ButtonClick.--{...z.tries}....IncorrectEmbedded..--{..lastpage}...4........ = .p......--{Goes .Try Again Page}........\"p1412\"..............................?.............@",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be02d2d7b90c5917a8874726965737de00990ad496e636f7272656374456d626564646564e0e02d2d7b91dc6c617374706167657de0099234920dc50ce009c510203d209170888eb183e0e02d2d7b476f6573208054727920416761696e20506167657df0e00990af80918322703134313222e0e0a2e00093040000ffff0e00d3040a000800000014000f00ffff08d6043f009501a212020d0a140000000040"
+        },
+        {
+          "kind": "ButtonClick",
+          "off": 1379,
+          "goes": [],
+          "text": "To Handle ButtonClick.--{...z.tries}....IncorrectEmbedded..--{..lastpage}...4........ = .p......--{Goes .Try Aagain Page}........\"p1413\"..............I..............L.>...N........",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be02d2d7b90c5917a8874726965737de00990ad496e636f7272656374456d626564646564e0e02d2d7b91dc6c617374706167657de0099234920dc50ce009c510203d209170888eb183e0e02d2d7b476f657320805472792041616761696e20506167657df0e00990af80918322703134313322e0e0a2e0000009060000ffff100049060a000900000014001100ffff084c063e0086014e0ce40ca70d000000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 1940,
+          "goes": [],
+          "text": "TO HANDLE buttonClick..--{..response}...saveEmbedded(testno ....,.questionno ...., \"area1\")..--{..lastpage}..4....... = .p......--{..nextpage}..4....... = \"P1910\"..--{Highlight Col",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be0e02d2d7b91dc726573706f6e73657de290ad73617665456d62656464656428746573746e6f20888eb1832cf07175657374696f6e6e6f20888eb1832c202261726561312229e0e02d2d7b91dc6c617374706167657de29234920dc50be2c50e203d209170888e9183e1e02d2d7b87806e657874706167657de29234920dc50be2c50e203d2022503139313022e0e02d2d7b486967686c6967687420436f6c"
+        }
+      ]
+    },
+    {
+      "page": "P1411",
+      "file": 1206321,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 401,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .nextpage}..4.............--{Dehighlight Correct}.rgbfill ...\"correct\" ...\"p1410\" = 64,255,255...o..s...................................................",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806e657874706167657de29234920dc50be290af809183c513e02d2d7b4465686967686c6967687420436f72726563747de272676266696c6c2088909622636f7272656374222088918322703134313022203d2036342c3235352c323535e082c86fe0007302000002020000000000000000000100b301b30100000000830000000000000001009501950100000000840000000000000000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 804,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage............9........................................................................................................U...",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e082c839e00000d103000002020000000000000000000100b301b3010000000086000000000000000100950195010000000087000000000000000000000000000000000000000000000000000100b301b3010000000088000005040b000b00000014000700ffff000000ffff550cca17"
+        }
+      ]
+    },
+    {
+      "page": "P1412",
+      "file": 1208381,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "3 is not less than 2 because 3 is to the right of 2, or 2 is to the left of 3."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 402,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage..........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 752,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage........ ..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50b20e2e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P1413",
+      "file": 1210581,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "3 is not equal to 2 because 2 is to the left of 3 or 3 is to the right of 2."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 402,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage..........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 752,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage........ ..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50b20e2e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P1910",
+      "file": 1212781,
+      "captions": [
+        "Next",
+        "Back",
+        "Menu"
+      ],
+      "goes": [
+        "P1001",
+        "P1410"
+      ],
+      "fields": [
+        "This completes the information on the DECIMAL NUMBER SYSTEM."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1920",
+      "file": 1215423,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1930",
+        "P1001"
+      ],
+      "fields": [
+        "1.  A number system is any set of symbols or characters used to        count and perform mathematics."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1930",
+      "file": 1217837,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1940",
+        "P1920"
+      ],
+      "fields": [
+        "2.  You use the Hindu-Arabic system or the Decimal System."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1940",
+      "file": 1219759,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1950",
+        "P1920"
+      ],
+      "fields": [
+        "3.  The decimal system uses 10 digits, 0 through 9."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1950",
+      "file": 1221681,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1960",
+        "P1920"
+      ],
+      "fields": [
+        "4.  The concept of 0 and positional value allow counting and                mathematics."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1960",
+      "file": 1223635,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1970",
+        "P1920"
+      ],
+      "fields": [
+        "5.  When counting, once all the digits are used, 9 is changed to 0         and a new series of digits is added to the left."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1970",
+      "file": 1225585,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1980",
+        "P1960"
+      ],
+      "fields": [
+        "6.  The number line represents the numbering system."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1980",
+      "file": 1231123,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1999",
+        "P1970"
+      ],
+      "fields": [
+        "7.  The line is used to demonstrate adding and subtracting.  It              indicates order relationships."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1999",
+      "file": 1233111,
+      "captions": [
+        "Next",
+        "Back",
+        "Menu"
+      ],
+      "goes": [],
+      "fields": [
+        "You have completed the Summary.\nYou are about to return to the Objective Menu."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 308,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go ..t..}......\"p1001\"..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20809174b1837de290af80918322703130303122e0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 540,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .....}......\"P1970\"..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f208091a5b1837de090af80918322503139373022e0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P2001",
+      "file": 1235799,
+      "captions": [
+        "Back",
+        "Menu"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "ButtonClick",
+          "off": 4188,
+          "goes": [],
+          "text": "To Handle ButtonClick..4lastbook...=.p...8..4nextpage...=.p..........\"P20001\" ..8\"nida81.tbk\" .....!................................................................................",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be192346c617374626f6f6be2c5063d9170888eb038e292346e65787470616765e2c5063d9170888eb183e290af809183225032303030312220889038226e69646138312e74626b2220e0a2e000002111000002020000000000000000000100b301b301000000008900000000000000010095019501000000008a000000000000000000000000000000000000000000000000000100b301b301000000008b00"
+        }
+      ]
+    },
+    {
+      "page": "P2020",
+      "file": 1242863,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2025",
+        "P2001"
+      ],
+      "fields": [
+        "Addition is a method by which two or more quantities are combined, using a number system to represent quantity."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2025",
+      "file": 1245395,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2030",
+        "P2020"
+      ],
+      "fields": [
+        "The addition process is signified by the + sign, meaning to add."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2030",
+      "file": 1247693,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2040",
+        "P2020"
+      ],
+      "fields": [
+        "The two numbers to be added are called ADDENDS."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2040",
+      "file": 1249929,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2050",
+        "P2020"
+      ],
+      "fields": [
+        "The result of the combination is called the SUM."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2050",
+      "file": 1252187,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2060",
+        "P2020"
+      ],
+      "fields": [
+        "The table shows all possible sums of two single digit numbers."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2060",
+      "file": 1258125,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2070",
+        "P2050"
+      ],
+      "fields": [
+        "To find the sum of 5 + 2, locate the 5 on the top row, move down the column until you reach the 2 row.  The sum is 7."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2070",
+      "file": 1260443,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P2050",
+        "P2075"
+      ],
+      "fields": [
+        "What is the sum of 2 + 5?"
+      ],
+      "handlers": [
+        {
+          "kind": "KeyUp",
+          "off": 1678,
+          "goes": [],
+          "text": "TO HANDLE KeyUp ./...4..nextpage...4..lastpage........T <> KeyEnter.........>.........response = ....\"Response\"...ASYM_IsNumber(.') = ...F....31....>.........--{Checks ..positive s",
+          "hex": "544f2048414e444c45204b6579557020c02fe0099234920d6e65787470616765e2099234920d6c6173747061676509e009e0090983c054203c3e204b6579456e746572e00909b0a8e00909b03ee00982a3e00909e009726573706f6e7365203d208d88909622526573706f6e736522e009834153594d5f49734e756d62657228c52729203d209094b246e00909903331e00909b03ee00982a3e0090909e02d2d7b436865636b732090a4706f7369746976652073"
+        }
+      ]
+    },
+    {
+      "page": "P2071",
+      "file": 1264345,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 330,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .nextpage}..4................+..........................................................................................................B...............",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806e657874706167657de29234920dc50be290af809183c513e0e082c82be00000e901000002020000000000000000000100b301b3010000000083000000000000000100950195010000000084000000000000000000000000000000000000000000000000000100b301b30100000000850000170209000500000014000a001200001a020b00fdff4218b001e61900000000ffffff000300"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 666,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage............8..E.................................................................................y..................U...:.",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e082c838e0004503000002020000000000000000000100b301b3010000000086000000000000000100950195010000000087000000000000000000000000000000000000000000000000000100b301b3010000000088000079030b000b00000014000700ffff000000ffff550cca173a18"
+        }
+      ]
+    },
+    {
+      "page": "P2072",
+      "file": 1266215,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "You did not type the correct answer.  Use the number line or addition table if you have difficulties."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 402,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage..........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 752,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage........ ..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50b20e2e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P2073",
+      "file": 1268397,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2080",
+        "P2070"
+      ],
+      "fields": [
+        "You still have not answered correctly.  Your answer should have been 7."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2075",
+      "file": 1271035,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "ADDITION TABLE & NUMBER LINE"
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 628,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .lastpage}..4................+.....................................................................................A...........k..D.c...B...............",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806c617374706167657de29234920dc50be290af809183c513e0e082c82be1e0001303000002020000000000000000000100b301b301000000008c00000000000000010095019501000000008d000000000000000000000000000000000000000000000000000100b301b301000000008e00004103090008000000140009006b000044036300fdff4218b001e61900000000ffffff000300"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 964,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .lastpage}..4................+...c.....................................................................................I............`.....1.............",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806c617374706167657de29234920dc50be290af809183c513e0e082c82be000006304000002020000000000000000000100b301b301000000008f000000000000000100950195010000000090000000000000000000000000000000000000000000000000000100b301b3010000000091000097040b00490000001400ffffffff0000006000d900040b3112e81700000000000000000100"
+        }
+      ]
+    },
+    {
+      "page": "P2080",
+      "file": 1281943,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2090",
+        "P2070"
+      ],
+      "fields": [
+        "To illustrate the addition process, the whole number line is used."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2090",
+      "file": 1287481,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2100",
+        "P2080"
+      ],
+      "fields": [
+        "To add 2 + 5, mark the point on the line that represents 2."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2100",
+      "file": 1289701,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2110",
+        "P2080"
+      ],
+      "fields": [
+        "Then move to the RIGHT 5 places."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2110",
+      "file": 1291891,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2120",
+        "P2080"
+      ],
+      "fields": [
+        "The point you end up at is the sum, 7."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2120",
+      "file": 1293933,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2130",
+        "P2080"
+      ],
+      "fields": [
+        "Here is another example of how the number line works."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2130",
+      "file": 1299775,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2140",
+        "P2120"
+      ],
+      "fields": [
+        "Mark the line for the number 6."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2140",
+      "file": 1301965,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2150",
+        "P2120"
+      ],
+      "fields": [
+        "Count over 2 places to the RIGHT."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2150",
+      "file": 1304155,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2160",
+        "P2120"
+      ],
+      "fields": [
+        "The point you end up at is the sum 6 + 2, 8."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2160",
+      "file": 1306197,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P2120",
+        "P2075"
+      ],
+      "fields": [
+        "What is the sum of 9 + 3?"
+      ],
+      "handlers": [
+        {
+          "kind": "KeyUp",
+          "off": 1678,
+          "goes": [],
+          "text": "TO HANDLE KeyUp ./...4..nextpage...4..lastpage........T <> KeyEnter.........>.........response = ....\"Response\"...ASYM_IsNumber(.') = ...F....31....>.........--{Checks ..positive s",
+          "hex": "544f2048414e444c45204b6579557020c02fe0099234920d6e65787470616765e2099234920d6c6173747061676509e009e0090983c054203c3e204b6579456e746572e00909b0a8e00909b03ee00982a3e00909e009726573706f6e7365203d208d88909622526573706f6e736522e009834153594d5f49734e756d62657228c52729203d209094b246e00909903331e00909b03ee00982a3e0090909e02d2d7b436865636b732090a4706f7369746976652073"
+        }
+      ]
+    },
+    {
+      "page": "P2161",
+      "file": 1310141,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 330,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .nextpage}..4................+..........................................................................................................B...............",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806e657874706167657de29234920dc50be290af809183c513e0e082c82be00000e901000002020000000000000000000100b301b3010000000083000000000000000100950195010000000084000000000000000000000000000000000000000000000000000100b301b30100000000850000170209000500000014000a001200001a020b00fdff4218b001e61900000000ffffff000300"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 666,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage............8..E.................................................................................y..................U...:.",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e082c838e0004503000002020000000000000000000100b301b3010000000086000000000000000100950195010000000087000000000000000000000000000000000000000000000000000100b301b3010000000088000079030b000b00000014000700ffff000000ffff550cca173a18"
+        }
+      ]
+    },
+    {
+      "page": "P2162",
+      "file": 1312011,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "You did not calculate the correct sum.  Use the addition table or the whole number line."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 402,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage..........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 752,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage........ ..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50b20e2e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P2163",
+      "file": 1314159,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2170",
+        "P2160"
+      ],
+      "fields": [
+        "You have still not calculated the correct sum.  You should have calculated 12."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2170",
+      "file": 1315679,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2180",
+        "P2160"
+      ],
+      "fields": [
+        "The addition table and the whole number line are very easy to use.  After a little practice you will be able to add numbers without using either."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2180",
+      "file": 1317277,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2190",
+        "P2170"
+      ],
+      "fields": [
+        "Now we will use the table or numeric line to add.  The solution is not difficult if you take it one step at a time."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2190",
+      "file": 1319167,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2200",
+        "P2180",
+        "P2192",
+        "P2075"
+      ],
+      "fields": [
+        "First add the UNIT digits.  You may use the addition table or number line."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2192",
+      "file": 1321927,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2200",
+        "P2180",
+        "P2075"
+      ],
+      "fields": [
+        "First add the UNIT digits.  You may use the addition table or number line."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2200",
+      "file": 1324595,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2210",
+        "P2192"
+      ],
+      "fields": [
+        "Notice that you get 12, or 1 ten and 2 units.  You place the 2 under the unit column.  The 1 ten digit must be accounted for now."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2210",
+      "file": 1326635,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2220",
+        "P2200"
+      ],
+      "fields": [
+        "The 1 ten digit is carried over to the tens column."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2220",
+      "file": 1328687,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2230",
+        "P2200",
+        "P2223",
+        "P2075"
+      ],
+      "fields": [
+        "Now, the tens column is added:"
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2223",
+      "file": 1331511,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2230",
+        "P2200",
+        "P2075"
+      ],
+      "fields": [
+        "Now, the tens column is added:"
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2230",
+      "file": 1334329,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2240",
+        "P2223"
+      ],
+      "fields": [
+        "Notice that you get 10, or 1 hundred and 0 tens, you are past the units column.  You place the 0 under the tens column that you were adding.  Now the 1 hundred digit must be accounted for."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2240",
+      "file": 1337041,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2250",
+        "P2223"
+      ],
+      "fields": [
+        "The 1 hundred digit is carried over to the hundreds column."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2250",
+      "file": 1339579,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2260",
+        "P2223",
+        "P2253",
+        "P2075"
+      ],
+      "fields": [
+        "Now, the hundreds column is added."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2253",
+      "file": 1342519,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2260",
+        "P2223",
+        "P2253",
+        "P2075"
+      ],
+      "fields": [
+        "Now, the hundreds column is added."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2260",
+      "file": 1345723,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2270",
+        "P2253"
+      ],
+      "fields": [
+        "The result is 502."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2270",
+      "file": 1348103,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2280",
+        "P2253"
+      ],
+      "fields": [
+        "Adding three or more numbers together uses the same process."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2280",
+      "file": 1350073,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2290",
+        "P2270",
+        "P2283",
+        "P2075"
+      ],
+      "fields": [
+        "First add the units column and bring over any carry to the tens column."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2283",
+      "file": 1353425,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2290",
+        "P2270",
+        "P2075"
+      ],
+      "fields": [
+        "First add the units column and bring over any carry to the tens column."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2290",
+      "file": 1356077,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2300",
+        "P2283",
+        "P2293",
+        "P2075"
+      ],
+      "fields": [
+        "Second, add the tens column."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2293",
+      "file": 1359393,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2300",
+        "P2283",
+        "P2075"
+      ],
+      "fields": [
+        "Second, add the tens column."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2300",
+      "file": 1362321,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2310",
+        "P2293",
+        "P2305"
+      ],
+      "fields": [
+        "Third, add the hundreds column."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2303",
+      "file": 1365633,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2310",
+        "P2293",
+        "P2305"
+      ],
+      "fields": [
+        "Third, add the hundreds column."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2305",
+      "file": 1368713,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2303",
+        "P2303"
+      ],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 614,
+          "goes": [
+            "P2303"
+          ],
+          "text": "TO HANDLE buttonClick.--{Go .lastpage}..4..........(\"P2303\")....2....................................................................................9...........k..<.c...B.........",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806c617374706167657de29234920dc50be290af809183282250323330332229e0e082c832e0000b03000002020000000000000000000100b301b301000000008c00000000000000010095019501000000008d000000000000000000000000000000000000000000000000000100b301b301000000008e00003903090008000000140009006b00003c036300fdff4218b001e61900000000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 942,
+          "goes": [
+            "P2303"
+          ],
+          "text": "TO HANDLE buttonClick.--{Go .lastpage}..4..........(\"P2303\")....2..S.....................................................................................>............`......#+.....",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806c617374706167657de29234920dc50be290af809183282250323330332229e0e082c832e0005304000002020000000000000000000100b301b301000000008f000000000000000100950195010000000090000000000000000000000000000000000000000000000000000100b301b3010000000091000087040b003e0000001400ffffffff0000006000a9122e0eb9232b1100000000"
+        }
+      ]
+    },
+    {
+      "page": "P2310",
+      "file": 1379795,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2320",
+        "P2303"
+      ],
+      "fields": [
+        "Finally, add the thousands column."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2320",
+      "file": 1382701,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P2303"
+      ],
+      "fields": [
+        "What is the sum of 10 + 23?"
+      ],
+      "handlers": [
+        {
+          "kind": "KeyUp",
+          "off": 1678,
+          "goes": [],
+          "text": "TO HANDLE KeyUp ./...4..nextpage...4..lastpage........T <> KeyEnter.........>.........response = ....\"Response\"...ASYM_IsNumber(.') = ...F....31....>.........--{Checks ..positive s",
+          "hex": "544f2048414e444c45204b6579557020c02fe0099234920d6e65787470616765e2099234920d6c6173747061676509e009e0090983c054203c3e204b6579456e746572e00909b0a8e00909b03ee00982a3e00909e009726573706f6e7365203d208d88909622526573706f6e736522e009834153594d5f49734e756d62657228c52729203d209094b246e00909903331e00909b03ee00982a3e0090909e02d2d7b436865636b732090a4706f7369746976652073"
+        }
+      ]
+    },
+    {
+      "page": "P2321",
+      "file": 1386111,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 330,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .nextpage}..4................+..........................................................................................................B...............",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806e657874706167657de29234920dc50be290af809183c513e0e082c82be00000e901000002020000000000000000000100b301b3010000000083000000000000000100950195010000000084000000000000000000000000000000000000000000000000000100b301b30100000000850000170209000500000014000a001200001a020b00fdff4218b001e61900000000ffffff000300"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 666,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage............8..E.................................................................................y..................U...:.",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e082c838e0004503000002020000000000000000000100b301b3010000000086000000000000000100950195010000000087000000000000000000000000000000000000000000000000000100b301b3010000000088000079030b000b00000014000700ffff000000ffff550cca173a18"
+        }
+      ]
+    },
+    {
+      "page": "P2322",
+      "file": 1387981,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "You did not add 10 and 23 correctly.  Check your addition again."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 402,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage..........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 752,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage........ ..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50b20e2e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P2323",
+      "file": 1390129,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2330",
+        "P2320"
+      ],
+      "fields": [
+        "You have still not calculated the correct sum.  You should have calculated 33."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2330",
+      "file": 1391649,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P2320"
+      ],
+      "fields": [
+        "What is the sum of 888 + 999 +777?"
+      ],
+      "handlers": [
+        {
+          "kind": "KeyUp",
+          "off": 1622,
+          "goes": [],
+          "text": "TO HANDLE KeyUp ./...4..nextpage...4..lastpage........T <> KeyEnter.........>.........response = ....\"Response\"...ASYM_IsNumber(.') = ...F....31....>.........--{Checks ..positive s",
+          "hex": "544f2048414e444c45204b6579557020c02fe0099234920d6e65787470616765e2099234920d6c6173747061676509e009e0090983c054203c3e204b6579456e746572e00909b0a8e00909b03ee00982a3e00909e009726573706f6e7365203d208d88909622526573706f6e736522e009834153594d5f49734e756d62657228c52729203d209094b246e00909903331e00909b03ee00982a3e0090909e02d2d7b436865636b732090a4706f7369746976652073"
+        }
+      ]
+    },
+    {
+      "page": "P2331",
+      "file": 1395095,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 330,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .nextpage}..4................+..........................................................................................................B...............",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806e657874706167657de29234920dc50be290af809183c513e0e082c82be00000e901000002020000000000000000000100b301b3010000000083000000000000000100950195010000000084000000000000000000000000000000000000000000000000000100b301b30100000000850000170209000500000014000a001200001a020b00fdff4218b001e61900000000ffffff000300"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 666,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage............8..E.................................................................................y..................U...:.",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e082c838e0004503000002020000000000000000000100b301b3010000000086000000000000000100950195010000000087000000000000000000000000000000000000000000000000000100b301b3010000000088000079030b000b00000014000700ffff000000ffff550cca173a18"
+        }
+      ]
+    },
+    {
+      "page": "P2332",
+      "file": 1396965,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "You did not add 888, 999, 777 correctly, check your addition again."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 402,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage..........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 752,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage........ ..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50b20e2e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P2333",
+      "file": 1399113,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2910",
+        "P2330"
+      ],
+      "fields": [
+        "You have still not calculated the correct sum.  You should have calculated 2664."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2910",
+      "file": 1400633,
+      "captions": [
+        "Next",
+        "Back",
+        "Menu"
+      ],
+      "goes": [
+        "P2001",
+        "P2330"
+      ],
+      "fields": [
+        "This completes the information on ADDING WHOLE NUMBERS."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2920",
+      "file": 1403275,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2930",
+        "P2001"
+      ],
+      "fields": [
+        "1.  Addition is a method by which two or more quantities are                combined, using a number system to represent a quantity."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2930",
+      "file": 1405877,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2940",
+        "P2920"
+      ],
+      "fields": [
+        "2.  The addition process is signified by the + sign, meaning to             add."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2940",
+      "file": 1408343,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2950",
+        "P2920"
+      ],
+      "fields": [
+        "3.  The numbers to be added are called ADDENDS."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2950",
+      "file": 1410743,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2960",
+        "P2920"
+      ],
+      "fields": [
+        "4.  The result of the combination is called the SUM."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2960",
+      "file": 1413167,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2970",
+        "P2920"
+      ],
+      "fields": [
+        "5.  The addition table illustrates the sum of two single digit                    numbers."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2970",
+      "file": 1419279,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2980",
+        "P2960"
+      ],
+      "fields": [
+        "6.  The whole number line illustrates the addition process."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2980",
+      "file": 1425143,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2999",
+        "P2960"
+      ],
+      "fields": [
+        "7.  When a column's sum produces a number greater than 9, a             carry results."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2999",
+      "file": 1427361,
+      "captions": [
+        "Next",
+        "Back",
+        "Menu"
+      ],
+      "goes": [],
+      "fields": [
+        "You have completed the Summary.\nYou are about to return to the Objective Menu."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 308,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go ..t..}......\"p2001\"..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20809174b1837de290af80918322703230303122e0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 519,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .....}......END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f208091a5b1837de287b1a5e0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P2699",
+      "file": 1430069,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2700",
+        "P2001"
+      ],
+      "fields": [
+        "The following 10 questions give you an opportunity to practice adding whole numbers. You will receive three tries on each question before the answer is given.  Use paper and pencil to find the sum before answering the question."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2801",
+      "file": 1434279,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 330,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .nextpage}..4................+..........................................................................................................B...............",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806e657874706167657de29234920dc50be290af809183c513e0e082c82be0e000e901000002020000000000000000000100b301b3010000000083000000000000000100950195010000000084000000000000000000000000000000000000000000000000000100b301b30100000000850000170209000500000014000a001200001a020b00fdff4218b001e61900000000ffffff000300"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 666,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage............8..E.................................................................................y..................U...:.",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e082c838e0004503000002020000000000000000000100b301b3010000000086000000000000000100950195010000000087000000000000000000000000000000000000000000000000000100b301b3010000000088000079030b000b00000014000700ffff000000ffff550cca173a18"
+        }
+      ]
+    },
+    {
+      "page": "P2700",
+      "file": 1436149,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P2699"
+      ],
+      "fields": [
+        "1. What is the sum of 5 + 4?"
+      ],
+      "handlers": [
+        {
+          "kind": "KeyUp",
+          "off": 1678,
+          "goes": [],
+          "text": "TO HANDLE KeyUp ./...4..nextpage...4..lastpage........T <> KeyEnter.........>.........response = ....\"Response\"...ASYM_IsNumber(.') = ...F....31....>.........--{Checks ..positive s",
+          "hex": "544f2048414e444c45204b6579557020c02fe0099234920d6e65787470616765e2099234920d6c6173747061676509e009e0090983c054203c3e204b6579456e746572e00909b0a8e00909b03ee00982a3e00909e009726573706f6e7365203d208d88909622526573706f6e736522e009834153594d5f49734e756d62657228c52729203d209094b246e00909903331e00909b03ee00982a3e0090909e02d2d7b436865636b732090a4706f7369746976652073"
+        }
+      ]
+    },
+    {
+      "page": "P2703",
+      "file": 1439641,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "Your answer is still incorrect.  You should have answered  9."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 491,
+          "goes": [],
+          "text": "TO HANDLE buttonClick....PutVar(15, 5.0) ..Var15=GetVar(15)...4..nextpage............G....Z...h......................B..................4.....i.....+...........u.....n......h.i....",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be10990ad5075745661722831352c20352e302920e10956617231353d47657456617228313529e1e19234920d6e65787470616765e190af809183c50be0e082c847e0e000005a02000068038902090002000000140009001000088c020a00fdff4218b001e61900000000ffffff00030000000034050b01de03690300008b002b02000000001000160000007500000001006ef5000000000068006900180000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 780,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}...4..lastpage...........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de0099234920d6c61737470616765e00990af809183c50ce0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P2710",
+      "file": 1445871,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P2700"
+      ],
+      "fields": [
+        "2. What is the sum of 8 + 3?"
+      ],
+      "handlers": [
+        {
+          "kind": "KeyUp",
+          "off": 1678,
+          "goes": [],
+          "text": "TO HANDLE KeyUp ./...4..nextpage...4..lastpage........T <> KeyEnter.........>.........response = ....\"Response\"...ASYM_IsNumber(.') = ...F....31....>.........--{Checks ..positive s",
+          "hex": "544f2048414e444c45204b6579557020c02fe0099234920d6e65787470616765e2099234920d6c6173747061676509e009e0090983c054203c3e204b6579456e746572e00909b0a8e00909b03ee00982a3e00909e009726573706f6e7365203d208d88909622526573706f6e736522e009834153594d5f49734e756d62657228c52729203d209094b246e00909903331e00909b03ee00982a3e0090909e02d2d7b436865636b732090a4706f7369746976652073"
+        }
+      ]
+    },
+    {
+      "page": "P2713",
+      "file": 1449535,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "Your answer is still incorrect.  You should have answered 11."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 491,
+          "goes": [],
+          "text": "TO HANDLE buttonClick....PutVar(15, 5.0) ..Var15=GetVar(15)...4..nextpage............G....Z...h......................B..................4.....i.....+...........u.....n......h.i....",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be10990ad5075745661722831352c20352e302920e10956617231353d47657456617228313529e1e19234920d6e65787470616765e190af809183c50be0e082c847e0e000005a02000068038902090002000000140009001000088c020a00fdff4218b001e61900000000ffffff00030000000034050b01de03690300008b002b02000000001000160000007500000001006ef5000000000068006900180000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 780,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}...4..lastpage...........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de0099234920d6c61737470616765e00990af809183c50ce0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P2720",
+      "file": 1452417,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P2710"
+      ],
+      "fields": [
+        "3. What is the sum of 11 + 25?"
+      ],
+      "handlers": [
+        {
+          "kind": "KeyUp",
+          "off": 1678,
+          "goes": [],
+          "text": "TO HANDLE KeyUp ./...4..nextpage...4..lastpage........T <> KeyEnter.........>.........response = ....\"Response\"...ASYM_IsNumber(.') = ...F....31....>.........--{Checks ..positive s",
+          "hex": "544f2048414e444c45204b6579557020c02fe0099234920d6e65787470616765e2099234920d6c6173747061676509e009e0090983c054203c3e204b6579456e746572e00909b0a8e00909b03ee00982a3e00909e009726573706f6e7365203d208d88909622526573706f6e736522e009834153594d5f49734e756d62657228c52729203d209094b246e00909903331e00909b03ee00982a3e0090909e02d2d7b436865636b732090a4706f7369746976652073"
+        }
+      ]
+    },
+    {
+      "page": "P2723",
+      "file": 1455951,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "Your answer is still incorrect.  You should have answered 36."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 402,
+          "goes": [],
+          "text": "TO HANDLE buttonClick..4..nextpage............ ...r...........................B..................4...^.......+...........u.....n......h.i.......................).&...........;....;",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be29234920d6e65787470616765e190af809183c50be0e082c820e0e00072da010000e8020902090002000000140009001000080c020a00fdff4218b001e61900000000ffffff00030000000034050b015e03e90200008b002b02000000001000160000007500000001006ef500000000006800690018000000fcff000000000000000000000000080004002900260ff4ff06ffffffff0df4ff3b030dfcff3b"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 652,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}...4..lastpage...........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de0099234920d6c61737470616765e00990af809183c50ce0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P2730",
+      "file": 1458705,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P2720"
+      ],
+      "fields": [
+        "4. What is the sum of 19 + 34?"
+      ],
+      "handlers": [
+        {
+          "kind": "KeyUp",
+          "off": 1678,
+          "goes": [],
+          "text": "TO HANDLE KeyUp ./...4..nextpage...4..lastpage........T <> KeyEnter.........>.........response = ....\"Response\"...ASYM_IsNumber(.') = ...F....31....>.........--{Checks ..positive s",
+          "hex": "544f2048414e444c45204b6579557020c02fe0099234920d6e65787470616765e2099234920d6c6173747061676509e009e0090983c054203c3e204b6579456e746572e00909b0a8e00909b03ee00982a3e00909e009726573706f6e7365203d208d88909622526573706f6e736522e009834153594d5f49734e756d62657228c52729203d209094b246e00909903331e00909b03ee00982a3e0090909e02d2d7b436865636b732090a4706f7369746976652073"
+        }
+      ]
+    },
+    {
+      "page": "P2733",
+      "file": 1462239,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "Your answer is still incorrect.  You should have answered 53."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 491,
+          "goes": [],
+          "text": "TO HANDLE buttonClick....PutVar(15, 5.0) ..Var15=GetVar(15)...4..nextpage............G....Z...h......................B..................4.....i.....+...........u.....n......h.i....",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be10990ad5075745661722831352c20352e302920e10956617231353d47657456617228313529e1e19234920d6e65787470616765e190af809183c50be0e082c847e0e000005a02000068038902090002000000140009001000088c020a00fdff4218b001e61900000000ffffff00030000000034050b01de03690300008b002b02000000001000160000007500000001006ef5000000000068006900180000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 780,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}...4..lastpage...........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de0099234920d6c61737470616765e00990af809183c50ce0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P2740",
+      "file": 1465121,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P2730"
+      ],
+      "fields": [
+        "5. What is the sum of 67 + 41?"
+      ],
+      "handlers": [
+        {
+          "kind": "KeyUp",
+          "off": 1678,
+          "goes": [],
+          "text": "TO HANDLE KeyUp ./...4..nextpage...4..lastpage........T <> KeyEnter.........>.........response = ....\"Response\"...ASYM_IsNumber(.') = ...F....31....>.........--{Checks ..positive s",
+          "hex": "544f2048414e444c45204b6579557020c02fe0099234920d6e65787470616765e2099234920d6c6173747061676509e009e0090983c054203c3e204b6579456e746572e00909b0a8e00909b03ee00982a3e00909e009726573706f6e7365203d208d88909622526573706f6e736522e009834153594d5f49734e756d62657228c52729203d209094b246e00909903331e00909b03ee00982a3e0090909e02d2d7b436865636b732090a4706f7369746976652073"
+        }
+      ]
+    },
+    {
+      "page": "P2743",
+      "file": 1468647,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "Your answer is still incorrect.  You should have answered 108."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 491,
+          "goes": [],
+          "text": "TO HANDLE buttonClick....PutVar(15, 5.0) ..Var15=GetVar(15)...4..nextpage............G....Z...h......................B..................4.....i.....+...........u.....n......h.i....",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be10990ad5075745661722831352c20352e302920e10956617231353d47657456617228313529e1e19234920d6e65787470616765e190af809183c50be0e082c847e0e000005a02000068038902090002000000140009001000088c020a00fdff4218b001e61900000000ffffff00030000000034050b01de03690300008b002b02000000001000160000007500000001006ef5000000000068006900180000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 780,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}...4..lastpage...........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de0099234920d6c61737470616765e00990af809183c50ce0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P2750",
+      "file": 1471529,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P2740"
+      ],
+      "fields": [
+        "6. What is the sum of 238 + 362?"
+      ],
+      "handlers": [
+        {
+          "kind": "KeyUp",
+          "off": 1678,
+          "goes": [],
+          "text": "TO HANDLE KeyUp ./...4..nextpage...4..lastpage........T <> KeyEnter.........>.........response = ....\"Response\"...ASYM_IsNumber(.') = ...F....31....>.........--{Checks ..positive s",
+          "hex": "544f2048414e444c45204b6579557020c02fe0099234920d6e65787470616765e2099234920d6c6173747061676509e009e0090983c054203c3e204b6579456e746572e00909b0a8e00909b03ee00982a3e00909e009726573706f6e7365203d208d88909622526573706f6e736522e009834153594d5f49734e756d62657228c52729203d209094b246e00909903331e00909b03ee00982a3e0090909e02d2d7b436865636b732090a4706f7369746976652073"
+        }
+      ]
+    },
+    {
+      "page": "P2753",
+      "file": 1475065,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "Your answer is still incorrect.  You should have answered 600."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 491,
+          "goes": [],
+          "text": "TO HANDLE buttonClick....PutVar(15, 5.0) ..Var15=GetVar(15)...4..nextpage............G....Z...h......................B..................4.....i.....+...........u.....n......h.i....",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be10990ad5075745661722831352c20352e302920e10956617231353d47657456617228313529e1e19234920d6e65787470616765e190af809183c50be0e082c847e0e000005a02000068038902090002000000140009001000088c020a00fdff4218b001e61900000000ffffff00030000000034050b01de03690300008b002b02000000001000160000007500000001006ef5000000000068006900180000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 780,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}...4..lastpage...........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de0099234920d6c61737470616765e00990af809183c50ce0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P2760",
+      "file": 1477947,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P2750"
+      ],
+      "fields": [
+        "7. What is the sum of 611 + 569?"
+      ],
+      "handlers": [
+        {
+          "kind": "KeyUp",
+          "off": 1678,
+          "goes": [],
+          "text": "TO HANDLE KeyUp ./...4..nextpage...4..lastpage........T <> KeyEnter.........>.........response = ....\"Response\"...ASYM_IsNumber(.') = ...F....31....>.........--{Checks ..positive s",
+          "hex": "544f2048414e444c45204b6579557020c02fe0099234920d6e65787470616765e2099234920d6c6173747061676509e009e0090983c054203c3e204b6579456e746572e00909b0a8e00909b03ee00982a3e00909e009726573706f6e7365203d208d88909622526573706f6e736522e009834153594d5f49734e756d62657228c52729203d209094b246e00909903331e00909b03ee00982a3e0090909e02d2d7b436865636b732090a4706f7369746976652073"
+        }
+      ]
+    },
+    {
+      "page": "P2763",
+      "file": 1481483,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "Your answer is still incorrect.  You should have answered 1180."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 491,
+          "goes": [],
+          "text": "TO HANDLE buttonClick....PutVar(15, 5.0) ..Var15=GetVar(15)...4..nextpage............G....Z...h......................B..................4.....i.....+...........u.....n......h.i....",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be10990ad5075745661722831352c20352e302920e10956617231353d47657456617228313529e1e19234920d6e65787470616765e190af809183c50be0e082c847e0e000005a02000068038902090002000000140009001000088c020a00fdff4218b001e61900000000ffffff00030000000034050b01de03690300008b002b02000000001000160000007500000001006ef5000000000068006900180000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 780,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}...4..lastpage...........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de0099234920d6c61737470616765e00990af809183c50ce0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P2770",
+      "file": 1484365,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P2760"
+      ],
+      "fields": [
+        "8. What is the sum of 93 + 19 + 52?"
+      ],
+      "handlers": [
+        {
+          "kind": "KeyUp",
+          "off": 1524,
+          "goes": [],
+          "text": "TO HANDLE KeyUp key...4..nextpage...4..lastpage........# <> KeyEnter.........>.........response = ....\"Response\"...ASYM_IsNumber(.') = ...F....31....>.........--{Checks ..positive ",
+          "hex": "544f2048414e444c45204b65795570206b6579e0099234920d6e65787470616765e2099234920d6c6173747061676509e009e0090983c023203c3e204b6579456e746572e00909b0a8e00909b03ee00982a3e00909e009726573706f6e7365203d208d88909622526573706f6e736522e009834153594d5f49734e756d62657228c52729203d209094b246e00909903331e00909b03ee00982a3e0090909e02d2d7b436865636b732090a4706f73697469766520"
+        }
+      ]
+    },
+    {
+      "page": "P2773",
+      "file": 1487747,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "Your answer is still incorrect.  You should have answered 164."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 491,
+          "goes": [],
+          "text": "TO HANDLE buttonClick....PutVar(15, 5.0) ..Var15=GetVar(15)...4..nextpage............G....Z...h......................B..................4.....i.....+...........u.....n......h.i....",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be10990ad5075745661722831352c20352e302920e10956617231353d47657456617228313529e1e19234920d6e65787470616765e190af809183c50be0e082c847e0e000005a02000068038902090002000000140009001000088c020a00fdff4218b001e61900000000ffffff00030000000034050b01de03690300008b002b02000000001000160000007500000001006ef5000000000068006900180000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 780,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}...4..lastpage...........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de0099234920d6c61737470616765e00990af809183c50ce0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P2780",
+      "file": 1490629,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P2770"
+      ],
+      "fields": [
+        "9. What is the sum of 891 + 906 + 599?"
+      ],
+      "handlers": [
+        {
+          "kind": "KeyUp",
+          "off": 1524,
+          "goes": [],
+          "text": "TO HANDLE KeyUp key...4..nextpage...4..lastpage........# <> KeyEnter.........>.........response = ....\"Response\"...ASYM_IsNumber(.') = ...F....31....>.........--{Checks ..positive ",
+          "hex": "544f2048414e444c45204b65795570206b6579e0099234920d6e65787470616765e2099234920d6c6173747061676509e009e0090983c023203c3e204b6579456e746572e00909b0a8e00909b03ee00982a3e00909e009726573706f6e7365203d208d88909622526573706f6e736522e009834153594d5f49734e756d62657228c52729203d209094b246e00909903331e00909b03ee00982a3e0090909e02d2d7b436865636b732090a4706f73697469766520"
+        }
+      ]
+    },
+    {
+      "page": "P2783",
+      "file": 1494003,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "Your answer is still incorrect.  You should have answered 2396."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 491,
+          "goes": [],
+          "text": "TO HANDLE buttonClick....PutVar(15, 5.0) ..Var15=GetVar(15)...4..nextpage............G....Z...h......................B..................4.....i.....+...........u.....n......h.i....",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be10990ad5075745661722831352c20352e302920e10956617231353d47657456617228313529e1e19234920d6e65787470616765e190af809183c50be0e082c847e0e000005a02000068038902090002000000140009001000088c020a00fdff4218b001e61900000000ffffff00030000000034050b01de03690300008b002b02000000001000160000007500000001006ef5000000000068006900180000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 780,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}...4..lastpage...........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de0099234920d6c61737470616765e00990af809183c50ce0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P2790",
+      "file": 1496885,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P2780"
+      ],
+      "fields": [
+        "10. What is the sum of 2805 + 3167 + 8999 + 2056?"
+      ],
+      "handlers": [
+        {
+          "kind": "KeyUp",
+          "off": 1524,
+          "goes": [],
+          "text": "TO HANDLE KeyUp key...4..nextpage...4..lastpage........# <> KeyEnter.........>.........response = ....\"Response\"...ASYM_IsNumber(.') = ...F....31....>.........--{Checks ..positive ",
+          "hex": "544f2048414e444c45204b65795570206b6579e0099234920d6e65787470616765e2099234920d6c6173747061676509e009e0090983c023203c3e204b6579456e746572e00909b0a8e00909b03ee00982a3e00909e009726573706f6e7365203d208d88909622526573706f6e736522e009834153594d5f49734e756d62657228c52729203d209094b246e00909903331e00909b03ee00982a3e0090909e02d2d7b436865636b732090a4706f73697469766520"
+        }
+      ]
+    },
+    {
+      "page": "P2793",
+      "file": 1500293,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "Your answer is still incorrect.  You should have answered 17027."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 491,
+          "goes": [],
+          "text": "TO HANDLE buttonClick....PutVar(15, 5.0) ..Var15=GetVar(15)...4..nextpage............G....Z...h......................B..................4.....i.....+...........u.....n......h.i....",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be10990ad5075745661722831352c20352e302920e10956617231353d47657456617228313529e1e19234920d6e65787470616765e190af809183c50be0e082c847e0e000005a02000068038902090002000000140009001000088c020a00fdff4218b001e61900000000ffffff00030000000034050b01de03690300008b002b02000000001000160000007500000001006ef5000000000068006900180000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 780,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}...4..lastpage...........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de0099234920d6c61737470616765e00990af809183c50ce0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P2799",
+      "file": 1503175,
+      "captions": [
+        "Next",
+        "Back",
+        "Menu"
+      ],
+      "goes": [
+        "P2001",
+        "P2790"
+      ],
+      "fields": [
+        "You have completed the Exercise.  You are about to return to the Objective Menu."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3001",
+      "file": 1505777,
+      "captions": [
+        "Back",
+        "Menu"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "ButtonClick",
+          "off": 4188,
+          "goes": [],
+          "text": "To Handle ButtonClick..4lastbook...=.p...8..4nextpage...=.p..........\"P20001\" ..8\"nida81.tbk\" .....!................................................................................",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be192346c617374626f6f6be2c5063d9170888eb038e292346e65787470616765e2c5063d9170888eb183e290af809183225032303030312220889038226e69646138312e74626b2220e0a2e000002111000002020000000000000000000100b301b301000000008900000000000000010095019501000000008a000000000000000000000000000000000000000000000000000100b301b301000000008b00"
+        }
+      ]
+    },
+    {
+      "page": "P3020",
+      "file": 1512841,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3025",
+        "P3001"
+      ],
+      "fields": [
+        "Subtraction is a method by which the difference between two quantities is determined, using a number system to represent a quantity."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3025",
+      "file": 1515391,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3030",
+        "P3020"
+      ],
+      "fields": [
+        "The difference is signified by the - sign.  It means to subtract."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3030",
+      "file": 1517621,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3020"
+      ],
+      "fields": [
+        "The first number is called the MINUEND."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 287,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go ..t..}...t..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20809174b1837de287b174e0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P3040",
+      "file": 1519835,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3020"
+      ],
+      "fields": [
+        "The number to be subtracted is called the SUBTRAHEND."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 287,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go ..t..}...t..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20809174b1837de287b174e0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P3050",
+      "file": 1522071,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3020"
+      ],
+      "fields": [
+        "The result of the subtraction is called the DIFFERENCE."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 287,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go ..t..}...t..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20809174b1837de287b174e0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P3060",
+      "file": 1524425,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3020"
+      ],
+      "fields": [
+        "The table shows all possible differences between two single digit numbers."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 1753,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go ..t..}...t..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20809174b1837de287b174e0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P3070",
+      "file": 1530695,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3060"
+      ],
+      "fields": [
+        "Notice the X's in the table.  They represent negative numbers. Negative numbers have a value less than 0 units."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 287,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go ..t..}...t..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20809174b1837de287b174e0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P3080",
+      "file": 1532673,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3060"
+      ],
+      "fields": [
+        "To find the difference of 5 - 2, locate the 5 ( minuend ) on the top row, move down the column until you hit 2 (subtrahend ) row. The difference is 3."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 287,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go ..t..}...t..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20809174b1837de287b174e0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P3090",
+      "file": 1535035,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P3060",
+        "P3095"
+      ],
+      "fields": [
+        "What is the difference of 8 - 4?"
+      ],
+      "handlers": [
+        {
+          "kind": "KeyUp",
+          "off": 1622,
+          "goes": [],
+          "text": "TO HANDLE KeyUp ./...4..nextpage...4..lastpage........T <> KeyEnter.........>.........response = ....\"Response\"...ASYM_IsNumber(.') = ...F....31....>.........--{Checks ..positive s",
+          "hex": "544f2048414e444c45204b6579557020c02fe0099234920d6e65787470616765e2099234920d6c6173747061676509e009e0090983c054203c3e204b6579456e746572e00909b0a8e00909b03ee00982a3e00909e009726573706f6e7365203d208d88909622526573706f6e736522e009834153594d5f49734e756d62657228c52729203d209094b246e00909903331e00909b03ee00982a3e0090909e02d2d7b436865636b732090a4706f7369746976652073"
+        }
+      ]
+    },
+    {
+      "page": "P3091",
+      "file": 1538947,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 330,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .nextpage}..4................+..........................................................................................................B...............",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806e657874706167657de29234920dc50be290af809183c513e0e082c82be00000e901000002020000000000000000000100b301b3010000000083000000000000000100950195010000000084000000000000000000000000000000000000000000000000000100b301b30100000000850000170209000500000014000a001200001a020b00fdff4218b001e61900000000ffffff000300"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 666,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage............8..E.................................................................................y..................U...:.",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e082c838e0004503000002020000000000000000000100b301b3010000000086000000000000000100950195010000000087000000000000000000000000000000000000000000000000000100b301b3010000000088000079030b000b00000014000700ffff000000ffff550cca173a18"
+        }
+      ]
+    },
+    {
+      "page": "P3092",
+      "file": 1540817,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "You did not type the correct answer.  Use the subtraction table or number line by selecting HELP."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 402,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage..........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 752,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage........ ..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50b20e2e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P3093",
+      "file": 1542999,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "Your answer is still incorrect.  You should have answered 4."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 491,
+          "goes": [],
+          "text": "TO HANDLE buttonClick....PutVar(15, 5.0) ..Var15=GetVar(15)...4..nextpage............G....Z...h......................B..................4.....i.....+...........u.....n......h.i....",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be10990ad5075745661722831352c20352e302920e10956617231353d47657456617228313529e1e19234920d6e65787470616765e190af809183c50be0e082c847e0e000005a02000068038902090002000000140009001000088c020a00fdff4218b001e61900000000ffffff00030000000034050b01de03690300008b002b02000000001000160000007500000001006ef5000000000068006900180000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 780,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}...4..lastpage...........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de0099234920d6c61737470616765e00990af809183c50ce0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P3095",
+      "file": 1545881,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "SUBTRACTION TABLE & NUMBER LINE"
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 2022,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .lastpage}..4................+.................................................................................................k....Q...B...............",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806c617374706167657de29234920dc50be290af809183c513e0e082c82be1e0008508000002020000000000000000000100b301b301000000008c00000000000000010095019501000000008d000000000000000000000000000000000000000000000000000100b301b301000000008e0000b308090008000000140009006b0000b6085100fdff4218b001e61900000000ffffff000300"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 2358,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .lastpage}..4................+.........................................................................................=............N......#............",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806c617374706167657de29234920dc50be290af809183c513e0e082c82be00000d509000002020000000000000000000100b301b301000000008f000000000000000100950195010000000090000000000000000000000000000000000000000000000000000100b301b30100000000910000090a0b003d0000001400ffffffff0000004e00c712960fd723931200000000000000000100"
+        }
+      ]
+    },
+    {
+      "page": "P3100",
+      "file": 1557229,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3090"
+      ],
+      "fields": [
+        "To illustrate the subtraction process, the whole number line is used."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 359,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go ..t..}...t..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20809174b1837de287b174e0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P3110",
+      "file": 1562799,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3100"
+      ],
+      "fields": [
+        "To subtract 5 - 2, mark the point on the line that represents 5."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 287,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go ..t..}...t..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20809174b1837de287b174e0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P3120",
+      "file": 1565101,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3100"
+      ],
+      "fields": [
+        "Then move to the left 2 places."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 287,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go ..t..}...t..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20809174b1837de287b174e0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P3130",
+      "file": 1567371,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3100"
+      ],
+      "fields": [
+        "The point you end up at is the difference, 3."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 287,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go ..t..}...t..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20809174b1837de287b174e0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P3140",
+      "file": 1569319,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3150",
+        "P3100"
+      ],
+      "fields": [
+        "Here is another example of how the number line works."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3150",
+      "file": 1575103,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3160",
+        "P3140"
+      ],
+      "fields": [
+        "Mark the line for the number 6."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3160",
+      "file": 1577293,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3170",
+        "P3140"
+      ],
+      "fields": [
+        "Count over 5 places to the LEFT."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3170",
+      "file": 1579483,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3180",
+        "P3140"
+      ],
+      "fields": [
+        "The point you end up at is the difference between 6 and 5, or 1."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3180",
+      "file": 1581471,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P3140",
+        "P3185"
+      ],
+      "fields": [
+        "Using the subtraction table or the whole number line, subtract:"
+      ],
+      "handlers": [
+        {
+          "kind": "KeyUp",
+          "off": 1622,
+          "goes": [],
+          "text": "TO HANDLE KeyUp ./...4..nextpage...4..lastpage........T <> KeyEnter.........>.........response = ....\"Response\"...ASYM_IsNumber(.') = ...F....31....>.........--{Checks ..positive s",
+          "hex": "544f2048414e444c45204b6579557020c02fe0099234920d6e65787470616765e2099234920d6c6173747061676509e009e0090983c054203c3e204b6579456e746572e00909b0a8e00909b03ee00982a3e00909e009726573706f6e7365203d208d88909622526573706f6e736522e009834153594d5f49734e756d62657228c52729203d209094b246e00909903331e00909b03ee00982a3e0090909e02d2d7b436865636b732090a4706f7369746976652073"
+        }
+      ]
+    },
+    {
+      "page": "P3181",
+      "file": 1585409,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 330,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .nextpage}..4................+..........................................................................................................B...............",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806e657874706167657de29234920dc50be290af809183c513e0e082c82be00000e901000002020000000000000000000100b301b3010000000083000000000000000100950195010000000084000000000000000000000000000000000000000000000000000100b301b30100000000850000170209000500000014000a001200001a020b00fdff4218b001e61900000000ffffff000300"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 666,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage............8..E.................................................................................y..................U...:.",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e082c838e0004503000002020000000000000000000100b301b3010000000086000000000000000100950195010000000087000000000000000000000000000000000000000000000000000100b301b3010000000088000079030b000b00000014000700ffff000000ffff550cca173a18"
+        }
+      ]
+    },
+    {
+      "page": "P3182",
+      "file": 1587279,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "You did not calculate the correct difference. Use the subtraction table or the whole number line."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 402,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage..........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 752,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage........ ..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50b20e2e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P3183",
+      "file": 1589461,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "Your answer is still incorrect.  You should have answered 6."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 491,
+          "goes": [],
+          "text": "TO HANDLE buttonClick....PutVar(15, 5.0) ..Var15=GetVar(15)...4..nextpage............G....Z...h......................B..................4.....i.....+...........u.....n......h.i....",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be10990ad5075745661722831352c20352e302920e10956617231353d47657456617228313529e1e19234920d6e65787470616765e190af809183c50be0e082c847e0e000005a02000068038902090002000000140009001000088c020a00fdff4218b001e61900000000ffffff00030000000034050b01de03690300008b002b02000000001000160000007500000001006ef5000000000068006900180000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 780,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}...4..lastpage...........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de0099234920d6c61737470616765e00990af809183c50ce0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P3185",
+      "file": 1592343,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 628,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .lastpage}..4................+.....................................................................................A...........k..D.c...B...............",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806c617374706167657de29234920dc50be290af809183c513e0e082c82be1e0001303000002020000000000000000000100b301b301000000008c00000000000000010095019501000000008d000000000000000000000000000000000000000000000000000100b301b301000000008e00004103090008000000140009006b000044036300fdff4218b001e61900000000ffffff000300"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 964,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .lastpage}..4................+...c.....................................................................................O............`.....1.............",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806c617374706167657de29234920dc50be290af809183c513e0e082c82be000006304000002020000000000000000000100b301b301000000008f000000000000000100950195010000000090000000000000000000000000000000000000000000000000000100b301b3010000000091000097040b004f0000001400ffffffff0000006000d900040b3112e81700000000000000000100"
+        }
+      ]
+    },
+    {
+      "page": "P3190",
+      "file": 1603631,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3200",
+        "P3180"
+      ],
+      "fields": [
+        "The subtraction table and the whole number line are very easy to use.  After a little practice you will be able to subtract numbers without using either."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3200",
+      "file": 1605229,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3210",
+        "P3190"
+      ],
+      "fields": [
+        "Now we will use the table or number line to subtract.  The solution is not difficult if you take it one step at a time."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3210",
+      "file": 1607249,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3220",
+        "P3200",
+        "P3212",
+        "P3185"
+      ],
+      "fields": [
+        "First subtract the UNIT digits."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3212",
+      "file": 1609873,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3220",
+        "P3200",
+        "P3185"
+      ],
+      "fields": [
+        "First subtract the UNIT digits."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3220",
+      "file": 1612529,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3230",
+        "P3212"
+      ],
+      "fields": [
+        "Notice that you get 1, or 1 unit."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3230",
+      "file": 1614937,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3240",
+        "P3212"
+      ],
+      "fields": [
+        "Now, the tens column is subtracted. Notice that 3 is larger than 1."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3240",
+      "file": 1616891,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3250",
+        "P3212"
+      ],
+      "fields": [
+        "To see how the subtraction is done, the numbers 318 and 137 have been converted.  Remember the three in 318 represents 3 hundreds, the 1 represents 1 ten, and the 8 represents 8 units."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3250",
+      "file": 1618837,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3260",
+        "P3240"
+      ],
+      "fields": [
+        "As before, 8 units minus 7 units equals 1 unit."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3260",
+      "file": 1621027,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3270",
+        "P3240"
+      ],
+      "fields": [
+        "Notice 10 minus 30 does not work.  You must borrow 1 hundred from the hundreds place.  The 3 hundreds will become 2 hundreds and the 1 ten will become 11 tens or 110."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3263",
+      "file": 1623613,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3270",
+        "P3240",
+        "P3185"
+      ],
+      "fields": [
+        "Now subtracting 3 tens from 11 tens.  This is equivalent to \n11 - 3 = 8."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3267",
+      "file": 1627131,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3270",
+        "P3240",
+        "P3185"
+      ],
+      "fields": [
+        "Now subtracting 3 tens from 11 tens produces 8 tens. This is equivalent to 11 - 3 = 8."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3270",
+      "file": 1629181,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3280",
+        "P3267"
+      ],
+      "fields": [
+        "When borrowing, the process is normally shown as:"
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3280",
+      "file": 1631727,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3290",
+        "P3270",
+        "P3282",
+        "P3185"
+      ],
+      "fields": [
+        "Last, subtract the hundreds column.  The place value of the hundreds column has been reduced to 2 because of the borrow."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3282",
+      "file": 1635319,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3290",
+        "P3270",
+        "P3185"
+      ],
+      "fields": [
+        "Last, subtract the hundreds column.  The place value of the hundreds column has been reduced to 2 because of the borrow."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3290",
+      "file": 1638465,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3300",
+        "P3282"
+      ],
+      "fields": [
+        "The difference is 181."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3300",
+      "file": 1641433,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3310",
+        "P3282"
+      ],
+      "fields": [
+        "Let's try another example.  Subtract 199 from 200."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3310",
+      "file": 1643419,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3320",
+        "P3300"
+      ],
+      "fields": [
+        "First subtract the units.  Since 9 is larger than 0, you must borrow from the tens column.  Notice that the tens column is 0, there is nothing to borrow."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3320",
+      "file": 1645437,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3330",
+        "P3300"
+      ],
+      "fields": [
+        "In this case, you must borrow from the hundreds column to the tens column first.  After the borrow, there is a 1 in the hundreds column and 10 in the tens column."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3330",
+      "file": 1648505,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3340",
+        "P3300"
+      ],
+      "fields": [
+        "Now, you can borrow from the tens column because there are 10 tens."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3340",
+      "file": 1651475,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3350",
+        "P3300"
+      ],
+      "fields": [
+        "Borrowing from the tens column produces 9 in the tens column and 10 in the units column."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3350",
+      "file": 1654853,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3360",
+        "P3300",
+        "P3352",
+        "P3185"
+      ],
+      "fields": [
+        "Subtracting 9 from 10 produces 1 unit."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3352",
+      "file": 1658717,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3360",
+        "P3300",
+        "P3185"
+      ],
+      "fields": [
+        "Subtracting 9 from 10 produces 1 unit."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3360",
+      "file": 1662177,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3370",
+        "P3352"
+      ],
+      "fields": [
+        "Second, subtract the tens column, 9 - 9 = 0.  You borrowed from the hundreds to get 10 tens.  Then you borrowed from these 10 tens leaving 9 tens."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3370",
+      "file": 1665621,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3380",
+        "P3352"
+      ],
+      "fields": [
+        "Third, subtract the hundreds column. The result of subtracting 199 from 200 is 1."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3380",
+      "file": 1668991,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3390",
+        "P3352"
+      ],
+      "fields": [
+        "Notice in this example, the tens column does not require a borrow (8 - 8 = 0) however, the units column does which causes the tens column to borrow from the hundreds."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3390",
+      "file": 1671601,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P3380",
+        "P3185"
+      ],
+      "fields": [
+        "What is the difference of:"
+      ],
+      "handlers": [
+        {
+          "kind": "KeyUp",
+          "off": 1622,
+          "goes": [],
+          "text": "TO HANDLE KeyUp ./...4..nextpage...4..lastpage........T <> KeyEnter.........>.........response = ....\"Response\"...ASYM_IsNumber(.') = ...F....31....>.........--{Checks ..positive s",
+          "hex": "544f2048414e444c45204b6579557020c02fe0099234920d6e65787470616765e2099234920d6c6173747061676509e009e0090983c054203c3e204b6579456e746572e00909b0a8e00909b03ee00982a3e00909e009726573706f6e7365203d208d88909622526573706f6e736522e009834153594d5f49734e756d62657228c52729203d209094b246e00909903331e00909b03ee00982a3e0090909e02d2d7b436865636b732090a4706f7369746976652073"
+        }
+      ]
+    },
+    {
+      "page": "P3391",
+      "file": 1675867,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 330,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .nextpage}..4................+..........................................................................................................B...............",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806e657874706167657de29234920dc50be290af809183c513e0e082c82be00000e901000002020000000000000000000100b301b3010000000083000000000000000100950195010000000084000000000000000000000000000000000000000000000000000100b301b30100000000850000170209000500000014000a001200001a020b00fdff4218b001e61900000000ffffff000300"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 666,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage............8..E.................................................................................y..................U...:.",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e082c838e0004503000002020000000000000000000100b301b3010000000086000000000000000100950195010000000087000000000000000000000000000000000000000000000000000100b301b3010000000088000079030b000b00000014000700ffff000000ffff550cca173a18"
+        }
+      ]
+    },
+    {
+      "page": "P3392",
+      "file": 1677737,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "You did not subtract 11 from 23 correctly.  Use HELP to see the subtraction table or whole number line."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 402,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage..........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 752,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage........ ..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50b20e2e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P3393",
+      "file": 1679919,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "Your answer is still incorrect.  You should have answered 12."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 491,
+          "goes": [],
+          "text": "TO HANDLE buttonClick....PutVar(15, 5.0) ..Var15=GetVar(15)...4..nextpage............G....Z...h......................B..................4.....i.....+...........u.....n......h.i....",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be10990ad5075745661722831352c20352e302920e10956617231353d47657456617228313529e1e19234920d6e65787470616765e190af809183c50be0e082c847e0e000005a02000068038902090002000000140009001000088c020a00fdff4218b001e61900000000ffffff00030000000034050b01de03690300008b002b02000000001000160000007500000001006ef5000000000068006900180000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 780,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}...4..lastpage...........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de0099234920d6c61737470616765e00990af809183c50ce0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P3400",
+      "file": 1682801,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P3390",
+        "P3185"
+      ],
+      "fields": [
+        "What is the difference of:"
+      ],
+      "handlers": [
+        {
+          "kind": "KeyUp",
+          "off": 1622,
+          "goes": [],
+          "text": "TO HANDLE KeyUp ./...4..nextpage...4..lastpage........T <> KeyEnter.........>.........response = ....\"Response\"...ASYM_IsNumber(.') = ...F....31....>.........--{Checks ..positive s",
+          "hex": "544f2048414e444c45204b6579557020c02fe0099234920d6e65787470616765e2099234920d6c6173747061676509e009e0090983c054203c3e204b6579456e746572e00909b0a8e00909b03ee00982a3e00909e009726573706f6e7365203d208d88909622526573706f6e736522e009834153594d5f49734e756d62657228c52729203d209094b246e00909903331e00909b03ee00982a3e0090909e02d2d7b436865636b732090a4706f7369746976652073"
+        }
+      ]
+    },
+    {
+      "page": "P3401",
+      "file": 1686743,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 330,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .nextpage}..4................+..........................................................................................................B...............",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806e657874706167657de29234920dc50be290af809183c513e0e082c82be00000e901000002020000000000000000000100b301b3010000000083000000000000000100950195010000000084000000000000000000000000000000000000000000000000000100b301b30100000000850000170209000500000014000a001200001a020b00fdff4218b001e61900000000ffffff000300"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 666,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage............8..E.................................................................................y..................U...:.",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e082c838e0004503000002020000000000000000000100b301b3010000000086000000000000000100950195010000000087000000000000000000000000000000000000000000000000000100b301b3010000000088000079030b000b00000014000700ffff000000ffff550cca173a18"
+        }
+      ]
+    },
+    {
+      "page": "P3402",
+      "file": 1688613,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "You did not subtract 799 from 988 correctly.  Use HELP to see the subtraction table or whole number line."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 402,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage..........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 752,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage........ ..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50b20e2e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P3403",
+      "file": 1690795,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "Your answer is still incorrect.  You should have answered 189."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 491,
+          "goes": [],
+          "text": "TO HANDLE buttonClick....PutVar(15, 5.0) ..Var15=GetVar(15)...4..nextpage............G....Z...h......................B..................4.....i.....+...........u.....n......h.i....",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be10990ad5075745661722831352c20352e302920e10956617231353d47657456617228313529e1e19234920d6e65787470616765e190af809183c50be0e082c847e0e000005a02000068038902090002000000140009001000088c020a00fdff4218b001e61900000000ffffff00030000000034050b01de03690300008b002b02000000001000160000007500000001006ef5000000000068006900180000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 780,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}...4..lastpage...........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de0099234920d6c61737470616765e00990af809183c50ce0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P3910",
+      "file": 1693677,
+      "captions": [
+        "Next",
+        "Back",
+        "Menu"
+      ],
+      "goes": [
+        "P3001",
+        "P3400"
+      ],
+      "fields": [
+        "This completes the information on SUBTRACTING WHOLE NUMBERS."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3920",
+      "file": 1696369,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3930",
+        "P3001"
+      ],
+      "fields": [
+        "1.  Subtraction is a method by which the difference between two        quantities is determined, using a number system to represent        quantity."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3930",
+      "file": 1698919,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3940",
+        "P3920"
+      ],
+      "fields": [
+        "2.  The difference is signified by the - sign.  It means to subtract."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3940",
+      "file": 1701257,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3950",
+        "P3920"
+      ],
+      "fields": [
+        "3.  The first number is called the MINUEND."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3950",
+      "file": 1703607,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3960",
+        "P3920"
+      ],
+      "fields": [
+        "4.  The number to be subtracted is called the SUBTRAHEND."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3960",
+      "file": 1705949,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3970",
+        "P3920"
+      ],
+      "fields": [
+        "5.  The result of the subtraction is called the DIFFERENCE."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3970",
+      "file": 1708319,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3980",
+        "P3920"
+      ],
+      "fields": [
+        "6.  The subtraction table illustrates the difference of two single           digit numbers."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3980",
+      "file": 1714591,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3990",
+        "P3970"
+      ],
+      "fields": [
+        "7.  The whole number line illustrates the subtraction process."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3990",
+      "file": 1720129,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3999",
+        "P3980"
+      ],
+      "fields": [
+        "8.  When the minuend is smaller than the subtrahend in a                     column, a borrow results."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3999",
+      "file": 1723143,
+      "captions": [
+        "Next",
+        "Back",
+        "Menu"
+      ],
+      "goes": [],
+      "fields": [
+        "You have completed the Summary.\nYou are about to return to the Objective Menu."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 308,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go ..t..}......\"p3001\"..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20809174b1837de290af80918322703330303122e0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 519,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .....}......END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f208091a5b1837de287b1a5e0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P3699",
+      "file": 1725801,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P3700",
+        "P3001"
+      ],
+      "fields": [
+        "The following 10 questions give you an opportunity to practice subtracting whole numbers.  You will receive three tries on each question before the answer is given.  Use paper and pencil to find the difference before answering the question."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P3700",
+      "file": 1728125,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P3699"
+      ],
+      "fields": [
+        "1.  What is the difference of  5 - 4?"
+      ],
+      "handlers": [
+        {
+          "kind": "KeyUp",
+          "off": 1622,
+          "goes": [],
+          "text": "TO HANDLE KeyUp ./...4..nextpage...4..lastpage........T <> KeyEnter.........>.........response = ....\"Response\"...ASYM_IsNumber(.') = ...F....31....>.........--{Checks ..positive s",
+          "hex": "544f2048414e444c45204b6579557020c02fe0099234920d6e65787470616765e2099234920d6c6173747061676509e009e0090983c054203c3e204b6579456e746572e00909b0a8e00909b03ee00982a3e00909e009726573706f6e7365203d208d88909622526573706f6e736522e009834153594d5f49734e756d62657228c52729203d209094b246e00909903331e00909b03ee00982a3e0090909e02d2d7b436865636b732090a4706f7369746976652073"
+        }
+      ]
+    },
+    {
+      "page": "P3703",
+      "file": 1731525,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "Your answer is still incorrect.  You should have answered 1."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 491,
+          "goes": [],
+          "text": "TO HANDLE buttonClick....PutVar(15, 5.0) ..Var15=GetVar(15)...4..nextpage............G....Z...h......................B..................4.....i.....+...........u.....n......h.i....",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be10990ad5075745661722831352c20352e302920e10956617231353d47657456617228313529e1e19234920d6e65787470616765e190af809183c50be0e082c847e0e000005a02000068038902090002000000140009001000088c020a00fdff4218b001e61900000000ffffff00030000000034050b01de03690300008b002b02000000001000160000007500000001006ef5000000000068006900180000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 780,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}...4..lastpage...........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de0099234920d6c61737470616765e00990af809183c50ce0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P3710",
+      "file": 1734407,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P3700"
+      ],
+      "fields": [
+        "2. What is the difference of 8 - 3?"
+      ],
+      "handlers": [
+        {
+          "kind": "KeyUp",
+          "off": 1524,
+          "goes": [],
+          "text": "TO HANDLE KeyUp key...4..nextpage...4..lastpage........# <> KeyEnter.........>.........response = ....\"Response\"...ASYM_IsNumber(.') = ...F....31....>.........--{Checks ..positive ",
+          "hex": "544f2048414e444c45204b65795570206b6579e0099234920d6e65787470616765e2099234920d6c6173747061676509e009e0090983c023203c3e204b6579456e746572e00909b0a8e00909b03ee00982a3e00909e009726573706f6e7365203d208d88909622526573706f6e736522e009834153594d5f49734e756d62657228c52729203d209094b246e00909903331e00909b03ee00982a3e0090909e02d2d7b436865636b732090a4706f73697469766520"
+        }
+      ]
+    },
+    {
+      "page": "P3713",
+      "file": 1737741,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "Your answer is still incorrect.  You should have answered 5."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 491,
+          "goes": [],
+          "text": "TO HANDLE buttonClick....PutVar(15, 5.0) ..Var15=GetVar(15)...4..nextpage............G....Z...h......................B..................4.....i.....+...........u.....n......h.i....",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be10990ad5075745661722831352c20352e302920e10956617231353d47657456617228313529e1e19234920d6e65787470616765e190af809183c50be0e082c847e0e000005a02000068038902090002000000140009001000088c020a00fdff4218b001e61900000000ffffff00030000000034050b01de03690300008b002b02000000001000160000007500000001006ef5000000000068006900180000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 780,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}...4..lastpage...........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de0099234920d6c61737470616765e00990af809183c50ce0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P3720",
+      "file": 1740623,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P3710"
+      ],
+      "fields": [
+        "3.  What is the difference of 25 - 11?"
+      ],
+      "handlers": [
+        {
+          "kind": "KeyUp",
+          "off": 1524,
+          "goes": [],
+          "text": "TO HANDLE KeyUp key...4..nextpage...4..lastpage........# <> KeyEnter.........>.........response = ....\"Response\"...ASYM_IsNumber(.') = ...F....31....>.........--{Checks ..positive ",
+          "hex": "544f2048414e444c45204b65795570206b6579e0099234920d6e65787470616765e2099234920d6c6173747061676509e009e0090983c023203c3e204b6579456e746572e00909b0a8e00909b03ee00982a3e00909e009726573706f6e7365203d208d88909622526573706f6e736522e009834153594d5f49734e756d62657228c52729203d209094b246e00909903331e00909b03ee00982a3e0090909e02d2d7b436865636b732090a4706f73697469766520"
+        }
+      ]
+    },
+    {
+      "page": "P3723",
+      "file": 1743989,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "Your answer is still incorrect.  You should have answered 14."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 491,
+          "goes": [],
+          "text": "TO HANDLE buttonClick....PutVar(15, 5.0) ..Var15=GetVar(15)...4..nextpage............G....Z...h......................B..................4.....i.....+...........u.....n......h.i....",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be10990ad5075745661722831352c20352e302920e10956617231353d47657456617228313529e1e19234920d6e65787470616765e190af809183c50be0e082c847e0e000005a02000068038902090002000000140009001000088c020a00fdff4218b001e61900000000ffffff00030000000034050b01de03690300008b002b02000000001000160000007500000001006ef5000000000068006900180000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 780,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}...4..lastpage...........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de0099234920d6c61737470616765e00990af809183c50ce0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P3730",
+      "file": 1746875,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P3720"
+      ],
+      "fields": [
+        "4. What is the difference of 34 - 19?"
+      ],
+      "handlers": [
+        {
+          "kind": "KeyUp",
+          "off": 1524,
+          "goes": [],
+          "text": "TO HANDLE KeyUp key...4..nextpage...4..lastpage........# <> KeyEnter.........>.........response = ....\"Response\"...ASYM_IsNumber(.') = ...F....31....>.........--{Checks ..positive ",
+          "hex": "544f2048414e444c45204b65795570206b6579e0099234920d6e65787470616765e2099234920d6c6173747061676509e009e0090983c023203c3e204b6579456e746572e00909b0a8e00909b03ee00982a3e00909e009726573706f6e7365203d208d88909622526573706f6e736522e009834153594d5f49734e756d62657228c52729203d209094b246e00909903331e00909b03ee00982a3e0090909e02d2d7b436865636b732090a4706f73697469766520"
+        }
+      ]
+    },
+    {
+      "page": "P3733",
+      "file": 1750245,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "Your answer is still incorrect.  You should have answered 15."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 491,
+          "goes": [],
+          "text": "TO HANDLE buttonClick....PutVar(15, 5.0) ..Var15=GetVar(15)...4..nextpage............G....Z...h......................B..................4.....i.....+...........u.....n......h.i....",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be10990ad5075745661722831352c20352e302920e10956617231353d47657456617228313529e1e19234920d6e65787470616765e190af809183c50be0e082c847e0e000005a02000068038902090002000000140009001000088c020a00fdff4218b001e61900000000ffffff00030000000034050b01de03690300008b002b02000000001000160000007500000001006ef5000000000068006900180000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 780,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}...4..lastpage...........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de0099234920d6c61737470616765e00990af809183c50ce0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P3740",
+      "file": 1753127,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P3730"
+      ],
+      "fields": [
+        "5. What is the difference of 67 - 41?"
+      ],
+      "handlers": [
+        {
+          "kind": "KeyUp",
+          "off": 1524,
+          "goes": [],
+          "text": "TO HANDLE KeyUp key...4..nextpage...4..lastpage........# <> KeyEnter.........>.........response = ....\"Response\"...ASYM_IsNumber(.') = ...F....31....>.........--{Checks ..positive ",
+          "hex": "544f2048414e444c45204b65795570206b6579e0099234920d6e65787470616765e2099234920d6c6173747061676509e009e0090983c023203c3e204b6579456e746572e00909b0a8e00909b03ee00982a3e00909e009726573706f6e7365203d208d88909622526573706f6e736522e009834153594d5f49734e756d62657228c52729203d209094b246e00909903331e00909b03ee00982a3e0090909e02d2d7b436865636b732090a4706f73697469766520"
+        }
+      ]
+    },
+    {
+      "page": "P3743",
+      "file": 1756473,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "Your answer is still incorrect.  You should have answered 26."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 491,
+          "goes": [],
+          "text": "TO HANDLE buttonClick....PutVar(15, 5.0) ..Var15=GetVar(15)...4..nextpage............G....Z...h......................B..................4.....i.....+...........u.....n......h.i....",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be10990ad5075745661722831352c20352e302920e10956617231353d47657456617228313529e1e19234920d6e65787470616765e190af809183c50be0e082c847e0e000005a02000068038902090002000000140009001000088c020a00fdff4218b001e61900000000ffffff00030000000034050b01de03690300008b002b02000000001000160000007500000001006ef5000000000068006900180000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 780,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}...4..lastpage...........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de0099234920d6c61737470616765e00990af809183c50ce0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P3750",
+      "file": 1759355,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P3740"
+      ],
+      "fields": [
+        "6. What is the difference of 362 - 238?"
+      ],
+      "handlers": [
+        {
+          "kind": "KeyUp",
+          "off": 1524,
+          "goes": [],
+          "text": "TO HANDLE KeyUp key...4..nextpage...4..lastpage........# <> KeyEnter.........>.........response = ....\"Response\"...ASYM_IsNumber(.') = ...F....31....>.........--{Checks ..positive ",
+          "hex": "544f2048414e444c45204b65795570206b6579e0099234920d6e65787470616765e2099234920d6c6173747061676509e009e0090983c023203c3e204b6579456e746572e00909b0a8e00909b03ee00982a3e00909e009726573706f6e7365203d208d88909622526573706f6e736522e009834153594d5f49734e756d62657228c52729203d209094b246e00909903331e00909b03ee00982a3e0090909e02d2d7b436865636b732090a4706f73697469766520"
+        }
+      ]
+    },
+    {
+      "page": "P3753",
+      "file": 1762735,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "Your answer is still incorrect.  You should have answered 124."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 491,
+          "goes": [],
+          "text": "TO HANDLE buttonClick....PutVar(15, 5.0) ..Var15=GetVar(15)...4..nextpage............G....Z...h......................B..................4.....i.....+...........u.....n......h.i....",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be10990ad5075745661722831352c20352e302920e10956617231353d47657456617228313529e1e19234920d6e65787470616765e190af809183c50be0e082c847e0e000005a02000068038902090002000000140009001000088c020a00fdff4218b001e61900000000ffffff00030000000034050b01de03690300008b002b02000000001000160000007500000001006ef5000000000068006900180000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 780,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}...4..lastpage...........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de0099234920d6c61737470616765e00990af809183c50ce0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P3760",
+      "file": 1765621,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P3750"
+      ],
+      "fields": [
+        "7.  What is the difference of 611 - 569?"
+      ],
+      "handlers": [
+        {
+          "kind": "KeyUp",
+          "off": 1524,
+          "goes": [],
+          "text": "TO HANDLE KeyUp key...4..nextpage...4..lastpage........# <> KeyEnter.........>.........response = ....\"Response\"...ASYM_IsNumber(.') = ...F....31....>.........--{Checks ..positive ",
+          "hex": "544f2048414e444c45204b65795570206b6579e0099234920d6e65787470616765e2099234920d6c6173747061676509e009e0090983c023203c3e204b6579456e746572e00909b0a8e00909b03ee00982a3e00909e009726573706f6e7365203d208d88909622526573706f6e736522e009834153594d5f49734e756d62657228c52729203d209094b246e00909903331e00909b03ee00982a3e0090909e02d2d7b436865636b732090a4706f73697469766520"
+        }
+      ]
+    },
+    {
+      "page": "P3763",
+      "file": 1768967,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "Your answer is still incorrect.  You should have answered 42."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 491,
+          "goes": [],
+          "text": "TO HANDLE buttonClick....PutVar(15, 5.0) ..Var15=GetVar(15)...4..nextpage............G....Z...h......................B..................4.....i.....+...........u.....n......h.i....",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be10990ad5075745661722831352c20352e302920e10956617231353d47657456617228313529e1e19234920d6e65787470616765e190af809183c50be0e082c847e0e000005a02000068038902090002000000140009001000088c020a00fdff4218b001e61900000000ffffff00030000000034050b01de03690300008b002b02000000001000160000007500000001006ef5000000000068006900180000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 780,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}...4..lastpage...........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de0099234920d6c61737470616765e00990af809183c50ce0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P3770",
+      "file": 1771849,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P3760"
+      ],
+      "fields": [
+        "8.  What is the difference of 919 - 252?"
+      ],
+      "handlers": [
+        {
+          "kind": "KeyUp",
+          "off": 1524,
+          "goes": [],
+          "text": "TO HANDLE KeyUp key...4..nextpage...4..lastpage........# <> KeyEnter.........>.........response = ....\"Response\"...ASYM_IsNumber(.') = ...F....31....>.........--{Checks ..positive ",
+          "hex": "544f2048414e444c45204b65795570206b6579e0099234920d6e65787470616765e2099234920d6c6173747061676509e009e0090983c023203c3e204b6579456e746572e00909b0a8e00909b03ee00982a3e00909e009726573706f6e7365203d208d88909622526573706f6e736522e009834153594d5f49734e756d62657228c52729203d209094b246e00909903331e00909b03ee00982a3e0090909e02d2d7b436865636b732090a4706f73697469766520"
+        }
+      ]
+    },
+    {
+      "page": "P3773",
+      "file": 1775221,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "Your answer is still incorrect.  You should have answered 667."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 491,
+          "goes": [],
+          "text": "TO HANDLE buttonClick....PutVar(15, 5.0) ..Var15=GetVar(15)...4..nextpage............G....Z...h......................B..................4.....i.....+...........u.....n......h.i....",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be10990ad5075745661722831352c20352e302920e10956617231353d47657456617228313529e1e19234920d6e65787470616765e190af809183c50be0e082c847e0e000005a02000068038902090002000000140009001000088c020a00fdff4218b001e61900000000ffffff00030000000034050b01de03690300008b002b02000000001000160000007500000001006ef5000000000068006900180000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 780,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}...4..lastpage...........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de0099234920d6c61737470616765e00990af809183c50ce0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P3780",
+      "file": 1778103,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P3770"
+      ],
+      "fields": [
+        "9. What is the difference of 906 - 599?"
+      ],
+      "handlers": [
+        {
+          "kind": "KeyUp",
+          "off": 1524,
+          "goes": [],
+          "text": "TO HANDLE KeyUp key...4..nextpage...4..lastpage........# <> KeyEnter.........>.........response = ....\"Response\"...ASYM_IsNumber(.') = ...F....31....>.........--{Checks ..positive ",
+          "hex": "544f2048414e444c45204b65795570206b6579e0099234920d6e65787470616765e2099234920d6c6173747061676509e009e0090983c023203c3e204b6579456e746572e00909b0a8e00909b03ee00982a3e00909e009726573706f6e7365203d208d88909622526573706f6e736522e009834153594d5f49734e756d62657228c52729203d209094b246e00909903331e00909b03ee00982a3e0090909e02d2d7b436865636b732090a4706f73697469766520"
+        }
+      ]
+    },
+    {
+      "page": "P3783",
+      "file": 1781461,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "Your answer is still incorrect.  You should have answered 307."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 491,
+          "goes": [],
+          "text": "TO HANDLE buttonClick....PutVar(15, 5.0) ..Var15=GetVar(15)...4..nextpage............G....Z...h......................B..................4.....i.....+...........u.....n......h.i....",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be10990ad5075745661722831352c20352e302920e10956617231353d47657456617228313529e1e19234920d6e65787470616765e190af809183c50be0e082c847e0e000005a02000068038902090002000000140009001000088c020a00fdff4218b001e61900000000ffffff00030000000034050b01de03690300008b002b02000000001000160000007500000001006ef5000000000068006900180000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 780,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}...4..lastpage...........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de0099234920d6c61737470616765e00990af809183c50ce0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P3790",
+      "file": 1784343,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P3780"
+      ],
+      "fields": [
+        "10. What is the difference of 8999 - 2056?"
+      ],
+      "handlers": [
+        {
+          "kind": "KeyUp",
+          "off": 1524,
+          "goes": [],
+          "text": "TO HANDLE KeyUp key...4..nextpage...4..lastpage........# <> KeyEnter.........>.........response = ....\"Response\"...ASYM_IsNumber(.') = ...F....31....>.........--{Checks ..positive ",
+          "hex": "544f2048414e444c45204b65795570206b6579e0099234920d6e65787470616765e2099234920d6c6173747061676509e009e0090983c023203c3e204b6579456e746572e00909b0a8e00909b03ee00982a3e00909e009726573706f6e7365203d208d88909622526573706f6e736522e009834153594d5f49734e756d62657228c52729203d209094b246e00909903331e00909b03ee00982a3e0090909e02d2d7b436865636b732090a4706f73697469766520"
+        }
+      ]
+    },
+    {
+      "page": "P3793",
+      "file": 1787701,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "Your answer is still incorrect.  You should have answered 6943."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 491,
+          "goes": [],
+          "text": "TO HANDLE buttonClick....PutVar(15, 5.0) ..Var15=GetVar(15)...4..nextpage............G....Z...h......................B..................4.....i.....+...........u.....n......h.i....",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be10990ad5075745661722831352c20352e302920e10956617231353d47657456617228313529e1e19234920d6e65787470616765e190af809183c50be0e082c847e0e000005a02000068038902090002000000140009001000088c020a00fdff4218b001e61900000000ffffff00030000000034050b01de03690300008b002b02000000001000160000007500000001006ef5000000000068006900180000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 780,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}...4..lastpage...........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de0099234920d6c61737470616765e00990af809183c50ce0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P3799",
+      "file": 1790583,
+      "captions": [
+        "Next",
+        "Back",
+        "Menu"
+      ],
+      "goes": [
+        "P3001",
+        "P3790"
+      ],
+      "fields": [
+        "You have completed the Exercise.  You are about to return to the Objective Menu."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P10001",
+      "file": 1793185,
+      "captions": [
+        "Next",
+        "Menu"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "ButtonClick",
+          "off": 5074,
+          "goes": [],
+          "text": "To Handle ButtonClick...4lastbook...=.p...8...4nextpage...=.p..........\"P20001\" ..8\"nida81.tbk\" ....................................................................................",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be0e192346c617374626f6f6be2c5063d9170888eb038e0e192346e65787470616765e3c5063d9170888eb183e290af809183225032303030312220889038226e69646138312e74626b2220e0e0a2e0009914000002020000000000000000000100b301b301000000008900000000000000010095019501000000008a000000000000000000000000000000000000000000000000000100b301b30100000000"
+        }
+      ]
+    },
+    {
+      "page": "P10002",
+      "file": 1801433,
+      "captions": [
+        "Next",
+        "Menu"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "ButtonClick",
+          "off": 5070,
+          "goes": [],
+          "text": "To Handle ButtonClick...4lastbook...=.p...8...4nextpage...=.p..........\"P20001\" ..8\"nida81.tbk\" ....................................................................................",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be0e192346c617374626f6f6be2c5063d9170888eb038e0e192346e65787470616765e3c5063d9170888eb183e290af809183225032303030312220889038226e69646138312e74626b2220e0e0a2e0009514000002020000000000000000000100b301b301000000008900000000000000010095019501000000008a000000000000000000000000000000000000000000000000000100b301b30100000000"
+        }
+      ]
+    },
+    {
+      "page": "P10003",
+      "file": 1808889,
+      "captions": [
+        "Next",
+        "Menu"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "ButtonClick",
+          "off": 4016,
+          "goes": [],
+          "text": "To Handle ButtonClick...4lastbook...=.p...8...4nextpage...=.p..........\"P20001\" ..8\"nida81.tbk\" .....w..............................................................................",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be0e192346c617374626f6f6be2c5063d9170888eb038e0e192346e65787470616765e3c5063d9170888eb183e290af809183225032303030312220889038226e69646138312e74626b2220e0e0a2e0007710000002020000000000000000000100b301b301000000008900000000000000010095019501000000008a000000000000000000000000000000000000000000000000000100b301b30100000000"
+        }
+      ]
+    },
+    {
+      "page": "P10004",
+      "file": 1815301,
+      "captions": [
+        "Next",
+        "Menu"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "ButtonClick",
+          "off": 4004,
+          "goes": [],
+          "text": "To Handle ButtonClick...4lastbook...=.p...8...4nextpage...=.p..........\"P20001\" ..8\"nida81.tbk\" .....k..............................................................................",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be0e192346c617374626f6f6be2c5063d9170888eb038e0e192346e65787470616765e3c5063d9170888eb183e290af809183225032303030312220889038226e69646138312e74626b2220e0e0a2e0006b10000002020000000000000000000100b301b301000000008900000000000000010095019501000000008a000000000000000000000000000000000000000000000000000100b301b30100000000"
+        }
+      ]
+    },
+    {
+      "page": "P10410",
+      "file": 1969697,
+      "captions": [
+        "Next",
+        "Menu"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 937,
+          "goes": [],
+          "text": "TO HANDLE buttonClick....gotoMenuPage()..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be00990ad676f746f4d656e75506167652829e0e0454e44"
+        },
+        {
+          "kind": "ButtonClick",
+          "off": 4332,
+          "goes": [],
+          "text": "To Handle ButtonClick..4lastbook...=.p...8..4nextpage...=.p..........\"P20001\" ..8\"nida81.tbk\" .....}.................\"3.............................................................",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be192346c617374626f6f6be2c5063d9170888eb038e292346e65787470616765e2c5063d9170888eb183e290af809183225032303030312220889038226e69646138312e74626b2220e0a2e000007d030000020200000000000000000001000b223309000000009500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "page": "P400",
+      "file": 1995423,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P410",
+        "P100"
+      ],
+      "fields": [
+        "In this lesson, the decimal number system is reviewed and the whole number line is introduced."
+      ],
+      "handlers": []
+    }
+  ]
+}

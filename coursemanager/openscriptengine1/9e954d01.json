@@ -1,0 +1,2383 @@
+{
+  "book": "D:\\courses\\courses\\courses\\9e954d01.tbk",
+  "pages": 129,
+  "pages_with_handlers": 39,
+  "handlers": 76,
+  "opcode_bytes": [
+    {
+      "byte": "e0",
+      "count": 409
+    },
+    {
+      "byte": "91",
+      "count": 181
+    },
+    {
+      "byte": "83",
+      "count": 162
+    },
+    {
+      "byte": "92",
+      "count": 157
+    },
+    {
+      "byte": "e2",
+      "count": 156
+    },
+    {
+      "byte": "c5",
+      "count": 142
+    },
+    {
+      "byte": "80",
+      "count": 127
+    },
+    {
+      "byte": "90",
+      "count": 122
+    },
+    {
+      "byte": "88",
+      "count": 113
+    },
+    {
+      "byte": "ff",
+      "count": 106
+    },
+    {
+      "byte": "b3",
+      "count": 86
+    },
+    {
+      "byte": "b1",
+      "count": 79
+    },
+    {
+      "byte": "8e",
+      "count": 71
+    },
+    {
+      "byte": "af",
+      "count": 62
+    },
+    {
+      "byte": "95",
+      "count": 50
+    },
+    {
+      "byte": "dc",
+      "count": 31
+    },
+    {
+      "byte": "a2",
+      "count": 29
+    },
+    {
+      "byte": "f0",
+      "count": 24
+    },
+    {
+      "byte": "e1",
+      "count": 23
+    },
+    {
+      "byte": "87",
+      "count": 22
+    },
+    {
+      "byte": "ad",
+      "count": 22
+    },
+    {
+      "byte": "b0",
+      "count": 20
+    },
+    {
+      "byte": "82",
+      "count": 18
+    },
+    {
+      "byte": "c8",
+      "count": 18
+    },
+    {
+      "byte": "8a",
+      "count": 14
+    },
+    {
+      "byte": "e4",
+      "count": 14
+    },
+    {
+      "byte": "fc",
+      "count": 12
+    },
+    {
+      "byte": "89",
+      "count": 8
+    },
+    {
+      "byte": "fd",
+      "count": 8
+    },
+    {
+      "byte": "ca",
+      "count": 8
+    },
+    {
+      "byte": "8b",
+      "count": 7
+    },
+    {
+      "byte": "96",
+      "count": 7
+    },
+    {
+      "byte": "a5",
+      "count": 6
+    },
+    {
+      "byte": "84",
+      "count": 6
+    },
+    {
+      "byte": "d1",
+      "count": 6
+    },
+    {
+      "byte": "86",
+      "count": 6
+    },
+    {
+      "byte": "fb",
+      "count": 6
+    },
+    {
+      "byte": "94",
+      "count": 5
+    },
+    {
+      "byte": "b2",
+      "count": 5
+    },
+    {
+      "byte": "e3",
+      "count": 5
+    },
+    {
+      "byte": "e6",
+      "count": 5
+    },
+    {
+      "byte": "bb",
+      "count": 5
+    },
+    {
+      "byte": "fe",
+      "count": 4
+    },
+    {
+      "byte": "97",
+      "count": 4
+    },
+    {
+      "byte": "93",
+      "count": 3
+    },
+    {
+      "byte": "b4",
+      "count": 3
+    },
+    {
+      "byte": "8f",
+      "count": 3
+    },
+    {
+      "byte": "de",
+      "count": 3
+    },
+    {
+      "byte": "cb",
+      "count": 3
+    },
+    {
+      "byte": "c3",
+      "count": 3
+    },
+    {
+      "byte": "f5",
+      "count": 3
+    },
+    {
+      "byte": "8c",
+      "count": 3
+    },
+    {
+      "byte": "8d",
+      "count": 3
+    },
+    {
+      "byte": "9b",
+      "count": 3
+    },
+    {
+      "byte": "9a",
+      "count": 3
+    },
+    {
+      "byte": "ac",
+      "count": 2
+    },
+    {
+      "byte": "f4",
+      "count": 2
+    },
+    {
+      "byte": "d3",
+      "count": 2
+    },
+    {
+      "byte": "ed",
+      "count": 2
+    },
+    {
+      "byte": "c4",
+      "count": 2
+    },
+    {
+      "byte": "c1",
+      "count": 1
+    },
+    {
+      "byte": "85",
+      "count": 1
+    },
+    {
+      "byte": "9f",
+      "count": 1
+    },
+    {
+      "byte": "f8",
+      "count": 1
+    },
+    {
+      "byte": "db",
+      "count": 1
+    },
+    {
+      "byte": "99",
+      "count": 1
+    },
+    {
+      "byte": "d0",
+      "count": 1
+    },
+    {
+      "byte": "d8",
+      "count": 1
+    },
+    {
+      "byte": "b5",
+      "count": 1
+    },
+    {
+      "byte": "e9",
+      "count": 1
+    },
+    {
+      "byte": "ec",
+      "count": 1
+    },
+    {
+      "byte": "ee",
+      "count": 1
+    },
+    {
+      "byte": "c2",
+      "count": 1
+    },
+    {
+      "byte": "f3",
+      "count": 1
+    },
+    {
+      "byte": "bf",
+      "count": 1
+    },
+    {
+      "byte": "a7",
+      "count": 1
+    },
+    {
+      "byte": "ce",
+      "count": 1
+    }
+  ],
+  "pages_detail": [
+    {
+      "page": "P0",
+      "file": 753970,
+      "captions": [],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "EnterPage",
+          "off": 602,
+          "goes": [],
+          "text": "To Handle EnterPage...4logical __import...4lastbook...4nextpage..... = .p...8.... = \"p10\"... .; = .. .F.....~= \"..\"..F.........\"P0\" ..8getLogoBook().......... __beenToP1 ...8= .. .",
+          "hex": "546f2048616e646c6520456e74657250616765e00992346c6f676963616c205f5f696d706f7274e00992346c617374626f6f6be00992346e65787470616765e0e009c514203d209170888eb038e009c515203d202270313022e0098320c53b203d20909420b246e0090983937e3d2022b1c122f0b246e009090990af80918322503022208890386765744c6f676f426f6f6b2829e00909b085e009090983205f5f6265656e546f503120888e90383d20909420b2"
+        }
+      ]
+    },
+    {
+      "page": "P10",
+      "file": 761120,
+      "captions": [
+        "Next"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "ButtonClick",
+          "off": 986,
+          "goes": [],
+          "text": "To Handle ButtonClick..4lastbook...=.p...8..4nextpage...=.p..........\"P20001\" ..8\"nida81.tbk\" ......................................................................................",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be192346c617374626f6f6be2c5063d9170888eb038e292346e65787470616765e2c5063d9170888eb183e290af809183225032303030312220889038226e69646138312e74626b2220e0a2e000009f04000002020000000000000000000100b301b301e00e00008900000000000000010095019501b40f00008a000000000000000000000000000000000000000000000000000100b301b301ac0f00008b00"
+        },
+        {
+          "kind": "ButtonClick",
+          "off": 3226,
+          "goes": [],
+          "text": "To Handle ButtonClick..4lastbook...=.p...8..4nextpage...=.p..........\"P20001\" ..8\"nida81.tbk\" .....}.................\"3.............................................................",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be192346c617374626f6f6be2c5063d9170888eb038e292346e65787470616765e2c5063d9170888eb183e290af809183225032303030312220889038226e69646138312e74626b2220e0a2e000007d030000020200000000000000f40e01000b223309f80700009500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "page": "P100",
+      "file": 765722,
+      "captions": [
+        "Next",
+        "Back",
+        "Menu"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 773,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go ..t..}...t..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20809174b1837de287b174e0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 1051,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .....}......END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f208091a5b1837de287b1a5e0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P300",
+      "file": 770226,
+      "captions": [
+        "Next",
+        "Back",
+        "Menu"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 379,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go ..t..}......\"P400\"..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20809174b1837de290af809183225034303022e0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 1145,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .....}......END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f208091a5b1837de287b1a5e0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 1447,
+          "goes": [],
+          "text": "TO HANDLE buttonClick...4lastbook...4nextpage....=.p...8....=.p.............\"P310\" ..8\"nida81.tbk\"...>....t..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be00992346c617374626f6f6be00992346e65787470616765e009c5133d9170888eb038e009c5123d9170888eb183e0e0090990af80918322503331302220889038226e69646138312e74626b22e009b03ee00987b174e0e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P400",
+      "file": 774184,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P410",
+        "P300"
+      ],
+      "fields": [
+        "Digital circuits and the IC chip are usually thought of as one and the same."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P410",
+      "file": 781230,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P420",
+        "P400"
+      ],
+      "fields": [
+        "But, are all ICs the same? Do they all operate on the same voltages?"
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P420",
+      "file": 791862,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P430",
+        "P400"
+      ],
+      "fields": [
+        "Applying 10 volts to one IC might be normal. Applying the same 10 volts to a different IC can cause damage."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P430",
+      "file": 799506,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P440",
+        "P400",
+        "P450",
+        "P430"
+      ],
+      "fields": [
+        "One IC might drive 4 ICs while a different IC can only drive 2 ICs.",
+        "ICs are classified into logic families based on voltage requirements, speed and the number of circuits they can drive."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P450",
+      "file": 842018,
+      "captions": [
+        "Back",
+        "Menu"
+      ],
+      "goes": [
+        "P440"
+      ],
+      "fields": [],
+      "handlers": []
+    },
+    {
+      "page": "P900",
+      "file": 1672310,
+      "captions": [
+        "Back",
+        "Menu"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 1289,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .....}......END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f208091a5b1837de287b1a5e0e0454e44"
+        },
+        {
+          "kind": "ButtonClick",
+          "off": 1676,
+          "goes": [],
+          "text": "To Handle ButtonClick..4lastbook...=.p...8..4nextpage...=.p..........\"P20001\" ..8\"nida81.tbk\" .....Q................................................................................",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be192346c617374626f6f6be2c5063d9170888eb038e292346e65787470616765e2c5063d9170888eb183e290af809183225032303030312220889038226e69646138312e74626b2220e0a2e000005107000002020000000000000000000100b301b301000000008900000000000000010095019501000000008a000000000000000000000000000000000000000000000000000100b301b301000000008b00"
+        }
+      ]
+    },
+    {
+      "page": "P1001",
+      "file": 1681498,
+      "captions": [
+        "Back",
+        "Menu"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "ButtonClick",
+          "off": 3086,
+          "goes": [],
+          "text": "To Handle ButtonClick..4lastbook...=.p...8..4nextpage...=.p..........\"P20001\" ..8\"nida81.tbk\" ......................................................................................",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be192346c617374626f6f6be2c5063d9170888eb038e292346e65787470616765e2c5063d9170888eb183e290af809183225032303030312220889038226e69646138312e74626b2220e0a2e00000d30c000002020000000000000000000100b301b301000000008900000000000000010095019501000000008a000000000000000000000000000000000000000000000000000100b301b301000000008b00"
+        }
+      ]
+    },
+    {
+      "page": "P1040",
+      "file": 1687098,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1050",
+        "P1001"
+      ],
+      "fields": [
+        "Transistor-Transistor Logic (TTL) is the most widely used family of  integrated circuits."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1050",
+      "file": 1694862,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1060",
+        "P1040"
+      ],
+      "fields": [
+        "The TTL family is divided into two basic groups."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1060",
+      "file": 1697344,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1070",
+        "P1040"
+      ],
+      "fields": [
+        "The military group is recognized by the 5400 numbers."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1070",
+      "file": 1699606,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1080",
+        "P1040"
+      ],
+      "fields": [
+        "The Commercial group is recognized by the 7400 numbers."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1080",
+      "file": 1702192,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1090",
+        "P1040"
+      ],
+      "fields": [
+        "The functions performed by these two ICs are identical. However, the military's IC tolerance  is more exact."
+      ],
+      "handlers": [
+        {
+          "kind": "ButtonClick",
+          "off": 819,
+          "goes": [],
+          "text": "To Handle ButtonClick.--{Goes .Definiton Page}..4..lastpage... = .p..........\"p1085\".........................^...l............................2.................#..................3",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be02d2d7b476f65732080446566696e69746f6e20506167657de29234920d6c61737470616765e4c506203d209170888eb183e490af80918322703130383522e0a20000db030a00050000001400ffffffff0800000f008f165e0b991b6c0cfffcf000ffffff00030000ac07de030000000000000000d002000032000000010000000000e3030000ffff0c0023040a00060000001400ffffffff0800000e0033"
+        }
+      ]
+    },
+    {
+      "page": "P1082",
+      "file": 1704916,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1090",
+        "P1040"
+      ],
+      "fields": [
+        "The functions performed by these two ICs are identical. However, the military's IC tolerance  is more exact."
+      ],
+      "handlers": [
+        {
+          "kind": "ButtonClick",
+          "off": 399,
+          "goes": [],
+          "text": "To Handle ButtonClick.--{Goes .Definiton Page}..4..lastpage... = .p..........\"p1085\"....%...........>..(.;..\"B.~$...............4.........u.+..........._.....n......0.S............",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be02d2d7b476f65732080446566696e69746f6e20506167657de29234920d6c61737470616765e4c506203d209170888eb183e490af80918322703130383522e0a200002502090001000000140009003e000828023b00cb2242187e24e61900000000ffffff00030000000034050b01d813c302000075002b02000000001000160000005f00000001006ef500000000003000530010000000fcff0000000000"
+        }
+      ]
+    },
+    {
+      "page": "P1085",
+      "file": 1712896,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1082",
+        "P1082"
+      ],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 614,
+          "goes": [
+            "P1082"
+          ],
+          "text": "TO HANDLE buttonClick.--{Go .lastpage}..4..........(P1082).../.....................................................................................7..............:.....B...........",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806c617374706167657de29234920dc50be290af80918328503130383229e082c82fe000830903000002020000000000000000000100b301b301000000008c00000000000000010095019501000000008d000000000000000000000000000000000000000000000000000100b301b301000000008e0000370309000800000014000d001700083a030e00fdff4218b001e61900000000ffff"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 940,
+          "goes": [
+            "P1082"
+          ],
+          "text": "TO HANDLE buttonClick.--{Go .lastpage}..4..........(P1082).../...O......................................................................................................i...........",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806c617374706167657de29234920dc50be290af80918328503130383229e082c82fe000834f04000002020000000000000000000100b301b301000000008f000000000000000100950195010000000090000000000000000000000000000000000000000000000000000100b301b3010000000091000083040b000e00000014000a00ffff000000fffffd096900b218ed03000000000000"
+        },
+        {
+          "kind": "ButtonClick",
+          "off": 3318,
+          "goes": [],
+          "text": "To Handle ButtonClick..4lastbook...=.p...8..4nextpage...=.p..........\"P20001\" ..8\"nida81.tbk\" .......................\"3.............................................................",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be192346c617374626f6f6be2c5063d9170888eb038e292346e65787470616765e2c5063d9170888eb183e290af809183225032303030312220889038226e69646138312e74626b2220e0a2e000008b030000020200000000000000000001000b223309000000009500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "page": "P1090",
+      "file": 1716938,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1100",
+        "P1082"
+      ],
+      "fields": [
+        "TTL family ICs are grouped together because they all share similar characteristics."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1100",
+      "file": 1722200,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1110",
+        "P1090"
+      ],
+      "fields": [
+        "Let's start with voltage requirements."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1110",
+      "file": 1724510,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1120",
+        "P1090"
+      ],
+      "fields": [
+        "TTL ICs typically require input voltages between 0 and 5 volts. Voltage inputs exceeding 5 volts may damage the IC."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1120",
+      "file": 1727834,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1130",
+        "P1110"
+      ],
+      "fields": [
+        "Output voltages produced by TTL ICs range between 0 and 5 volts. These outputs are designed to interface with other TTL Ics."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1130",
+      "file": 1730806,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1140",
+        "P1120"
+      ],
+      "fields": [
+        "Another characteristic of the TTL family is the current required to operate the IC."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1140",
+      "file": 1736068,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1150",
+        "P1130"
+      ],
+      "fields": [
+        "The \"fan-out\" of a TTL IC identifies how many other ICs can be driven from it's output."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1150",
+      "file": 1741046,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1160",
+        "P1140"
+      ],
+      "fields": [
+        "For example, if the ICs fan-out is 5, then 5 ICs could be connected to the output of that IC."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1160",
+      "file": 1747414,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1170",
+        "P1140"
+      ],
+      "fields": [
+        "The \"fan-in\" of a TTL IC identifies how much current it will draw when driven by an IC similar to itself."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1170",
+      "file": 1750484,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1180",
+        "P1140"
+      ],
+      "fields": [
+        "For example, if an ICs fan-in is 1, that value is subtracted from the fan-out of the driving IC."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1180",
+      "file": 1752974,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1190",
+        "P1140"
+      ],
+      "fields": [
+        "The remaining value of 4 identifies that the driving ICs fan-out is now 4."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1190",
+      "file": 1760546,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1200",
+        "P1140"
+      ],
+      "fields": [
+        "Speed is an important characteristic to compare when looking at the TTL family."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1200",
+      "file": 1765816,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1210",
+        "P1190"
+      ],
+      "fields": [
+        "Speed is also called the propagation delay of the gate."
+      ],
+      "handlers": [
+        {
+          "kind": "ButtonClick",
+          "off": 819,
+          "goes": [],
+          "text": "To Handle ButtonClick.--{Goes .Definiton Page}..4..lastpage... = .p..........\"p1205\"............................e....................o...\\#.................o...\\#..........o.h.\\#..",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be02d2d7b476f65732080446566696e69746f6e20506167657de29234920d6c61737470616765e4c506203d209170888eb183e490af80918322703132303522e0a20000b5030000020000000000000000000000000000000000000065e2e9030b000800000014001000ffff000000ffff6f0100005c239b0a0000000000000000010000010002006f0100005c239b0aec030104000004046f0168015c239b0a"
+        }
+      ]
+    },
+    {
+      "page": "P1205",
+      "file": 1768134,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1207",
+        "P1207"
+      ],
+      "fields": [
+        "PROPAGATION DELAY - Propagation delay is the amount of time an IC takes to switch from one condition to the other."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1207",
+      "file": 1772064,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1210",
+        "P1190"
+      ],
+      "fields": [
+        "Speed is also called the propagation delay of the gate."
+      ],
+      "handlers": [
+        {
+          "kind": "ButtonClick",
+          "off": 399,
+          "goes": [],
+          "text": "To Handle ButtonClick.--{Goes .Definiton Page}..4..lastpage... = .p..........\"p1205\"....%...........0..(.-..\"B.~$...............4.........u.+..........._.....n......0.S............",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be02d2d7b476f65732080446566696e69746f6e20506167657de29234920d6c61737470616765e4c506203d209170888eb183e490af80918322703132303522e0a2000025020900010000001400090030000828022d00cb2242187e24e61900000000ffffff00030000000034050b01ee0cc302000075002b02000000001000160000005f00000001006ef500000000003000530010000000fcff0000000000"
+        }
+      ]
+    },
+    {
+      "page": "P1210",
+      "file": 1777778,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1220",
+        "P1207"
+      ],
+      "fields": [
+        "Notice, each TTL IC shown has a letter code included with the number. The letter identifies the speed of the IC."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1220",
+      "file": 1787462,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1230",
+        "P1210"
+      ],
+      "fields": [
+        "ICs must switch from one condition (high) to the other condition (low). The time required for switching is indicated in the letter code."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1230",
+      "file": 1789530,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1236",
+        "P1210"
+      ],
+      "fields": [
+        "An \"L\" in the IC number identifies Low Power consumption of that chip."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1236",
+      "file": 1791982,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1240",
+        "P1210"
+      ],
+      "fields": [
+        "However, since nothing comes for free, these chips have slower switching speeds causing Longer propagation delays."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1240",
+      "file": 1794096,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1246",
+        "P1210"
+      ],
+      "fields": [
+        "An \"H\" in the IC number identifies a High speed switching or short propagation delay."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1246",
+      "file": 1796536,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1250",
+        "P1210"
+      ],
+      "fields": [
+        "However, to achieve these higher switching speeds, more power is consumed."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1250",
+      "file": 1798494,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1256",
+        "P1210"
+      ],
+      "fields": [
+        "An \"S\" in the IC number identifies Schottky circuitry inside."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1256",
+      "file": 1800946,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1260",
+        "P1210"
+      ],
+      "fields": [
+        "Schottky ICs are Super fast and consume less power than most H-type Ics."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1260",
+      "file": 1802952,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1210"
+      ],
+      "fields": [
+        "The amount of noise an IC makes when it switches from one condition to the other is also a characteristic."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1270",
+      "file": 1808440,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1280",
+        "P1260"
+      ],
+      "fields": [
+        "The TTL Family of ICs produce noise each time they switch from high to low, or low to high."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1280",
+      "file": 1811866,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1290"
+      ],
+      "fields": [
+        "If too much noise is introduced by IC switching, the input or output conditions can change at the wrong time."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1290",
+      "file": 1814636,
+      "captions": [
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "Which IC is part of the military group of TTL circuits?"
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 1366,
+          "goes": [],
+          "text": "TO HANDLE buttonClick..--{..response}...saveEmbedded(testno ....,.questionno ...., \"area3\")..--{..lastpage}..4....... = .p......--{..nextpage}..4....... = \"p1300\"..--{Highlight Col",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be0e02d2d7b91dc726573706f6e73657de290ad73617665456d62656464656428746573746e6f20888eb1832cf07175657374696f6e6e6f20888eb1832c202261726561332229e0e02d2d7b91dc6c617374706167657de29234920dc50be2c50e203d209170888e9183e1e02d2d7b87806e657874706167657de29234920dc50be2c50e203d2022703133303022e0e02d2d7b486967686c6967687420436f6c"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 2062,
+          "goes": [],
+          "text": "TO HANDLE buttonClick..--{..response}...saveEmbedded(testno ....,.questionno ...., \"area3\")..--{..lastpage}..4....... = .p......--{..nextpage}..4....... = \"p1300\"..--{Highlight Col",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be0e02d2d7b91dc726573706f6e73657de290ad73617665456d62656464656428746573746e6f20888eb1832cf07175657374696f6e6e6f20888eb1832c202261726561332229e0e02d2d7b91dc6c617374706167657de29234920dc50be2c50e203d209170888e9183e1e02d2d7b87806e657874706167657de29234920dc50be2c50e203d2022703133303022e0e02d2d7b486967686c6967687420436f6c"
+        },
+        {
+          "kind": "ButtonClick",
+          "off": 4442,
+          "goes": [],
+          "text": "To Handle ButtonClick.--{...z.tries}....incorrectEmbedded()..--{..lastpage}...4........ = .p......--{Goes .Try Aagain Page}........\"p1292\".........../.{...........4...Q.......t....",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be02d2d7b90c5917a8874726965737de00990ad696e636f7272656374456d6265646465642829e0e02d2d7b91dc6c617374706167657de0099234920dc50ce009c510203d209170888eb183e0e02d2d7b476f657320805472792041616761696e20506167657df0e00990af80918322703132393222e0e0a2e0001112000014122f0d7b0cca17b0138a138a0ce40c3417fc1251120a000800000074100d00ff"
+        },
+        {
+          "kind": "ButtonClick",
+          "off": 4833,
+          "goes": [],
+          "text": "To Handle ButtonClick.--{...z.tries}....IncorrectEmbedded..--{..lastpage}...4........ = .p......--{Goes .Try Aagain Page}........\"p1292\"..................0...t........<.....4......",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be02d2d7b90c5917a8874726965737de00990ad496e636f7272656374456d626564646564e0e02d2d7b91dc6c617374706167657de0099234920dc50ce009c510203d209170888eb183e0e02d2d7b476f657320805472792041616761696e20506167657df0e00990af80918322703132393222e0e0a2e0000087130000ffffffffbb130b00300000007410ffffffff0000003c008a0ce40c3417fc12000000"
+        },
+        {
+          "kind": "ButtonClick",
+          "off": 7094,
+          "goes": [],
+          "text": "To Handle ButtonClick.--{...z.tries}....incorrectEmbedded()..--{..lastpage}...4........ = .p......--{Goes .Try Again Page}........\"p1292\"............h.{...........*...,.....t.....(",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be02d2d7b90c5917a8874726965737de00990ad696e636f7272656374456d6265646465642829e0e02d2d7b91dc6c617374706167657de0099234920dc50ce009c510203d209170888eb183e0e02d2d7b476f6573208054727920416761696e20506167657df0e00990af80918322703132393222e0e0a2e000000d1d0000101d68017b0c030cb013c41d9402fd112a03fc122c1ede03fd117404fc12941e28"
+        }
+      ]
+    },
+    {
+      "page": "P1291",
+      "file": 1921168,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 401,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .nextpage}..4..............--{Dehighlight Correct}.rgbfill ...\"correct\" ...\"p1290\" = 64,255,255....q..u......................................0..........",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806e657874706167657de29234920dc50be290af809183c513e0e02d2d7b4465686967686c6967687420436f72726563747de272676266696c6c2088909622636f7272656374222088918322703132393022203d2036342c3235352c323535e0e082c871e0007502000002020000000000000000000100b301b301dc0b00008300000000000000010095019501300b000084000000000000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 806,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage............8.......................l.................`.............................................................U...:.",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e082c838e000d103000002020000000000000000000100b301b3016c0d00008600000000000000010095019501600b000087000000000000000000000000000000000000000000000000000100b301b301080e000088000005040b000b00000014000700ffff000000ffff550cca173a18"
+        }
+      ]
+    },
+    {
+      "page": "P1292",
+      "file": 1923178,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "The TTL family is divided into two basic groups:"
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 402,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage..........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 752,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage........ ..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50b20e2e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P1300",
+      "file": 1931372,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P1290"
+      ],
+      "fields": [
+        "Which of these ICs is the slowest?"
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 1182,
+          "goes": [],
+          "text": "TO HANDLE buttonClick..--{..response}...saveEmbedded(testno ....,.questionno ...., \"area3\")..--{..lastpage}..4....... = .p......--{..nextpage}..4....... = \"p1310\"..--{Highlight Col",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be0e02d2d7b91dc726573706f6e73657de290ad73617665456d62656464656428746573746e6f20888eb1832cf07175657374696f6e6e6f20888eb1832c202261726561332229e0e02d2d7b91dc6c617374706167657de29234920dc50be2c50e203d209170888e9183e1e02d2d7b87806e657874706167657de29234920dc50be2c50e203d2022703133313022e0e02d2d7b486967686c6967687420436f6c"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 1878,
+          "goes": [],
+          "text": "TO HANDLE buttonClick..--{..response}...saveEmbedded(testno ....,.questionno ...., \"area3\")..--{..lastpage}..4....... = .p......--{..nextpage}..4....... = \"p1300\"..--{Highlight Col",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be0e02d2d7b91dc726573706f6e73657de290ad73617665456d62656464656428746573746e6f20888eb1832cf07175657374696f6e6e6f20888eb1832c202261726561332229e0e02d2d7b91dc6c617374706167657de29234920dc50be2c50e203d209170888e9183e1e02d2d7b87806e657874706167657de29234920dc50be2c50e203d2022703133303022e0e02d2d7b486967686c6967687420436f6c"
+        },
+        {
+          "kind": "ButtonClick",
+          "off": 4250,
+          "goes": [],
+          "text": "To Handle ButtonClick.--{...z.tries}....incorrectEmbedded()..--{..lastpage}...4........ = .p......--{Goes .Try Aagain Page}........\"p1304\".....Q...T./.{...........4.......\"........",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be02d2d7b90c5917a8874726965737de00990ad696e636f7272656374456d6265646465642829e0e02d2d7b91dc6c617374706167657de0099234920dc50ce009c510203d209170888eb183e0e02d2d7b476f657320805472792041616761696e20506167657df0e00990af80918322703133303422e0e0a2e0005111000054112f0d7b0cca17b013c2128a0ce40c3417fc1291110a0022000000b40f0f00ff"
+        },
+        {
+          "kind": "ButtonClick",
+          "off": 4641,
+          "goes": [],
+          "text": "To Handle ButtonClick.--{...z.tries}....IncorrectEmbedded..--{..lastpage}...4........ = .p......--{Goes .Try Aagain Page}........\"p1292\"..........5............:.....4..............",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be02d2d7b90c5917a8874726965737de00990ad496e636f7272656374456d626564646564e0e02d2d7b91dc6c617374706167657de0099234920dc50ce009c510203d209170888eb183e0e02d2d7b476f657320805472792041616761696e20506167657df0e00990af80918322703132393222e0e0a2e00000f3120b0035000000b40fffffffff0000003a008a0ce40c3417fc120000000000000000010000"
+        },
+        {
+          "kind": "ButtonClick",
+          "off": 6894,
+          "goes": [],
+          "text": "To Handle ButtonClick.--{...z.tries}....incorrectEmbedded()..--{..lastpage}...4........ = .p......--{Goes .Try Again Page}........\"p1302\"......E...H.h.{...........*...\\.....t.....(",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be02d2d7b90c5917a8874726965737de00990ad696e636f7272656374456d6265646465642829e0e02d2d7b91dc6c617374706167657de0099234920dc50ce009c510203d209170888eb183e0e02d2d7b476f6573208054727920416761696e20506167657df0e00990af80918322703133303222e0e0a2e00000451c0000481c68017b0c030cb013f41c9402fd112a03fc125c1dde03fd117404fc12c41d28"
+        }
+      ]
+    },
+    {
+      "page": "P1301",
+      "file": 1943790,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 401,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .nextpage}..4..............--{Dehighlight Correct}.rgbfill ...\"correct\" ...\"p1300\" = 64,255,255....q..u.................................................",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806e657874706167657de29234920dc50be290af809183c513e0e02d2d7b4465686967686c6967687420436f72726563747de272676266696c6c2088909622636f7272656374222088918322703133303022203d2036342c3235352c323535e0e082c871e0007502000002020000000000000000000100b301b3010000000083000000000000000100950195010000000084000000000000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 806,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage............8.......................................................................................................U...:.",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e082c838e000d103000002020000000000000000000100b301b3010000000086000000000000000100950195010000000087000000000000000000000000000000000000000000000000000100b301b3010000000088000005040b000b00000014000200ffff000000ffff550cca173a18"
+        }
+      ]
+    },
+    {
+      "page": "P1302",
+      "file": 1945800,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "The letter \"H\" in the ICs number identifies a fast switching speed or short propagation delay."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 2346,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage..........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 2696,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage........ ..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50b20e2e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P1304",
+      "file": 1956996,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "The letter \"S\" in the ICs number identifies that this is a Schottky IC. Schottky ICs have a super fast switching speed."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 402,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage..........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 752,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Return .question ..}..4..lastpage........ ..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e20807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50b20e2e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P1310",
+      "file": 1968224,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P1300"
+      ],
+      "fields": [
+        "If an IC has a fan-out of 10 and a fan-in of 1, how many ICs can it drive?"
+      ],
+      "handlers": [
+        {
+          "kind": "ButtonClick",
+          "off": 1044,
+          "goes": [],
+          "text": "To Handle ButtonClick.--{...z.tries}....incorrectEmbedded()..--{..lastpage}...4........ = .p......--{Goes .Try Again Page}........\"p1312\"...............................&.h.W.......",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be02d2d7b90c5917a8874726965737de00990ad696e636f7272656374456d6265646465642829e0e02d2d7b91dc6c617374706167657de0099234920dc50ce009c510203d209170888eb183e0e02d2d7b476f6573208054727920416761696e20506167657df0e00990af80918322703133313222e0e0a2e00000bb0400000f000e00fb040a000800000014001000ffff00fe042600680157128205bf130000"
+        },
+        {
+          "kind": "ButtonClick",
+          "off": 1456,
+          "goes": [],
+          "text": "To Handle ButtonClick.--{...z.tries}....incorrectEmbedded()..--{..lastpage}...4........ = .p......--{Goes .Try Aagain Page}........\"p1312\".....W........................%.h.Z.......",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be02d2d7b90c5917a8874726965737de00990ad696e636f7272656374456d6265646465642829e0e02d2d7b91dc6c617374706167657de0099234920dc50ce009c510203d209170888eb183e0e02d2d7b476f657320805472792041616761696e20506167657df0e00990af80918322703133313222e0e0a2e00057060000ffff110097060a000900000014001200ffff009a06250068015a0f8205b3100000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 2018,
+          "goes": [],
+          "text": "TO HANDLE buttonClick..--{..response}...saveEmbedded(testno ....,.questionno ...., \"area2\")..--{..lastpage}..4....... = .p......--{..nextpage}..4....... = \"p1910\"..--{Highlight Col",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be0e02d2d7b91dc726573706f6e73657de290ad73617665456d62656464656428746573746e6f20888eb1832cf07175657374696f6e6e6f20888eb1832c202261726561322229e0e02d2d7b91dc6c617374706167657de29234920dc50be2c50e203d209170888e9183e1e02d2d7b87806e657874706167657de29234920dc50be2c50e203d2022703139313022e0e02d2d7b486967686c6967687420436f6c"
+        }
+      ]
+    },
+    {
+      "page": "P1311",
+      "file": 1974104,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 401,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .nextpage}..4.............--{Dehighlight Correct}.rgbfill ...\"correct\" ...\"p1310\" = 64,255,255...o..s...................................................",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806e657874706167657de29234920dc50be290af809183c513e02d2d7b4465686967686c6967687420436f72726563747de272676266696c6c2088909622636f7272656374222088918322703133313022203d2036342c3235352c323535e082c86fe0007302000002020000000000000000000100b301b30100000000830000000000000001009501950100000000840000000000000000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 804,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage............9........................................................................................................U...",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e082c839e00000d103000002020000000000000000000100b301b3010000000086000000000000000100950195010000000087000000000000000000000000000000000000000000000000000100b301b3010000000088000005040b000b00000014000200ffff000000ffff550cca17"
+        }
+      ]
+    },
+    {
+      "page": "P1312",
+      "file": 1976164,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "Fan-out identifies how many gates can be driven by the output of one gate."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 402,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage..........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 752,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage........ ..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50b20e2e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P1910",
+      "file": 1978314,
+      "captions": [
+        "Next",
+        "Back",
+        "Menu"
+      ],
+      "goes": [
+        "P1001",
+        "P1310"
+      ],
+      "fields": [
+        "This completes the information on TTL INTEGRATED CIRCUITS."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1920",
+      "file": 1980968,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1930",
+        "P1001"
+      ],
+      "fields": [
+        "1.  Transistor-Transistor Logic (TTL) is the most widely used               family of integrated circuits."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1930",
+      "file": 1988776,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1940",
+        "P1920"
+      ],
+      "fields": [
+        "2.  The TTL family is divided into two basic groups."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1940",
+      "file": 1991038,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1950",
+        "P1920"
+      ],
+      "fields": [
+        "3.  Input and output voltages for TTL Family ICs range from 0 to         5V."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1950",
+      "file": 1994302,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1960",
+        "P1940"
+      ],
+      "fields": [
+        "4.  Fan-in is a value given to an IC to represent the current it                 draws from a driven IC."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1960",
+      "file": 2000144,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1970",
+        "P1950"
+      ],
+      "fields": [
+        "5.  Fan-out is a value given to an IC to represent how many ICs,          similar to itself, it can drive."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1970",
+      "file": 2005794,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P1999",
+        "P1960"
+      ],
+      "fields": [
+        "6.  Speed is measured by propagation delay which is the amount      of  time an IC takes to switch from one condition to the other."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P1999",
+      "file": 2008760,
+      "captions": [
+        "Next",
+        "Back",
+        "Menu"
+      ],
+      "goes": [
+        "P1001",
+        "P1970"
+      ],
+      "fields": [
+        "You have completed the Summary. You are about to return to the Objective Menu."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2001",
+      "file": 2011362,
+      "captions": [
+        "Back",
+        "Menu"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "ButtonClick",
+          "off": 3086,
+          "goes": [],
+          "text": "To Handle ButtonClick..4lastbook...=.p...8..4nextpage...=.p..........\"P20001\" ..8\"nida81.tbk\" ......................................................................................",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be192346c617374626f6f6be2c5063d9170888eb038e292346e65787470616765e2c5063d9170888eb183e290af809183225032303030312220889038226e69646138312e74626b2220e0a2e00000d30c000002020000000000000000000100b301b301000000008900000000000000010095019501000000008a000000000000000000000000000000000000000000000000000100b301b301000000008b00"
+        }
+      ]
+    },
+    {
+      "page": "P2040",
+      "file": 2016940,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2050",
+        "P2001"
+      ],
+      "fields": [
+        "TTL is the most widely used family of integrated circuits, however there are many other IC families."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2050",
+      "file": 2024816,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2060",
+        "P2040"
+      ],
+      "fields": [
+        "Three of the most common are CMOS, ECL and IIL.  Let's discuss CMOS first."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2060",
+      "file": 2043798,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2070",
+        "P2040"
+      ],
+      "fields": [
+        "Complementary MOS (CMOS) is slower than TTL but has a much lower power requirement than TTL."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2070",
+      "file": 2045846,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2080",
+        "P2040"
+      ],
+      "fields": [
+        "CMOS is constructed from P and N-channel transistors to give the CMOS IC a high input impedance."
+      ],
+      "handlers": [
+        {
+          "kind": "ButtonClick",
+          "off": 399,
+          "goes": [],
+          "text": "To Handle ButtonClick.--{Goes .Definiton Page}..4..lastpage... = .p..........\"p2075\"....%..............(.!..\"B.~$...............4...4.....u.+..........._.....n......0.S............",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be02d2d7b476f65732080446566696e69746f6e20506167657de29234920d6c61737470616765e4c506203d209170888eb183e490af80918322703230373522e0a2000025020900010000001400090002000828022100cb2242187e24e61900000000ffffff00030000000034050b01340bc302000075002b02000000001000160000005f00000001006ef500000000003000530010000000fcff0000000000"
+        }
+      ]
+    },
+    {
+      "page": "P2075",
+      "file": 2050576,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 628,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .lastpage}..4................+.....................................................................................A..............D.....B...............",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806c617374706167657de29234920dc50be290af809183c513e0e082c82be1e0001303000002020000000000000000000100b301b301000000008c00000000000000010095019501000000008d000000000000000000000000000000000000000000000000000100b301b301000000008e0000410309000800000014000d0017000044030e00fdff4218b001e61900000000ffffff000300"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 964,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .lastpage}..4................+...c......................................................................................................i...............",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806c617374706167657de29234920dc50be290af809183c513e0e082c82be000006304000002020000000000000000000100b301b301000000008f000000000000000100950195010000000090000000000000000000000000000000000000000000000000000100b301b3010000000091000097040b000e00000014000200ffff000000fffffd096900b218ed0300000000000000000100"
+        }
+      ]
+    },
+    {
+      "page": "P2080",
+      "file": 2053252,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2090",
+        "P2070"
+      ],
+      "fields": [
+        "A high input impedance insures that the CMOS IC operates at a low input power."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2090",
+      "file": 2055776,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2100",
+        "P2070"
+      ],
+      "fields": [
+        "As a technician you can identify a CMOS IC from a TTL IC by the \"C\" in the chip's number."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2100",
+      "file": 2057946,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2110",
+        "P2070"
+      ],
+      "fields": [
+        "The major difference between TTL and CMOS is that CMOS input/output voltages range from 0 to 15 volts."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2110",
+      "file": 2061078,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2120",
+        "P2100"
+      ],
+      "fields": [
+        "A major advantage of CMOS over TTL is noise. Almost no switching noise is generated by the CMOS IC."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2120",
+      "file": 2063064,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2130",
+        "P2100"
+      ],
+      "fields": [
+        "Two other families you may encounter are ECL and IIL."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2130",
+      "file": 2076720,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2140",
+        "P2120"
+      ],
+      "fields": [
+        "The ECL family or Emitter-Coupled Logic is used in areas where speed is more important than cost."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2140",
+      "file": 2081658,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2150",
+        "P2130"
+      ],
+      "fields": [
+        "The ECL Family is recognized most often by 10000 series numbers."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2150",
+      "file": 2083778,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2160",
+        "P2130"
+      ],
+      "fields": [
+        "The IIL family or Integrated Injection Logic is used in circuits that require analog and digital interaction."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2160",
+      "file": 2088714,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2170",
+        "P2150"
+      ],
+      "fields": [
+        "The IIL Family is recognized more easily from the manufacturers name than by the number of the IC."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2170",
+      "file": 2090908,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2180",
+        "P2150"
+      ],
+      "fields": [
+        "There are different families of ICs because some circuits require speed while others require less power."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2180",
+      "file": 2092896,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2190",
+        "P2170"
+      ],
+      "fields": [
+        "The TTL and IIL Families have an average tradeoff between speed and power."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2190",
+      "file": 2095296,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2200",
+        "P2170"
+      ],
+      "fields": [
+        "CMOS trades the advantage of a very low power requirement for a disadvantage of a slow switching speed."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2200",
+      "file": 2097736,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2210",
+        "P2170"
+      ],
+      "fields": [
+        "ECL trades the advantage of a very fast switching speed for the disadvantage of a very high power requirement."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2210",
+      "file": 2100176,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2220",
+        "P2170"
+      ],
+      "fields": [],
+      "handlers": []
+    },
+    {
+      "page": "P2220",
+      "file": 2102988,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2230",
+        "P2210"
+      ],
+      "fields": [
+        "Replacing a defective 74F00 IC with a 74L00 IC may not repair the circuit, and can cause new problems."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2230",
+      "file": 2104978,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P2210"
+      ],
+      "fields": [
+        "Which logic families have similar speed and power requirements?"
+      ],
+      "handlers": [
+        {
+          "kind": "ButtonClick",
+          "off": 1044,
+          "goes": [],
+          "text": "To Handle ButtonClick.--{...z.tries}....incorrectEmbedded()..--{..lastpage}...4........ = .p......--{Goes .Try Again Page}........\"p2232\".................................h.........",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be02d2d7b90c5917a8874726965737de00990ad696e636f7272656374456d6265646465642829e0e02d2d7b91dc6c617374706167657de0099234920dc50ce009c510203d209170888eb183e0e02d2d7b476f6573208054727920416761696e20506167657df0e00990af80918322703232333222e0e0a2e00000bb0400000f000e00fb040a000800000014001000ffff00fe041500680193128b0bfb130000"
+        },
+        {
+          "kind": "ButtonClick",
+          "off": 1456,
+          "goes": [],
+          "text": "To Handle ButtonClick.--{...z.tries}....incorrectEmbedded()..--{..lastpage}...4........ = .p......--{Goes .Try Aagain Page}........\"p2232\".....W..........................h.N.......",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be02d2d7b90c5917a8874726965737de00990ad696e636f7272656374456d6265646465642829e0e02d2d7b91dc6c617374706167657de0099234920dc50ce009c510203d209170888eb183e0e02d2d7b476f657320805472792041616761696e20506167657df0e00990af80918322703232333222e0e0a2e00057060000ffff110097060a000900000014001200ffff009a06140068014e0c8b0ba70d0000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 2018,
+          "goes": [],
+          "text": "TO HANDLE buttonClick..--{..response}...saveEmbedded(testno ....,.questionno ...., \"area1\")..--{..lastpage}..4....... = .p......--{..nextpage}..4....... = \"p2240\"..--{Highlight Col",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be0e02d2d7b91dc726573706f6e73657de290ad73617665456d62656464656428746573746e6f20888eb1832cf07175657374696f6e6e6f20888eb1832c202261726561312229e0e02d2d7b91dc6c617374706167657de29234920dc50be2c50e203d209170888e9183e1e02d2d7b87806e657874706167657de29234920dc50be2c50e203d2022703232343022e0e02d2d7b486967686c6967687420436f6c"
+        }
+      ]
+    },
+    {
+      "page": "P2231",
+      "file": 2108400,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 401,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .nextpage}..4.............--{Dehighlight Correct}.rgbfill ...\"correct\" ...\"p2230\" = 64,255,255...o..s...................................................",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806e657874706167657de29234920dc50be290af809183c513e02d2d7b4465686967686c6967687420436f72726563747de272676266696c6c2088909622636f7272656374222088918322703232333022203d2036342c3235352c323535e082c86fe0007302000002020000000000000000000100b301b30100000000830000000000000001009501950100000000840000000000000000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 804,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage............9........................................................................................................U...",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e082c839e00000d103000002020000000000000000000100b301b3010000000086000000000000000100950195010000000087000000000000000000000000000000000000000000000000000100b301b3010000000088000005040b000b00000014000700ffff000000ffff550cca17"
+        }
+      ]
+    },
+    {
+      "page": "P2232",
+      "file": 2110410,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "Use the chart below to compare the Logic Families speed and power."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 402,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage..........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 752,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage........ ..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50b20e2e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P2240",
+      "file": 2112974,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P2230"
+      ],
+      "fields": [
+        "Which logic family has the fastest switching time?"
+      ],
+      "handlers": [
+        {
+          "kind": "ButtonClick",
+          "off": 1044,
+          "goes": [],
+          "text": "To Handle ButtonClick.--{...z.tries}....incorrectEmbedded()..--{..lastpage}...4........ = .p......--{Goes .Try Again Page}........\"p2242\".................................h.f.D.....",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be02d2d7b90c5917a8874726965737de00990ad696e636f7272656374456d6265646465642829e0e02d2d7b91dc6c617374706167657de0099234920dc50ce009c510203d209170888eb183e0e02d2d7b476f6573208054727920416761696e20506167657df0e00990af80918322703232343222e0e0a2e00000bb0400000f000e00fb040a000800000014001000ffff00fe041500680166124407ce130000"
+        },
+        {
+          "kind": "ButtonClick",
+          "off": 1456,
+          "goes": [],
+          "text": "To Handle ButtonClick.--{...z.tries}....incorrectEmbedded()..--{..lastpage}...4........ = .p......--{Goes .Try Aagain Page}........\"p2242\".....W..........................h.Z.D.....",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be02d2d7b90c5917a8874726965737de00990ad696e636f7272656374456d6265646465642829e0e02d2d7b91dc6c617374706167657de0099234920dc50ce009c510203d209170888eb183e0e02d2d7b476f657320805472792041616761696e20506167657df0e00990af80918322703232343222e0e0a2e00057060000ffff110097060a000900000014001200ffff009a06140068015a0f4407b3100000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 2018,
+          "goes": [],
+          "text": "TO HANDLE buttonClick..--{..response}...saveEmbedded(testno ....,.questionno ...., \"area2\")..--{..lastpage}..4....... = .p......--{..nextpage}..4....... = \"p2250\"..--{Highlight Col",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be0e02d2d7b91dc726573706f6e73657de290ad73617665456d62656464656428746573746e6f20888eb1832cf07175657374696f6e6e6f20888eb1832c202261726561322229e0e02d2d7b91dc6c617374706167657de29234920dc50be2c50e203d209170888e9183e1e02d2d7b87806e657874706167657de29234920dc50be2c50e203d2022703232353022e0e02d2d7b486967686c6967687420436f6c"
+        }
+      ]
+    },
+    {
+      "page": "P2241",
+      "file": 2116396,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 401,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .nextpage}..4.............--{Dehighlight Correct}.rgbfill ...\"correct\" ...\"p2240\" = 64,255,255...o..s...................................................",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806e657874706167657de29234920dc50be290af809183c513e02d2d7b4465686967686c6967687420436f72726563747de272676266696c6c2088909622636f7272656374222088918322703232343022203d2036342c3235352c323535e082c86fe0007302000002020000000000000000000100b301b30100000000830000000000000001009501950100000000840000000000000000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 804,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage............9........................................................................................................U...",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e082c839e00000d103000002020000000000000000000100b301b3010000000086000000000000000100950195010000000087000000000000000000000000000000000000000000000000000100b301b3010000000088000005040b000b00000014000700ffff000000ffff550cca17"
+        }
+      ]
+    },
+    {
+      "page": "P2242",
+      "file": 2118456,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "Use the chart below to compare the Logic Families speed and power."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 402,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage..........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 752,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage........ ..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50b20e2e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P2250",
+      "file": 2121016,
+      "captions": [
+        "Back"
+      ],
+      "goes": [
+        "P2240"
+      ],
+      "fields": [
+        "If you need specific information about an IC Logic Family, where do you look?"
+      ],
+      "handlers": [
+        {
+          "kind": "ButtonClick",
+          "off": 1044,
+          "goes": [],
+          "text": "To Handle ButtonClick.--{...z.tries}....incorrectEmbedded()..--{..lastpage}...4........ = .p......--{Goes .Try Again Page}........\"p2252\".................................h.........",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be02d2d7b90c5917a8874726965737de00990ad696e636f7272656374456d6265646465642829e0e02d2d7b91dc6c617374706167657de0099234920dc50ce009c510203d209170888eb183e0e02d2d7b476f6573208054727920416761696e20506167657df0e00990af80918322703232353222e0e0a2e00000bb0400000f000e00fb040a000800000014001000ffff00fe041500680193128c0afb130000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 1606,
+          "goes": [],
+          "text": "TO HANDLE buttonClick..--{..response}...saveEmbedded(testno ....,.questionno ...., \"area3\")..--{..lastpage}..4....... = .p......--{..nextpage}..4....... = \"p2910\"..--{Highlight Col",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be0e02d2d7b91dc726573706f6e73657de290ad73617665456d62656464656428746573746e6f20888eb1832cf07175657374696f6e6e6f20888eb1832c202261726561332229e0e02d2d7b91dc6c617374706167657de29234920dc50be2c50e203d209170888e9183e1e02d2d7b87806e657874706167657de29234920dc50be2c50e203d2022703239313022e0e02d2d7b486967686c6967687420436f6c"
+        },
+        {
+          "kind": "ButtonClick",
+          "off": 2136,
+          "goes": [],
+          "text": "To Handle ButtonClick.--{...z.tries}....incorrectEmbedded()..--{..lastpage}...4........ = .p......--{Goes .Try Again Page}........\"p2252\"...........................................",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be02d2d7b90c5917a8874726965737de00990ad696e636f7272656374456d6265646465642829e0e02d2d7b91dc6c617374706167657de0099234920dc50ce009c510203d209170888eb183e0e02d2d7b476f6573208054727920416761696e20506167657df0e00990af80918322703232353222e0e0a2e00000ff080000ffff13001709000002000000000000000000000000000000000000000100000002"
+        }
+      ]
+    },
+    {
+      "page": "P2251",
+      "file": 2124486,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 401,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Go .nextpage}..4.............--{Dehighlight Correct}.rgbfill ...\"correct\" ...\"p2250\" = 64,255,255...o..s...................................................",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b476f20806e657874706167657de29234920dc50be290af809183c513e02d2d7b4465686967686c6967687420436f72726563747de272676266696c6c2088909622636f7272656374222088918322703232353022203d2036342c3235352c323535e082c86fe0007302000002020000000000000000000100b301b30100000000830000000000000001009501950100000000840000000000000000"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 804,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage............9........................................................................................................U...",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e082c839e00000d103000002020000000000000000000100b301b3010000000086000000000000000100950195010000000087000000000000000000000000000000000000000000000000000100b301b3010000000088000005040b000b00000014000700ffff000000ffff550cca17"
+        }
+      ]
+    },
+    {
+      "page": "P2252",
+      "file": 2126546,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [],
+      "fields": [
+        "Remember, the Data Book should be used to find information on all IC families."
+      ],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 402,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage..........END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50be0e0454e44"
+        },
+        {
+          "kind": "buttonClick",
+          "off": 752,
+          "goes": [],
+          "text": "TO HANDLE buttonClick.--{Returns .question ..}..4..lastpage........ ..END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be02d2d7b52657475726e7320807175657374696f6e20b1837de29234920d6c61737470616765e290af809183c50b20e2e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P2910",
+      "file": 2128696,
+      "captions": [
+        "Next",
+        "Back",
+        "Menu"
+      ],
+      "goes": [
+        "P2001",
+        "P2250",
+        "P2930",
+        "P2001"
+      ],
+      "fields": [
+        "This completes the information on OTHER INTEGRATED CIRCUITS.",
+        "1.  Four common logic families are TTL, CMOS, ECL and IIL."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2930",
+      "file": 2155354,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2940",
+        "P2920"
+      ],
+      "fields": [
+        "2.  CMOS has a slow switching speed but requires very low                 power to operate."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2940",
+      "file": 2157402,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2950",
+        "P2930"
+      ],
+      "fields": [
+        "3.  ECL has a very fast switching speed but requires very high            power to operate."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2950",
+      "file": 2159522,
+      "captions": [
+        "Next",
+        "Back"
+      ],
+      "goes": [
+        "P2999",
+        "P2930"
+      ],
+      "fields": [
+        "4.  IIL switching speed and power requirements are even. This            family is used in circuits that combine analog and digital                  components."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P2999",
+      "file": 2161740,
+      "captions": [
+        "Next",
+        "Back",
+        "Menu"
+      ],
+      "goes": [
+        "P2001",
+        "P2930"
+      ],
+      "fields": [
+        "You have completed the Summary.  You are about to return to the Objective Menu."
+      ],
+      "handlers": []
+    },
+    {
+      "page": "P10001",
+      "file": 2164344,
+      "captions": [
+        "Next",
+        "Menu"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "ButtonClick",
+          "off": 5268,
+          "goes": [],
+          "text": "To Handle ButtonClick...4lastbook...=.p...8...4nextpage...=.p..........\"P20001\" ..8\"nida81.tbk\" .....[..............................................................................",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be0e192346c617374626f6f6be2c5063d9170888eb038e0e192346e65787470616765e3c5063d9170888eb183e290af809183225032303030312220889038226e69646138312e74626b2220e0e0a2e0005b15000002020000000000000000000100b301b301000000008900000000000000010095019501000000008a000000000000000000000000000000000000000000000000000100b301b30100000000"
+        }
+      ]
+    },
+    {
+      "page": "P10002",
+      "file": 2172786,
+      "captions": [
+        "Next",
+        "Menu"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "ButtonClick",
+          "off": 5266,
+          "goes": [],
+          "text": "To Handle ButtonClick...4lastbook...=.p...8...4nextpage...=.p..........\"P20001\" ..8\"nida81.tbk\" .....Y..............................................................................",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be0e192346c617374626f6f6be2c5063d9170888eb038e0e192346e65787470616765e3c5063d9170888eb183e290af809183225032303030312220889038226e69646138312e74626b2220e0e0a2e0005915000002020000000000000000000100b301b301000000008900000000000000010095019501000000008a000000000000000000000000000000000000000000000000000100b301b30100000000"
+        }
+      ]
+    },
+    {
+      "page": "P10003",
+      "file": 2180438,
+      "captions": [
+        "Next",
+        "Menu"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "ButtonClick",
+          "off": 4212,
+          "goes": [],
+          "text": "To Handle ButtonClick...4lastbook...=.p...8...4nextpage...=.p..........\"P20001\" ..8\"nida81.tbk\" .....;..............................................................................",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be0e192346c617374626f6f6be2c5063d9170888eb038e0e192346e65787470616765e3c5063d9170888eb183e290af809183225032303030312220889038226e69646138312e74626b2220e0e0a2e0003b11000002020000000000000000000100b301b301000000008900000000000000010095019501000000008a000000000000000000000000000000000000000000000000000100b301b30100000000"
+        }
+      ]
+    },
+    {
+      "page": "P10004",
+      "file": 2187046,
+      "captions": [
+        "Next",
+        "Menu"
+      ],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "ButtonClick",
+          "off": 4196,
+          "goes": [],
+          "text": "To Handle ButtonClick...4lastbook...=.p...8...4nextpage...=.p..........\"P20001\" ..8\"nida81.tbk\" .....+..............................................................................",
+          "hex": "546f2048616e646c6520427574746f6e436c69636be0e192346c617374626f6f6be2c5063d9170888eb038e0e192346e65787470616765e3c5063d9170888eb183e290af809183225032303030312220889038226e69646138312e74626b2220e0e0a2e0002b11000002020000000000000000000100b301b301000000008900000000000000010095019501000000008a000000000000000000000000000000000000000000000000000100b301b30100000000"
+        }
+      ]
+    },
+    {
+      "page": "P30000",
+      "file": 2313066,
+      "captions": [],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 928,
+          "goes": [],
+          "text": "TO HANDLE buttonClick....B.............\"Objective#\" ...\"P30000\" .\"\".END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be00987914292c8808eb183e0098a8d889096224f626a656374697665232220889183225033303030302220802222e0454e44"
+        }
+      ]
+    },
+    {
+      "page": "P30010",
+      "file": 2315392,
+      "captions": [],
+      "goes": [],
+      "fields": [],
+      "handlers": [
+        {
+          "kind": "buttonClick",
+          "off": 366,
+          "goes": [],
+          "text": "TO HANDLE buttonClick....B.......END",
+          "hex": "544f2048414e444c4520627574746f6e436c69636be00987914292c8808eb183e0454e44"
+        }
+      ]
+    }
+  ]
+}

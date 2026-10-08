@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OpenScript corpus</title>
+<style>
+  :root { --ink:#1c1a17; --bar:#1e3a5f; --paper:#f4f1ea; --stage:#fff; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 16px/1.45 Georgia, serif; color: var(--ink); background: var(--paper); }
+  header { background: var(--bar); color: #fff; padding: 10px 16px; display: flex; gap: 12px; align-items: center; font-family: sans-serif; }
+  header strong { letter-spacing: .06em; font-size: 13px; }
+  header input, header select, header button { font: 13px sans-serif; }
+  #bar { margin-left: auto; font-size: 13px; }
+  #layout { display: flex; min-height: calc(100vh - 46px); }
+  aside { width: 230px; background: #efeae2; border-right: 1px solid #ddd; overflow: auto; font-family: sans-serif; font-size: 12px; }
+  aside button { display: block; width: 100%; text-align: left; border: 0; background: transparent; padding: 5px 12px; cursor: pointer; }
+  aside button.on { background: var(--bar); color: #fff; }
+  aside button.has { font-weight: 600; }
+  main { flex: 1; overflow: auto; }
+  #stage { max-width: 880px; margin: 18px auto 40px; background: var(--stage); padding: 24px 32px 40px; box-shadow: 0 1px 4px #0002; }
+  h1 { font-size: 22px; margin: 0 0 6px; }
+  h2 { font-size: 15px; font-family: sans-serif; margin: 22px 0 8px; }
+  .meta, .note { font-family: sans-serif; font-size: 12px; color: #666; }
+  p { margin: 10px 0; }
+  .nav, .ops { display: flex; gap: 8px; flex-wrap: wrap; }
+  .nav button, .ops span { font: 13px sans-serif; padding: 6px 10px; border: 0; }
+  .nav button { background: var(--bar); color: #fff; cursor: pointer; }
+  .nav button.ghost { background: #ece7df; color: var(--ink); }
+  .ops span { background: #f3efe8; }
+  pre { font: 12px/1.4 ui-monospace, Consolas, monospace; background: #f7f5f1; padding: 10px 12px; overflow: auto; white-space: pre-wrap; }
+  .handler { border-top: 1px solid #e4dfd6; padding-top: 12px; margin-top: 12px; }
+</style>
+</head>
+<body>
+<header>
+  <strong>OPENSCRIPT</strong>
+  <input id="file" type="file" accept=".json">
+  <select id="jump"></select>
+  <span id="bar">no corpus</span>
+</header>
+<div id="layout">
+  <aside id="list"></aside>
+  <main><div id="stage">
+    <h1>Load a corpus json</h1>
+    <p class="note">The file written by openscript.py. Pages, field text, quoted jumps, and handler slices.</p>
+  </div></main>
+</div>
+<script>
+let book = null;
+let pages = [];
+let byId = new Map();
+let cur = 0;
+
+document.getElementById('file').addEventListener('change', async (ev) => {
+  const file = ev.target.files[0];
+  if (!file) return;
+  book = JSON.parse(await file.text());
+  pages = book.pages_detail || [];
+  byId = new Map(pages.map((p, i) => [p.page, i]));
+  fill();
+  const start = byId.has('P0') ? byId.get('P0') : 0;
+  show(start);
+});
+document.getElementById('jump').addEventListener('change', (ev) => {
+  const i = byId.get(ev.target.value);
+  if (i != null) show(i);
+});
+
+function fill() {
+  const list = document.getElementById('list');
+  const jump = document.getElementById('jump');
+  list.innerHTML = '';
+  jump.innerHTML = '';
+  pages.forEach((p, i) => {
+    const b = document.createElement('button');
+    b.textContent = p.page + (p.handlers.length ? ' *' : '');
+    b.className = p.handlers.length ? 'has' : '';
+    b.dataset.i = i;
+    b.onclick = () => show(i);
+    list.appendChild(b);
+    const o = document.createElement('option');
+    o.value = p.page;
+    o.textContent = p.page;
+    jump.appendChild(o);
+  });
+}
+
+function show(i) {
+  cur = i;
+  const page = pages[i];
+  document.getElementById('bar').textContent =
+    book.book.split(/[\\/]/).pop() + '  ·  ' + (i + 1) + ' / ' + pages.length;
+  document.getElementById('jump').value = page.page;
+  document.querySelectorAll('#list button').forEach(b => b.classList.toggle('on', +b.dataset.i === i));
+  const ops = (book.opcode_bytes || []).slice(0, 12)
+    .map(o => '<span>' + o.byte + ' ' + o.count + '</span>').join('');
+  const fields = page.fields.length
+    ? page.fields.map(t => '<p>' + escape(t) + '</p>').join('')
+    : '<p class="note">No field text.</p>';
+  const jumps = page.goes.filter(id => byId.has(id))
+    .map(id => '<button data-to="' + id + '">' + id + '</button>').join('');
+  const hands = page.handlers.map(h =>
+    '<div class="handler"><p class="meta">' + escape(h.kind) + ' · offset ' + h.off +
+    (h.goes.length ? ' · ' + h.goes.join(', ') : '') + '</p>' +
+    '<pre>' + escape(h.text) + '</pre>' +
+    '<pre>' + groupHex(h.hex) + '</pre></div>'
+  ).join('');
+  document.getElementById('stage').innerHTML =
+    '<h1>' + escape(page.page) + '</h1>' +
+    '<p class="meta">file ' + page.file +
+    ' · captions ' + (page.captions.join(', ') || 'none') +
+    ' · ' + page.handlers.length + ' handlers</p>' +
+    '<h2>Book opcodes</h2><div class="ops">' + ops + '</div>' +
+    '<h2>Fields</h2>' + fields +
+    '<h2>Jumps</h2><div class="nav">' + (jumps || '<span class="note">none</span>') + '</div>' +
+    '<h2>Handlers</h2>' + (hands || '<p class="note">No to-handle slice. Navigation is the quoted jump list.</p>');
+  document.querySelectorAll('#stage button[data-to]').forEach(b => b.onclick = () => go(b.dataset.to));
+}
+
+function go(id) {
+  const i = byId.get(id);
+  if (i != null) show(i);
+}
+
+function groupHex(hex) {
+  return (hex || '').replace(/(.{2})/g, '$1 ').replace(/((?:[0-9a-f]{2} ){16})/g, '$1\n');
+}
+
+function escape(s) {
+  return String(s).replace(/[&<>]/g, c => ({'&':'&','<':'<','>':'>'}[c]));
+}
+</script>
+</body>
+</html>
