@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Drop a TBK</title>
+<style>
+  body { font-family: sans-serif; background: #123; color: #fff; }
+  #drop { border: 2px dashed #9cf; padding: 40px; margin: 24px; }
+</style>
+<div id="drop">Drop a .tbk here. A .json comes back.</div>
+<script>
+const MARK = [0x80, 0x65, 0x00, 0x05, 0x00, 0x02, 0x02];
+
+function findAll(bytes, needle, from, to) {
+  const hits = [];
+  const end = to == null ? bytes.length : to;
+  outer: for (let i = from || 0; i < end - needle.length; i += 1) {
+    for (let n = 0; n < needle.length; n += 1) if (bytes[i + n] !== needle[n]) continue outer;
+    hits.push(i);
+  }
+  return hits;
+}
+
+function cstr(bytes, off) {
+  let s = "";
+  for (let i = 0; i < 32 && bytes[off + i] >= 32 && bytes[off + i] < 127; i += 1) s += String.fromCharCode(bytes[off + i]);
+  return s;
+}
+
+function word(bytes, off) {
+  return bytes[off] | (bytes[off + 1] << 8);
+}
+
+function pageJson(bytes, file) {
+  const hits = findAll(bytes, MARK);
+  const pages = hits.map((off, n) => {
+    const end = hits[n + 1] || bytes.length;
+    const name = cstr(bytes, off + 11);
+    const strings = [];
+    const fields = [];
+    const jumps = [];
+    let cur = "";
+    for (let i = off; i < end; i += 1) {
+      const c = bytes[i];
+      if (c >= 32 && c < 127) cur += String.fromCharCode(c);
+      else {
+        if (cur.length >= 4 && !strings.includes(cur)) strings.push(cur);
+        cur = "";
+      }
+      if (c === 0x54 && bytes[i + 1] === 0x65 && bytes[i + 2] === 0x78 && bytes[i + 3] === 0x74 && bytes[i + 4] === 0 && bytes[i + 5] === 0) {
+        const length = word(bytes, i + 14);
+        if (length >= 8 && i + 16 + length <= end && (bytes[i + 16] === 13 || bytes[i + 16] === 10)) {
+          let text = "";
+          for (let k = i + 16; k < i + 16 + length; k += 1) {
+            if (bytes[k] === 13) continue;
+            if (bytes[k] === 10) text += "\n";
+            else if (bytes[k] >= 32 && bytes[k] < 127) text += String.fromCharCode(bytes[k]);
+          }
+          text = text.trim();
+          if (text) fields.push({ kind: "field", text, x: word(bytes, i + 6), y: word(bytes, i + 8), w: word(bytes, i + 12), h: word(bytes, i + 14), offset: i - off });
+        }
+      }
+      if (c === 0x28 && bytes[i + 1] === 0x22 && bytes[i + 2] === 0x50) {
+        let jump = "";
+        for (let k = i + 2; k < end && ((bytes[k] >= 48 && bytes[k] <= 57) || (bytes[k] >= 65 && bytes[k] <= 90)); k += 1) jump += String.fromCharCode(bytes[k]);
+        if (jump.startsWith("P") && !jumps.includes(jump)) jumps.push(jump);
+      }
+    }
+    return { name, offset: off, size: end - off, sections: findAll(bytes, [0x14, 0x00, 0x00], off, end).map((at) => at - off), jumps, fields, strings: strings.slice(0, 60) };
+  }).filter((p) => p.name.startsWith("P"));
+  return { file, size: bytes.length, pages };
+}
+
+function save(name, payload) {
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = name.replace(/\.tbk$/i, "") + ".json";
+  a.click();
+}
+
+document.getElementById("drop").ondragover = (e) => e.preventDefault();
+document.getElementById("drop").ondrop = async (e) => {
+  e.preventDefault();
+  const file = e.dataTransfer.files[0];
+  const bytes = new Uint8Array(await file.arrayBuffer());
+  save(file.name, pageJson(bytes, file.name));
+};
+</script>

@@ -91,7 +91,7 @@ const nida = {
   }
 };
 
-const state = { phase: "catalog", developer: false, book: null, courses: [], missed: null };
+const state = { phase: "catalog", developer: false, book: null, topics: [], level: "topic", topic: 0, module: 0, missed: null, error: "" };
 
 function pageOf(book) {
   return book.pages[book.index];
@@ -313,24 +313,56 @@ function draw() {
     const main = document.createElement("main");
     main.className = "catalog";
     const h1 = document.createElement("h1");
-    h1.textContent = "Lessons";
     const ul = document.createElement("ul");
-    if (!state.courses.length) {
+    const topics = state.topics || [];
+    if (!topics.length) {
+      h1.textContent = "Lessons";
       const li = document.createElement("li");
       const p = document.createElement("p");
-      p.textContent = state.error || "No lessons in lessonshells.";
+      p.textContent = state.error || "No catalog yet. Run the interpreter.";
       li.appendChild(p);
       ul.appendChild(li);
+    } else if (state.level === "topic") {
+      h1.textContent = "Main Topic";
+      topics.forEach((topic, index) => {
+        const count = topic.modules.reduce((sum, module) => sum + module.courses.filter((course) => course.file).length, 0);
+        const li = document.createElement("li");
+        li.appendChild(button(topic.title + (count ? "" : " (none translated)"), () => {
+          state.topic = index;
+          state.level = "module";
+          draw();
+        }));
+        ul.appendChild(li);
+      });
+    } else if (state.level === "module") {
+      const topic = topics[state.topic];
+      h1.textContent = topic.title;
+      const back = document.createElement("li");
+      back.appendChild(button("Main Topics", () => { state.level = "topic"; draw(); }));
+      ul.appendChild(back);
+      topic.modules.forEach((module, index) => {
+        const li = document.createElement("li");
+        li.appendChild(button(module.title, () => {
+          state.module = index;
+          state.level = "course";
+          draw();
+        }));
+        ul.appendChild(li);
+      });
+    } else {
+      const topic = topics[state.topic];
+      const module = topic.modules[state.module];
+      h1.textContent = module.title;
+      const back = document.createElement("li");
+      back.appendChild(button(topic.title, () => { state.level = "module"; draw(); }));
+      ul.appendChild(back);
+      module.courses.forEach((course) => {
+        const li = document.createElement("li");
+        const label = course.file ? course.title : course.title + " (not translated)";
+        li.appendChild(button(label, () => openCourse(course)));
+        ul.appendChild(li);
+      });
     }
-    state.courses.forEach((lesson) => {
-      const li = document.createElement("li");
-      li.appendChild(button(lesson.title, () => {
-        state.book = openLesson(lesson);
-        state.phase = "splash";
-        draw();
-      }));
-      ul.appendChild(li);
-    });
     main.append(h1, ul);
     app.appendChild(main);
     return;
@@ -375,22 +407,32 @@ function draw() {
   }
 }
 
-async function loadLessons() {
-  const index = await fetch("./lessonshells/catalog.json");
-  if (!index.ok) throw new Error("lessonshells/catalog.json");
-  const catalog = await index.json();
-  const courses = [];
-  for (const course of catalog.courses || []) {
-    const file = String(course.file || "");
-    const url = file.startsWith("lessonshells/") ? "./" + file : "./lessonshells/" + file;
-    const response = await fetch(url);
-    if (!response.ok) throw new Error(url);
-    courses.push(await response.json());
+async function openCourse(course) {
+  if (!course.file) return;
+  const response = await fetch("./courses/" + course.file);
+  if (!response.ok) {
+    state.error = "Could not read " + course.file;
+    draw();
+    return;
   }
-  return courses;
+  state.book = openLesson(await response.json());
+  state.phase = "splash";
+  state.missed = null;
+  draw();
 }
 
-document.getElementById("lessons").addEventListener("click", () => { state.phase = "catalog"; draw(); });
+async function loadCatalog() {
+  const index = await fetch("./courses/catalog.json");
+  if (!index.ok) throw new Error("courses/catalog.json");
+  const catalog = await index.json();
+  return catalog.topics || [];
+}
+
+document.getElementById("lessons").addEventListener("click", () => {
+  state.phase = "catalog";
+  state.level = "topic";
+  draw();
+});
 document.getElementById("page").addEventListener("change", (event) => {
   const id = event.target.value;
   if (!id || !state.book) return;
@@ -401,11 +443,11 @@ document.getElementById("page").addEventListener("change", (event) => {
 });
 document.getElementById("developer").addEventListener("click", () => { state.developer = !state.developer; draw(); });
 
-loadLessons().then((courses) => {
-  state.courses = courses;
+loadCatalog().then((topics) => {
+  state.topics = topics;
   draw();
 }).catch(() => {
-  state.error = "Could not read lessonshells/catalog.json.";
+  state.error = "Could not read courses/catalog.json.";
   draw();
 });
 </script>
