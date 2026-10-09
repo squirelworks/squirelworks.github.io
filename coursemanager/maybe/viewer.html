@@ -52,7 +52,7 @@ function show() {
   }
   for (const id of page.jumps) {
     const b = document.createElement("button");
-    b.textContent = id;
+    b.textContent = page.continue || id;
     b.addEventListener("click", () => { book.go(id); show(); });
     stage.appendChild(b);
   }
