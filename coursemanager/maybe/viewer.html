@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lesson viewer</title>
+<style>
+  body { margin: 0; background: #1c2430; color: #e8eef6; font: 15px/1.4 system-ui, sans-serif; }
+  header { background: #1e4d8c; padding: 12px 16px; display: flex; justify-content: space-between; }
+  main { display: grid; grid-template-columns: 260px 1fr; min-height: calc(100vh - 48px); }
+  aside { border-right: 1px solid #2c3a4c; padding: 12px; }
+  a { color: #d6e6f5; cursor: pointer; display: block; margin: 6px 0; }
+  #stage { background: #f4f1e8; color: #1b1b1b; margin: 16px; padding: 24px 28px; min-height: 420px; }
+  button { font: 14px system-ui, sans-serif; margin: 4px 6px 0 0; padding: 6px 10px; }
+  #log { color: #9eb4cc; font: 12px ui-monospace, Consolas, monospace; white-space: pre-wrap; }
+  .miss { color: #8a97a6; }
+</style>
+</head>
+<body>
+<header><b>Lesson viewer</b><span id="where"></span></header>
+<main>
+  <aside>
+    <div>Lessons</div>
+    <div id="list"></div>
+    <p id="log"></p>
+  </aside>
+  <div id="stage">Open a lesson from the list.</div>
+</main>
+<script src="systemshell/shell.js"></script>
+<script src="systemshell/base.js"></script>
+<script src="systemshell/recs.js"></script>
+<script src="systemshell/test.js"></script>
+<script src="systemshell/trnr.js"></script>
+<script src="systemshell/runtime.js"></script>
+<script>
+let book = null;
+const list = document.getElementById("list");
+const stage = document.getElementById("stage");
+function show() {
+  const page = book.page();
+  document.getElementById("where").textContent = book.title + "  " + page.id;
+  stage.replaceChildren();
+  if (!page.text.length) {
+    const p = document.createElement("p");
+    p.className = "miss";
+    p.textContent = "No lesson text on this page.";
+    stage.appendChild(p);
+  }
+  for (const line of page.text) {
+    const p = document.createElement("p");
+    p.textContent = line;
+    stage.appendChild(p);
+  }
+  for (const id of page.jumps) {
+    const b = document.createElement("button");
+    b.textContent = id;
+    b.addEventListener("click", () => { book.go(id); show(); });
+    stage.appendChild(b);
+  }
+  for (const name of page.sends || []) {
+    const b = document.createElement("button");
+    b.textContent = "send " + name;
+    b.addEventListener("click", () => { SystemShell.send(book, name); show(); });
+    stage.appendChild(b);
+  }
+  document.getElementById("log").textContent = book.log.slice(-8).join("\n");
+}
+async function openLesson(file) {
+  const lesson = await (await fetch(file)).json();
+  book = SystemShell.open(lesson);
+  show();
+}
+fetch("lessonshells/catalog.json").then(r => r.json()).then(catalog => {
+  for (const course of catalog.courses) {
+    const a = document.createElement("a");
+    a.textContent = course.title;
+    a.addEventListener("click", () => openLesson(course.file));
+    list.appendChild(a);
+  }
+}).catch(() => {
+  list.textContent = "Serve this folder. Opening the file directly cannot read the course list.";
+});
+</script>
+</body>
+</html>
