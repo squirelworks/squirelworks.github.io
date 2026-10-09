@@ -1,0 +1,4313 @@
+{
+  "directory": "D:\\courses\\courses\\courses",
+  "xml": "courses.xml",
+  "topics": [
+    {
+      "title": "DC Circuits",
+      "modules": [
+        {
+          "title": "Mod 02 Introduction to Electricity",
+          "courses": [
+            {
+              "id": "93951100",
+              "title": "Introduction to CAI",
+              "file": "D:\\courses\\courses\\courses\\93951100.TBK",
+              "json": "courses/93951100.json",
+              "present": true
+            },
+            {
+              "id": "93951101",
+              "title": "Safety Practices",
+              "file": "D:\\courses\\courses\\courses\\93951101.TBK",
+              "json": "courses/93951101.json",
+              "present": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Digital Circuits",
+      "modules": [
+        {
+          "title": "Logic Families",
+          "courses": [
+            {
+              "id": "9e954d01",
+              "title": "Logic Families",
+              "file": "D:\\courses\\courses\\courses\\9e954d01.tbk",
+              "json": "courses/9e954d01.json",
+              "present": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Not categorized",
+      "modules": [
+        {
+          "title": "On disk",
+          "courses": [
+            {
+              "id": "10001001",
+              "title": "10001001",
+              "file": "D:\\courses\\courses\\courses\\10001001.tbk",
+              "json": "courses/10001001.json",
+              "present": true
+            },
+            {
+              "id": "93950101",
+              "title": "93950101",
+              "file": "D:\\courses\\courses\\courses\\93950101.TBK",
+              "json": "courses/93950101.json",
+              "present": true
+            },
+            {
+              "id": "93950102",
+              "title": "93950102",
+              "file": "D:\\courses\\courses\\courses\\93950102.TBK",
+              "json": "courses/93950102.json",
+              "present": true
+            },
+            {
+              "id": "93950103",
+              "title": "93950103",
+              "file": "D:\\courses\\courses\\courses\\93950103.TBK",
+              "json": "courses/93950103.json",
+              "present": true
+            },
+            {
+              "id": "93950104",
+              "title": "93950104",
+              "file": "D:\\courses\\courses\\courses\\93950104.TBK",
+              "json": "courses/93950104.json",
+              "present": true
+            },
+            {
+              "id": "93950105",
+              "title": "93950105",
+              "file": "D:\\courses\\courses\\courses\\93950105.TBK",
+              "json": "courses/93950105.json",
+              "present": true
+            },
+            {
+              "id": "93950106",
+              "title": "93950106",
+              "file": "D:\\courses\\courses\\courses\\93950106.TBK",
+              "json": "courses/93950106.json",
+              "present": true
+            },
+            {
+              "id": "93950107",
+              "title": "93950107",
+              "file": "D:\\courses\\courses\\courses\\93950107.TBK",
+              "json": "courses/93950107.json",
+              "present": true
+            },
+            {
+              "id": "93950108",
+              "title": "93950108",
+              "file": "D:\\courses\\courses\\courses\\93950108.TBK",
+              "json": "courses/93950108.json",
+              "present": true
+            },
+            {
+              "id": "93950109",
+              "title": "93950109",
+              "file": "D:\\courses\\courses\\courses\\93950109.TBK",
+              "json": "courses/93950109.json",
+              "present": true
+            },
+            {
+              "id": "93950198",
+              "title": "93950198",
+              "file": "D:\\courses\\courses\\courses\\93950198.TBK",
+              "json": "courses/93950198.json",
+              "present": true
+            },
+            {
+              "id": "93950199",
+              "title": "93950199",
+              "file": "D:\\courses\\courses\\courses\\93950199.TBK",
+              "json": "courses/93950199.json",
+              "present": true
+            },
+            {
+              "id": "93950201",
+              "title": "93950201",
+              "file": "D:\\courses\\courses\\courses\\93950201.TBK",
+              "json": "courses/93950201.json",
+              "present": true
+            },
+            {
+              "id": "93950202",
+              "title": "93950202",
+              "file": "D:\\courses\\courses\\courses\\93950202.TBK",
+              "json": "courses/93950202.json",
+              "present": true
+            },
+            {
+              "id": "93950203",
+              "title": "93950203",
+              "file": "D:\\courses\\courses\\courses\\93950203.TBK",
+              "json": "courses/93950203.json",
+              "present": true
+            },
+            {
+              "id": "93950204",
+              "title": "93950204",
+              "file": "D:\\courses\\courses\\courses\\93950204.TBK",
+              "json": "courses/93950204.json",
+              "present": true
+            },
+            {
+              "id": "93950205",
+              "title": "93950205",
+              "file": "D:\\courses\\courses\\courses\\93950205.TBK",
+              "json": "courses/93950205.json",
+              "present": true
+            },
+            {
+              "id": "93950206",
+              "title": "93950206",
+              "file": "D:\\courses\\courses\\courses\\93950206.TBK",
+              "json": "courses/93950206.json",
+              "present": true
+            },
+            {
+              "id": "93950207",
+              "title": "93950207",
+              "file": "D:\\courses\\courses\\courses\\93950207.TBK",
+              "json": "courses/93950207.json",
+              "present": true
+            },
+            {
+              "id": "93950208",
+              "title": "93950208",
+              "file": "D:\\courses\\courses\\courses\\93950208.TBK",
+              "json": "courses/93950208.json",
+              "present": true
+            },
+            {
+              "id": "93950209",
+              "title": "93950209",
+              "file": "D:\\courses\\courses\\courses\\93950209.TBK",
+              "json": "courses/93950209.json",
+              "present": true
+            },
+            {
+              "id": "93950210",
+              "title": "93950210",
+              "file": "D:\\courses\\courses\\courses\\93950210.TBK",
+              "json": "courses/93950210.json",
+              "present": true
+            },
+            {
+              "id": "93950298",
+              "title": "93950298",
+              "file": "D:\\courses\\courses\\courses\\93950298.TBK",
+              "json": "courses/93950298.json",
+              "present": true
+            },
+            {
+              "id": "93950299",
+              "title": "93950299",
+              "file": "D:\\courses\\courses\\courses\\93950299.TBK",
+              "json": "courses/93950299.json",
+              "present": true
+            },
+            {
+              "id": "93950301",
+              "title": "93950301",
+              "file": "D:\\courses\\courses\\courses\\93950301.TBK",
+              "json": "courses/93950301.json",
+              "present": true
+            },
+            {
+              "id": "93950302",
+              "title": "93950302",
+              "file": "D:\\courses\\courses\\courses\\93950302.TBK",
+              "json": "courses/93950302.json",
+              "present": true
+            },
+            {
+              "id": "93950303",
+              "title": "93950303",
+              "file": "D:\\courses\\courses\\courses\\93950303.TBK",
+              "json": "courses/93950303.json",
+              "present": true
+            },
+            {
+              "id": "93950304",
+              "title": "93950304",
+              "file": "D:\\courses\\courses\\courses\\93950304.TBK",
+              "json": "courses/93950304.json",
+              "present": true
+            },
+            {
+              "id": "93950305",
+              "title": "93950305",
+              "file": "D:\\courses\\courses\\courses\\93950305.TBK",
+              "json": "courses/93950305.json",
+              "present": true
+            },
+            {
+              "id": "93950306",
+              "title": "93950306",
+              "file": "D:\\courses\\courses\\courses\\93950306.TBK",
+              "json": "courses/93950306.json",
+              "present": true
+            },
+            {
+              "id": "93950307",
+              "title": "93950307",
+              "file": "D:\\courses\\courses\\courses\\93950307.TBK",
+              "json": "courses/93950307.json",
+              "present": true
+            },
+            {
+              "id": "93950308",
+              "title": "93950308",
+              "file": "D:\\courses\\courses\\courses\\93950308.TBK",
+              "json": "courses/93950308.json",
+              "present": true
+            },
+            {
+              "id": "93950309",
+              "title": "93950309",
+              "file": "D:\\courses\\courses\\courses\\93950309.TBK",
+              "json": "courses/93950309.json",
+              "present": true
+            },
+            {
+              "id": "93950310",
+              "title": "93950310",
+              "file": "D:\\courses\\courses\\courses\\93950310.TBK",
+              "json": "courses/93950310.json",
+              "present": true
+            },
+            {
+              "id": "93950398",
+              "title": "93950398",
+              "file": "D:\\courses\\courses\\courses\\93950398.TBK",
+              "json": "courses/93950398.json",
+              "present": true
+            },
+            {
+              "id": "93950399",
+              "title": "93950399",
+              "file": "D:\\courses\\courses\\courses\\93950399.TBK",
+              "json": "courses/93950399.json",
+              "present": true
+            },
+            {
+              "id": "93950401",
+              "title": "93950401",
+              "file": "D:\\courses\\courses\\courses\\93950401.TBK",
+              "json": "courses/93950401.json",
+              "present": true
+            },
+            {
+              "id": "93950402",
+              "title": "93950402",
+              "file": "D:\\courses\\courses\\courses\\93950402.TBK",
+              "json": "courses/93950402.json",
+              "present": true
+            },
+            {
+              "id": "93950403",
+              "title": "93950403",
+              "file": "D:\\courses\\courses\\courses\\93950403.TBK",
+              "json": "courses/93950403.json",
+              "present": true
+            },
+            {
+              "id": "93950404",
+              "title": "93950404",
+              "file": "D:\\courses\\courses\\courses\\93950404.TBK",
+              "json": "courses/93950404.json",
+              "present": true
+            },
+            {
+              "id": "93950405",
+              "title": "93950405",
+              "file": "D:\\courses\\courses\\courses\\93950405.TBK",
+              "json": "courses/93950405.json",
+              "present": true
+            },
+            {
+              "id": "93950406",
+              "title": "93950406",
+              "file": "D:\\courses\\courses\\courses\\93950406.TBK",
+              "json": "courses/93950406.json",
+              "present": true
+            },
+            {
+              "id": "93950407",
+              "title": "93950407",
+              "file": "D:\\courses\\courses\\courses\\93950407.TBK",
+              "json": "courses/93950407.json",
+              "present": true
+            },
+            {
+              "id": "93950408",
+              "title": "93950408",
+              "file": "D:\\courses\\courses\\courses\\93950408.TBK",
+              "json": "courses/93950408.json",
+              "present": true
+            },
+            {
+              "id": "93950409",
+              "title": "93950409",
+              "file": "D:\\courses\\courses\\courses\\93950409.TBK",
+              "json": "courses/93950409.json",
+              "present": true
+            },
+            {
+              "id": "93950410",
+              "title": "93950410",
+              "file": "D:\\courses\\courses\\courses\\93950410.TBK",
+              "json": "courses/93950410.json",
+              "present": true
+            },
+            {
+              "id": "93950498",
+              "title": "93950498",
+              "file": "D:\\courses\\courses\\courses\\93950498.TBK",
+              "json": "courses/93950498.json",
+              "present": true
+            },
+            {
+              "id": "93950499",
+              "title": "93950499",
+              "file": "D:\\courses\\courses\\courses\\93950499.TBK",
+              "json": "courses/93950499.json",
+              "present": true
+            },
+            {
+              "id": "93950501",
+              "title": "93950501",
+              "file": "D:\\courses\\courses\\courses\\93950501.TBK",
+              "json": "courses/93950501.json",
+              "present": true
+            },
+            {
+              "id": "93950502",
+              "title": "93950502",
+              "file": "D:\\courses\\courses\\courses\\93950502.TBK",
+              "json": "courses/93950502.json",
+              "present": true
+            },
+            {
+              "id": "93950503",
+              "title": "93950503",
+              "file": "D:\\courses\\courses\\courses\\93950503.TBK",
+              "json": "courses/93950503.json",
+              "present": true
+            },
+            {
+              "id": "93950504",
+              "title": "93950504",
+              "file": "D:\\courses\\courses\\courses\\93950504.TBK",
+              "json": "courses/93950504.json",
+              "present": true
+            },
+            {
+              "id": "93950505",
+              "title": "93950505",
+              "file": "D:\\courses\\courses\\courses\\93950505.TBK",
+              "json": "courses/93950505.json",
+              "present": true
+            },
+            {
+              "id": "93950506",
+              "title": "93950506",
+              "file": "D:\\courses\\courses\\courses\\93950506.TBK",
+              "json": "courses/93950506.json",
+              "present": true
+            },
+            {
+              "id": "93950507",
+              "title": "93950507",
+              "file": "D:\\courses\\courses\\courses\\93950507.TBK",
+              "json": "courses/93950507.json",
+              "present": true
+            },
+            {
+              "id": "93950508",
+              "title": "93950508",
+              "file": "D:\\courses\\courses\\courses\\93950508.TBK",
+              "json": "courses/93950508.json",
+              "present": true
+            },
+            {
+              "id": "93950509",
+              "title": "93950509",
+              "file": "D:\\courses\\courses\\courses\\93950509.TBK",
+              "json": "courses/93950509.json",
+              "present": true
+            },
+            {
+              "id": "93950510",
+              "title": "93950510",
+              "file": "D:\\courses\\courses\\courses\\93950510.TBK",
+              "json": "courses/93950510.json",
+              "present": true
+            },
+            {
+              "id": "93950598",
+              "title": "93950598",
+              "file": "D:\\courses\\courses\\courses\\93950598.TBK",
+              "json": "courses/93950598.json",
+              "present": true
+            },
+            {
+              "id": "93950599",
+              "title": "93950599",
+              "file": "D:\\courses\\courses\\courses\\93950599.TBK",
+              "json": "courses/93950599.json",
+              "present": true
+            },
+            {
+              "id": "93950601",
+              "title": "93950601",
+              "file": "D:\\courses\\courses\\courses\\93950601.TBK",
+              "json": "courses/93950601.json",
+              "present": true
+            },
+            {
+              "id": "93950602",
+              "title": "93950602",
+              "file": "D:\\courses\\courses\\courses\\93950602.TBK",
+              "json": "courses/93950602.json",
+              "present": true
+            },
+            {
+              "id": "93950603",
+              "title": "93950603",
+              "file": "D:\\courses\\courses\\courses\\93950603.TBK",
+              "json": "courses/93950603.json",
+              "present": true
+            },
+            {
+              "id": "93950604",
+              "title": "93950604",
+              "file": "D:\\courses\\courses\\courses\\93950604.TBK",
+              "json": "courses/93950604.json",
+              "present": true
+            },
+            {
+              "id": "93950605",
+              "title": "93950605",
+              "file": "D:\\courses\\courses\\courses\\93950605.TBK",
+              "json": "courses/93950605.json",
+              "present": true
+            },
+            {
+              "id": "93950606",
+              "title": "93950606",
+              "file": "D:\\courses\\courses\\courses\\93950606.TBK",
+              "json": "courses/93950606.json",
+              "present": true
+            },
+            {
+              "id": "93950607",
+              "title": "93950607",
+              "file": "D:\\courses\\courses\\courses\\93950607.TBK",
+              "json": "courses/93950607.json",
+              "present": true
+            },
+            {
+              "id": "93950608",
+              "title": "93950608",
+              "file": "D:\\courses\\courses\\courses\\93950608.TBK",
+              "json": "courses/93950608.json",
+              "present": true
+            },
+            {
+              "id": "93950698",
+              "title": "93950698",
+              "file": "D:\\courses\\courses\\courses\\93950698.TBK",
+              "json": "courses/93950698.json",
+              "present": true
+            },
+            {
+              "id": "93950699",
+              "title": "93950699",
+              "file": "D:\\courses\\courses\\courses\\93950699.TBK",
+              "json": "courses/93950699.json",
+              "present": true
+            },
+            {
+              "id": "93951102",
+              "title": "93951102",
+              "file": "D:\\courses\\courses\\courses\\93951102.TBK",
+              "json": "courses/93951102.json",
+              "present": true
+            },
+            {
+              "id": "93951103",
+              "title": "93951103",
+              "file": "D:\\courses\\courses\\courses\\93951103.TBK",
+              "json": "courses/93951103.json",
+              "present": true
+            },
+            {
+              "id": "93951104",
+              "title": "93951104",
+              "file": "D:\\courses\\courses\\courses\\93951104.TBK",
+              "json": "courses/93951104.json",
+              "present": true
+            },
+            {
+              "id": "93951105",
+              "title": "93951105",
+              "file": "D:\\courses\\courses\\courses\\93951105.TBK",
+              "json": "courses/93951105.json",
+              "present": true
+            },
+            {
+              "id": "93951106",
+              "title": "93951106",
+              "file": "D:\\courses\\courses\\courses\\93951106.TBK",
+              "json": "courses/93951106.json",
+              "present": true
+            },
+            {
+              "id": "93951107",
+              "title": "93951107",
+              "file": "D:\\courses\\courses\\courses\\93951107.TBK",
+              "json": "courses/93951107.json",
+              "present": true
+            },
+            {
+              "id": "93951108",
+              "title": "93951108",
+              "file": "D:\\courses\\courses\\courses\\93951108.TBK",
+              "json": "courses/93951108.json",
+              "present": true
+            },
+            {
+              "id": "93951201",
+              "title": "93951201",
+              "file": "D:\\courses\\courses\\courses\\93951201.TBK",
+              "json": "courses/93951201.json",
+              "present": true
+            },
+            {
+              "id": "93951202",
+              "title": "93951202",
+              "file": "D:\\courses\\courses\\courses\\93951202.TBK",
+              "json": "courses/93951202.json",
+              "present": true
+            },
+            {
+              "id": "93951203",
+              "title": "93951203",
+              "file": "D:\\courses\\courses\\courses\\93951203.TBK",
+              "json": "courses/93951203.json",
+              "present": true
+            },
+            {
+              "id": "93951204",
+              "title": "93951204",
+              "file": "D:\\courses\\courses\\courses\\93951204.TBK",
+              "json": "courses/93951204.json",
+              "present": true
+            },
+            {
+              "id": "93951205",
+              "title": "93951205",
+              "file": "D:\\courses\\courses\\courses\\93951205.TBK",
+              "json": "courses/93951205.json",
+              "present": true
+            },
+            {
+              "id": "93951206",
+              "title": "93951206",
+              "file": "D:\\courses\\courses\\courses\\93951206.TBK",
+              "json": "courses/93951206.json",
+              "present": true
+            },
+            {
+              "id": "93951301",
+              "title": "93951301",
+              "file": "D:\\courses\\courses\\courses\\93951301.TBK",
+              "json": "courses/93951301.json",
+              "present": true
+            },
+            {
+              "id": "93951302",
+              "title": "93951302",
+              "file": "D:\\courses\\courses\\courses\\93951302.TBK",
+              "json": "courses/93951302.json",
+              "present": true
+            },
+            {
+              "id": "93951303",
+              "title": "93951303",
+              "file": "D:\\courses\\courses\\courses\\93951303.TBK",
+              "json": "courses/93951303.json",
+              "present": true
+            },
+            {
+              "id": "93951304",
+              "title": "93951304",
+              "file": "D:\\courses\\courses\\courses\\93951304.TBK",
+              "json": "courses/93951304.json",
+              "present": true
+            },
+            {
+              "id": "93951305",
+              "title": "93951305",
+              "file": "D:\\courses\\courses\\courses\\93951305.TBK",
+              "json": "courses/93951305.json",
+              "present": true
+            },
+            {
+              "id": "93951306",
+              "title": "93951306",
+              "file": "D:\\courses\\courses\\courses\\93951306.TBK",
+              "json": "courses/93951306.json",
+              "present": true
+            },
+            {
+              "id": "93951307",
+              "title": "93951307",
+              "file": "D:\\courses\\courses\\courses\\93951307.TBK",
+              "json": "courses/93951307.json",
+              "present": true
+            },
+            {
+              "id": "93951308",
+              "title": "93951308",
+              "file": "D:\\courses\\courses\\courses\\93951308.TBK",
+              "json": "courses/93951308.json",
+              "present": true
+            },
+            {
+              "id": "93951309",
+              "title": "93951309",
+              "file": "D:\\courses\\courses\\courses\\93951309.TBK",
+              "json": "courses/93951309.json",
+              "present": true
+            },
+            {
+              "id": "93951310",
+              "title": "93951310",
+              "file": "D:\\courses\\courses\\courses\\93951310.TBK",
+              "json": "courses/93951310.json",
+              "present": true
+            },
+            {
+              "id": "93951311",
+              "title": "93951311",
+              "file": "D:\\courses\\courses\\courses\\93951311.TBK",
+              "json": "courses/93951311.json",
+              "present": true
+            },
+            {
+              "id": "93951312",
+              "title": "93951312",
+              "file": "D:\\courses\\courses\\courses\\93951312.TBK",
+              "json": "courses/93951312.json",
+              "present": true
+            },
+            {
+              "id": "93951313",
+              "title": "93951313",
+              "file": "D:\\courses\\courses\\courses\\93951313.TBK",
+              "json": "courses/93951313.json",
+              "present": true
+            },
+            {
+              "id": "93951401",
+              "title": "93951401",
+              "file": "D:\\courses\\courses\\courses\\93951401.TBK",
+              "json": "courses/93951401.json",
+              "present": true
+            },
+            {
+              "id": "93951402",
+              "title": "93951402",
+              "file": "D:\\courses\\courses\\courses\\93951402.TBK",
+              "json": "courses/93951402.json",
+              "present": true
+            },
+            {
+              "id": "93951403",
+              "title": "93951403",
+              "file": "D:\\courses\\courses\\courses\\93951403.TBK",
+              "json": "courses/93951403.json",
+              "present": true
+            },
+            {
+              "id": "93951404",
+              "title": "93951404",
+              "file": "D:\\courses\\courses\\courses\\93951404.TBK",
+              "json": "courses/93951404.json",
+              "present": true
+            },
+            {
+              "id": "93951405",
+              "title": "93951405",
+              "file": "D:\\courses\\courses\\courses\\93951405.TBK",
+              "json": "courses/93951405.json",
+              "present": true
+            },
+            {
+              "id": "93951406",
+              "title": "93951406",
+              "file": "D:\\courses\\courses\\courses\\93951406.TBK",
+              "json": "courses/93951406.json",
+              "present": true
+            },
+            {
+              "id": "93951601",
+              "title": "93951601",
+              "file": "D:\\courses\\courses\\courses\\93951601.TBK",
+              "json": "courses/93951601.json",
+              "present": true
+            },
+            {
+              "id": "93951602",
+              "title": "93951602",
+              "file": "D:\\courses\\courses\\courses\\93951602.TBK",
+              "json": "courses/93951602.json",
+              "present": true
+            },
+            {
+              "id": "93951603",
+              "title": "93951603",
+              "file": "D:\\courses\\courses\\courses\\93951603.TBK",
+              "json": "courses/93951603.json",
+              "present": true
+            },
+            {
+              "id": "93951604",
+              "title": "93951604",
+              "file": "D:\\courses\\courses\\courses\\93951604.TBK",
+              "json": "courses/93951604.json",
+              "present": true
+            },
+            {
+              "id": "93951605",
+              "title": "93951605",
+              "file": "D:\\courses\\courses\\courses\\93951605.TBK",
+              "json": "courses/93951605.json",
+              "present": true
+            },
+            {
+              "id": "93951606",
+              "title": "93951606",
+              "file": "D:\\courses\\courses\\courses\\93951606.TBK",
+              "json": "courses/93951606.json",
+              "present": true
+            },
+            {
+              "id": "93951607",
+              "title": "93951607",
+              "file": "D:\\courses\\courses\\courses\\93951607.TBK",
+              "json": "courses/93951607.json",
+              "present": true
+            },
+            {
+              "id": "93952101",
+              "title": "93952101",
+              "file": "D:\\courses\\courses\\courses\\93952101.TBK",
+              "json": "courses/93952101.json",
+              "present": true
+            },
+            {
+              "id": "93952102",
+              "title": "93952102",
+              "file": "D:\\courses\\courses\\courses\\93952102.TBK",
+              "json": "courses/93952102.json",
+              "present": true
+            },
+            {
+              "id": "93952103",
+              "title": "93952103",
+              "file": "D:\\courses\\courses\\courses\\93952103.TBK",
+              "json": "courses/93952103.json",
+              "present": true
+            },
+            {
+              "id": "93952104",
+              "title": "93952104",
+              "file": "D:\\courses\\courses\\courses\\93952104.TBK",
+              "json": "courses/93952104.json",
+              "present": true
+            },
+            {
+              "id": "93952201",
+              "title": "93952201",
+              "file": "D:\\courses\\courses\\courses\\93952201.TBK",
+              "json": "courses/93952201.json",
+              "present": true
+            },
+            {
+              "id": "93952202",
+              "title": "93952202",
+              "file": "D:\\courses\\courses\\courses\\93952202.TBK",
+              "json": "courses/93952202.json",
+              "present": true
+            },
+            {
+              "id": "93952203",
+              "title": "93952203",
+              "file": "D:\\courses\\courses\\courses\\93952203.TBK",
+              "json": "courses/93952203.json",
+              "present": true
+            },
+            {
+              "id": "93952204",
+              "title": "93952204",
+              "file": "D:\\courses\\courses\\courses\\93952204.TBK",
+              "json": "courses/93952204.json",
+              "present": true
+            },
+            {
+              "id": "93952205",
+              "title": "93952205",
+              "file": "D:\\courses\\courses\\courses\\93952205.TBK",
+              "json": "courses/93952205.json",
+              "present": true
+            },
+            {
+              "id": "93952206",
+              "title": "93952206",
+              "file": "D:\\courses\\courses\\courses\\93952206.TBK",
+              "json": "courses/93952206.json",
+              "present": true
+            },
+            {
+              "id": "93952207",
+              "title": "93952207",
+              "file": "D:\\courses\\courses\\courses\\93952207.TBK",
+              "json": "courses/93952207.json",
+              "present": true
+            },
+            {
+              "id": "93952208",
+              "title": "93952208",
+              "file": "D:\\courses\\courses\\courses\\93952208.TBK",
+              "json": "courses/93952208.json",
+              "present": true
+            },
+            {
+              "id": "93952209",
+              "title": "93952209",
+              "file": "D:\\courses\\courses\\courses\\93952209.TBK",
+              "json": "courses/93952209.json",
+              "present": true
+            },
+            {
+              "id": "93952210",
+              "title": "93952210",
+              "file": "D:\\courses\\courses\\courses\\93952210.TBK",
+              "json": "courses/93952210.json",
+              "present": true
+            },
+            {
+              "id": "93952211",
+              "title": "93952211",
+              "file": "D:\\courses\\courses\\courses\\93952211.TBK",
+              "json": "courses/93952211.json",
+              "present": true
+            },
+            {
+              "id": "93952212",
+              "title": "93952212",
+              "file": "D:\\courses\\courses\\courses\\93952212.TBK",
+              "json": "courses/93952212.json",
+              "present": true
+            },
+            {
+              "id": "93952213",
+              "title": "93952213",
+              "file": "D:\\courses\\courses\\courses\\93952213.TBK",
+              "json": "courses/93952213.json",
+              "present": true
+            },
+            {
+              "id": "93952214",
+              "title": "93952214",
+              "file": "D:\\courses\\courses\\courses\\93952214.TBK",
+              "json": "courses/93952214.json",
+              "present": true
+            },
+            {
+              "id": "93952301",
+              "title": "93952301",
+              "file": "D:\\courses\\courses\\courses\\93952301.TBK",
+              "json": "courses/93952301.json",
+              "present": true
+            },
+            {
+              "id": "93952302",
+              "title": "93952302",
+              "file": "D:\\courses\\courses\\courses\\93952302.TBK",
+              "json": "courses/93952302.json",
+              "present": true
+            },
+            {
+              "id": "93952303",
+              "title": "93952303",
+              "file": "D:\\courses\\courses\\courses\\93952303.TBK",
+              "json": "courses/93952303.json",
+              "present": true
+            },
+            {
+              "id": "93952304",
+              "title": "93952304",
+              "file": "D:\\courses\\courses\\courses\\93952304.TBK",
+              "json": "courses/93952304.json",
+              "present": true
+            },
+            {
+              "id": "93952305",
+              "title": "93952305",
+              "file": "D:\\courses\\courses\\courses\\93952305.TBK",
+              "json": "courses/93952305.json",
+              "present": true
+            },
+            {
+              "id": "93952306",
+              "title": "93952306",
+              "file": "D:\\courses\\courses\\courses\\93952306.TBK",
+              "json": "courses/93952306.json",
+              "present": true
+            },
+            {
+              "id": "93952307",
+              "title": "93952307",
+              "file": "D:\\courses\\courses\\courses\\93952307.TBK",
+              "json": "courses/93952307.json",
+              "present": true
+            },
+            {
+              "id": "93952308",
+              "title": "93952308",
+              "file": "D:\\courses\\courses\\courses\\93952308.TBK",
+              "json": "courses/93952308.json",
+              "present": true
+            },
+            {
+              "id": "93952309",
+              "title": "93952309",
+              "file": "D:\\courses\\courses\\courses\\93952309.TBK",
+              "json": "courses/93952309.json",
+              "present": true
+            },
+            {
+              "id": "93952310",
+              "title": "93952310",
+              "file": "D:\\courses\\courses\\courses\\93952310.TBK",
+              "json": "courses/93952310.json",
+              "present": true
+            },
+            {
+              "id": "93952311",
+              "title": "93952311",
+              "file": "D:\\courses\\courses\\courses\\93952311.TBK",
+              "json": "courses/93952311.json",
+              "present": true
+            },
+            {
+              "id": "93952401",
+              "title": "93952401",
+              "file": "D:\\courses\\courses\\courses\\93952401.TBK",
+              "json": "courses/93952401.json",
+              "present": true
+            },
+            {
+              "id": "93952402",
+              "title": "93952402",
+              "file": "D:\\courses\\courses\\courses\\93952402.TBK",
+              "json": "courses/93952402.json",
+              "present": true
+            },
+            {
+              "id": "93952403",
+              "title": "93952403",
+              "file": "D:\\courses\\courses\\courses\\93952403.TBK",
+              "json": "courses/93952403.json",
+              "present": true
+            },
+            {
+              "id": "93952404",
+              "title": "93952404",
+              "file": "D:\\courses\\courses\\courses\\93952404.TBK",
+              "json": "courses/93952404.json",
+              "present": true
+            },
+            {
+              "id": "93952405",
+              "title": "93952405",
+              "file": "D:\\courses\\courses\\courses\\93952405.TBK",
+              "json": "courses/93952405.json",
+              "present": true
+            },
+            {
+              "id": "93952406",
+              "title": "93952406",
+              "file": "D:\\courses\\courses\\courses\\93952406.TBK",
+              "json": "courses/93952406.json",
+              "present": true
+            },
+            {
+              "id": "93952407",
+              "title": "93952407",
+              "file": "D:\\courses\\courses\\courses\\93952407.TBK",
+              "json": "courses/93952407.json",
+              "present": true
+            },
+            {
+              "id": "93952408",
+              "title": "93952408",
+              "file": "D:\\courses\\courses\\courses\\93952408.TBK",
+              "json": "courses/93952408.json",
+              "present": true
+            },
+            {
+              "id": "93952409",
+              "title": "93952409",
+              "file": "D:\\courses\\courses\\courses\\93952409.TBK",
+              "json": "courses/93952409.json",
+              "present": true
+            },
+            {
+              "id": "93952410",
+              "title": "93952410",
+              "file": "D:\\courses\\courses\\courses\\93952410.TBK",
+              "json": "courses/93952410.json",
+              "present": true
+            },
+            {
+              "id": "93952411",
+              "title": "93952411",
+              "file": "D:\\courses\\courses\\courses\\93952411.TBK",
+              "json": "courses/93952411.json",
+              "present": true
+            },
+            {
+              "id": "93952412",
+              "title": "93952412",
+              "file": "D:\\courses\\courses\\courses\\93952412.TBK",
+              "json": "courses/93952412.json",
+              "present": true
+            },
+            {
+              "id": "93952413",
+              "title": "93952413",
+              "file": "D:\\courses\\courses\\courses\\93952413.TBK",
+              "json": "courses/93952413.json",
+              "present": true
+            },
+            {
+              "id": "93952501",
+              "title": "93952501",
+              "file": "D:\\courses\\courses\\courses\\93952501.TBK",
+              "json": "courses/93952501.json",
+              "present": true
+            },
+            {
+              "id": "93952502",
+              "title": "93952502",
+              "file": "D:\\courses\\courses\\courses\\93952502.TBK",
+              "json": "courses/93952502.json",
+              "present": true
+            },
+            {
+              "id": "93952503",
+              "title": "93952503",
+              "file": "D:\\courses\\courses\\courses\\93952503.TBK",
+              "json": "courses/93952503.json",
+              "present": true
+            },
+            {
+              "id": "93952504",
+              "title": "93952504",
+              "file": "D:\\courses\\courses\\courses\\93952504.TBK",
+              "json": "courses/93952504.json",
+              "present": true
+            },
+            {
+              "id": "93952505",
+              "title": "93952505",
+              "file": "D:\\courses\\courses\\courses\\93952505.TBK",
+              "json": "courses/93952505.json",
+              "present": true
+            },
+            {
+              "id": "93952506",
+              "title": "93952506",
+              "file": "D:\\courses\\courses\\courses\\93952506.TBK",
+              "json": "courses/93952506.json",
+              "present": true
+            },
+            {
+              "id": "93952507",
+              "title": "93952507",
+              "file": "D:\\courses\\courses\\courses\\93952507.TBK",
+              "json": "courses/93952507.json",
+              "present": true
+            },
+            {
+              "id": "93952601",
+              "title": "93952601",
+              "file": "D:\\courses\\courses\\courses\\93952601.TBK",
+              "json": "courses/93952601.json",
+              "present": true
+            },
+            {
+              "id": "93952602",
+              "title": "93952602",
+              "file": "D:\\courses\\courses\\courses\\93952602.TBK",
+              "json": "courses/93952602.json",
+              "present": true
+            },
+            {
+              "id": "93952603",
+              "title": "93952603",
+              "file": "D:\\courses\\courses\\courses\\93952603.TBK",
+              "json": "courses/93952603.json",
+              "present": true
+            },
+            {
+              "id": "93952604",
+              "title": "93952604",
+              "file": "D:\\courses\\courses\\courses\\93952604.TBK",
+              "json": "courses/93952604.json",
+              "present": true
+            },
+            {
+              "id": "93952605",
+              "title": "93952605",
+              "file": "D:\\courses\\courses\\courses\\93952605.TBK",
+              "json": "courses/93952605.json",
+              "present": true
+            },
+            {
+              "id": "93952606",
+              "title": "93952606",
+              "file": "D:\\courses\\courses\\courses\\93952606.TBK",
+              "json": "courses/93952606.json",
+              "present": true
+            },
+            {
+              "id": "93952607",
+              "title": "93952607",
+              "file": "D:\\courses\\courses\\courses\\93952607.TBK",
+              "json": "courses/93952607.json",
+              "present": true
+            },
+            {
+              "id": "93952608",
+              "title": "93952608",
+              "file": "D:\\courses\\courses\\courses\\93952608.TBK",
+              "json": "courses/93952608.json",
+              "present": true
+            },
+            {
+              "id": "93952609",
+              "title": "93952609",
+              "file": "D:\\courses\\courses\\courses\\93952609.TBK",
+              "json": "courses/93952609.json",
+              "present": true
+            },
+            {
+              "id": "93952610",
+              "title": "93952610",
+              "file": "D:\\courses\\courses\\courses\\93952610.TBK",
+              "json": "courses/93952610.json",
+              "present": true
+            },
+            {
+              "id": "93952701",
+              "title": "93952701",
+              "file": "D:\\courses\\courses\\courses\\93952701.TBK",
+              "json": "courses/93952701.json",
+              "present": true
+            },
+            {
+              "id": "93952702",
+              "title": "93952702",
+              "file": "D:\\courses\\courses\\courses\\93952702.TBK",
+              "json": "courses/93952702.json",
+              "present": true
+            },
+            {
+              "id": "93952703",
+              "title": "93952703",
+              "file": "D:\\courses\\courses\\courses\\93952703.TBK",
+              "json": "courses/93952703.json",
+              "present": true
+            },
+            {
+              "id": "93952801",
+              "title": "93952801",
+              "file": "D:\\courses\\courses\\courses\\93952801.TBK",
+              "json": "courses/93952801.json",
+              "present": true
+            },
+            {
+              "id": "93952802",
+              "title": "93952802",
+              "file": "D:\\courses\\courses\\courses\\93952802.TBK",
+              "json": "courses/93952802.json",
+              "present": true
+            },
+            {
+              "id": "93952803",
+              "title": "93952803",
+              "file": "D:\\courses\\courses\\courses\\93952803.TBK",
+              "json": "courses/93952803.json",
+              "present": true
+            },
+            {
+              "id": "93952804",
+              "title": "93952804",
+              "file": "D:\\courses\\courses\\courses\\93952804.TBK",
+              "json": "courses/93952804.json",
+              "present": true
+            },
+            {
+              "id": "93952805",
+              "title": "93952805",
+              "file": "D:\\courses\\courses\\courses\\93952805.TBK",
+              "json": "courses/93952805.json",
+              "present": true
+            },
+            {
+              "id": "93952806",
+              "title": "93952806",
+              "file": "D:\\courses\\courses\\courses\\93952806.TBK",
+              "json": "courses/93952806.json",
+              "present": true
+            },
+            {
+              "id": "93953101",
+              "title": "93953101",
+              "file": "D:\\courses\\courses\\courses\\93953101.TBK",
+              "json": "courses/93953101.json",
+              "present": true
+            },
+            {
+              "id": "93953102",
+              "title": "93953102",
+              "file": "D:\\courses\\courses\\courses\\93953102.TBK",
+              "json": "courses/93953102.json",
+              "present": true
+            },
+            {
+              "id": "93953103",
+              "title": "93953103",
+              "file": "D:\\courses\\courses\\courses\\93953103.TBK",
+              "json": "courses/93953103.json",
+              "present": true
+            },
+            {
+              "id": "93953104",
+              "title": "93953104",
+              "file": "D:\\courses\\courses\\courses\\93953104.TBK",
+              "json": "courses/93953104.json",
+              "present": true
+            },
+            {
+              "id": "93953105",
+              "title": "93953105",
+              "file": "D:\\courses\\courses\\courses\\93953105.TBK",
+              "json": "courses/93953105.json",
+              "present": true
+            },
+            {
+              "id": "93953106",
+              "title": "93953106",
+              "file": "D:\\courses\\courses\\courses\\93953106.TBK",
+              "json": "courses/93953106.json",
+              "present": true
+            },
+            {
+              "id": "93953107",
+              "title": "93953107",
+              "file": "D:\\courses\\courses\\courses\\93953107.TBK",
+              "json": "courses/93953107.json",
+              "present": true
+            },
+            {
+              "id": "93953108",
+              "title": "93953108",
+              "file": "D:\\courses\\courses\\courses\\93953108.TBK",
+              "json": "courses/93953108.json",
+              "present": true
+            },
+            {
+              "id": "93953109",
+              "title": "93953109",
+              "file": "D:\\courses\\courses\\courses\\93953109.TBK",
+              "json": "courses/93953109.json",
+              "present": true
+            },
+            {
+              "id": "93953110",
+              "title": "93953110",
+              "file": "D:\\courses\\courses\\courses\\93953110.TBK",
+              "json": "courses/93953110.json",
+              "present": true
+            },
+            {
+              "id": "93953201",
+              "title": "93953201",
+              "file": "D:\\courses\\courses\\courses\\93953201.TBK",
+              "json": "courses/93953201.json",
+              "present": true
+            },
+            {
+              "id": "93953202",
+              "title": "93953202",
+              "file": "D:\\courses\\courses\\courses\\93953202.TBK",
+              "json": "courses/93953202.json",
+              "present": true
+            },
+            {
+              "id": "93953203",
+              "title": "93953203",
+              "file": "D:\\courses\\courses\\courses\\93953203.TBK",
+              "json": "courses/93953203.json",
+              "present": true
+            },
+            {
+              "id": "93953204",
+              "title": "93953204",
+              "file": "D:\\courses\\courses\\courses\\93953204.TBK",
+              "json": "courses/93953204.json",
+              "present": true
+            },
+            {
+              "id": "93953205",
+              "title": "93953205",
+              "file": "D:\\courses\\courses\\courses\\93953205.TBK",
+              "json": "courses/93953205.json",
+              "present": true
+            },
+            {
+              "id": "93953206",
+              "title": "93953206",
+              "file": "D:\\courses\\courses\\courses\\93953206.TBK",
+              "json": "courses/93953206.json",
+              "present": true
+            },
+            {
+              "id": "93953207",
+              "title": "93953207",
+              "file": "D:\\courses\\courses\\courses\\93953207.TBK",
+              "json": "courses/93953207.json",
+              "present": true
+            },
+            {
+              "id": "93953208",
+              "title": "93953208",
+              "file": "D:\\courses\\courses\\courses\\93953208.TBK",
+              "json": "courses/93953208.json",
+              "present": true
+            },
+            {
+              "id": "93953209",
+              "title": "93953209",
+              "file": "D:\\courses\\courses\\courses\\93953209.TBK",
+              "json": "courses/93953209.json",
+              "present": true
+            },
+            {
+              "id": "93953301",
+              "title": "93953301",
+              "file": "D:\\courses\\courses\\courses\\93953301.TBK",
+              "json": "courses/93953301.json",
+              "present": true
+            },
+            {
+              "id": "93953302",
+              "title": "93953302",
+              "file": "D:\\courses\\courses\\courses\\93953302.TBK",
+              "json": "courses/93953302.json",
+              "present": true
+            },
+            {
+              "id": "93953303",
+              "title": "93953303",
+              "file": "D:\\courses\\courses\\courses\\93953303.TBK",
+              "json": "courses/93953303.json",
+              "present": true
+            },
+            {
+              "id": "93953306",
+              "title": "93953306",
+              "file": "D:\\courses\\courses\\courses\\93953306.TBK",
+              "json": "courses/93953306.json",
+              "present": true
+            },
+            {
+              "id": "93953307",
+              "title": "93953307",
+              "file": "D:\\courses\\courses\\courses\\93953307.TBK",
+              "json": "courses/93953307.json",
+              "present": true
+            },
+            {
+              "id": "93953308",
+              "title": "93953308",
+              "file": "D:\\courses\\courses\\courses\\93953308.TBK",
+              "json": "courses/93953308.json",
+              "present": true
+            },
+            {
+              "id": "93953309",
+              "title": "93953309",
+              "file": "D:\\courses\\courses\\courses\\93953309.TBK",
+              "json": "courses/93953309.json",
+              "present": true
+            },
+            {
+              "id": "93953310",
+              "title": "93953310",
+              "file": "D:\\courses\\courses\\courses\\93953310.TBK",
+              "json": "courses/93953310.json",
+              "present": true
+            },
+            {
+              "id": "93953311",
+              "title": "93953311",
+              "file": "D:\\courses\\courses\\courses\\93953311.TBK",
+              "json": "courses/93953311.json",
+              "present": true
+            },
+            {
+              "id": "93953312",
+              "title": "93953312",
+              "file": "D:\\courses\\courses\\courses\\93953312.TBK",
+              "json": "courses/93953312.json",
+              "present": true
+            },
+            {
+              "id": "93953313",
+              "title": "93953313",
+              "file": "D:\\courses\\courses\\courses\\93953313.TBK",
+              "json": "courses/93953313.json",
+              "present": true
+            },
+            {
+              "id": "93953401",
+              "title": "93953401",
+              "file": "D:\\courses\\courses\\courses\\93953401.TBK",
+              "json": "courses/93953401.json",
+              "present": true
+            },
+            {
+              "id": "93953402",
+              "title": "93953402",
+              "file": "D:\\courses\\courses\\courses\\93953402.TBK",
+              "json": "courses/93953402.json",
+              "present": true
+            },
+            {
+              "id": "93953403",
+              "title": "93953403",
+              "file": "D:\\courses\\courses\\courses\\93953403.TBK",
+              "json": "courses/93953403.json",
+              "present": true
+            },
+            {
+              "id": "93953404",
+              "title": "93953404",
+              "file": "D:\\courses\\courses\\courses\\93953404.TBK",
+              "json": "courses/93953404.json",
+              "present": true
+            },
+            {
+              "id": "93953405",
+              "title": "93953405",
+              "file": "D:\\courses\\courses\\courses\\93953405.TBK",
+              "json": "courses/93953405.json",
+              "present": true
+            },
+            {
+              "id": "93953406",
+              "title": "93953406",
+              "file": "D:\\courses\\courses\\courses\\93953406.TBK",
+              "json": "courses/93953406.json",
+              "present": true
+            },
+            {
+              "id": "93953407",
+              "title": "93953407",
+              "file": "D:\\courses\\courses\\courses\\93953407.TBK",
+              "json": "courses/93953407.json",
+              "present": true
+            },
+            {
+              "id": "93953408",
+              "title": "93953408",
+              "file": "D:\\courses\\courses\\courses\\93953408.TBK",
+              "json": "courses/93953408.json",
+              "present": true
+            },
+            {
+              "id": "93953409",
+              "title": "93953409",
+              "file": "D:\\courses\\courses\\courses\\93953409.TBK",
+              "json": "courses/93953409.json",
+              "present": true
+            },
+            {
+              "id": "93953501",
+              "title": "93953501",
+              "file": "D:\\courses\\courses\\courses\\93953501.TBK",
+              "json": "courses/93953501.json",
+              "present": true
+            },
+            {
+              "id": "93953502",
+              "title": "93953502",
+              "file": "D:\\courses\\courses\\courses\\93953502.TBK",
+              "json": "courses/93953502.json",
+              "present": true
+            },
+            {
+              "id": "93953503",
+              "title": "93953503",
+              "file": "D:\\courses\\courses\\courses\\93953503.TBK",
+              "json": "courses/93953503.json",
+              "present": true
+            },
+            {
+              "id": "93953504",
+              "title": "93953504",
+              "file": "D:\\courses\\courses\\courses\\93953504.TBK",
+              "json": "courses/93953504.json",
+              "present": true
+            },
+            {
+              "id": "93953505",
+              "title": "93953505",
+              "file": "D:\\courses\\courses\\courses\\93953505.TBK",
+              "json": "courses/93953505.json",
+              "present": true
+            },
+            {
+              "id": "93953506",
+              "title": "93953506",
+              "file": "D:\\courses\\courses\\courses\\93953506.TBK",
+              "json": "courses/93953506.json",
+              "present": true
+            },
+            {
+              "id": "93953507",
+              "title": "93953507",
+              "file": "D:\\courses\\courses\\courses\\93953507.TBK",
+              "json": "courses/93953507.json",
+              "present": true
+            },
+            {
+              "id": "93953508",
+              "title": "93953508",
+              "file": "D:\\courses\\courses\\courses\\93953508.TBK",
+              "json": "courses/93953508.json",
+              "present": true
+            },
+            {
+              "id": "93953509",
+              "title": "93953509",
+              "file": "D:\\courses\\courses\\courses\\93953509.TBK",
+              "json": "courses/93953509.json",
+              "present": true
+            },
+            {
+              "id": "93953510",
+              "title": "93953510",
+              "file": "D:\\courses\\courses\\courses\\93953510.TBK",
+              "json": "courses/93953510.json",
+              "present": true
+            },
+            {
+              "id": "93953511",
+              "title": "93953511",
+              "file": "D:\\courses\\courses\\courses\\93953511.TBK",
+              "json": "courses/93953511.json",
+              "present": true
+            },
+            {
+              "id": "93953601",
+              "title": "93953601",
+              "file": "D:\\courses\\courses\\courses\\93953601.TBK",
+              "json": "courses/93953601.json",
+              "present": true
+            },
+            {
+              "id": "93953602",
+              "title": "93953602",
+              "file": "D:\\courses\\courses\\courses\\93953602.TBK",
+              "json": "courses/93953602.json",
+              "present": true
+            },
+            {
+              "id": "93953603",
+              "title": "93953603",
+              "file": "D:\\courses\\courses\\courses\\93953603.TBK",
+              "json": "courses/93953603.json",
+              "present": true
+            },
+            {
+              "id": "93953604",
+              "title": "93953604",
+              "file": "D:\\courses\\courses\\courses\\93953604.TBK",
+              "json": "courses/93953604.json",
+              "present": true
+            },
+            {
+              "id": "93953605",
+              "title": "93953605",
+              "file": "D:\\courses\\courses\\courses\\93953605.TBK",
+              "json": "courses/93953605.json",
+              "present": true
+            },
+            {
+              "id": "93953606",
+              "title": "93953606",
+              "file": "D:\\courses\\courses\\courses\\93953606.TBK",
+              "json": "courses/93953606.json",
+              "present": true
+            },
+            {
+              "id": "93953607",
+              "title": "93953607",
+              "file": "D:\\courses\\courses\\courses\\93953607.TBK",
+              "json": "courses/93953607.json",
+              "present": true
+            },
+            {
+              "id": "93953608",
+              "title": "93953608",
+              "file": "D:\\courses\\courses\\courses\\93953608.TBK",
+              "json": "courses/93953608.json",
+              "present": true
+            },
+            {
+              "id": "93953609",
+              "title": "93953609",
+              "file": "D:\\courses\\courses\\courses\\93953609.TBK",
+              "json": "courses/93953609.json",
+              "present": true
+            },
+            {
+              "id": "93953701",
+              "title": "93953701",
+              "file": "D:\\courses\\courses\\courses\\93953701.TBK",
+              "json": "courses/93953701.json",
+              "present": true
+            },
+            {
+              "id": "93953702",
+              "title": "93953702",
+              "file": "D:\\courses\\courses\\courses\\93953702.TBK",
+              "json": "courses/93953702.json",
+              "present": true
+            },
+            {
+              "id": "93953703",
+              "title": "93953703",
+              "file": "D:\\courses\\courses\\courses\\93953703.TBK",
+              "json": "courses/93953703.json",
+              "present": true
+            },
+            {
+              "id": "93953704",
+              "title": "93953704",
+              "file": "D:\\courses\\courses\\courses\\93953704.TBK",
+              "json": "courses/93953704.json",
+              "present": true
+            },
+            {
+              "id": "93953705",
+              "title": "93953705",
+              "file": "D:\\courses\\courses\\courses\\93953705.TBK",
+              "json": "courses/93953705.json",
+              "present": true
+            },
+            {
+              "id": "93953706",
+              "title": "93953706",
+              "file": "D:\\courses\\courses\\courses\\93953706.TBK",
+              "json": "courses/93953706.json",
+              "present": true
+            },
+            {
+              "id": "93953707",
+              "title": "93953707",
+              "file": "D:\\courses\\courses\\courses\\93953707.TBK",
+              "json": "courses/93953707.json",
+              "present": true
+            },
+            {
+              "id": "93953708",
+              "title": "93953708",
+              "file": "D:\\courses\\courses\\courses\\93953708.TBK",
+              "json": "courses/93953708.json",
+              "present": true
+            },
+            {
+              "id": "93953801",
+              "title": "93953801",
+              "file": "D:\\courses\\courses\\courses\\93953801.TBK",
+              "json": "courses/93953801.json",
+              "present": true
+            },
+            {
+              "id": "93953802",
+              "title": "93953802",
+              "file": "D:\\courses\\courses\\courses\\93953802.TBK",
+              "json": "courses/93953802.json",
+              "present": true
+            },
+            {
+              "id": "93953803",
+              "title": "93953803",
+              "file": "D:\\courses\\courses\\courses\\93953803.TBK",
+              "json": "courses/93953803.json",
+              "present": true
+            },
+            {
+              "id": "93953804",
+              "title": "93953804",
+              "file": "D:\\courses\\courses\\courses\\93953804.TBK",
+              "json": "courses/93953804.json",
+              "present": true
+            },
+            {
+              "id": "93953901",
+              "title": "93953901",
+              "file": "D:\\courses\\courses\\courses\\93953901.TBK",
+              "json": "courses/93953901.json",
+              "present": true
+            },
+            {
+              "id": "93953902",
+              "title": "93953902",
+              "file": "D:\\courses\\courses\\courses\\93953902.TBK",
+              "json": "courses/93953902.json",
+              "present": true
+            },
+            {
+              "id": "93953903",
+              "title": "93953903",
+              "file": "D:\\courses\\courses\\courses\\93953903.TBK",
+              "json": "courses/93953903.json",
+              "present": true
+            },
+            {
+              "id": "93954101",
+              "title": "93954101",
+              "file": "D:\\courses\\courses\\courses\\93954101.TBK",
+              "json": "courses/93954101.json",
+              "present": true
+            },
+            {
+              "id": "93954102",
+              "title": "93954102",
+              "file": "D:\\courses\\courses\\courses\\93954102.TBK",
+              "json": "courses/93954102.json",
+              "present": true
+            },
+            {
+              "id": "93954103",
+              "title": "93954103",
+              "file": "D:\\courses\\courses\\courses\\93954103.TBK",
+              "json": "courses/93954103.json",
+              "present": true
+            },
+            {
+              "id": "93954104",
+              "title": "93954104",
+              "file": "D:\\courses\\courses\\courses\\93954104.TBK",
+              "json": "courses/93954104.json",
+              "present": true
+            },
+            {
+              "id": "93954105",
+              "title": "93954105",
+              "file": "D:\\courses\\courses\\courses\\93954105.TBK",
+              "json": "courses/93954105.json",
+              "present": true
+            },
+            {
+              "id": "93954106",
+              "title": "93954106",
+              "file": "D:\\courses\\courses\\courses\\93954106.TBK",
+              "json": "courses/93954106.json",
+              "present": true
+            },
+            {
+              "id": "93954107",
+              "title": "93954107",
+              "file": "D:\\courses\\courses\\courses\\93954107.TBK",
+              "json": "courses/93954107.json",
+              "present": true
+            },
+            {
+              "id": "93954201",
+              "title": "93954201",
+              "file": "D:\\courses\\courses\\courses\\93954201.TBK",
+              "json": "courses/93954201.json",
+              "present": true
+            },
+            {
+              "id": "93954202",
+              "title": "93954202",
+              "file": "D:\\courses\\courses\\courses\\93954202.TBK",
+              "json": "courses/93954202.json",
+              "present": true
+            },
+            {
+              "id": "93954203",
+              "title": "93954203",
+              "file": "D:\\courses\\courses\\courses\\93954203.TBK",
+              "json": "courses/93954203.json",
+              "present": true
+            },
+            {
+              "id": "93954204",
+              "title": "93954204",
+              "file": "D:\\courses\\courses\\courses\\93954204.TBK",
+              "json": "courses/93954204.json",
+              "present": true
+            },
+            {
+              "id": "93954205",
+              "title": "93954205",
+              "file": "D:\\courses\\courses\\courses\\93954205.TBK",
+              "json": "courses/93954205.json",
+              "present": true
+            },
+            {
+              "id": "93954206",
+              "title": "93954206",
+              "file": "D:\\courses\\courses\\courses\\93954206.TBK",
+              "json": "courses/93954206.json",
+              "present": true
+            },
+            {
+              "id": "93954207",
+              "title": "93954207",
+              "file": "D:\\courses\\courses\\courses\\93954207.TBK",
+              "json": "courses/93954207.json",
+              "present": true
+            },
+            {
+              "id": "93954301",
+              "title": "93954301",
+              "file": "D:\\courses\\courses\\courses\\93954301.TBK",
+              "json": "courses/93954301.json",
+              "present": true
+            },
+            {
+              "id": "93954302",
+              "title": "93954302",
+              "file": "D:\\courses\\courses\\courses\\93954302.TBK",
+              "json": "courses/93954302.json",
+              "present": true
+            },
+            {
+              "id": "93954303",
+              "title": "93954303",
+              "file": "D:\\courses\\courses\\courses\\93954303.TBK",
+              "json": "courses/93954303.json",
+              "present": true
+            },
+            {
+              "id": "93954304",
+              "title": "93954304",
+              "file": "D:\\courses\\courses\\courses\\93954304.TBK",
+              "json": "courses/93954304.json",
+              "present": true
+            },
+            {
+              "id": "93954305",
+              "title": "93954305",
+              "file": "D:\\courses\\courses\\courses\\93954305.TBK",
+              "json": "courses/93954305.json",
+              "present": true
+            },
+            {
+              "id": "93954306",
+              "title": "93954306",
+              "file": "D:\\courses\\courses\\courses\\93954306.TBK",
+              "json": "courses/93954306.json",
+              "present": true
+            },
+            {
+              "id": "93954401",
+              "title": "93954401",
+              "file": "D:\\courses\\courses\\courses\\93954401.TBK",
+              "json": "courses/93954401.json",
+              "present": true
+            },
+            {
+              "id": "93954402",
+              "title": "93954402",
+              "file": "D:\\courses\\courses\\courses\\93954402.TBK",
+              "json": "courses/93954402.json",
+              "present": true
+            },
+            {
+              "id": "93954403",
+              "title": "93954403",
+              "file": "D:\\courses\\courses\\courses\\93954403.TBK",
+              "json": "courses/93954403.json",
+              "present": true
+            },
+            {
+              "id": "93954404",
+              "title": "93954404",
+              "file": "D:\\courses\\courses\\courses\\93954404.TBK",
+              "json": "courses/93954404.json",
+              "present": true
+            },
+            {
+              "id": "93954405",
+              "title": "93954405",
+              "file": "D:\\courses\\courses\\courses\\93954405.TBK",
+              "json": "courses/93954405.json",
+              "present": true
+            },
+            {
+              "id": "93954406",
+              "title": "93954406",
+              "file": "D:\\courses\\courses\\courses\\93954406.TBK",
+              "json": "courses/93954406.json",
+              "present": true
+            },
+            {
+              "id": "93954501",
+              "title": "93954501",
+              "file": "D:\\courses\\courses\\courses\\93954501.TBK",
+              "json": "courses/93954501.json",
+              "present": true
+            },
+            {
+              "id": "93954502",
+              "title": "93954502",
+              "file": "D:\\courses\\courses\\courses\\93954502.TBK",
+              "json": "courses/93954502.json",
+              "present": true
+            },
+            {
+              "id": "93954503",
+              "title": "93954503",
+              "file": "D:\\courses\\courses\\courses\\93954503.TBK",
+              "json": "courses/93954503.json",
+              "present": true
+            },
+            {
+              "id": "93954504",
+              "title": "93954504",
+              "file": "D:\\courses\\courses\\courses\\93954504.TBK",
+              "json": "courses/93954504.json",
+              "present": true
+            },
+            {
+              "id": "93954505",
+              "title": "93954505",
+              "file": "D:\\courses\\courses\\courses\\93954505.TBK",
+              "json": "courses/93954505.json",
+              "present": true
+            },
+            {
+              "id": "93954601",
+              "title": "93954601",
+              "file": "D:\\courses\\courses\\courses\\93954601.TBK",
+              "json": "courses/93954601.json",
+              "present": true
+            },
+            {
+              "id": "93954602",
+              "title": "93954602",
+              "file": "D:\\courses\\courses\\courses\\93954602.TBK",
+              "json": "courses/93954602.json",
+              "present": true
+            },
+            {
+              "id": "93954603",
+              "title": "93954603",
+              "file": "D:\\courses\\courses\\courses\\93954603.TBK",
+              "json": "courses/93954603.json",
+              "present": true
+            },
+            {
+              "id": "93954604",
+              "title": "93954604",
+              "file": "D:\\courses\\courses\\courses\\93954604.TBK",
+              "json": "courses/93954604.json",
+              "present": true
+            },
+            {
+              "id": "93954605",
+              "title": "93954605",
+              "file": "D:\\courses\\courses\\courses\\93954605.TBK",
+              "json": "courses/93954605.json",
+              "present": true
+            },
+            {
+              "id": "93954606",
+              "title": "93954606",
+              "file": "D:\\courses\\courses\\courses\\93954606.TBK",
+              "json": "courses/93954606.json",
+              "present": true
+            },
+            {
+              "id": "93954701",
+              "title": "93954701",
+              "file": "D:\\courses\\courses\\courses\\93954701.TBK",
+              "json": "courses/93954701.json",
+              "present": true
+            },
+            {
+              "id": "93954702",
+              "title": "93954702",
+              "file": "D:\\courses\\courses\\courses\\93954702.TBK",
+              "json": "courses/93954702.json",
+              "present": true
+            },
+            {
+              "id": "93954703",
+              "title": "93954703",
+              "file": "D:\\courses\\courses\\courses\\93954703.TBK",
+              "json": "courses/93954703.json",
+              "present": true
+            },
+            {
+              "id": "93954704",
+              "title": "93954704",
+              "file": "D:\\courses\\courses\\courses\\93954704.TBK",
+              "json": "courses/93954704.json",
+              "present": true
+            },
+            {
+              "id": "93955101",
+              "title": "93955101",
+              "file": "D:\\courses\\courses\\courses\\93955101.TBK",
+              "json": "courses/93955101.json",
+              "present": true
+            },
+            {
+              "id": "93955102",
+              "title": "93955102",
+              "file": "D:\\courses\\courses\\courses\\93955102.TBK",
+              "json": "courses/93955102.json",
+              "present": true
+            },
+            {
+              "id": "93955103",
+              "title": "93955103",
+              "file": "D:\\courses\\courses\\courses\\93955103.TBK",
+              "json": "courses/93955103.json",
+              "present": true
+            },
+            {
+              "id": "93955104",
+              "title": "93955104",
+              "file": "D:\\courses\\courses\\courses\\93955104.TBK",
+              "json": "courses/93955104.json",
+              "present": true
+            },
+            {
+              "id": "93955198",
+              "title": "93955198",
+              "file": "D:\\courses\\courses\\courses\\93955198.tbk",
+              "json": "courses/93955198.json",
+              "present": true
+            },
+            {
+              "id": "93955199",
+              "title": "93955199",
+              "file": "D:\\courses\\courses\\courses\\93955199.TBK",
+              "json": "courses/93955199.json",
+              "present": true
+            },
+            {
+              "id": "93955201",
+              "title": "93955201",
+              "file": "D:\\courses\\courses\\courses\\93955201.TBK",
+              "json": "courses/93955201.json",
+              "present": true
+            },
+            {
+              "id": "93955202",
+              "title": "93955202",
+              "file": "D:\\courses\\courses\\courses\\93955202.TBK",
+              "json": "courses/93955202.json",
+              "present": true
+            },
+            {
+              "id": "93955203",
+              "title": "93955203",
+              "file": "D:\\courses\\courses\\courses\\93955203.TBK",
+              "json": "courses/93955203.json",
+              "present": true
+            },
+            {
+              "id": "93955204",
+              "title": "93955204",
+              "file": "D:\\courses\\courses\\courses\\93955204.TBK",
+              "json": "courses/93955204.json",
+              "present": true
+            },
+            {
+              "id": "93955205",
+              "title": "93955205",
+              "file": "D:\\courses\\courses\\courses\\93955205.TBK",
+              "json": "courses/93955205.json",
+              "present": true
+            },
+            {
+              "id": "93955206",
+              "title": "93955206",
+              "file": "D:\\courses\\courses\\courses\\93955206.TBK",
+              "json": "courses/93955206.json",
+              "present": true
+            },
+            {
+              "id": "93955207",
+              "title": "93955207",
+              "file": "D:\\courses\\courses\\courses\\93955207.TBK",
+              "json": "courses/93955207.json",
+              "present": true
+            },
+            {
+              "id": "93955208",
+              "title": "93955208",
+              "file": "D:\\courses\\courses\\courses\\93955208.TBK",
+              "json": "courses/93955208.json",
+              "present": true
+            },
+            {
+              "id": "93955209",
+              "title": "93955209",
+              "file": "D:\\courses\\courses\\courses\\93955209.TBK",
+              "json": "courses/93955209.json",
+              "present": true
+            },
+            {
+              "id": "93955299",
+              "title": "93955299",
+              "file": "D:\\courses\\courses\\courses\\93955299.TBK",
+              "json": "courses/93955299.json",
+              "present": true
+            },
+            {
+              "id": "93955301",
+              "title": "93955301",
+              "file": "D:\\courses\\courses\\courses\\93955301.TBK",
+              "json": "courses/93955301.json",
+              "present": true
+            },
+            {
+              "id": "93955302",
+              "title": "93955302",
+              "file": "D:\\courses\\courses\\courses\\93955302.TBK",
+              "json": "courses/93955302.json",
+              "present": true
+            },
+            {
+              "id": "93955303",
+              "title": "93955303",
+              "file": "D:\\courses\\courses\\courses\\93955303.TBK",
+              "json": "courses/93955303.json",
+              "present": true
+            },
+            {
+              "id": "93955399",
+              "title": "93955399",
+              "file": "D:\\courses\\courses\\courses\\93955399.TBK",
+              "json": "courses/93955399.json",
+              "present": true
+            },
+            {
+              "id": "93955401",
+              "title": "93955401",
+              "file": "D:\\courses\\courses\\courses\\93955401.TBK",
+              "json": "courses/93955401.json",
+              "present": true
+            },
+            {
+              "id": "93955402",
+              "title": "93955402",
+              "file": "D:\\courses\\courses\\courses\\93955402.TBK",
+              "json": "courses/93955402.json",
+              "present": true
+            },
+            {
+              "id": "93955499",
+              "title": "93955499",
+              "file": "D:\\courses\\courses\\courses\\93955499.TBK",
+              "json": "courses/93955499.json",
+              "present": true
+            },
+            {
+              "id": "93955501",
+              "title": "93955501",
+              "file": "D:\\courses\\courses\\courses\\93955501.TBK",
+              "json": "courses/93955501.json",
+              "present": true
+            },
+            {
+              "id": "93955502",
+              "title": "93955502",
+              "file": "D:\\courses\\courses\\courses\\93955502.TBK",
+              "json": "courses/93955502.json",
+              "present": true
+            },
+            {
+              "id": "93955503",
+              "title": "93955503",
+              "file": "D:\\courses\\courses\\courses\\93955503.tbk",
+              "json": "courses/93955503.json",
+              "present": true
+            },
+            {
+              "id": "93955599",
+              "title": "93955599",
+              "file": "D:\\courses\\courses\\courses\\93955599.TBK",
+              "json": "courses/93955599.json",
+              "present": true
+            },
+            {
+              "id": "93955601",
+              "title": "93955601",
+              "file": "D:\\courses\\courses\\courses\\93955601.tbk",
+              "json": "courses/93955601.json",
+              "present": true
+            },
+            {
+              "id": "93955602",
+              "title": "93955602",
+              "file": "D:\\courses\\courses\\courses\\93955602.tbk",
+              "json": "courses/93955602.json",
+              "present": true
+            },
+            {
+              "id": "93955603",
+              "title": "93955603",
+              "file": "D:\\courses\\courses\\courses\\93955603.tbk",
+              "json": "courses/93955603.json",
+              "present": true
+            },
+            {
+              "id": "93955604",
+              "title": "93955604",
+              "file": "D:\\courses\\courses\\courses\\93955604.tbk",
+              "json": "courses/93955604.json",
+              "present": true
+            },
+            {
+              "id": "93955605",
+              "title": "93955605",
+              "file": "D:\\courses\\courses\\courses\\93955605.tbk",
+              "json": "courses/93955605.json",
+              "present": true
+            },
+            {
+              "id": "93955606",
+              "title": "93955606",
+              "file": "D:\\courses\\courses\\courses\\93955606.tbk",
+              "json": "courses/93955606.json",
+              "present": true
+            },
+            {
+              "id": "93955608",
+              "title": "93955608",
+              "file": "D:\\courses\\courses\\courses\\93955608.tbk",
+              "json": "courses/93955608.json",
+              "present": true
+            },
+            {
+              "id": "93955609",
+              "title": "93955609",
+              "file": "D:\\courses\\courses\\courses\\93955609.tbk",
+              "json": "courses/93955609.json",
+              "present": true
+            },
+            {
+              "id": "93955702",
+              "title": "93955702",
+              "file": "D:\\courses\\courses\\courses\\93955702.tbk",
+              "json": "courses/93955702.json",
+              "present": true
+            },
+            {
+              "id": "93955703",
+              "title": "93955703",
+              "file": "D:\\courses\\courses\\courses\\93955703.tbk",
+              "json": "courses/93955703.json",
+              "present": true
+            },
+            {
+              "id": "93955801",
+              "title": "93955801",
+              "file": "D:\\courses\\courses\\courses\\93955801.tbk",
+              "json": "courses/93955801.json",
+              "present": true
+            },
+            {
+              "id": "93955802",
+              "title": "93955802",
+              "file": "D:\\courses\\courses\\courses\\93955802.tbk",
+              "json": "courses/93955802.json",
+              "present": true
+            },
+            {
+              "id": "93955901",
+              "title": "93955901",
+              "file": "D:\\courses\\courses\\courses\\93955901.tbk",
+              "json": "courses/93955901.json",
+              "present": true
+            },
+            {
+              "id": "93955902",
+              "title": "93955902",
+              "file": "D:\\courses\\courses\\courses\\93955902.tbk",
+              "json": "courses/93955902.json",
+              "present": true
+            },
+            {
+              "id": "93956401",
+              "title": "93956401",
+              "file": "D:\\courses\\courses\\courses\\93956401.tbk",
+              "json": "courses/93956401.json",
+              "present": true
+            },
+            {
+              "id": "93956402",
+              "title": "93956402",
+              "file": "D:\\courses\\courses\\courses\\93956402.tbk",
+              "json": "courses/93956402.json",
+              "present": true
+            },
+            {
+              "id": "93956403",
+              "title": "93956403",
+              "file": "D:\\courses\\courses\\courses\\93956403.TBK",
+              "json": "courses/93956403.json",
+              "present": true
+            },
+            {
+              "id": "93956404",
+              "title": "93956404",
+              "file": "D:\\courses\\courses\\courses\\93956404.tbk",
+              "json": "courses/93956404.json",
+              "present": true
+            },
+            {
+              "id": "93956405",
+              "title": "93956405",
+              "file": "D:\\courses\\courses\\courses\\93956405.tbk",
+              "json": "courses/93956405.json",
+              "present": true
+            },
+            {
+              "id": "93957101",
+              "title": "93957101",
+              "file": "D:\\courses\\courses\\courses\\93957101.TBK",
+              "json": "courses/93957101.json",
+              "present": true
+            },
+            {
+              "id": "93957102",
+              "title": "93957102",
+              "file": "D:\\courses\\courses\\courses\\93957102.TBK",
+              "json": "courses/93957102.json",
+              "present": true
+            },
+            {
+              "id": "93957103",
+              "title": "93957103",
+              "file": "D:\\courses\\courses\\courses\\93957103.TBK",
+              "json": "courses/93957103.json",
+              "present": true
+            },
+            {
+              "id": "93957104",
+              "title": "93957104",
+              "file": "D:\\courses\\courses\\courses\\93957104.TBK",
+              "json": "courses/93957104.json",
+              "present": true
+            },
+            {
+              "id": "93957105",
+              "title": "93957105",
+              "file": "D:\\courses\\courses\\courses\\93957105.TBK",
+              "json": "courses/93957105.json",
+              "present": true
+            },
+            {
+              "id": "93957106",
+              "title": "93957106",
+              "file": "D:\\courses\\courses\\courses\\93957106.TBK",
+              "json": "courses/93957106.json",
+              "present": true
+            },
+            {
+              "id": "93957107",
+              "title": "93957107",
+              "file": "D:\\courses\\courses\\courses\\93957107.TBK",
+              "json": "courses/93957107.json",
+              "present": true
+            },
+            {
+              "id": "93957198",
+              "title": "93957198",
+              "file": "D:\\courses\\courses\\courses\\93957198.TBK",
+              "json": "courses/93957198.json",
+              "present": true
+            },
+            {
+              "id": "93957199",
+              "title": "93957199",
+              "file": "D:\\courses\\courses\\courses\\93957199.TBK",
+              "json": "courses/93957199.json",
+              "present": true
+            },
+            {
+              "id": "93957201",
+              "title": "93957201",
+              "file": "D:\\courses\\courses\\courses\\93957201.TBK",
+              "json": "courses/93957201.json",
+              "present": true
+            },
+            {
+              "id": "93957202",
+              "title": "93957202",
+              "file": "D:\\courses\\courses\\courses\\93957202.TBK",
+              "json": "courses/93957202.json",
+              "present": true
+            },
+            {
+              "id": "93957203",
+              "title": "93957203",
+              "file": "D:\\courses\\courses\\courses\\93957203.TBK",
+              "json": "courses/93957203.json",
+              "present": true
+            },
+            {
+              "id": "93957204",
+              "title": "93957204",
+              "file": "D:\\courses\\courses\\courses\\93957204.TBK",
+              "json": "courses/93957204.json",
+              "present": true
+            },
+            {
+              "id": "93957205",
+              "title": "93957205",
+              "file": "D:\\courses\\courses\\courses\\93957205.TBK",
+              "json": "courses/93957205.json",
+              "present": true
+            },
+            {
+              "id": "93957206",
+              "title": "93957206",
+              "file": "D:\\courses\\courses\\courses\\93957206.TBK",
+              "json": "courses/93957206.json",
+              "present": true
+            },
+            {
+              "id": "93957299",
+              "title": "93957299",
+              "file": "D:\\courses\\courses\\courses\\93957299.TBK",
+              "json": "courses/93957299.json",
+              "present": true
+            },
+            {
+              "id": "93958101",
+              "title": "93958101",
+              "file": "D:\\courses\\courses\\courses\\93958101.TBK",
+              "json": "courses/93958101.json",
+              "present": true
+            },
+            {
+              "id": "93958102",
+              "title": "93958102",
+              "file": "D:\\courses\\courses\\courses\\93958102.TBK",
+              "json": "courses/93958102.json",
+              "present": true
+            },
+            {
+              "id": "93958103",
+              "title": "93958103",
+              "file": "D:\\courses\\courses\\courses\\93958103.TBK",
+              "json": "courses/93958103.json",
+              "present": true
+            },
+            {
+              "id": "93958104",
+              "title": "93958104",
+              "file": "D:\\courses\\courses\\courses\\93958104.TBK",
+              "json": "courses/93958104.json",
+              "present": true
+            },
+            {
+              "id": "93958105",
+              "title": "93958105",
+              "file": "D:\\courses\\courses\\courses\\93958105.TBK",
+              "json": "courses/93958105.json",
+              "present": true
+            },
+            {
+              "id": "93958106",
+              "title": "93958106",
+              "file": "D:\\courses\\courses\\courses\\93958106.TBK",
+              "json": "courses/93958106.json",
+              "present": true
+            },
+            {
+              "id": "93958107",
+              "title": "93958107",
+              "file": "D:\\courses\\courses\\courses\\93958107.TBK",
+              "json": "courses/93958107.json",
+              "present": true
+            },
+            {
+              "id": "93958108",
+              "title": "93958108",
+              "file": "D:\\courses\\courses\\courses\\93958108.TBK",
+              "json": "courses/93958108.json",
+              "present": true
+            },
+            {
+              "id": "93958198",
+              "title": "93958198",
+              "file": "D:\\courses\\courses\\courses\\93958198.TBK",
+              "json": "courses/93958198.json",
+              "present": true
+            },
+            {
+              "id": "93958199",
+              "title": "93958199",
+              "file": "D:\\courses\\courses\\courses\\93958199.tbk",
+              "json": "courses/93958199.json",
+              "present": true
+            },
+            {
+              "id": "9395a201",
+              "title": "9395a201",
+              "file": "D:\\courses\\courses\\courses\\9395A201.TBK",
+              "json": "courses/9395a201.json",
+              "present": true
+            },
+            {
+              "id": "9395a202",
+              "title": "9395a202",
+              "file": "D:\\courses\\courses\\courses\\9395A202.TBK",
+              "json": "courses/9395a202.json",
+              "present": true
+            },
+            {
+              "id": "9395a203",
+              "title": "9395a203",
+              "file": "D:\\courses\\courses\\courses\\9395A203.TBK",
+              "json": "courses/9395a203.json",
+              "present": true
+            },
+            {
+              "id": "9395a204",
+              "title": "9395a204",
+              "file": "D:\\courses\\courses\\courses\\9395A204.TBK",
+              "json": "courses/9395a204.json",
+              "present": true
+            },
+            {
+              "id": "9395a205",
+              "title": "9395a205",
+              "file": "D:\\courses\\courses\\courses\\9395A205.TBK",
+              "json": "courses/9395a205.json",
+              "present": true
+            },
+            {
+              "id": "9395a298",
+              "title": "9395a298",
+              "file": "D:\\courses\\courses\\courses\\9395A298.TBK",
+              "json": "courses/9395a298.json",
+              "present": true
+            },
+            {
+              "id": "9395a299",
+              "title": "9395a299",
+              "file": "D:\\courses\\courses\\courses\\9395A299.tbk",
+              "json": "courses/9395a299.json",
+              "present": true
+            },
+            {
+              "id": "9395b101",
+              "title": "9395b101",
+              "file": "D:\\courses\\courses\\courses\\9395B101.TBK",
+              "json": "courses/9395b101.json",
+              "present": true
+            },
+            {
+              "id": "9395b102",
+              "title": "9395b102",
+              "file": "D:\\courses\\courses\\courses\\9395B102.TBK",
+              "json": "courses/9395b102.json",
+              "present": true
+            },
+            {
+              "id": "9395b103",
+              "title": "9395b103",
+              "file": "D:\\courses\\courses\\courses\\9395B103.TBK",
+              "json": "courses/9395b103.json",
+              "present": true
+            },
+            {
+              "id": "9395b104",
+              "title": "9395b104",
+              "file": "D:\\courses\\courses\\courses\\9395B104.TBK",
+              "json": "courses/9395b104.json",
+              "present": true
+            },
+            {
+              "id": "9395b198",
+              "title": "9395b198",
+              "file": "D:\\courses\\courses\\courses\\9395B198.TBK",
+              "json": "courses/9395b198.json",
+              "present": true
+            },
+            {
+              "id": "9395b199",
+              "title": "9395b199",
+              "file": "D:\\courses\\courses\\courses\\9395B199.TBK",
+              "json": "courses/9395b199.json",
+              "present": true
+            },
+            {
+              "id": "9395b201",
+              "title": "9395b201",
+              "file": "D:\\courses\\courses\\courses\\9395B201.TBK",
+              "json": "courses/9395b201.json",
+              "present": true
+            },
+            {
+              "id": "9395b202",
+              "title": "9395b202",
+              "file": "D:\\courses\\courses\\courses\\9395B202.TBK",
+              "json": "courses/9395b202.json",
+              "present": true
+            },
+            {
+              "id": "9395b203",
+              "title": "9395b203",
+              "file": "D:\\courses\\courses\\courses\\9395B203.TBK",
+              "json": "courses/9395b203.json",
+              "present": true
+            },
+            {
+              "id": "9395b204",
+              "title": "9395b204",
+              "file": "D:\\courses\\courses\\courses\\9395B204.TBK",
+              "json": "courses/9395b204.json",
+              "present": true
+            },
+            {
+              "id": "9395b205",
+              "title": "9395b205",
+              "file": "D:\\courses\\courses\\courses\\9395B205.TBK",
+              "json": "courses/9395b205.json",
+              "present": true
+            },
+            {
+              "id": "9395b206",
+              "title": "9395b206",
+              "file": "D:\\courses\\courses\\courses\\9395B206.TBK",
+              "json": "courses/9395b206.json",
+              "present": true
+            },
+            {
+              "id": "9395b207",
+              "title": "9395b207",
+              "file": "D:\\courses\\courses\\courses\\9395B207.TBK",
+              "json": "courses/9395b207.json",
+              "present": true
+            },
+            {
+              "id": "9395b208",
+              "title": "9395b208",
+              "file": "D:\\courses\\courses\\courses\\9395B208.TBK",
+              "json": "courses/9395b208.json",
+              "present": true
+            },
+            {
+              "id": "9395b209",
+              "title": "9395b209",
+              "file": "D:\\courses\\courses\\courses\\9395B209.TBK",
+              "json": "courses/9395b209.json",
+              "present": true
+            },
+            {
+              "id": "9395b210",
+              "title": "9395b210",
+              "file": "D:\\courses\\courses\\courses\\9395B210.TBK",
+              "json": "courses/9395b210.json",
+              "present": true
+            },
+            {
+              "id": "9395b299",
+              "title": "9395b299",
+              "file": "D:\\courses\\courses\\courses\\9395B299.TBK",
+              "json": "courses/9395b299.json",
+              "present": true
+            },
+            {
+              "id": "9395b301",
+              "title": "9395b301",
+              "file": "D:\\courses\\courses\\courses\\9395B301.TBK",
+              "json": "courses/9395b301.json",
+              "present": true
+            },
+            {
+              "id": "9395b302",
+              "title": "9395b302",
+              "file": "D:\\courses\\courses\\courses\\9395B302.TBK",
+              "json": "courses/9395b302.json",
+              "present": true
+            },
+            {
+              "id": "9395b303",
+              "title": "9395b303",
+              "file": "D:\\courses\\courses\\courses\\9395B303.TBK",
+              "json": "courses/9395b303.json",
+              "present": true
+            },
+            {
+              "id": "9395b304",
+              "title": "9395b304",
+              "file": "D:\\courses\\courses\\courses\\9395B304.TBK",
+              "json": "courses/9395b304.json",
+              "present": true
+            },
+            {
+              "id": "9395b305",
+              "title": "9395b305",
+              "file": "D:\\courses\\courses\\courses\\9395B305.TBK",
+              "json": "courses/9395b305.json",
+              "present": true
+            },
+            {
+              "id": "9395b306",
+              "title": "9395b306",
+              "file": "D:\\courses\\courses\\courses\\9395B306.TBK",
+              "json": "courses/9395b306.json",
+              "present": true
+            },
+            {
+              "id": "9395b307",
+              "title": "9395b307",
+              "file": "D:\\courses\\courses\\courses\\9395B307.TBK",
+              "json": "courses/9395b307.json",
+              "present": true
+            },
+            {
+              "id": "9395b308",
+              "title": "9395b308",
+              "file": "D:\\courses\\courses\\courses\\9395B308.TBK",
+              "json": "courses/9395b308.json",
+              "present": true
+            },
+            {
+              "id": "9395b309",
+              "title": "9395b309",
+              "file": "D:\\courses\\courses\\courses\\9395B309.TBK",
+              "json": "courses/9395b309.json",
+              "present": true
+            },
+            {
+              "id": "9395b310",
+              "title": "9395b310",
+              "file": "D:\\courses\\courses\\courses\\9395B310.TBK",
+              "json": "courses/9395b310.json",
+              "present": true
+            },
+            {
+              "id": "9395b311",
+              "title": "9395b311",
+              "file": "D:\\courses\\courses\\courses\\9395B311.TBK",
+              "json": "courses/9395b311.json",
+              "present": true
+            },
+            {
+              "id": "9395b312",
+              "title": "9395b312",
+              "file": "D:\\courses\\courses\\courses\\9395B312.TBK",
+              "json": "courses/9395b312.json",
+              "present": true
+            },
+            {
+              "id": "9395b399",
+              "title": "9395b399",
+              "file": "D:\\courses\\courses\\courses\\9395B399.TBK",
+              "json": "courses/9395b399.json",
+              "present": true
+            },
+            {
+              "id": "9395b401",
+              "title": "9395b401",
+              "file": "D:\\courses\\courses\\courses\\9395B401.TBK",
+              "json": "courses/9395b401.json",
+              "present": true
+            },
+            {
+              "id": "9395b402",
+              "title": "9395b402",
+              "file": "D:\\courses\\courses\\courses\\9395B402.TBK",
+              "json": "courses/9395b402.json",
+              "present": true
+            },
+            {
+              "id": "9395b403",
+              "title": "9395b403",
+              "file": "D:\\courses\\courses\\courses\\9395B403.TBK",
+              "json": "courses/9395b403.json",
+              "present": true
+            },
+            {
+              "id": "9395b404",
+              "title": "9395b404",
+              "file": "D:\\courses\\courses\\courses\\9395B404.TBK",
+              "json": "courses/9395b404.json",
+              "present": true
+            },
+            {
+              "id": "9395b405",
+              "title": "9395b405",
+              "file": "D:\\courses\\courses\\courses\\9395B405.TBK",
+              "json": "courses/9395b405.json",
+              "present": true
+            },
+            {
+              "id": "9395b406",
+              "title": "9395b406",
+              "file": "D:\\courses\\courses\\courses\\9395B406.TBK",
+              "json": "courses/9395b406.json",
+              "present": true
+            },
+            {
+              "id": "9395b499",
+              "title": "9395b499",
+              "file": "D:\\courses\\courses\\courses\\9395B499.TBK",
+              "json": "courses/9395b499.json",
+              "present": true
+            },
+            {
+              "id": "9395d801",
+              "title": "9395d801",
+              "file": "D:\\courses\\courses\\courses\\9395D801.tbk",
+              "json": "courses/9395d801.json",
+              "present": true
+            },
+            {
+              "id": "9395d808",
+              "title": "9395d808",
+              "file": "D:\\courses\\courses\\courses\\9395D808.tbk",
+              "json": "courses/9395d808.json",
+              "present": true
+            },
+            {
+              "id": "9395d809",
+              "title": "9395d809",
+              "file": "D:\\courses\\courses\\courses\\9395D809.tbk",
+              "json": "courses/9395d809.json",
+              "present": true
+            },
+            {
+              "id": "9395d810",
+              "title": "9395d810",
+              "file": "D:\\courses\\courses\\courses\\9395D810.tbk",
+              "json": "courses/9395d810.json",
+              "present": true
+            },
+            {
+              "id": "9395n101",
+              "title": "9395n101",
+              "file": "D:\\courses\\courses\\courses\\9395N101.TBK",
+              "json": "courses/9395n101.json",
+              "present": true
+            },
+            {
+              "id": "9395n102",
+              "title": "9395n102",
+              "file": "D:\\courses\\courses\\courses\\9395N102.TBK",
+              "json": "courses/9395n102.json",
+              "present": true
+            },
+            {
+              "id": "9395n103",
+              "title": "9395n103",
+              "file": "D:\\courses\\courses\\courses\\9395N103.TBK",
+              "json": "courses/9395n103.json",
+              "present": true
+            },
+            {
+              "id": "9395n104",
+              "title": "9395n104",
+              "file": "D:\\courses\\courses\\courses\\9395N104.TBK",
+              "json": "courses/9395n104.json",
+              "present": true
+            },
+            {
+              "id": "9395n105",
+              "title": "9395n105",
+              "file": "D:\\courses\\courses\\courses\\9395N105.TBK",
+              "json": "courses/9395n105.json",
+              "present": true
+            },
+            {
+              "id": "9395n200",
+              "title": "9395n200",
+              "file": "D:\\courses\\courses\\courses\\9395N200.tbk",
+              "json": "courses/9395n200.json",
+              "present": true
+            },
+            {
+              "id": "9395n201",
+              "title": "9395n201",
+              "file": "D:\\courses\\courses\\courses\\9395N201.TBK",
+              "json": "courses/9395n201.json",
+              "present": true
+            },
+            {
+              "id": "9395n202",
+              "title": "9395n202",
+              "file": "D:\\courses\\courses\\courses\\9395N202.TBK",
+              "json": "courses/9395n202.json",
+              "present": true
+            },
+            {
+              "id": "9395n203",
+              "title": "9395n203",
+              "file": "D:\\courses\\courses\\courses\\9395N203.TBK",
+              "json": "courses/9395n203.json",
+              "present": true
+            },
+            {
+              "id": "9395n204",
+              "title": "9395n204",
+              "file": "D:\\courses\\courses\\courses\\9395N204.TBK",
+              "json": "courses/9395n204.json",
+              "present": true
+            },
+            {
+              "id": "9395n205",
+              "title": "9395n205",
+              "file": "D:\\courses\\courses\\courses\\9395N205.TBK",
+              "json": "courses/9395n205.json",
+              "present": true
+            },
+            {
+              "id": "9395n206",
+              "title": "9395n206",
+              "file": "D:\\courses\\courses\\courses\\9395N206.TBK",
+              "json": "courses/9395n206.json",
+              "present": true
+            },
+            {
+              "id": "9395n207",
+              "title": "9395n207",
+              "file": "D:\\courses\\courses\\courses\\9395N207.TBK",
+              "json": "courses/9395n207.json",
+              "present": true
+            },
+            {
+              "id": "9395n208",
+              "title": "9395n208",
+              "file": "D:\\courses\\courses\\courses\\9395N208.TBK",
+              "json": "courses/9395n208.json",
+              "present": true
+            },
+            {
+              "id": "9395n209",
+              "title": "9395n209",
+              "file": "D:\\courses\\courses\\courses\\9395N209.TBK",
+              "json": "courses/9395n209.json",
+              "present": true
+            },
+            {
+              "id": "9395n210",
+              "title": "9395n210",
+              "file": "D:\\courses\\courses\\courses\\9395N210.TBK",
+              "json": "courses/9395n210.json",
+              "present": true
+            },
+            {
+              "id": "9395n211",
+              "title": "9395n211",
+              "file": "D:\\courses\\courses\\courses\\9395N211.TBK",
+              "json": "courses/9395n211.json",
+              "present": true
+            },
+            {
+              "id": "9395p201",
+              "title": "9395p201",
+              "file": "D:\\courses\\courses\\courses\\9395P201.TBK",
+              "json": "courses/9395p201.json",
+              "present": true
+            },
+            {
+              "id": "9395p202",
+              "title": "9395p202",
+              "file": "D:\\courses\\courses\\courses\\9395P202.TBK",
+              "json": "courses/9395p202.json",
+              "present": true
+            },
+            {
+              "id": "9395p203",
+              "title": "9395p203",
+              "file": "D:\\courses\\courses\\courses\\9395P203.TBK",
+              "json": "courses/9395p203.json",
+              "present": true
+            },
+            {
+              "id": "9395p204",
+              "title": "9395p204",
+              "file": "D:\\courses\\courses\\courses\\9395P204.TBK",
+              "json": "courses/9395p204.json",
+              "present": true
+            },
+            {
+              "id": "9395p205",
+              "title": "9395p205",
+              "file": "D:\\courses\\courses\\courses\\9395P205.TBK",
+              "json": "courses/9395p205.json",
+              "present": true
+            },
+            {
+              "id": "9395p206",
+              "title": "9395p206",
+              "file": "D:\\courses\\courses\\courses\\9395P206.TBK",
+              "json": "courses/9395p206.json",
+              "present": true
+            },
+            {
+              "id": "9395p207",
+              "title": "9395p207",
+              "file": "D:\\courses\\courses\\courses\\9395P207.TBK",
+              "json": "courses/9395p207.json",
+              "present": true
+            },
+            {
+              "id": "9395p301",
+              "title": "9395p301",
+              "file": "D:\\courses\\courses\\courses\\9395P301.TBK",
+              "json": "courses/9395p301.json",
+              "present": true
+            },
+            {
+              "id": "9395p302",
+              "title": "9395p302",
+              "file": "D:\\courses\\courses\\courses\\9395P302.TBK",
+              "json": "courses/9395p302.json",
+              "present": true
+            },
+            {
+              "id": "9395p303",
+              "title": "9395p303",
+              "file": "D:\\courses\\courses\\courses\\9395p303.tbk",
+              "json": "courses/9395p303.json",
+              "present": true
+            },
+            {
+              "id": "9395p304",
+              "title": "9395p304",
+              "file": "D:\\courses\\courses\\courses\\9395p304.tbk",
+              "json": "courses/9395p304.json",
+              "present": true
+            },
+            {
+              "id": "9395p305",
+              "title": "9395p305",
+              "file": "D:\\courses\\courses\\courses\\9395p305.tbk",
+              "json": "courses/9395p305.json",
+              "present": true
+            },
+            {
+              "id": "9395p306",
+              "title": "9395p306",
+              "file": "D:\\courses\\courses\\courses\\9395p306.tbk",
+              "json": "courses/9395p306.json",
+              "present": true
+            },
+            {
+              "id": "9395p307",
+              "title": "9395p307",
+              "file": "D:\\courses\\courses\\courses\\9395p307.tbk",
+              "json": "courses/9395p307.json",
+              "present": true
+            },
+            {
+              "id": "9395p308",
+              "title": "9395p308",
+              "file": "D:\\courses\\courses\\courses\\9395P308.tbk",
+              "json": "courses/9395p308.json",
+              "present": true
+            },
+            {
+              "id": "9395p309",
+              "title": "9395p309",
+              "file": "D:\\courses\\courses\\courses\\9395p309.tbk",
+              "json": "courses/9395p309.json",
+              "present": true
+            },
+            {
+              "id": "9395p311",
+              "title": "9395p311",
+              "file": "D:\\courses\\courses\\courses\\9395p311.tbk",
+              "json": "courses/9395p311.json",
+              "present": true
+            },
+            {
+              "id": "9395p401",
+              "title": "9395p401",
+              "file": "D:\\courses\\courses\\courses\\9395P401.tbk",
+              "json": "courses/9395p401.json",
+              "present": true
+            },
+            {
+              "id": "9395t301",
+              "title": "9395t301",
+              "file": "D:\\courses\\courses\\courses\\9395T301.tbk",
+              "json": "courses/9395t301.json",
+              "present": true
+            },
+            {
+              "id": "9395t302",
+              "title": "9395t302",
+              "file": "D:\\courses\\courses\\courses\\9395T302.tbk",
+              "json": "courses/9395t302.json",
+              "present": true
+            },
+            {
+              "id": "9395t303",
+              "title": "9395t303",
+              "file": "D:\\courses\\courses\\courses\\9395T303.tbk",
+              "json": "courses/9395t303.json",
+              "present": true
+            },
+            {
+              "id": "9395t304",
+              "title": "9395t304",
+              "file": "D:\\courses\\courses\\courses\\9395T304.tbk",
+              "json": "courses/9395t304.json",
+              "present": true
+            },
+            {
+              "id": "9395t311",
+              "title": "9395t311",
+              "file": "D:\\courses\\courses\\courses\\9395T311.tbk",
+              "json": "courses/9395t311.json",
+              "present": true
+            },
+            {
+              "id": "9395t312",
+              "title": "9395t312",
+              "file": "D:\\courses\\courses\\courses\\9395T312.tbk",
+              "json": "courses/9395t312.json",
+              "present": true
+            },
+            {
+              "id": "9395t314",
+              "title": "9395t314",
+              "file": "D:\\courses\\courses\\courses\\9395T314.tbk",
+              "json": "courses/9395t314.json",
+              "present": true
+            },
+            {
+              "id": "9395t315",
+              "title": "9395t315",
+              "file": "D:\\courses\\courses\\courses\\9395T315.tbk",
+              "json": "courses/9395t315.json",
+              "present": true
+            },
+            {
+              "id": "9395t316",
+              "title": "9395t316",
+              "file": "D:\\courses\\courses\\courses\\9395T316.tbk",
+              "json": "courses/9395t316.json",
+              "present": true
+            },
+            {
+              "id": "9395t321",
+              "title": "9395t321",
+              "file": "D:\\courses\\courses\\courses\\9395T321.tbk",
+              "json": "courses/9395t321.json",
+              "present": true
+            },
+            {
+              "id": "9395t322",
+              "title": "9395t322",
+              "file": "D:\\courses\\courses\\courses\\9395T322.tbk",
+              "json": "courses/9395t322.json",
+              "present": true
+            },
+            {
+              "id": "9395t323",
+              "title": "9395t323",
+              "file": "D:\\courses\\courses\\courses\\9395T323.tbk",
+              "json": "courses/9395t323.json",
+              "present": true
+            },
+            {
+              "id": "9395t331",
+              "title": "9395t331",
+              "file": "D:\\courses\\courses\\courses\\9395T331.tbk",
+              "json": "courses/9395t331.json",
+              "present": true
+            },
+            {
+              "id": "9395t332",
+              "title": "9395t332",
+              "file": "D:\\courses\\courses\\courses\\9395T332.tbk",
+              "json": "courses/9395t332.json",
+              "present": true
+            },
+            {
+              "id": "9395t333",
+              "title": "9395t333",
+              "file": "D:\\courses\\courses\\courses\\9395T333.tbk",
+              "json": "courses/9395t333.json",
+              "present": true
+            },
+            {
+              "id": "9395t398",
+              "title": "9395t398",
+              "file": "D:\\courses\\courses\\courses\\9395T398.TBK",
+              "json": "courses/9395t398.json",
+              "present": true
+            },
+            {
+              "id": "9395t399",
+              "title": "9395t399",
+              "file": "D:\\courses\\courses\\courses\\9395T399.TBK",
+              "json": "courses/9395t399.json",
+              "present": true
+            },
+            {
+              "id": "9395t601",
+              "title": "9395t601",
+              "file": "D:\\courses\\courses\\courses\\9395T601.TBK",
+              "json": "courses/9395t601.json",
+              "present": true
+            },
+            {
+              "id": "9395t602",
+              "title": "9395t602",
+              "file": "D:\\courses\\courses\\courses\\9395T602.TBK",
+              "json": "courses/9395t602.json",
+              "present": true
+            },
+            {
+              "id": "9395t603",
+              "title": "9395t603",
+              "file": "D:\\courses\\courses\\courses\\9395T603.TBK",
+              "json": "courses/9395t603.json",
+              "present": true
+            },
+            {
+              "id": "9395t605",
+              "title": "9395t605",
+              "file": "D:\\courses\\courses\\courses\\9395T605.tbk",
+              "json": "courses/9395t605.json",
+              "present": true
+            },
+            {
+              "id": "9395t606",
+              "title": "9395t606",
+              "file": "D:\\courses\\courses\\courses\\9395T606.tbk",
+              "json": "courses/9395t606.json",
+              "present": true
+            },
+            {
+              "id": "9395t607",
+              "title": "9395t607",
+              "file": "D:\\courses\\courses\\courses\\9395T607.tbk",
+              "json": "courses/9395t607.json",
+              "present": true
+            },
+            {
+              "id": "9395t608",
+              "title": "9395t608",
+              "file": "D:\\courses\\courses\\courses\\9395T608.tbk",
+              "json": "courses/9395t608.json",
+              "present": true
+            },
+            {
+              "id": "9395t610",
+              "title": "9395t610",
+              "file": "D:\\courses\\courses\\courses\\9395T610.TBK",
+              "json": "courses/9395t610.json",
+              "present": true
+            },
+            {
+              "id": "9395t611",
+              "title": "9395t611",
+              "file": "D:\\courses\\courses\\courses\\9395T611.TBK",
+              "json": "courses/9395t611.json",
+              "present": true
+            },
+            {
+              "id": "9395t612",
+              "title": "9395t612",
+              "file": "D:\\courses\\courses\\courses\\9395T612.TBK",
+              "json": "courses/9395t612.json",
+              "present": true
+            },
+            {
+              "id": "9395t613",
+              "title": "9395t613",
+              "file": "D:\\courses\\courses\\courses\\9395T613.TBK",
+              "json": "courses/9395t613.json",
+              "present": true
+            },
+            {
+              "id": "9395t614",
+              "title": "9395t614",
+              "file": "D:\\courses\\courses\\courses\\9395T614.TBK",
+              "json": "courses/9395t614.json",
+              "present": true
+            },
+            {
+              "id": "9395t615",
+              "title": "9395t615",
+              "file": "D:\\courses\\courses\\courses\\9395T615.TBK",
+              "json": "courses/9395t615.json",
+              "present": true
+            },
+            {
+              "id": "9395t616",
+              "title": "9395t616",
+              "file": "D:\\courses\\courses\\courses\\9395T616.TBK",
+              "json": "courses/9395t616.json",
+              "present": true
+            },
+            {
+              "id": "9395t617",
+              "title": "9395t617",
+              "file": "D:\\courses\\courses\\courses\\9395T617.TBK",
+              "json": "courses/9395t617.json",
+              "present": true
+            },
+            {
+              "id": "9395t620",
+              "title": "9395t620",
+              "file": "D:\\courses\\courses\\courses\\9395T620.tbk",
+              "json": "courses/9395t620.json",
+              "present": true
+            },
+            {
+              "id": "9395t621",
+              "title": "9395t621",
+              "file": "D:\\courses\\courses\\courses\\9395T621.tbk",
+              "json": "courses/9395t621.json",
+              "present": true
+            },
+            {
+              "id": "9395t622",
+              "title": "9395t622",
+              "file": "D:\\courses\\courses\\courses\\9395T622.tbk",
+              "json": "courses/9395t622.json",
+              "present": true
+            },
+            {
+              "id": "9395t698",
+              "title": "9395t698",
+              "file": "D:\\courses\\courses\\courses\\9395T698.TBK",
+              "json": "courses/9395t698.json",
+              "present": true
+            },
+            {
+              "id": "9395t801",
+              "title": "9395t801",
+              "file": "D:\\courses\\courses\\courses\\9395T801.TBK",
+              "json": "courses/9395t801.json",
+              "present": true
+            },
+            {
+              "id": "9395t802",
+              "title": "9395t802",
+              "file": "D:\\courses\\courses\\courses\\9395T802.TBK",
+              "json": "courses/9395t802.json",
+              "present": true
+            },
+            {
+              "id": "9395t803",
+              "title": "9395t803",
+              "file": "D:\\courses\\courses\\courses\\9395T803.TBK",
+              "json": "courses/9395t803.json",
+              "present": true
+            },
+            {
+              "id": "9395t804",
+              "title": "9395t804",
+              "file": "D:\\courses\\courses\\courses\\9395T804.TBK",
+              "json": "courses/9395t804.json",
+              "present": true
+            },
+            {
+              "id": "9395t805",
+              "title": "9395t805",
+              "file": "D:\\courses\\courses\\courses\\9395T805.TBK",
+              "json": "courses/9395t805.json",
+              "present": true
+            },
+            {
+              "id": "9395t806",
+              "title": "9395t806",
+              "file": "D:\\courses\\courses\\courses\\9395T806.TBK",
+              "json": "courses/9395t806.json",
+              "present": true
+            },
+            {
+              "id": "9395t807",
+              "title": "9395t807",
+              "file": "D:\\courses\\courses\\courses\\9395T807.TBK",
+              "json": "courses/9395t807.json",
+              "present": true
+            },
+            {
+              "id": "9395t808",
+              "title": "9395t808",
+              "file": "D:\\courses\\courses\\courses\\9395T808.TBK",
+              "json": "courses/9395t808.json",
+              "present": true
+            },
+            {
+              "id": "9395t809",
+              "title": "9395t809",
+              "file": "D:\\courses\\courses\\courses\\9395T809.TBK",
+              "json": "courses/9395t809.json",
+              "present": true
+            },
+            {
+              "id": "9395t810",
+              "title": "9395t810",
+              "file": "D:\\courses\\courses\\courses\\9395T810.TBK",
+              "json": "courses/9395t810.json",
+              "present": true
+            },
+            {
+              "id": "9395t811",
+              "title": "9395t811",
+              "file": "D:\\courses\\courses\\courses\\9395T811.TBK",
+              "json": "courses/9395t811.json",
+              "present": true
+            },
+            {
+              "id": "9395t819",
+              "title": "9395t819",
+              "file": "D:\\courses\\courses\\courses\\9395T819.TBK",
+              "json": "courses/9395t819.json",
+              "present": true
+            },
+            {
+              "id": "9395t821",
+              "title": "9395t821",
+              "file": "D:\\courses\\courses\\courses\\9395T821.TBK",
+              "json": "courses/9395t821.json",
+              "present": true
+            },
+            {
+              "id": "9395t822",
+              "title": "9395t822",
+              "file": "D:\\courses\\courses\\courses\\9395T822.TBK",
+              "json": "courses/9395t822.json",
+              "present": true
+            },
+            {
+              "id": "9395t823",
+              "title": "9395t823",
+              "file": "D:\\courses\\courses\\courses\\9395T823.TBK",
+              "json": "courses/9395t823.json",
+              "present": true
+            },
+            {
+              "id": "9395t829",
+              "title": "9395t829",
+              "file": "D:\\courses\\courses\\courses\\9395T829.TBK",
+              "json": "courses/9395t829.json",
+              "present": true
+            },
+            {
+              "id": "9395t831",
+              "title": "9395t831",
+              "file": "D:\\courses\\courses\\courses\\9395T831.TBK",
+              "json": "courses/9395t831.json",
+              "present": true
+            },
+            {
+              "id": "9395t832",
+              "title": "9395t832",
+              "file": "D:\\courses\\courses\\courses\\9395T832.TBK",
+              "json": "courses/9395t832.json",
+              "present": true
+            },
+            {
+              "id": "9395t833",
+              "title": "9395t833",
+              "file": "D:\\courses\\courses\\courses\\9395T833.TBK",
+              "json": "courses/9395t833.json",
+              "present": true
+            },
+            {
+              "id": "9395t834",
+              "title": "9395t834",
+              "file": "D:\\courses\\courses\\courses\\9395T834.TBK",
+              "json": "courses/9395t834.json",
+              "present": true
+            },
+            {
+              "id": "9395t839",
+              "title": "9395t839",
+              "file": "D:\\courses\\courses\\courses\\9395T839.TBK",
+              "json": "courses/9395t839.json",
+              "present": true
+            },
+            {
+              "id": "9395t841",
+              "title": "9395t841",
+              "file": "D:\\courses\\courses\\courses\\9395T841.TBK",
+              "json": "courses/9395t841.json",
+              "present": true
+            },
+            {
+              "id": "9395t842",
+              "title": "9395t842",
+              "file": "D:\\courses\\courses\\courses\\9395T842.TBK",
+              "json": "courses/9395t842.json",
+              "present": true
+            },
+            {
+              "id": "9395t843",
+              "title": "9395t843",
+              "file": "D:\\courses\\courses\\courses\\9395T843.TBK",
+              "json": "courses/9395t843.json",
+              "present": true
+            },
+            {
+              "id": "9395t844",
+              "title": "9395t844",
+              "file": "D:\\courses\\courses\\courses\\9395T844.TBK",
+              "json": "courses/9395t844.json",
+              "present": true
+            },
+            {
+              "id": "9395t845",
+              "title": "9395t845",
+              "file": "D:\\courses\\courses\\courses\\9395T845.TBK",
+              "json": "courses/9395t845.json",
+              "present": true
+            },
+            {
+              "id": "9395t846",
+              "title": "9395t846",
+              "file": "D:\\courses\\courses\\courses\\9395T846.TBK",
+              "json": "courses/9395t846.json",
+              "present": true
+            },
+            {
+              "id": "9395t847",
+              "title": "9395t847",
+              "file": "D:\\courses\\courses\\courses\\9395T847.TBK",
+              "json": "courses/9395t847.json",
+              "present": true
+            },
+            {
+              "id": "9395t848",
+              "title": "9395t848",
+              "file": "D:\\courses\\courses\\courses\\9395T848.TBK",
+              "json": "courses/9395t848.json",
+              "present": true
+            },
+            {
+              "id": "9395t849",
+              "title": "9395t849",
+              "file": "D:\\courses\\courses\\courses\\9395T849.TBK",
+              "json": "courses/9395t849.json",
+              "present": true
+            },
+            {
+              "id": "9395t851",
+              "title": "9395t851",
+              "file": "D:\\courses\\courses\\courses\\9395T851.TBK",
+              "json": "courses/9395t851.json",
+              "present": true
+            },
+            {
+              "id": "9395t852",
+              "title": "9395t852",
+              "file": "D:\\courses\\courses\\courses\\9395T852.TBK",
+              "json": "courses/9395t852.json",
+              "present": true
+            },
+            {
+              "id": "9395t853",
+              "title": "9395t853",
+              "file": "D:\\courses\\courses\\courses\\9395T853.TBK",
+              "json": "courses/9395t853.json",
+              "present": true
+            },
+            {
+              "id": "9395t854",
+              "title": "9395t854",
+              "file": "D:\\courses\\courses\\courses\\9395T854.TBK",
+              "json": "courses/9395t854.json",
+              "present": true
+            },
+            {
+              "id": "9395t859",
+              "title": "9395t859",
+              "file": "D:\\courses\\courses\\courses\\9395T859.TBK",
+              "json": "courses/9395t859.json",
+              "present": true
+            },
+            {
+              "id": "9395t898",
+              "title": "9395t898",
+              "file": "D:\\courses\\courses\\courses\\9395T898.TBK",
+              "json": "courses/9395t898.json",
+              "present": true
+            },
+            {
+              "id": "9395t901",
+              "title": "9395t901",
+              "file": "D:\\courses\\courses\\courses\\9395T901.TBK",
+              "json": "courses/9395t901.json",
+              "present": true
+            },
+            {
+              "id": "9395t902",
+              "title": "9395t902",
+              "file": "D:\\courses\\courses\\courses\\9395T902.TBK",
+              "json": "courses/9395t902.json",
+              "present": true
+            },
+            {
+              "id": "9395t903",
+              "title": "9395t903",
+              "file": "D:\\courses\\courses\\courses\\9395T903.TBK",
+              "json": "courses/9395t903.json",
+              "present": true
+            },
+            {
+              "id": "9395t904",
+              "title": "9395t904",
+              "file": "D:\\courses\\courses\\courses\\9395T904.TBK",
+              "json": "courses/9395t904.json",
+              "present": true
+            },
+            {
+              "id": "9395t905",
+              "title": "9395t905",
+              "file": "D:\\courses\\courses\\courses\\9395T905.TBK",
+              "json": "courses/9395t905.json",
+              "present": true
+            },
+            {
+              "id": "9395t906",
+              "title": "9395t906",
+              "file": "D:\\courses\\courses\\courses\\9395T906.TBK",
+              "json": "courses/9395t906.json",
+              "present": true
+            },
+            {
+              "id": "9395t907",
+              "title": "9395t907",
+              "file": "D:\\courses\\courses\\courses\\9395T907.TBK",
+              "json": "courses/9395t907.json",
+              "present": true
+            },
+            {
+              "id": "9395t908",
+              "title": "9395t908",
+              "file": "D:\\courses\\courses\\courses\\9395T908.TBK",
+              "json": "courses/9395t908.json",
+              "present": true
+            },
+            {
+              "id": "9395t909",
+              "title": "9395t909",
+              "file": "D:\\courses\\courses\\courses\\9395T909.TBK",
+              "json": "courses/9395t909.json",
+              "present": true
+            },
+            {
+              "id": "9395t910",
+              "title": "9395t910",
+              "file": "D:\\courses\\courses\\courses\\9395T910.TBK",
+              "json": "courses/9395t910.json",
+              "present": true
+            },
+            {
+              "id": "9395t911",
+              "title": "9395t911",
+              "file": "D:\\courses\\courses\\courses\\9395T911.TBK",
+              "json": "courses/9395t911.json",
+              "present": true
+            },
+            {
+              "id": "9395t912",
+              "title": "9395t912",
+              "file": "D:\\courses\\courses\\courses\\9395T912.TBK",
+              "json": "courses/9395t912.json",
+              "present": true
+            },
+            {
+              "id": "9395t913",
+              "title": "9395t913",
+              "file": "D:\\courses\\courses\\courses\\9395T913.TBK",
+              "json": "courses/9395t913.json",
+              "present": true
+            },
+            {
+              "id": "9395t914",
+              "title": "9395t914",
+              "file": "D:\\courses\\courses\\courses\\9395T914.TBK",
+              "json": "courses/9395t914.json",
+              "present": true
+            },
+            {
+              "id": "9395t915",
+              "title": "9395t915",
+              "file": "D:\\courses\\courses\\courses\\9395T915.TBK",
+              "json": "courses/9395t915.json",
+              "present": true
+            },
+            {
+              "id": "9395t916",
+              "title": "9395t916",
+              "file": "D:\\courses\\courses\\courses\\9395T916.TBK",
+              "json": "courses/9395t916.json",
+              "present": true
+            },
+            {
+              "id": "9395t921",
+              "title": "9395t921",
+              "file": "D:\\courses\\courses\\courses\\9395T921.tbk",
+              "json": "courses/9395t921.json",
+              "present": true
+            },
+            {
+              "id": "9395t922",
+              "title": "9395t922",
+              "file": "D:\\courses\\courses\\courses\\9395T922.tbk",
+              "json": "courses/9395t922.json",
+              "present": true
+            },
+            {
+              "id": "9395t998",
+              "title": "9395t998",
+              "file": "D:\\courses\\courses\\courses\\9395T998.TBK",
+              "json": "courses/9395t998.json",
+              "present": true
+            },
+            {
+              "id": "9395t999",
+              "title": "9395t999",
+              "file": "D:\\courses\\courses\\courses\\9395T999.tbk",
+              "json": "courses/9395t999.json",
+              "present": true
+            },
+            {
+              "id": "9395tb01",
+              "title": "9395tb01",
+              "file": "D:\\courses\\courses\\courses\\9395TB01.tbk",
+              "json": "courses/9395tb01.json",
+              "present": true
+            },
+            {
+              "id": "9395tc01",
+              "title": "9395tc01",
+              "file": "D:\\courses\\courses\\courses\\9395TC01.tbk",
+              "json": "courses/9395tc01.json",
+              "present": true
+            },
+            {
+              "id": "9395tc02",
+              "title": "9395tc02",
+              "file": "D:\\courses\\courses\\courses\\9395TC02.TBK",
+              "json": "courses/9395tc02.json",
+              "present": true
+            },
+            {
+              "id": "9395tc03",
+              "title": "9395tc03",
+              "file": "D:\\courses\\courses\\courses\\9395TC03.tbk",
+              "json": "courses/9395tc03.json",
+              "present": true
+            },
+            {
+              "id": "9395tc04",
+              "title": "9395tc04",
+              "file": "D:\\courses\\courses\\courses\\9395TC04.TBK",
+              "json": "courses/9395tc04.json",
+              "present": true
+            },
+            {
+              "id": "9395tc05",
+              "title": "9395tc05",
+              "file": "D:\\courses\\courses\\courses\\9395TC05.tbk",
+              "json": "courses/9395tc05.json",
+              "present": true
+            },
+            {
+              "id": "9395tc99",
+              "title": "9395tc99",
+              "file": "D:\\courses\\courses\\courses\\9395TC99.tbk",
+              "json": "courses/9395tc99.json",
+              "present": true
+            },
+            {
+              "id": "9395td01",
+              "title": "9395td01",
+              "file": "D:\\courses\\courses\\courses\\9395TD01.tbk",
+              "json": "courses/9395td01.json",
+              "present": true
+            },
+            {
+              "id": "9395td02",
+              "title": "9395td02",
+              "file": "D:\\courses\\courses\\courses\\9395TD02.tbk",
+              "json": "courses/9395td02.json",
+              "present": true
+            },
+            {
+              "id": "9395td03",
+              "title": "9395td03",
+              "file": "D:\\courses\\courses\\courses\\9395TD03.tbk",
+              "json": "courses/9395td03.json",
+              "present": true
+            },
+            {
+              "id": "9395td04",
+              "title": "9395td04",
+              "file": "D:\\courses\\courses\\courses\\9395TD04.tbk",
+              "json": "courses/9395td04.json",
+              "present": true
+            },
+            {
+              "id": "9395td05",
+              "title": "9395td05",
+              "file": "D:\\courses\\courses\\courses\\9395TD05.tbk",
+              "json": "courses/9395td05.json",
+              "present": true
+            },
+            {
+              "id": "9395td06",
+              "title": "9395td06",
+              "file": "D:\\courses\\courses\\courses\\9395TD06.tbk",
+              "json": "courses/9395td06.json",
+              "present": true
+            },
+            {
+              "id": "9395td07",
+              "title": "9395td07",
+              "file": "D:\\courses\\courses\\courses\\9395TD07.tbk",
+              "json": "courses/9395td07.json",
+              "present": true
+            },
+            {
+              "id": "9395td08",
+              "title": "9395td08",
+              "file": "D:\\courses\\courses\\courses\\9395TD08.tbk",
+              "json": "courses/9395td08.json",
+              "present": true
+            },
+            {
+              "id": "9395td09",
+              "title": "9395td09",
+              "file": "D:\\courses\\courses\\courses\\9395TD09.tbk",
+              "json": "courses/9395td09.json",
+              "present": true
+            },
+            {
+              "id": "9395td10",
+              "title": "9395td10",
+              "file": "D:\\courses\\courses\\courses\\9395TD10.tbk",
+              "json": "courses/9395td10.json",
+              "present": true
+            },
+            {
+              "id": "9395td99",
+              "title": "9395td99",
+              "file": "D:\\courses\\courses\\courses\\9395TD99.tbk",
+              "json": "courses/9395td99.json",
+              "present": true
+            },
+            {
+              "id": "9395z101",
+              "title": "9395z101",
+              "file": "D:\\courses\\courses\\courses\\9395Z101.TBK",
+              "json": "courses/9395z101.json",
+              "present": true
+            },
+            {
+              "id": "9395z102",
+              "title": "9395z102",
+              "file": "D:\\courses\\courses\\courses\\9395Z102.TBK",
+              "json": "courses/9395z102.json",
+              "present": true
+            },
+            {
+              "id": "9395z103",
+              "title": "9395z103",
+              "file": "D:\\courses\\courses\\courses\\9395Z103.TBK",
+              "json": "courses/9395z103.json",
+              "present": true
+            },
+            {
+              "id": "9395z104",
+              "title": "9395z104",
+              "file": "D:\\courses\\courses\\courses\\9395Z104.TBK",
+              "json": "courses/9395z104.json",
+              "present": true
+            },
+            {
+              "id": "9395z105",
+              "title": "9395z105",
+              "file": "D:\\courses\\courses\\courses\\9395Z105.TBK",
+              "json": "courses/9395z105.json",
+              "present": true
+            },
+            {
+              "id": "9395z106",
+              "title": "9395z106",
+              "file": "D:\\courses\\courses\\courses\\9395Z106.TBK",
+              "json": "courses/9395z106.json",
+              "present": true
+            },
+            {
+              "id": "9395z107",
+              "title": "9395z107",
+              "file": "D:\\courses\\courses\\courses\\9395Z107.TBK",
+              "json": "courses/9395z107.json",
+              "present": true
+            },
+            {
+              "id": "9395z108",
+              "title": "9395z108",
+              "file": "D:\\courses\\courses\\courses\\9395Z108.TBK",
+              "json": "courses/9395z108.json",
+              "present": true
+            },
+            {
+              "id": "9395z198",
+              "title": "9395z198",
+              "file": "D:\\courses\\courses\\courses\\9395Z198.TBK",
+              "json": "courses/9395z198.json",
+              "present": true
+            },
+            {
+              "id": "9395z199",
+              "title": "9395z199",
+              "file": "D:\\courses\\courses\\courses\\9395Z199.TBK",
+              "json": "courses/9395z199.json",
+              "present": true
+            },
+            {
+              "id": "9395z201",
+              "title": "9395z201",
+              "file": "D:\\courses\\courses\\courses\\9395Z201.TBK",
+              "json": "courses/9395z201.json",
+              "present": true
+            },
+            {
+              "id": "9395z202",
+              "title": "9395z202",
+              "file": "D:\\courses\\courses\\courses\\9395Z202.TBK",
+              "json": "courses/9395z202.json",
+              "present": true
+            },
+            {
+              "id": "9395z203",
+              "title": "9395z203",
+              "file": "D:\\courses\\courses\\courses\\9395Z203.TBK",
+              "json": "courses/9395z203.json",
+              "present": true
+            },
+            {
+              "id": "9395z204",
+              "title": "9395z204",
+              "file": "D:\\courses\\courses\\courses\\9395Z204.TBK",
+              "json": "courses/9395z204.json",
+              "present": true
+            },
+            {
+              "id": "9395z299",
+              "title": "9395z299",
+              "file": "D:\\courses\\courses\\courses\\9395Z299.TBK",
+              "json": "courses/9395z299.json",
+              "present": true
+            },
+            {
+              "id": "9395z301",
+              "title": "9395z301",
+              "file": "D:\\courses\\courses\\courses\\9395Z301.TBK",
+              "json": "courses/9395z301.json",
+              "present": true
+            },
+            {
+              "id": "9395z302",
+              "title": "9395z302",
+              "file": "D:\\courses\\courses\\courses\\9395Z302.TBK",
+              "json": "courses/9395z302.json",
+              "present": true
+            },
+            {
+              "id": "9395z303",
+              "title": "9395z303",
+              "file": "D:\\courses\\courses\\courses\\9395Z303.TBK",
+              "json": "courses/9395z303.json",
+              "present": true
+            },
+            {
+              "id": "9395z304",
+              "title": "9395z304",
+              "file": "D:\\courses\\courses\\courses\\9395Z304.TBK",
+              "json": "courses/9395z304.json",
+              "present": true
+            },
+            {
+              "id": "9395z399",
+              "title": "9395z399",
+              "file": "D:\\courses\\courses\\courses\\9395Z399.TBK",
+              "json": "courses/9395z399.json",
+              "present": true
+            },
+            {
+              "id": "9395z401",
+              "title": "9395z401",
+              "file": "D:\\courses\\courses\\courses\\9395Z401.TBK",
+              "json": "courses/9395z401.json",
+              "present": true
+            },
+            {
+              "id": "9395z402",
+              "title": "9395z402",
+              "file": "D:\\courses\\courses\\courses\\9395Z402.TBK",
+              "json": "courses/9395z402.json",
+              "present": true
+            },
+            {
+              "id": "9395z403",
+              "title": "9395z403",
+              "file": "D:\\courses\\courses\\courses\\9395Z403.TBK",
+              "json": "courses/9395z403.json",
+              "present": true
+            },
+            {
+              "id": "9395z404",
+              "title": "9395z404",
+              "file": "D:\\courses\\courses\\courses\\9395Z404.TBK",
+              "json": "courses/9395z404.json",
+              "present": true
+            },
+            {
+              "id": "9395z405",
+              "title": "9395z405",
+              "file": "D:\\courses\\courses\\courses\\9395Z405.TBK",
+              "json": "courses/9395z405.json",
+              "present": true
+            },
+            {
+              "id": "9395z406",
+              "title": "9395z406",
+              "file": "D:\\courses\\courses\\courses\\9395Z406.TBK",
+              "json": "courses/9395z406.json",
+              "present": true
+            },
+            {
+              "id": "9395z407",
+              "title": "9395z407",
+              "file": "D:\\courses\\courses\\courses\\9395Z407.TBK",
+              "json": "courses/9395z407.json",
+              "present": true
+            },
+            {
+              "id": "9395z499",
+              "title": "9395z499",
+              "file": "D:\\courses\\courses\\courses\\9395Z499.TBK",
+              "json": "courses/9395z499.json",
+              "present": true
+            },
+            {
+              "id": "9395z601",
+              "title": "9395z601",
+              "file": "D:\\courses\\courses\\courses\\9395Z601.tbk",
+              "json": "courses/9395z601.json",
+              "present": true
+            },
+            {
+              "id": "9395z602",
+              "title": "9395z602",
+              "file": "D:\\courses\\courses\\courses\\9395Z602.tbk",
+              "json": "courses/9395z602.json",
+              "present": true
+            },
+            {
+              "id": "9395z603",
+              "title": "9395z603",
+              "file": "D:\\courses\\courses\\courses\\9395Z603.tbk",
+              "json": "courses/9395z603.json",
+              "present": true
+            },
+            {
+              "id": "9395z604",
+              "title": "9395z604",
+              "file": "D:\\courses\\courses\\courses\\9395Z604.tbk",
+              "json": "courses/9395z604.json",
+              "present": true
+            },
+            {
+              "id": "9395z605",
+              "title": "9395z605",
+              "file": "D:\\courses\\courses\\courses\\9395Z605.tbk",
+              "json": "courses/9395z605.json",
+              "present": true
+            },
+            {
+              "id": "9395z611",
+              "title": "9395z611",
+              "file": "D:\\courses\\courses\\courses\\9395Z611.tbk",
+              "json": "courses/9395z611.json",
+              "present": true
+            },
+            {
+              "id": "9395z614",
+              "title": "9395z614",
+              "file": "D:\\courses\\courses\\courses\\9395Z614.tbk",
+              "json": "courses/9395z614.json",
+              "present": true
+            },
+            {
+              "id": "9395z622",
+              "title": "9395z622",
+              "file": "D:\\courses\\courses\\courses\\9395Z622.tbk",
+              "json": "courses/9395z622.json",
+              "present": true
+            },
+            {
+              "id": "9395z812",
+              "title": "9395z812",
+              "file": "D:\\courses\\courses\\courses\\9395Z812.tbk",
+              "json": "courses/9395z812.json",
+              "present": true
+            },
+            {
+              "id": "9395z813",
+              "title": "9395z813",
+              "file": "D:\\courses\\courses\\courses\\9395Z813.tbk",
+              "json": "courses/9395z813.json",
+              "present": true
+            },
+            {
+              "id": "9395z814",
+              "title": "9395z814",
+              "file": "D:\\courses\\courses\\courses\\9395Z814.tbk",
+              "json": "courses/9395z814.json",
+              "present": true
+            },
+            {
+              "id": "9395z821",
+              "title": "9395z821",
+              "file": "D:\\courses\\courses\\courses\\9395Z821.tbk",
+              "json": "courses/9395z821.json",
+              "present": true
+            },
+            {
+              "id": "9395z822",
+              "title": "9395z822",
+              "file": "D:\\courses\\courses\\courses\\9395Z822.tbk",
+              "json": "courses/9395z822.json",
+              "present": true
+            },
+            {
+              "id": "9395z823",
+              "title": "9395z823",
+              "file": "D:\\courses\\courses\\courses\\9395Z823.tbk",
+              "json": "courses/9395z823.json",
+              "present": true
+            },
+            {
+              "id": "9395z824",
+              "title": "9395z824",
+              "file": "D:\\courses\\courses\\courses\\9395Z824.tbk",
+              "json": "courses/9395z824.json",
+              "present": true
+            },
+            {
+              "id": "9e954d02",
+              "title": "9e954d02",
+              "file": "D:\\courses\\courses\\courses\\9E954D02.TBK",
+              "json": "courses/9e954d02.json",
+              "present": true
+            },
+            {
+              "id": "9e954d03",
+              "title": "9e954d03",
+              "file": "D:\\courses\\courses\\courses\\9e954d03.tbk",
+              "json": "courses/9e954d03.json",
+              "present": true
+            },
+            {
+              "id": "9e954d04",
+              "title": "9e954d04",
+              "file": "D:\\courses\\courses\\courses\\9e954d04.tbk",
+              "json": "courses/9e954d04.json",
+              "present": true
+            },
+            {
+              "id": "9e954d05",
+              "title": "9e954d05",
+              "file": "D:\\courses\\courses\\courses\\9e954d05.tbk",
+              "json": "courses/9e954d05.json",
+              "present": true
+            },
+            {
+              "id": "9e954d06",
+              "title": "9e954d06",
+              "file": "D:\\courses\\courses\\courses\\9e954d06.tbk",
+              "json": "courses/9e954d06.json",
+              "present": true
+            },
+            {
+              "id": "9e954d07",
+              "title": "9e954d07",
+              "file": "D:\\courses\\courses\\courses\\9e954d07.tbk",
+              "json": "courses/9e954d07.json",
+              "present": true
+            },
+            {
+              "id": "9e954d08",
+              "title": "9e954d08",
+              "file": "D:\\courses\\courses\\courses\\9e954d08.tbk",
+              "json": "courses/9e954d08.json",
+              "present": true
+            },
+            {
+              "id": "9e954d09",
+              "title": "9e954d09",
+              "file": "D:\\courses\\courses\\courses\\9E954D09.TBK",
+              "json": "courses/9e954d09.json",
+              "present": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

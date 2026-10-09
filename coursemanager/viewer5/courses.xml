@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<Document type="nida:m3search" version="1.0">
+  <Menu courseid="0_MASTER3" title="ATT Master_3">
+    <Menu title="DC Circuits">
+      <Menu title="Mod 02 Introduction to Electricity">
+        <Item title="Introduction to CAI" lessonid="93951100"/>
+        <Item title="Safety Practices" lessonid="93951101"/>
+      </Menu>
+    </Menu>
+    <Menu title="Digital Circuits">
+      <Menu title="Logic Families">
+        <Item title="Logic Families" lessonid="9e954d01"/>
+      </Menu>
+    </Menu>
+  </Menu>
+</Document>

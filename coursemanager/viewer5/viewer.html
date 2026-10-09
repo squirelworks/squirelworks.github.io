@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Maybe3</title>
+<style>
+  body { font-family: sans-serif; background: #123; color: #fff; margin: 0; }
+  #bar { display: flex; gap: 12px; padding: 8px; }
+  select, button { font: inherit; }
+  canvas { background: #1d4e89; display: block; }
+</style>
+<div id="bar">
+  <select id="course"></select>
+  <button id="back">Back</button>
+  <span id="page"></span>
+  <button id="next">Next</button>
+</div>
+<canvas id="stage" width="900" height="520"></canvas>
+<script type="module">
+import * as shapes from "./system/shapes.js";
+import { paint } from "./system/reader.js";
+
+const library = await fetch("library.json").then((r) => r.json());
+const courses = [];
+for (const topic of library.topics) {
+  for (const module of topic.modules) {
+    for (const course of module.courses) if (course.present) courses.push(course);
+  }
+}
+const select = document.getElementById("course");
+for (const course of courses) {
+  const option = document.createElement("option");
+  option.value = course.json;
+  option.textContent = course.title;
+  select.append(option);
+}
+let book = { pages: [] };
+let index = 0;
+
+async function openCourse() {
+  book = await fetch(select.value).then((r) => r.json());
+  index = book.pages.findIndex((p) => p.name === "P400");
+  if (index < 0) index = 0;
+  draw();
+}
+
+function draw() {
+  const page = book.pages[index];
+  if (!page) return;
+  document.getElementById("page").textContent = page.name;
+  paint(document.getElementById("stage").getContext("2d"), page, shapes);
+}
+
+select.onchange = openCourse;
+document.getElementById("back").onclick = () => { index = (index - 1 + book.pages.length) % book.pages.length; draw(); };
+document.getElementById("next").onclick = () => { index = (index + 1) % book.pages.length; draw(); };
+if (courses.length) openCourse();
+</script>
