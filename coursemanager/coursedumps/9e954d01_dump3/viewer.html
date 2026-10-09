@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Lesson</title>
+<link rel="stylesheet" href="viewer.css">
+<canvas id="stage" width="900" height="520"></canvas>
+<nav>
+  <button id="back">Back</button>
+  <span id="name"></span>
+  <button id="next">Next</button>
+</nav>
+<script type="module">
+import * as shapes from "./shapes.js";
+
+const book = await fetch("book.json").then((r) => r.json());
+const canvas = document.getElementById("stage");
+const ctx = canvas.getContext("2d");
+let index = book.pages.findIndex((p) => p.name === "P400");
+if (index < 0) index = 0;
+
+function paintChip(field, px, py, scale) {
+  const x = px(field.x - 8);
+  const y = py(field.y - 10);
+  const w = 96 * scale;
+  const h = 36 * scale;
+  ctx.save();
+  ctx.fillStyle = "#111";
+  shapes.paintObject(ctx, x, y, w, h);
+  ctx.strokeStyle = "#ddd";
+  for (let i = 0; i < 8; i += 1) {
+    const pin = x + i * (w / 8);
+    shapes.line(ctx, pin, y - 10, pin, y);
+    shapes.line(ctx, pin, y + h, pin, y + h + 10);
+  }
+  ctx.restore();
+}
+
+function draw() {
+  const page = book.pages[index];
+  document.getElementById("name").textContent = page.name;
+  ctx.fillStyle = "#1d4e89";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.strokeStyle = "#f4f1e8";
+  ctx.fillStyle = "#f4f1e8";
+  ctx.font = "14px sans-serif";
+  const items = page.fields.filter((f) => f.w > 0 && f.h > 0);
+  if (!items.length) {
+    ctx.fillText(page.strings[0] || page.name, 24, 40);
+    return;
+  }
+  const minX = Math.min(...items.map((f) => f.x));
+  const minY = Math.min(...items.map((f) => f.y));
+  const maxX = Math.max(...items.map((f) => f.x + f.w));
+  const maxY = Math.max(...items.map((f) => f.y + f.h));
+  const scale = Math.min(840 / Math.max(1, maxX - minX), 460 / Math.max(1, maxY - minY));
+  const px = (x) => 30 + (x - minX) * scale;
+  const py = (y) => 30 + (y - minY) * scale;
+  for (const field of items) {
+    if (/74LS|27\d\d|MM54|JL/.test(field.text)) paintChip(field, px, py, scale);
+    shapes.field(ctx, px(field.x), py(field.y), Math.max(field.w, 40) * scale, Math.max(field.h, 16) * scale, field.text);
+  }
+}
+
+document.getElementById("back").onclick = () => {
+  index = (index - 1 + book.pages.length) % book.pages.length;
+  draw();
+};
+document.getElementById("next").onclick = () => {
+  index = (index + 1) % book.pages.length;
+  draw();
+};
+draw();
+</script>
