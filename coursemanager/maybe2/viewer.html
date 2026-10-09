@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson viewer</title>
+<style>
+  :root {
+    --ink: #172033;
+    --paper: #f3efe4;
+    --bar: #14365f;
+    --bar-fg: #f4f7fb;
+    --rail: #101820;
+    --rail-fg: #d5e2f0;
+    --muted: #6d7c8f;
+    --line: #d9d1c2;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; background: var(--rail); color: var(--bar-fg); }
+  body { font-family: "Avenir Next", "Segoe UI", sans-serif; }
+  button { font: inherit; cursor: pointer; }
+  header {
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--bar); color: var(--bar-fg); padding: 16px 20px;
+  }
+  header p { margin: 0; font-family: Palatino, Georgia, serif; font-size: 20px; }
+  header .tools { display: flex; gap: 8px; }
+  header button { min-height: 44px; padding: 0 12px; color: var(--bar-fg); background: transparent; border: 0; }
+  .catalog { max-width: 48rem; margin: 0 auto; padding: 40px 20px; }
+  .catalog h1 { margin: 0; font-family: Palatino, Georgia, serif; font-size: 36px; font-weight: 500; color: var(--paper); }
+  .catalog ul { list-style: none; margin: 32px 0 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+  .catalog button, .catalog p {
+    width: 100%; min-height: 64px; text-align: left; padding: 16px 20px;
+    background: var(--paper); color: var(--ink); border: 0;
+    font-family: Palatino, Georgia, serif; font-size: 24px;
+  }
+  main.stage { padding: 12px; }
+  .where { margin: 0 8px 12px; font-size: 14px; color: var(--rail-fg); }
+  article {
+    max-width: 48rem; margin: 0 auto; height: calc(100vh - 8rem);
+    display: flex; flex-direction: column;
+    background: var(--paper); color: var(--ink);
+    padding: 32px 24px 24px;
+  }
+  .text { min-height: 0; flex: 1; overflow-y: auto; }
+  .text p { margin: 0 0 16px; font-family: Palatino, Georgia, serif; font-size: 20px; line-height: 1.6; }
+  .text .muted { color: var(--muted); font-family: "Avenir Next", "Segoe UI", sans-serif; font-size: 16px; }
+  .bar {
+    margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line);
+    display: flex; align-items: center; gap: 12px; flex-shrink: 0;
+  }
+  .slot { width: 7rem; flex-shrink: 0; }
+  .slot.end { display: flex; justify-content: flex-end; }
+  .mid { flex: 1; min-width: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+  .bar button { min-height: 44px; padding: 0 16px; background: var(--bar); color: var(--bar-fg); border: 0; font-size: 14px; }
+  @media (min-width: 768px) {
+    main.stage { padding: 24px; }
+    article { padding: 32px 40px 24px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <p>Lesson viewer</p>
+  <div class="tools">
+    <button id="lessons" type="button" hidden>Lessons</button>
+    <button id="developer" type="button">Developer</button>
+  </div>
+</header>
+<div id="app"></div>
+<script>
+const nida = {
+  splash: {
+    id: "P0",
+    text: [
+      "Nida Corporation 1997 - 2005",
+      "This software and its supporting programs are protected by federal copyright law and all rights are reserved by Nida Corporation."
+    ],
+    continue: "Click to continue"
+  },
+  courseMenu: { id: "P20001" },
+  directions: {
+    id: "P10020",
+    text: [
+      "Read each question carefully before selecting an answer.",
+      "There is only one correct response to each question.",
+      "Choose the response that best answers the question.",
+      "When all questions have been answered you will receive a score based on the number of correct responses."
+    ]
+  }
+};
+
+const state = { phase: "catalog", developer: false, book: null, courses: [] };
+
+function pageOf(book) {
+  return book.pages[book.index];
+}
+
+function go(book, id) {
+  const index = book.pages.findIndex((page) => page.id === id);
+  if (index < 0) return book;
+  return Object.assign({}, book, { index: index });
+}
+
+function callsNida(book) {
+  return String(book || "").toLowerCase() === "nida81.tbk";
+}
+
+function openLesson(lesson) {
+  return {
+    id: lesson.id,
+    title: lesson.title,
+    pages: lesson.pages,
+    index: 0,
+    menu: lesson.menu || []
+  };
+}
+
+function shown(label, id) {
+  return state.developer ? label + " · " + id : label;
+}
+
+function button(label, run) {
+  const el = document.createElement("button");
+  el.type = "button";
+  el.textContent = label;
+  el.addEventListener("click", run);
+  return el;
+}
+
+function renderPage(title, pageId, lines, actions) {
+  const main = document.createElement("main");
+  main.className = "stage";
+  const where = document.createElement("p");
+  where.className = "where";
+  where.textContent = pageId ? title + " · " + pageId : title;
+  const article = document.createElement("article");
+  const text = document.createElement("div");
+  text.className = "text";
+  if (!lines.length) {
+    const p = document.createElement("p");
+    p.className = "muted";
+    p.textContent = "No lesson text on this page.";
+    text.appendChild(p);
+  } else {
+    lines.forEach((line) => {
+      const p = document.createElement("p");
+      p.textContent = line;
+      text.appendChild(p);
+    });
+  }
+  const name = (label) => label.split(" · ")[0];
+  const back = actions.find((action) => name(action.label) === "Back");
+  const next = actions.find((action) => name(action.label) === "Next");
+  const rest = actions.filter((action) => action !== back && action !== next);
+  const bar = document.createElement("div");
+  bar.className = "bar";
+  const left = document.createElement("div");
+  left.className = "slot";
+  if (back) left.appendChild(button(back.label, back.run));
+  const mid = document.createElement("div");
+  mid.className = "mid";
+  rest.forEach((action) => mid.appendChild(button(action.label, action.run)));
+  const right = document.createElement("div");
+  right.className = "slot end";
+  if (next) right.appendChild(button(next.label, next.run));
+  bar.append(left, mid, right);
+  article.append(text, bar);
+  main.append(where, article);
+  return main;
+}
+
+function lessonActions(book, page) {
+  const actions = [];
+  (page.jumps || []).forEach((id, index) => {
+    actions.push({
+      label: shown(page.continue || (index % 2 === 0 ? "Next" : "Back"), id),
+      run: () => { state.book = go(book, id); draw(); }
+    });
+  });
+  (page.items || []).forEach((item) => {
+    actions.push({
+      label: shown(item.label, item.page),
+      run: () => {
+        if (item.book && callsNida(item.book)) {
+          state.phase = item.page === "P10020" ? "directions" : "course";
+          draw();
+          return;
+        }
+        if (item.page === page.id) return;
+        state.book = go(book, item.page);
+        draw();
+      }
+    });
+  });
+  if (page.outside && callsNida(page.outside.book)) {
+    actions.push({ label: page.outside.label, run: () => { state.phase = "course"; draw(); } });
+  } else if ((page.sends || []).includes("gotoMenuPage")) {
+    actions.push({ label: "Menu", run: () => { state.phase = "course"; draw(); } });
+  }
+  return actions;
+}
+
+function draw() {
+  document.getElementById("lessons").hidden = state.phase === "catalog";
+  document.getElementById("developer").textContent = state.developer ? "Developer on" : "Developer";
+  const app = document.getElementById("app");
+  app.replaceChildren();
+  if (state.phase === "catalog") {
+    const main = document.createElement("main");
+    main.className = "catalog";
+    const h1 = document.createElement("h1");
+    h1.textContent = "Lessons";
+    const ul = document.createElement("ul");
+    if (!state.courses.length) {
+      const li = document.createElement("li");
+      const p = document.createElement("p");
+      p.textContent = state.error || "No lessons in lessonshells.";
+      li.appendChild(p);
+      ul.appendChild(li);
+    }
+    state.courses.forEach((lesson) => {
+      const li = document.createElement("li");
+      li.appendChild(button(lesson.title, () => {
+        state.book = openLesson(lesson);
+        state.phase = "splash";
+        draw();
+      }));
+      ul.appendChild(li);
+    });
+    main.append(h1, ul);
+    app.appendChild(main);
+    return;
+  }
+  if (state.phase === "splash") {
+    app.appendChild(renderPage("Nida", state.developer ? nida.splash.id : "", nida.splash.text, [
+      { label: nida.splash.continue, run: () => { state.phase = "lesson"; draw(); } }
+    ]));
+    return;
+  }
+  if (state.phase === "directions") {
+    app.appendChild(renderPage("Nida", state.developer ? nida.directions.id : "", nida.directions.text, [
+      { label: "Back", run: () => { state.phase = "lesson"; draw(); } }
+    ]));
+    return;
+  }
+  if (state.phase === "course" && state.book) {
+    const actions = state.book.menu.map((item) => ({
+      label: shown(item.label, item.page),
+      run: () => { state.book = go(state.book, item.page); state.phase = "lesson"; draw(); }
+    }));
+    actions.push({ label: "Lesson Exit", run: () => { state.phase = "catalog"; draw(); } });
+    app.appendChild(renderPage("Nida", state.developer ? nida.courseMenu.id : "", ["LESSON MENU", state.book.title], actions));
+    return;
+  }
+  if (state.phase === "lesson" && state.book) {
+    const page = pageOf(state.book);
+    app.appendChild(renderPage(
+      state.book.title,
+      state.developer ? page.id : "",
+      page.text || [],
+      lessonActions(state.book, page)
+    ));
+  }
+}
+
+async function loadLessons() {
+  const index = await fetch("./lessonshells/catalog.json");
+  if (!index.ok) throw new Error("lessonshells/catalog.json");
+  const catalog = await index.json();
+  const courses = [];
+  for (const course of catalog.courses || []) {
+    const file = String(course.file || "");
+    const url = file.startsWith("lessonshells/") ? "./" + file : "./lessonshells/" + file;
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(url);
+    courses.push(await response.json());
+  }
+  return courses;
+}
+
+document.getElementById("lessons").addEventListener("click", () => { state.phase = "catalog"; draw(); });
+document.getElementById("developer").addEventListener("click", () => { state.developer = !state.developer; draw(); });
+
+loadLessons().then((courses) => {
+  state.courses = courses;
+  draw();
+}).catch(() => {
+  state.error = "Could not read lessonshells/catalog.json.";
+  draw();
+});
+</script>
+</body>
+</html>
