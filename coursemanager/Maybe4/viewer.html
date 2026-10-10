@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson viewer</title>
+<style>
+  :root {
+    --ink: #172033;
+    --paper: #f3efe4;
+    --bar: #14365f;
+    --bar-fg: #f4f7fb;
+    --rail: #101820;
+    --rail-fg: #d5e2f0;
+    --muted: #6d7c8f;
+    --line: #d9d1c2;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; background: var(--rail); color: var(--bar-fg); }
+  body { font-family: "Avenir Next", "Segoe UI", sans-serif; }
+  button { font: inherit; cursor: pointer; }
+  header {
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--bar); color: var(--bar-fg); padding: 16px 20px;
+  }
+  header p { margin: 0; font-family: Palatino, Georgia, serif; font-size: 20px; }
+  header .tools { display: flex; gap: 8px; }
+  header select { min-height: 44px; background: var(--paper); color: var(--ink); border: 0; padding: 0 8px; }
+  .catalog { max-width: 48rem; margin: 0 auto; padding: 40px 20px; }
+  .catalog h1 { margin: 0; font-family: Palatino, Georgia, serif; font-size: 36px; font-weight: 500; color: var(--paper); }
+  .catalog ul { list-style: none; margin: 32px 0 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+  .catalog button, .catalog p {
+    width: 100%; min-height: 64px; text-align: left; padding: 16px 20px;
+    background: var(--paper); color: var(--ink); border: 0;
+    font-family: Palatino, Georgia, serif; font-size: 24px;
+  }
+  main.stage { padding: 12px; }
+  .where { margin: 0 8px 12px; font-size: 14px; color: var(--rail-fg); }
+  article {
+    max-width: 48rem; margin: 0 auto; height: calc(100vh - 8rem);
+    display: flex; flex-direction: column;
+    background: var(--paper); color: var(--ink);
+    padding: 32px 24px 24px;
+  }
+  .text { min-height: 0; flex: 1; overflow-y: auto; }
+  .text p { margin: 0 0 16px; font-family: Palatino, Georgia, serif; font-size: 20px; line-height: 1.6; }
+  .text .muted { color: var(--muted); font-family: "Avenir Next", "Segoe UI", sans-serif; font-size: 16px; }
+  .bar {
+    margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line);
+    display: flex; align-items: center; gap: 12px; flex-shrink: 0;
+  }
+  .slot { width: 7rem; flex-shrink: 0; }
+  .slot.end { display: flex; justify-content: flex-end; }
+  .mid { flex: 1; min-width: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+  .bar button { min-height: 44px; padding: 0 16px; background: var(--bar); color: var(--bar-fg); border: 0; font-size: 14px; }
+  @media (min-width: 768px) {
+    main.stage { padding: 24px; }
+    article { padding: 32px 40px 24px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <p>Lesson viewer</p>
+  <div class="tools">
+    <select id="page" hidden></select>
+    <button id="lessons" type="button" hidden>Lessons</button>
+    <button id="developer" type="button">Developer</button>
+  </div>
+</header>
+<div id="app"></div>
+<script>
+const nida = {
+  splash: {
+    id: "P0",
+    text: [
+      "Nida Corporation 1997 - 2005",
+      "This software and its supporting programs are protected by federal copyright law and all rights are reserved by Nida Corporation."
+    ],
+    continue: "Click to continue"
+  },
+  courseMenu: { id: "P20001" },
+  directions: {
+    id: "P10020",
+    text: [
+      "Read each question carefully before selecting an answer.",
+      "There is only one correct response to each question.",
+      "Choose the response that best answers the question.",
+      "When all questions have been answered you will receive a score based on the number of correct responses."
+    ]
+  }
+};
+
+const state = { phase: "catalog", developer: false, book: null, topics: [], level: "topic", topic: 0, module: 0, missed: null, error: "" };
+
+function pageOf(book) {
+  return book.pages[book.index];
+}
+
+function go(book, id) {
+  const index = book.pages.findIndex((page) => page.id === id);
+  if (index < 0) return book;
+  return Object.assign({}, book, { index: index, helpFrom: null });
+}
+
+function openHelp(book, id) {
+  const index = book.pages.findIndex((page) => page.id === id);
+  if (index < 0) return book;
+  return Object.assign({}, book, { index: index, helpFrom: book.index });
+}
+
+function answerQuiz(book, correct) {
+  const page = pageOf(book);
+  const responses = (book.session && book.session.responses || []).filter((item) => item.pageId !== page.id);
+  responses.push({ pageId: page.id, value: correct ? "correct" : "wrong" });
+  const graded = responses.filter((item) => item.value === "correct" || item.value === "wrong");
+  const right = graded.filter((item) => item.value === "correct").length;
+  const score = graded.length ? Math.round((100 * right) / graded.length) : 0;
+  const session = Object.assign({}, book.session || { open: false, responses: [], bookmark: null }, { responses: responses });
+  const updated = Object.assign({}, book, { session: session, score: score });
+  return page.quiz && page.quiz.next ? go(updated, page.quiz.next) : updated;
+}
+
+function closeHelp(book) {
+  if (book.helpFrom == null) return book;
+  return Object.assign({}, book, { index: book.helpFrom, helpFrom: null });
+}
+
+function callsNida(book) {
+  return String(book || "").toLowerCase() === "nida81.tbk";
+}
+
+function openLesson(lesson) {
+  return {
+    id: lesson.id,
+    title: lesson.title,
+    pages: lesson.pages,
+    index: 0,
+    menu: lesson.menu || []
+  };
+}
+
+function shown(label, id) {
+  return state.developer ? label + " · " + id : label;
+}
+
+function button(label, run) {
+  const el = document.createElement("button");
+  el.type = "button";
+  el.textContent = label;
+  el.addEventListener("click", run);
+  return el;
+}
+
+function renderPage(title, pageId, lines, actions, word, onWord) {
+  const main = document.createElement("main");
+  main.className = "stage";
+  const where = document.createElement("p");
+  where.className = "where";
+  where.textContent = pageId ? title + " · " + pageId : title;
+  const article = document.createElement("article");
+  const text = document.createElement("div");
+  text.className = "text";
+  if (!lines.length) {
+    const p = document.createElement("p");
+    p.className = "muted";
+    p.textContent = "No lesson text on this page.";
+    text.appendChild(p);
+  } else {
+    lines.forEach((line) => {
+      const p = document.createElement("p");
+      if (!word) {
+        p.textContent = line;
+      } else {
+        line.split(new RegExp("(\\b" + word + "\\b)", "i")).forEach((part) => {
+          if (part.toLowerCase() === word.toLowerCase()) {
+            const hit = document.createElement("button");
+            hit.type = "button";
+            hit.textContent = part;
+            hit.style.background = "transparent";
+            hit.style.border = "0";
+            hit.style.color = "inherit";
+            hit.style.font = "inherit";
+            hit.style.textDecoration = "underline";
+            hit.style.padding = "0";
+            hit.addEventListener("click", onWord);
+            p.appendChild(hit);
+          } else {
+            p.appendChild(document.createTextNode(part));
+          }
+        });
+      }
+      text.appendChild(p);
+    });
+  }
+  const name = (label) => label.split(" · ")[0];
+  const back = actions.find((action) => name(action.label) === "Back");
+  const next = actions.find((action) => name(action.label) === "Next");
+  const rest = actions.filter((action) => action !== back && action !== next);
+  const bar = document.createElement("div");
+  bar.className = "bar";
+  const left = document.createElement("div");
+  left.className = "slot";
+  if (back) left.appendChild(button(back.label, back.run));
+  const mid = document.createElement("div");
+  mid.className = "mid";
+  rest.forEach((action) => mid.appendChild(button(action.label, action.run)));
+  const right = document.createElement("div");
+  right.className = "slot end";
+  if (next) right.appendChild(button(next.label, next.run));
+  bar.append(left, mid, right);
+  article.append(text, bar);
+  main.append(where, article);
+  return main;
+}
+
+function objectiveScore(book, objective) {
+  const questions = (book.pages || []).filter((item) => item.quiz && item.quiz.scored && item.quiz.objective === objective);
+  if (!questions.length) return 0;
+  const responses = (book.session && book.session.responses) || [];
+  const right = questions.filter((item) => responses.some((response) => response.pageId === item.id && response.value === "correct")).length;
+  return Math.round((100 * right) / questions.length);
+}
+
+function lessonActions(book, page) {
+  if (page.kind === "help") {
+    return [{ label: "Back", run: () => { state.book = closeHelp(book); draw(); } }];
+  }
+  const actions = [];
+  (page.jumps || []).forEach((id, index) => {
+    actions.push({
+      label: shown(page.continue || (index % 2 === 0 ? "Next" : "Back"), id),
+      run: () => { state.missed = null; state.book = go(book, id); draw(); }
+    });
+  });
+  if (page.help) {
+    actions.push({
+      label: "?",
+      run: () => { state.book = openHelp(book, page.help.page); draw(); }
+    });
+  }
+  ((page.quiz && page.quiz.choices) || []).forEach((choice) => {
+    actions.push({
+      label: choice.label,
+      run: () => {
+        if (page.quiz.scored) {
+          state.missed = null;
+          state.book = answerQuiz(book, choice.correct);
+        } else if (choice.correct && page.quiz.next) {
+          state.missed = null;
+          state.book = go(book, page.quiz.next);
+        } else if (!choice.correct) {
+          state.missed = page.id;
+        }
+        draw();
+      }
+    });
+  });
+  (page.review || []).forEach((item) => {
+    if (objectiveScore(book, item.objective) >= 100) return;
+    actions.push({
+      label: shown(item.label, item.page),
+      run: () => { state.missed = null; state.book = go(book, item.page); draw(); }
+    });
+  });
+  (page.items || []).forEach((item) => {
+    actions.push({
+      label: shown(item.label, item.page),
+      run: () => {
+        if (item.book && callsNida(item.book)) {
+          state.phase = item.page === "P10020" ? "directions" : "course";
+          draw();
+          return;
+        }
+        if (item.page === page.id) return;
+        state.book = go(book, item.page);
+        draw();
+      }
+    });
+  });
+  if (page.outside && callsNida(page.outside.book)) {
+    actions.push({ label: page.outside.label, run: () => { state.phase = "course"; draw(); } });
+  } else if ((page.sends || []).includes("gotoMenuPage")) {
+    actions.push({ label: "Menu", run: () => { state.phase = "course"; draw(); } });
+  }
+  return actions;
+}
+
+function draw() {
+  document.getElementById("lessons").hidden = state.phase === "catalog";
+  const picker = document.getElementById("page");
+  const showPicker = state.developer && state.book;
+  picker.hidden = !showPicker;
+  if (showPicker) {
+    const current = state.phase === "lesson" ? pageOf(state.book).id : "";
+    picker.replaceChildren();
+    const blank = document.createElement("option");
+    blank.value = "";
+    blank.textContent = "Page";
+    picker.appendChild(blank);
+    state.book.pages.forEach((item) => {
+      const option = document.createElement("option");
+      option.value = item.id;
+      option.textContent = item.id;
+      picker.appendChild(option);
+    });
+    picker.value = current;
+  }
+  document.getElementById("developer").textContent = state.developer ? "Developer on" : "Developer";
+  const app = document.getElementById("app");
+  app.replaceChildren();
+  if (state.phase === "catalog") {
+    const main = document.createElement("main");
+    main.className = "catalog";
+    const h1 = document.createElement("h1");
+    const ul = document.createElement("ul");
+    const topics = state.topics || [];
+    if (!topics.length) {
+      h1.textContent = "Lessons";
+      const li = document.createElement("li");
+      const p = document.createElement("p");
+      p.textContent = state.error || "No catalog yet. Run the interpreter.";
+      li.appendChild(p);
+      ul.appendChild(li);
+    } else if (state.level === "topic") {
+      h1.textContent = "Main Topic";
+      topics.forEach((topic, index) => {
+        const count = topic.modules.reduce((sum, module) => sum + module.courses.filter((course) => course.file).length, 0);
+        const li = document.createElement("li");
+        li.appendChild(button(topic.title + (count ? "" : " (none translated)"), () => {
+          state.topic = index;
+          state.level = "module";
+          draw();
+        }));
+        ul.appendChild(li);
+      });
+    } else if (state.level === "module") {
+      const topic = topics[state.topic];
+      h1.textContent = topic.title;
+      const back = document.createElement("li");
+      back.appendChild(button("Main Topics", () => { state.level = "topic"; draw(); }));
+      ul.appendChild(back);
+      topic.modules.forEach((module, index) => {
+        const li = document.createElement("li");
+        li.appendChild(button(module.title, () => {
+          state.module = index;
+          state.level = "course";
+          draw();
+        }));
+        ul.appendChild(li);
+      });
+    } else {
+      const topic = topics[state.topic];
+      const module = topic.modules[state.module];
+      h1.textContent = module.title;
+      const back = document.createElement("li");
+      back.appendChild(button(topic.title, () => { state.level = "module"; draw(); }));
+      ul.appendChild(back);
+      module.courses.forEach((course) => {
+        const li = document.createElement("li");
+        const label = course.title;
+        li.appendChild(button(label, () => openCourse(course)));
+        ul.appendChild(li);
+      });
+    }
+    main.append(h1, ul);
+    app.appendChild(main);
+    return;
+  }
+  if (state.phase === "splash") {
+    app.appendChild(renderPage("Nida", nida.splash.id, nida.splash.text, [
+      { label: nida.splash.continue, run: () => { state.phase = "lesson"; draw(); } }
+    ]));
+    return;
+  }
+  if (state.phase === "directions") {
+    app.appendChild(renderPage("Nida", nida.directions.id, nida.directions.text, [
+      { label: "Back", run: () => { state.phase = "lesson"; draw(); } }
+    ]));
+    return;
+  }
+  if (state.phase === "course" && state.book) {
+    const actions = state.book.menu.map((item) => ({
+      label: shown(item.label, item.page),
+      run: () => { state.book = go(state.book, item.page); state.phase = "lesson"; draw(); }
+    }));
+    actions.push({ label: "Lesson Exit", run: () => { state.phase = "catalog"; draw(); } });
+    app.appendChild(renderPage("Nida", nida.courseMenu.id, ["LESSON MENU", state.book.title], actions));
+    return;
+  }
+  if (state.phase === "lesson" && state.book) {
+    const page = pageOf(state.book);
+    const lines = (page.text || []).slice();
+    if (state.missed === page.id) lines.push("Try again.");
+    const score = state.book.score || 0;
+    for (let i = 0; i < lines.length; i += 1) lines[i] = lines[i].replaceAll("XX%", score + "%");
+    if (page.review) lines.push("Your score is " + score + "%.");
+    const word = page.help && page.help.word;
+    app.appendChild(renderPage(
+      state.book.title,
+      page.id,
+      lines,
+      lessonActions(state.book, page),
+      word,
+      word ? () => { state.book = openHelp(state.book, page.help.page); draw(); } : null
+    ));
+  }
+}
+
+function safeName(name) {
+  return String(name || "").replace(/[<>:"/\\|?*]/g, "-").replace(/\s+/g, " ").trim().replace(/^[. ]+|[. ]+$/g, "") || "untitled";
+}
+
+function coursePath(course) {
+  if (course.file) return String(course.file).replace(/\\/g, "/");
+  const topic = (state.topics[state.topic] || {}).title || "Not categorized";
+  const module = (((state.topics[state.topic] || {}).modules || [])[state.module] || {}).title || "Not categorized";
+  return safeName(topic) + "/" + safeName(module) + "/" + (course.id || "course") + ".json";
+}
+
+function stubLesson(course, path) {
+  return {
+    id: course.id || "course",
+    title: course.title || course.id || "Course",
+    menu: [],
+    pages: [{
+      id: "P0",
+      text: [
+        course.title || course.id || "Course",
+        "This course has not been translated yet."
+      ],
+      jumps: [],
+      items: []
+    }]
+  };
+}
+
+async function openCourse(course) {
+  const path = coursePath(course);
+  const url = "./courses/" + path.split("/").map(encodeURIComponent).join("/");
+  let lesson = null;
+  try {
+    const response = await fetch(url);
+    if (response.ok) {
+      const data = await response.json();
+      if (data && Array.isArray(data.pages) && data.pages.length) lesson = data;
+    }
+  } catch (err) {}
+  state.book = openLesson(lesson || stubLesson(course, path));
+  state.phase = lesson ? "splash" : "lesson";
+  state.missed = null;
+  state.error = "";
+  draw();
+}
+
+async function loadCatalog() {
+  const local = await fetch("./courses/catalog.json");
+  if (!local.ok) throw new Error("catalog");
+  const catalog = await local.json();
+  return catalog.topics || [];
+}
+
+document.getElementById("lessons").addEventListener("click", () => {
+  state.phase = "catalog";
+  state.level = "topic";
+  draw();
+});
+document.getElementById("page").addEventListener("change", (event) => {
+  const id = event.target.value;
+  if (!id || !state.book) return;
+  state.missed = null;
+  state.book = go(state.book, id);
+  state.phase = "lesson";
+  draw();
+});
+document.getElementById("developer").addEventListener("click", () => { state.developer = !state.developer; draw(); });
+
+loadCatalog().then((topics) => {
+  state.topics = topics;
+  draw();
+}).catch(() => {
+  state.error = "Could not read the course catalog.";
+  draw();
+});
+</script>
+</body>
+</html>
