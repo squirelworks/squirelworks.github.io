@@ -1,0 +1,382 @@
+[
+  {
+    "name": "To Handle EnterPage",
+    "offset": "0xB838C",
+    "text": "system logical __import\r\n\tsystem lastbook\r\n\tsystem nextpage\r\n\r\n\tlastbook = name of this book\r\n\tnextpage = \"p10\"\r\n\tif  __import = false  then\r\n\t\tif sysLevel = \"reader\"  then\r\n\t\t\tgo to page \"P0\" of book getLogoBook()\r\n\t\telse\r\n\t\t\tif  __beenToP1 of this book = false  then\r\n\t\t\t\t__beenToP1 of this book = true\r\n\t\t\t\tif  isObject(page \"P1\")  then\r\n\t\t\t\t\tgo to page \"P1\"\r\n\t\t\t\tend if\r\n\t\t\tend if\r\n\t\tend if\r\n\tend if\r\nend\r\n\r\nTo ???????Reader\r\n\tforward\r\n\tsend enterpage to self\r\nend"
+  },
+  {
+    "name": "To Handle ButtonClick",
+    "offset": "0xBA0FA",
+    "text": "system lastbook\r\n  lastbook=name of this book\r\n  system nextpage\r\n  nextpage=name of this page\r\n  go to page \"P20001\" of book \"nida81.tbk\" \r\nend"
+  },
+  {
+    "name": "To Handle ButtonClick",
+    "offset": "0xBA9BA",
+    "text": "system lastbook\r\n  lastbook=name of this book\r\n  system nextpage\r\n  nextpage=name of this page\r\n  go to page \"P20001\" of book \"nida81.tbk\" \r\nend"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0xBB21F",
+    "text": "--{Go to next page}\r\n  send next\r\n\r\nEND"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0xBB335",
+    "text": "--{Go to previous page}\r\n  send previous\r\n\r\nEND"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0xBC22D",
+    "text": "--{Go to next page}\r\n  go to page \"P400\"\r\n\r\nEND"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0xBC52B",
+    "text": "--{Go to previous page}\r\n  send previous\r\n\r\nEND"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0xBC659",
+    "text": "system lastbook\r\n\tsystem nextpage\r\n\tlastbook=name of this book\r\n\tnextpage=name of this page\r\n\r\n\t\tgo to page \"P310\" of book \"nida81.tbk\"\r\n\tbreak\r\n\tsend next\r\n\r\nEND"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x19897F",
+    "text": "--{Go to previous page}\r\n  send previous\r\n\r\nEND"
+  },
+  {
+    "name": "To Handle ButtonClick",
+    "offset": "0x198B02",
+    "text": "system lastbook\r\n  lastbook=name of this book\r\n  system nextpage\r\n  nextpage=name of this page\r\n  go to page \"P20001\" of book \"nida81.tbk\" \r\nend"
+  },
+  {
+    "name": "To Handle ButtonClick",
+    "offset": "0x19B468",
+    "text": "system lastbook\r\n  lastbook=name of this book\r\n  system nextpage\r\n  nextpage=name of this page\r\n  go to page \"P20001\" of book \"nida81.tbk\" \r\nend"
+  },
+  {
+    "name": "To Handle ButtonClick",
+    "offset": "0x19FC63",
+    "text": "--{Goes to Definiton Page}\r\n  system string lastpage\r\n    lastpage = name of this page\r\n    go to page \"p1085\"\r\nend"
+  },
+  {
+    "name": "To Handle ButtonClick",
+    "offset": "0x1A0563",
+    "text": "--{Goes to Definiton Page}\r\n  system string lastpage\r\n    lastpage = name of this page\r\n    go to page \"p1085\"\r\nend"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x1A2566",
+    "text": "--{Go to lastpage}\r\n  system string lastpage\r\n  go to page (P1082)\r\nend ???????????"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x1A26AC",
+    "text": "--{Go to lastpage}\r\n  system string lastpage\r\n  go to page (P1082)\r\nend ???????????"
+  },
+  {
+    "name": "To Handle ButtonClick",
+    "offset": "0x1A2FF6",
+    "text": "system lastbook\r\n  lastbook=name of this book\r\n  system nextpage\r\n  nextpage=name of this page\r\n  go to page \"P20001\" of book \"nida81.tbk\" \r\nend"
+  },
+  {
+    "name": "To Handle ButtonClick",
+    "offset": "0x1AF4EB",
+    "text": "--{Goes to Definiton Page}\r\n  system string lastpage\r\n    lastpage = name of this page\r\n    go to page \"p1205\"\r\nend"
+  },
+  {
+    "name": "To Handle ButtonClick",
+    "offset": "0x1B0BAF",
+    "text": "--{Goes to Definiton Page}\r\n  system string lastpage\r\n    lastpage = name of this page\r\n    go to page \"p1205\"\r\nend"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x1BB5C2",
+    "text": "--{save response}\r\n  get saveEmbedded(testno of this page,  questionno of this page, \"area3\")\r\n\r\n--{save lastpage}\r\n  system string lastpage\r\n  lastpage = name of this page \r\n \r\n--{send to nextpage}\r\n  system string nextpage\r\n  nextpage = \"p1300\"\r\n\r\n--{Highlight Color}\r\n    rgbfill of field \"correct\" = 255,255,63\r\n\r\n--{Go to correct page}\r\n  go to page \"p1291\"\r\n\r\nend buttonclick"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x1BB87A",
+    "text": "--{save response}\r\n  get saveEmbedded(testno of this page,  questionno of this page, \"area3\")\r\n\r\n--{save lastpage}\r\n  system string lastpage\r\n  lastpage = name of this page \r\n \r\n--{send to nextpage}\r\n  system string nextpage\r\n  nextpage = \"p1300\"\r\n\r\n--{Highlight Color}\r\n    rgbfill of field \"correct\" = 255,255,63\r\n\r\n--{Go to correct page}\r\n  go to page \"p1291\"\r\n\r\nend buttonclick"
+  },
+  {
+    "name": "To Handle ButtonClick",
+    "offset": "0x1BC1C6",
+    "text": "--{increment number of tries}\r\n\tget incorrectEmbedded()\r\n\r\n--{save lastpage}\r\n\tsystem string lastpage\r\n\tlastpage = name of this page\r\n\r\n--{Goes to Try Aagain Page}  \r\n\tgo to page \"p1292\"\r\n\r\nend"
+  },
+  {
+    "name": "To Handle ButtonClick",
+    "offset": "0x1BC34D",
+    "text": "--{increment number of tries}\r\n\tget IncorrectEmbedded\r\n\r\n--{save lastpage}\r\n\tsystem string lastpage\r\n\tlastpage = name of this page\r\n\r\n--{Goes to Try Aagain Page}  \r\n\tgo to page \"p1292\"\r\n\r\nend"
+  },
+  {
+    "name": "To Handle ButtonClick",
+    "offset": "0x1BCC22",
+    "text": "--{increment number of tries}\r\n\tget incorrectEmbedded()\r\n\r\n--{save lastpage}\r\n\tsystem string lastpage\r\n\tlastpage = name of this page\r\n\r\n--{Goes to Try Again Page}  \r\n\tgo to page \"p1292\"\r\n\r\nend"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x1D5221",
+    "text": "--{Go to nextpage}\r\n  system string nextpage\r\n  go to page nextpage\r\n\r\n--{Dehighlight Correct}\r\n  rgbfill of field \"correct\" of page \"p1290\" = 64,255,255\r\n\r\nend ???????????"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x1D53B6",
+    "text": "--{Return to question page}\r\n  system string lastpage\r\n  go to page lastpage\r\n\r\nend ???????????"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x1D59FC",
+    "text": "--{Return to question page}\r\n  system string lastpage\r\n  go to page lastpage\r\n\r\nEND"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x1D5B5A",
+    "text": "--{Return to question page}\r\n  system string lastpage\r\n  go to page lastpage \r\n  \r\nEND"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x1D7D0A",
+    "text": "--{save response}\r\n  get saveEmbedded(testno of this page,  questionno of this page, \"area3\")\r\n\r\n--{save lastpage}\r\n  system string lastpage\r\n  lastpage = name of this page \r\n \r\n--{send to nextpage}\r\n  system string nextpage\r\n  nextpage = \"p1310\"\r\n\r\n--{Highlight Color}\r\n    rgbfill of field \"correct\" = 255,255,63\r\n\r\n--{Go to correct page}\r\n  go to page \"p1301\"\r\n\r\nend buttonclick"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x1D7FC2",
+    "text": "--{save response}\r\n  get saveEmbedded(testno of this page,  questionno of this page, \"area3\")\r\n\r\n--{save lastpage}\r\n  system string lastpage\r\n  lastpage = name of this page \r\n \r\n--{send to nextpage}\r\n  system string nextpage\r\n  nextpage = \"p1300\"\r\n\r\n--{Highlight Color}\r\n    rgbfill of field \"correct\" = 255,255,63\r\n\r\n--{Go to correct page}\r\n  go to page \"p1291\"\r\n\r\nend buttonclick"
+  },
+  {
+    "name": "To Handle ButtonClick",
+    "offset": "0x1D8906",
+    "text": "--{increment number of tries}\r\n\tget incorrectEmbedded()\r\n\r\n--{save lastpage}\r\n\tsystem string lastpage\r\n\tlastpage = name of this page\r\n\r\n--{Goes to Try Aagain Page}  \r\n\tgo to page \"p1304\"\r\n\r\nend"
+  },
+  {
+    "name": "To Handle ButtonClick",
+    "offset": "0x1D8A8D",
+    "text": "--{increment number of tries}\r\n\tget IncorrectEmbedded\r\n\r\n--{save lastpage}\r\n\tsystem string lastpage\r\n\tlastpage = name of this page\r\n\r\n--{Goes to Try Aagain Page}  \r\n\tgo to page \"p1292\"\r\n\r\nend"
+  },
+  {
+    "name": "To Handle ButtonClick",
+    "offset": "0x1D935A",
+    "text": "--{increment number of tries}\r\n\tget incorrectEmbedded()\r\n\r\n--{save lastpage}\r\n\tsystem string lastpage\r\n\tlastpage = name of this page\r\n\r\n--{Goes to Try Again Page}  \r\n\tgo to page \"p1302\"\r\n\r\nend"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x1DAA7F",
+    "text": "--{Go to nextpage}\r\n  system string nextpage\r\n  go to page nextpage\r\n\r\n--{Dehighlight Correct}\r\n  rgbfill of field \"correct\" of page \"p1300\" = 64,255,255\r\n\r\nend ???????????"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x1DAC14",
+    "text": "--{Return to question page}\r\n  system string lastpage\r\n  go to page lastpage\r\n\r\nend ???????????"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x1DB9F2",
+    "text": "--{Return to question page}\r\n  system string lastpage\r\n  go to page lastpage\r\n\r\nEND"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x1DBB50",
+    "text": "--{Return to question page}\r\n  system string lastpage\r\n  go to page lastpage \r\n  \r\nEND"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x1DDE16",
+    "text": "--{Return to question page}\r\n  system string lastpage\r\n  go to page lastpage\r\n\r\nEND"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x1DDF74",
+    "text": "--{Return to question page}\r\n  system string lastpage\r\n  go to page lastpage \r\n  \r\nEND"
+  },
+  {
+    "name": "To Handle ButtonClick",
+    "offset": "0x1E0C74",
+    "text": "--{increment number of tries}\r\n\tget incorrectEmbedded()\r\n\r\n--{save lastpage}\r\n\tsystem string lastpage\r\n\tlastpage = name of this page\r\n\r\n--{Goes to Try Again Page}  \r\n\tgo to page \"p1312\"\r\n\r\nend"
+  },
+  {
+    "name": "To Handle ButtonClick",
+    "offset": "0x1E0E10",
+    "text": "--{increment number of tries}\r\n\tget incorrectEmbedded()\r\n\r\n--{save lastpage}\r\n\tsystem string lastpage\r\n\tlastpage = name of this page\r\n\r\n--{Goes to Try Aagain Page}  \r\n\tgo to page \"p1312\"\r\n\r\nend"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x1E1042",
+    "text": "--{save response}\r\n  get saveEmbedded(testno of this page,  questionno of this page, \"area2\")\r\n\r\n--{save lastpage}\r\n  system string lastpage\r\n  lastpage = name of this page \r\n \r\n--{send to nextpage}\r\n  system string nextpage\r\n  nextpage = \"p1910\"\r\n\r\n--{Highlight Color}\r\n    rgbfill of field \"correct\" = 255,255,63\r\n\r\n--{Go to correct page}\r\n  go to page \"p1311\"\r\n\r\nend buttonclick"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x1E20E9",
+    "text": "--{Go to nextpage}\r\n  system string nextpage\r\n  go to page nextpage\r\n--{Dehighlight Correct}\r\n  rgbfill of field \"correct\" of page \"p1310\" = 64,255,255\r\nend ???????????"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x1E227C",
+    "text": "--{Returns to question page}\r\n  system string lastpage\r\n  go to page lastpage\r\n\r\nend ???????????"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x1E28F6",
+    "text": "--{Returns to question page}\r\n  system string lastpage\r\n  go to page lastpage\r\n\r\nEND"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x1E2A54",
+    "text": "--{Returns to question page}\r\n  system string lastpage\r\n  go to page lastpage \r\n  \r\nEND"
+  },
+  {
+    "name": "To Handle ButtonClick",
+    "offset": "0x1EBCF0",
+    "text": "system lastbook\r\n  lastbook=name of this book\r\n  system nextpage\r\n  nextpage=name of this page\r\n  go to page \"P20001\" of book \"nida81.tbk\" \r\nend"
+  },
+  {
+    "name": "To Handle ButtonClick",
+    "offset": "0x1F3925",
+    "text": "--{Goes to Definiton Page}\r\n  system string lastpage\r\n    lastpage = name of this page\r\n    go to page \"p2075\"\r\nend"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x1F4C84",
+    "text": "--{Go to lastpage}\r\n  system string lastpage\r\n  go to page lastpage\r\n\r\nend ???????????"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x1F4DD4",
+    "text": "--{Go to lastpage}\r\n  system string lastpage\r\n  go to page lastpage\r\n\r\nend ???????????"
+  },
+  {
+    "name": "To Handle ButtonClick",
+    "offset": "0x2022A6",
+    "text": "--{increment number of tries}\r\n\tget incorrectEmbedded()\r\n\r\n--{save lastpage}\r\n\tsystem string lastpage\r\n\tlastpage = name of this page\r\n\r\n--{Goes to Try Again Page}  \r\n\tgo to page \"p2232\"\r\n\r\nend"
+  },
+  {
+    "name": "To Handle ButtonClick",
+    "offset": "0x202442",
+    "text": "--{increment number of tries}\r\n\tget incorrectEmbedded()\r\n\r\n--{save lastpage}\r\n\tsystem string lastpage\r\n\tlastpage = name of this page\r\n\r\n--{Goes to Try Aagain Page}  \r\n\tgo to page \"p2232\"\r\n\r\nend"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x202674",
+    "text": "--{save response}\r\n  get saveEmbedded(testno of this page,  questionno of this page, \"area1\")\r\n\r\n--{save lastpage}\r\n  system string lastpage\r\n  lastpage = name of this page \r\n \r\n--{send to nextpage}\r\n  system string nextpage\r\n  nextpage = \"p2240\"\r\n\r\n--{Highlight Color}\r\n    rgbfill of field \"correct\" = 255,255,63\r\n\r\n--{Go to correct page}\r\n  go to page \"p2231\"\r\n\r\nend buttonclick"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x202D81",
+    "text": "--{Go to nextpage}\r\n  system string nextpage\r\n  go to page nextpage\r\n--{Dehighlight Correct}\r\n  rgbfill of field \"correct\" of page \"p2230\" = 64,255,255\r\nend ???????????"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x202F14",
+    "text": "--{Returns to question page}\r\n  system string lastpage\r\n  go to page lastpage\r\n\r\nend ???????????"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x20355C",
+    "text": "--{Returns to question page}\r\n  system string lastpage\r\n  go to page lastpage\r\n\r\nEND"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x2036BA",
+    "text": "--{Returns to question page}\r\n  system string lastpage\r\n  go to page lastpage \r\n  \r\nEND"
+  },
+  {
+    "name": "To Handle ButtonClick",
+    "offset": "0x2041E2",
+    "text": "--{increment number of tries}\r\n\tget incorrectEmbedded()\r\n\r\n--{save lastpage}\r\n\tsystem string lastpage\r\n\tlastpage = name of this page\r\n\r\n--{Goes to Try Again Page}  \r\n\tgo to page \"p2242\"\r\n\r\nend"
+  },
+  {
+    "name": "To Handle ButtonClick",
+    "offset": "0x20437E",
+    "text": "--{increment number of tries}\r\n\tget incorrectEmbedded()\r\n\r\n--{save lastpage}\r\n\tsystem string lastpage\r\n\tlastpage = name of this page\r\n\r\n--{Goes to Try Aagain Page}  \r\n\tgo to page \"p2242\"\r\n\r\nend"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x2045B0",
+    "text": "--{save response}\r\n  get saveEmbedded(testno of this page,  questionno of this page, \"area2\")\r\n\r\n--{save lastpage}\r\n  system string lastpage\r\n  lastpage = name of this page \r\n \r\n--{send to nextpage}\r\n  system string nextpage\r\n  nextpage = \"p2250\"\r\n\r\n--{Highlight Color}\r\n    rgbfill of field \"correct\" = 255,255,63\r\n\r\n--{Go to correct page}\r\n  go to page \"p2241\"\r\n\r\nend buttonclick"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x204CBD",
+    "text": "--{Go to nextpage}\r\n  system string nextpage\r\n  go to page nextpage\r\n--{Dehighlight Correct}\r\n  rgbfill of field \"correct\" of page \"p2240\" = 64,255,255\r\nend ???????????"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x204E50",
+    "text": "--{Returns to question page}\r\n  system string lastpage\r\n  go to page lastpage\r\n\r\nend ???????????"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x2054CA",
+    "text": "--{Returns to question page}\r\n  system string lastpage\r\n  go to page lastpage\r\n\r\nEND"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x205628",
+    "text": "--{Returns to question page}\r\n  system string lastpage\r\n  go to page lastpage \r\n  \r\nEND"
+  },
+  {
+    "name": "To Handle ButtonClick",
+    "offset": "0x20614C",
+    "text": "--{increment number of tries}\r\n\tget incorrectEmbedded()\r\n\r\n--{save lastpage}\r\n\tsystem string lastpage\r\n\tlastpage = name of this page\r\n\r\n--{Goes to Try Again Page}  \r\n\tgo to page \"p2252\"\r\n\r\nend"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x20637E",
+    "text": "--{save response}\r\n  get saveEmbedded(testno of this page,  questionno of this page, \"area3\")\r\n\r\n--{save lastpage}\r\n  system string lastpage\r\n  lastpage = name of this page \r\n \r\n--{send to nextpage}\r\n  system string nextpage\r\n  nextpage = \"p2910\"\r\n\r\n--{Highlight Color}\r\n    rgbfill of field \"correct\" = 255,255,63\r\n\r\n--{Go to correct page}\r\n  go to page \"p2251\"\r\n\r\nend buttonclick"
+  },
+  {
+    "name": "To Handle ButtonClick",
+    "offset": "0x206590",
+    "text": "--{increment number of tries}\r\n\tget incorrectEmbedded()\r\n\r\n--{save lastpage}\r\n\tsystem string lastpage\r\n\tlastpage = name of this page\r\n\r\n--{Goes to Try Again Page}  \r\n\tgo to page \"p2252\"\r\n\r\nend"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x206C57",
+    "text": "--{Go to nextpage}\r\n  system string nextpage\r\n  go to page nextpage\r\n--{Dehighlight Correct}\r\n  rgbfill of field \"correct\" of page \"p2250\" = 64,255,255\r\nend ???????????"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x206DEA",
+    "text": "--{Returns to question page}\r\n  system string lastpage\r\n  go to page lastpage\r\n\r\nend ???????????"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x207464",
+    "text": "--{Returns to question page}\r\n  system string lastpage\r\n  go to page lastpage\r\n\r\nEND"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x2075C2",
+    "text": "--{Returns to question page}\r\n  system string lastpage\r\n  go to page lastpage \r\n  \r\nEND"
+  },
+  {
+    "name": "To Handle ButtonClick",
+    "offset": "0x211B0C",
+    "text": "system lastbook\r\n  lastbook=name of this book\r\n\r\n system nextpage\r\n   nextpage=name of this page\r\n  go to page \"P20001\" of book \"nida81.tbk\" \r\n\r\nend"
+  },
+  {
+    "name": "To Handle ButtonClick",
+    "offset": "0x213C04",
+    "text": "system lastbook\r\n  lastbook=name of this book\r\n\r\n system nextpage\r\n   nextpage=name of this page\r\n  go to page \"P20001\" of book \"nida81.tbk\" \r\n\r\nend"
+  },
+  {
+    "name": "To Handle ButtonClick",
+    "offset": "0x2155CA",
+    "text": "system lastbook\r\n  lastbook=name of this book\r\n\r\n system nextpage\r\n   nextpage=name of this page\r\n  go to page \"P20001\" of book \"nida81.tbk\" \r\n\r\nend"
+  },
+  {
+    "name": "To Handle ButtonClick",
+    "offset": "0x216F8A",
+    "text": "system lastbook\r\n  lastbook=name of this book\r\n\r\n system nextpage\r\n   nextpage=name of this page\r\n  go to page \"P20001\" of book \"nida81.tbk\" \r\n\r\nend"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x234F0A",
+    "text": "send keyup keyF5 to this page\r\n\tset text of field \"Objective#\" of page \"P30000\" to \"\"\r\nEND"
+  },
+  {
+    "name": "TO HANDLE buttonClick",
+    "offset": "0x2355EE",
+    "text": "send keyup keyF5 to this page\r\nEND"
+  }
+]
