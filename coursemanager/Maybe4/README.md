@@ -15,7 +15,9 @@ Keyword table is res_77.bin (copied from artifacts/). Decoder is openscript_deco
 
 ## Viewer
 
-viewer.html and systemshell/ are the Maybe2 versions. Serve this folder and open viewer.html. Lesson JSON lives in lessonshells/.
+viewer.html loads `courses/catalog.json` (topics/modules/courses) or falls back to `lessonshells/catalog.json` (simple courses list). Lesson JSON can live in either `courses/<topic>/<module>/<id>.json` or `lessonshells/<id>.json`.
+
+Serve this folder and open viewer.html. A catalog is required; the 9e954d01 lesson is already listed under Not categorized.
 
 ## What changed from Maybe2
 

@@ -437,15 +437,21 @@ function stubLesson(course, path) {
 
 async function openCourse(course) {
   const path = coursePath(course);
-  const url = "./courses/" + path.split("/").map(encodeURIComponent).join("/");
+  const candidates = [
+    "./courses/" + path.split("/").map(encodeURIComponent).join("/"),
+    "./" + path.split("/").map(encodeURIComponent).join("/"),
+    "./lessonshells/" + encodeURIComponent((course.id || "course") + ".json")
+  ];
   let lesson = null;
-  try {
-    const response = await fetch(url);
-    if (response.ok) {
-      const data = await response.json();
-      if (data && Array.isArray(data.pages) && data.pages.length) lesson = data;
-    }
-  } catch (err) {}
+  for (const url of candidates) {
+    try {
+      const response = await fetch(url);
+      if (response.ok) {
+        const data = await response.json();
+        if (data && Array.isArray(data.pages) && data.pages.length) { lesson = data; break; }
+      }
+    } catch (err) {}
+  }
   state.book = openLesson(lesson || stubLesson(course, path));
   state.phase = lesson ? "splash" : "lesson";
   state.missed = null;
@@ -454,10 +460,18 @@ async function openCourse(course) {
 }
 
 async function loadCatalog() {
-  const local = await fetch("./courses/catalog.json");
-  if (!local.ok) throw new Error("catalog");
-  const catalog = await local.json();
-  return catalog.topics || [];
+  for (const url of ["./courses/catalog.json", "./lessonshells/catalog.json"]) {
+    try {
+      const local = await fetch(url);
+      if (!local.ok) continue;
+      const catalog = await local.json();
+      if (catalog.topics) return catalog.topics;
+      if (catalog.courses) {
+        return [{ title: "Lessons", modules: [{ title: "All", courses: catalog.courses }] }];
+      }
+    } catch (err) {}
+  }
+  throw new Error("catalog");
 }
 
 document.getElementById("lessons").addEventListener("click", () => {
