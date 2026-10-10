@@ -1,0 +1,1163 @@
+[
+  {
+    "offset": 753970,
+    "name": "P0\u0000yright",
+    "size": 2938,
+    "widgets": 9,
+    "polygons": 0,
+    "handlers": 1,
+    "fields": 0
+  },
+  {
+    "offset": 756908,
+    "name": "P1\u0000TLE\u0000ht",
+    "size": 4212,
+    "widgets": 12,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 0
+  },
+  {
+    "offset": 761120,
+    "name": "P10",
+    "size": 4602,
+    "widgets": 11,
+    "polygons": 0,
+    "handlers": 2,
+    "fields": 1
+  },
+  {
+    "offset": 765722,
+    "name": "P100\u0000tives",
+    "size": 4504,
+    "widgets": 11,
+    "polygons": 0,
+    "handlers": 2,
+    "fields": 2
+  },
+  {
+    "offset": 770226,
+    "name": "P300\u0000ment Required",
+    "size": 3958,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 3,
+    "fields": 0
+  },
+  {
+    "offset": 774184,
+    "name": "P400\u0000duction ",
+    "size": 7046,
+    "widgets": 12,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 781230,
+    "name": "P410",
+    "size": 10632,
+    "widgets": 25,
+    "polygons": 10,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 791862,
+    "name": "P420",
+    "size": 7644,
+    "widgets": 10,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 799506,
+    "name": "P430",
+    "size": 42512,
+    "widgets": 126,
+    "polygons": 22,
+    "handlers": 0,
+    "fields": 2
+  },
+  {
+    "offset": 842018,
+    "name": "P450",
+    "size": 830292,
+    "widgets": 9,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 0
+  },
+  {
+    "offset": 1672310,
+    "name": "P900\u0000n Menu",
+    "size": 9188,
+    "widgets": 8,
+    "polygons": 0,
+    "handlers": 2,
+    "fields": 0
+  },
+  {
+    "offset": 1681498,
+    "name": "P1001",
+    "size": 5600,
+    "widgets": 7,
+    "polygons": 0,
+    "handlers": 1,
+    "fields": 0
+  },
+  {
+    "offset": 1687098,
+    "name": "P1040",
+    "size": 7764,
+    "widgets": 8,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 1694862,
+    "name": "P1050",
+    "size": 2482,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 1697344,
+    "name": "P1060",
+    "size": 2262,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 1699606,
+    "name": "P1070",
+    "size": 2586,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 1702192,
+    "name": "P1080",
+    "size": 2724,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 1,
+    "fields": 1
+  },
+  {
+    "offset": 1704916,
+    "name": "P1082",
+    "size": 7980,
+    "widgets": 11,
+    "polygons": 0,
+    "handlers": 1,
+    "fields": 1
+  },
+  {
+    "offset": 1712896,
+    "name": "P1085",
+    "size": 4042,
+    "widgets": 10,
+    "polygons": 0,
+    "handlers": 3,
+    "fields": 1
+  },
+  {
+    "offset": 1716938,
+    "name": "P1090",
+    "size": 5262,
+    "widgets": 16,
+    "polygons": 7,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 1722200,
+    "name": "P1100",
+    "size": 2310,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 1724510,
+    "name": "P1110",
+    "size": 3324,
+    "widgets": 7,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 1727834,
+    "name": "P1120",
+    "size": 2972,
+    "widgets": 8,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 1730806,
+    "name": "P1130",
+    "size": 5262,
+    "widgets": 16,
+    "polygons": 7,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 1736068,
+    "name": "P1140",
+    "size": 4978,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 1741046,
+    "name": "P1150",
+    "size": 6368,
+    "widgets": 8,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 1747414,
+    "name": "P1160",
+    "size": 3070,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 1750484,
+    "name": "P1170",
+    "size": 2490,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 1752974,
+    "name": "P1180",
+    "size": 7572,
+    "widgets": 9,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 1760546,
+    "name": "P1190",
+    "size": 5270,
+    "widgets": 16,
+    "polygons": 7,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 1765816,
+    "name": "P1200",
+    "size": 2318,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 1,
+    "fields": 1
+  },
+  {
+    "offset": 1768134,
+    "name": "P1205",
+    "size": 3930,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 1772064,
+    "name": "P1207",
+    "size": 5714,
+    "widgets": 16,
+    "polygons": 7,
+    "handlers": 1,
+    "fields": 1
+  },
+  {
+    "offset": 1777778,
+    "name": "P1210",
+    "size": 9684,
+    "widgets": 10,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 1787462,
+    "name": "P1220",
+    "size": 2068,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 1789530,
+    "name": "P1230",
+    "size": 2452,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 1791982,
+    "name": "P1236",
+    "size": 2114,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 1794096,
+    "name": "P1240",
+    "size": 2440,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 1796536,
+    "name": "P1246",
+    "size": 1958,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 1798494,
+    "name": "P1250",
+    "size": 2452,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 1800946,
+    "name": "P1256",
+    "size": 2006,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 1802952,
+    "name": "P1260",
+    "size": 5488,
+    "widgets": 16,
+    "polygons": 7,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 1808440,
+    "name": "P1270",
+    "size": 3426,
+    "widgets": 7,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 1811866,
+    "name": "P1280",
+    "size": 2770,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 1814636,
+    "name": "P1290",
+    "size": 106532,
+    "widgets": 53,
+    "polygons": 0,
+    "handlers": 5,
+    "fields": 1
+  },
+  {
+    "offset": 1921168,
+    "name": "P1291",
+    "size": 2010,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 2,
+    "fields": 0
+  },
+  {
+    "offset": 1923178,
+    "name": "P1292",
+    "size": 8194,
+    "widgets": 10,
+    "polygons": 0,
+    "handlers": 2,
+    "fields": 1
+  },
+  {
+    "offset": 1931372,
+    "name": "P1300",
+    "size": 12418,
+    "widgets": 10,
+    "polygons": 0,
+    "handlers": 5,
+    "fields": 1
+  },
+  {
+    "offset": 1943790,
+    "name": "P1301",
+    "size": 2010,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 2,
+    "fields": 0
+  },
+  {
+    "offset": 1945800,
+    "name": "P1302",
+    "size": 11196,
+    "widgets": 12,
+    "polygons": 0,
+    "handlers": 2,
+    "fields": 1
+  },
+  {
+    "offset": 1956996,
+    "name": "P1304",
+    "size": 11228,
+    "widgets": 9,
+    "polygons": 0,
+    "handlers": 2,
+    "fields": 1
+  },
+  {
+    "offset": 1968224,
+    "name": "P1310",
+    "size": 5880,
+    "widgets": 8,
+    "polygons": 0,
+    "handlers": 3,
+    "fields": 1
+  },
+  {
+    "offset": 1974104,
+    "name": "P1311",
+    "size": 2060,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 2,
+    "fields": 0
+  },
+  {
+    "offset": 1976164,
+    "name": "P1312",
+    "size": 2150,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 2,
+    "fields": 1
+  },
+  {
+    "offset": 1978314,
+    "name": "P1910",
+    "size": 2654,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 1980968,
+    "name": "P1920",
+    "size": 7808,
+    "widgets": 8,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 1988776,
+    "name": "P1930",
+    "size": 2262,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 1991038,
+    "name": "P1940",
+    "size": 3264,
+    "widgets": 7,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 1994302,
+    "name": "P1950",
+    "size": 5842,
+    "widgets": 9,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 2000144,
+    "name": "P1960",
+    "size": 5650,
+    "widgets": 11,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 2005794,
+    "name": "P1970",
+    "size": 2966,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 2008760,
+    "name": "P1999",
+    "size": 2602,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 2011362,
+    "name": "P2001",
+    "size": 5578,
+    "widgets": 8,
+    "polygons": 0,
+    "handlers": 1,
+    "fields": 0
+  },
+  {
+    "offset": 2016940,
+    "name": "P2040\u0000Discussion",
+    "size": 7876,
+    "widgets": 26,
+    "polygons": 1,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 2024816,
+    "name": "P2050",
+    "size": 18982,
+    "widgets": 60,
+    "polygons": 2,
+    "handlers": 0,
+    "fields": 2
+  },
+  {
+    "offset": 2043798,
+    "name": "P2060",
+    "size": 2048,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 2045846,
+    "name": "P2070",
+    "size": 4730,
+    "widgets": 16,
+    "polygons": 7,
+    "handlers": 1,
+    "fields": 1
+  },
+  {
+    "offset": 2050576,
+    "name": "P2075",
+    "size": 2676,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 2,
+    "fields": 1
+  },
+  {
+    "offset": 2053252,
+    "name": "P2080",
+    "size": 2524,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 2055776,
+    "name": "P2090",
+    "size": 2170,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 2057946,
+    "name": "P2100",
+    "size": 3132,
+    "widgets": 8,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 2061078,
+    "name": "P2110",
+    "size": 1986,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 2063064,
+    "name": "P2120",
+    "size": 13656,
+    "widgets": 13,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 2
+  },
+  {
+    "offset": 2076720,
+    "name": "P2130",
+    "size": 4938,
+    "widgets": 16,
+    "polygons": 7,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 2081658,
+    "name": "P2140",
+    "size": 2120,
+    "widgets": 7,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 2083778,
+    "name": "P2150",
+    "size": 4936,
+    "widgets": 16,
+    "polygons": 7,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 2088714,
+    "name": "P2160",
+    "size": 2194,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 2090908,
+    "name": "P2170",
+    "size": 1988,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 2092896,
+    "name": "P2180",
+    "size": 2400,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 2095296,
+    "name": "P2190",
+    "size": 2440,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 2097736,
+    "name": "P2200",
+    "size": 2440,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 2100176,
+    "name": "P2210",
+    "size": 2812,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 2102988,
+    "name": "P2220",
+    "size": 1990,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 2104978,
+    "name": "P2230",
+    "size": 3422,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 3,
+    "fields": 1
+  },
+  {
+    "offset": 2108400,
+    "name": "P2231",
+    "size": 2010,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 2,
+    "fields": 0
+  },
+  {
+    "offset": 2110410,
+    "name": "P2232",
+    "size": 2564,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 2,
+    "fields": 1
+  },
+  {
+    "offset": 2112974,
+    "name": "P2240",
+    "size": 3422,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 3,
+    "fields": 1
+  },
+  {
+    "offset": 2116396,
+    "name": "P2241",
+    "size": 2060,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 2,
+    "fields": 0
+  },
+  {
+    "offset": 2118456,
+    "name": "P2242",
+    "size": 2560,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 2,
+    "fields": 1
+  },
+  {
+    "offset": 2121016,
+    "name": "P2250",
+    "size": 3470,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 3,
+    "fields": 1
+  },
+  {
+    "offset": 2124486,
+    "name": "P2251",
+    "size": 2060,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 2,
+    "fields": 0
+  },
+  {
+    "offset": 2126546,
+    "name": "P2252",
+    "size": 2150,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 2,
+    "fields": 1
+  },
+  {
+    "offset": 2128696,
+    "name": "P2910",
+    "size": 26658,
+    "widgets": 103,
+    "polygons": 5,
+    "handlers": 0,
+    "fields": 2
+  },
+  {
+    "offset": 2155354,
+    "name": "P2930",
+    "size": 2048,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 2157402,
+    "name": "P2940",
+    "size": 2120,
+    "widgets": 7,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 2159522,
+    "name": "P2950",
+    "size": 2218,
+    "widgets": 7,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 2161740,
+    "name": "P2999",
+    "size": 2604,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 2164344,
+    "name": "P10001",
+    "size": 8442,
+    "widgets": 10,
+    "polygons": 0,
+    "handlers": 1,
+    "fields": 0
+  },
+  {
+    "offset": 2172786,
+    "name": "P10002",
+    "size": 7652,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 1,
+    "fields": 0
+  },
+  {
+    "offset": 2180438,
+    "name": "P10003",
+    "size": 6608,
+    "widgets": 5,
+    "polygons": 0,
+    "handlers": 1,
+    "fields": 0
+  },
+  {
+    "offset": 2187046,
+    "name": "P10004",
+    "size": 6628,
+    "widgets": 5,
+    "polygons": 0,
+    "handlers": 1,
+    "fields": 0
+  },
+  {
+    "offset": 2193674,
+    "name": "P10210",
+    "size": 17779,
+    "widgets": 14,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 2211453,
+    "name": "P10211",
+    "size": 3716,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 0
+  },
+  {
+    "offset": 2215169,
+    "name": "P10212",
+    "size": 3716,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 0
+  },
+  {
+    "offset": 2218885,
+    "name": "P10213",
+    "size": 3716,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 0
+  },
+  {
+    "offset": 2222601,
+    "name": "P10214",
+    "size": 3716,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 0
+  },
+  {
+    "offset": 2226317,
+    "name": "P10215",
+    "size": 3716,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 0
+  },
+  {
+    "offset": 2230033,
+    "name": "P10216",
+    "size": 3716,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 0
+  },
+  {
+    "offset": 2233749,
+    "name": "P10217",
+    "size": 3718,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 0
+  },
+  {
+    "offset": 2237467,
+    "name": "P10218",
+    "size": 3716,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 0
+  },
+  {
+    "offset": 2241183,
+    "name": "P10219",
+    "size": 3716,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 0
+  },
+  {
+    "offset": 2244899,
+    "name": "P10220",
+    "size": 3716,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 0
+  },
+  {
+    "offset": 2248615,
+    "name": "P10221",
+    "size": 3718,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 0
+  },
+  {
+    "offset": 2252333,
+    "name": "P10222",
+    "size": 3718,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 0
+  },
+  {
+    "offset": 2256051,
+    "name": "P10223",
+    "size": 3758,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 0
+  },
+  {
+    "offset": 2259809,
+    "name": "P10224",
+    "size": 3746,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 0
+  },
+  {
+    "offset": 2263555,
+    "name": "P10225",
+    "size": 3716,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 0
+  },
+  {
+    "offset": 2267271,
+    "name": "P10226",
+    "size": 3716,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 0
+  },
+  {
+    "offset": 2270987,
+    "name": "P10227",
+    "size": 3716,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 0
+  },
+  {
+    "offset": 2274703,
+    "name": "P10228",
+    "size": 3716,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 0
+  },
+  {
+    "offset": 2278419,
+    "name": "P10229",
+    "size": 3716,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 0
+  },
+  {
+    "offset": 2282135,
+    "name": "P10301",
+    "size": 15619,
+    "widgets": 13,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 0
+  },
+  {
+    "offset": 2297754,
+    "name": "P10302",
+    "size": 2414,
+    "widgets": 7,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 0
+  },
+  {
+    "offset": 2300168,
+    "name": "P10303",
+    "size": 1738,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 0
+  },
+  {
+    "offset": 2301906,
+    "name": "P10410",
+    "size": 3024,
+    "widgets": 6,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 0
+  },
+  {
+    "offset": 2304930,
+    "name": "PINFO",
+    "size": 3544,
+    "widgets": 8,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 2308474,
+    "name": "PQINFO",
+    "size": 4592,
+    "widgets": 12,
+    "polygons": 0,
+    "handlers": 0,
+    "fields": 1
+  },
+  {
+    "offset": 2313066,
+    "name": "P30000",
+    "size": 2326,
+    "widgets": 9,
+    "polygons": 0,
+    "handlers": 1,
+    "fields": 0
+  },
+  {
+    "offset": 2315392,
+    "name": "P30010",
+    "size": 12591,
+    "widgets": 214,
+    "polygons": 0,
+    "handlers": 1,
+    "fields": 1
+  }
+]

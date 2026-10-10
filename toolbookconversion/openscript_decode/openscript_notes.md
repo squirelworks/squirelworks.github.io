@@ -235,3 +235,105 @@ The system book logic lives in:
 - TB80RTM / TB80BAS (runtime engine)
 
 nida81.tbk (the shell) is a regular book with 100 buttonClick handlers in the standard format.
+
+## Page walk: P400 / P420 (2026-10-11 00:07)
+
+### P400 (7046 bytes, 12 records)
+| # | Offset | Len | Sub | Kind | Notes |
+|---|--------|-----|-----|------|-------|
+| 0 | +0x2B | 33 | 17 | 0001 | small |
+| 1 | +0x4C | 31 | 225 | 0000 | small |
+| 2 | +0x6B | 18 | 209 | 0d00 | small |
+| 3 | +0x7D | 1458 | 209 | d900 | content blob (scripts, colors) |
+| 4 | +0x62F | 2828 | 0 | 0021 | large, no poly |
+| 5 | +0x113B | 894 | 0 | 0000 | n=21 at +0x1a, not poly range |
+| 6 | +0x14B9 | 156 | 0 | 1600 | small |
+| 7 | +0x1555 | 506 | 0 | 0000 | small |
+| 8 | +0x174F | 312 | 17 | 0001 | small |
+| 9 | +0x1887 | 18 | 225 | 0200 | small |
+| 10 | +0x1899 | 630 | 225 | 0000 | small |
+| 11 | +0x1B0F | 119 | 0 | 0000 | small |
+
+No kind=04 00 (polygon) records. Color words (0xC0C0C0, 0x808080) inside content blob. No property 0x4004/0x4034/0x4050 on disk.
+
+### P420 (7644 bytes, 10 records)
+| # | Offset | Len | Sub | Kind | Notes |
+|---|--------|-----|-----|------|-------|
+| 0 | +0x2B | 33 | 17 | 0000 | small |
+| 1 | +0x4C | 31 | 2 | 0000 | small |
+| 2 | +0x6B | 18 | 18 | 0a00 | small |
+| 3 | +0x7D | 2454 | 18 | c700 | content blob |
+| 4 | +0xA13 | 2559 | 0 | 0020 | large, no poly |
+| 5 | +0x1412 | 126 | 2 | 0000 | small |
+| 6 | +0x1490 | 341 | 2 | 0000 | small |
+| 7 | +0x15E5 | 630 | 0 | 1900 | id table (0x0A22, 0x0B32...) |
+| 8 | +0x185B | 954 | 0 | 0000 | n=21 at +0x1a |
+| 9 | +0x1C15 | 455 | 0 | 0000 | small |
+
+No kind=04 00 records. No Polygon/Curve/Arc/Picture name. Flame is not a stored vector list.
+
+### P430 (for comparison)
+22 polygon records (kind=04 00, n=11 each). Pins and chip body.
+
+### Conclusion
+P400 and P420 do not store polygons the same way as P430. Their diagrams are either:
+- Computed from bounds (like the P1170 brackets)
+- Referenced by ID (the 0x15E5 table)
+- Embedded in the content blob with a different layout
+
+Picture placement still needs the bounds record and the resource ID binding.
+
+## Full book deconstruct: 9e954d01.tbk (2026-10-11 00:12)
+
+### Overview
+| Metric | Value |
+|--------|-------|
+| Size | 2,327,983 bytes |
+| Pages | 129 |
+| Widgets | 1,551 |
+| Polygons | 96 (on 13 pages) |
+| Handlers | 76 (on 39 pages) |
+
+### Polygon pages
+P410 (10), P430 (22), P1090 (7), P1130 (7), P1190 (7), P1207 (7), P1260 (7), P2040 (1), P2050 (2), P2070 (7), P2130 (7), P2150 (7), P2910 (5)
+
+### Handler types
+- TO HANDLE buttonClick: 46
+- To Handle ButtonClick: 29
+- To Handle EnterPage: 1
+
+### Sample handlers
+```
+To Handle EnterPage
+system logical __import
+	system lastbook
+	system nextpage
+	lastbook = name of this book
+	nextpage = "p10"
+	if  __import = false  then
+		if sys...
+```
+```
+TO HANDLE buttonClick
+--{Go to next page}
+  send next
+END
+```
+
+### Files
+- book_deconstruct.json — page inventory
+- book_handlers.json — 76 decoded handlers
+- book_summary.json — overview
+
+### Coverage
+~30% of the book is now readable:
+- Page structure and widget counts
+- Polygon point records (P430 chip, P410 pins)
+- Handler bytecode (navigation, cross-book jumps)
+- Field text (partial)
+
+Still open:
+- Bounds / placement (property 0x4004)
+- Picture resource binding
+- Connecting lines and detail strokes
+- Content rectangles
