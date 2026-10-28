@@ -6,18 +6,64 @@ layout: null
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Foolcourse</title>
-  <link rel="stylesheet" href="desktop/app.css?v=3">
+  <title>squirelworks — public repositories</title>
+  <style>
+    body { margin: 0; background: #f4f1ea; color: #1a1a1a; font: 16px/1.4 Georgia, serif; }
+    header, main { max-width: 820px; margin: 0 auto; padding: 24px 16px; }
+    h1 { font-size: 28px; margin: 0 0 8px; }
+    h2 { font-size: 18px; margin: 28px 0 8px; border-bottom: 1px solid #1a1a1a; }
+    p.lead { margin: 0; }
+    a.repo { display: block; margin: 10px 0; padding: 8px 0; color: inherit; text-decoration: none; border-bottom: 1px solid #ddd; }
+    a.repo strong { color: #000080; font-size: 18px; }
+    a.repo:hover strong { text-decoration: underline; }
+    .meta { color: #444; font: 13px/1.3 Tahoma, sans-serif; }
+  </style>
 </head>
 <body>
-  <div id="desk"></div>
-  <div id="menu"></div>
-  <div id="bar">
-    <button id="start" type="button">Start</button>
-    <div id="tasks"></div>
-    <div id="clock"></div>
-  </div>
-  <script src="desktop/reader.js?v=3"></script>
-  <script src="desktop/app.js?v=3"></script>
+<header>
+  <h1>Public repositories</h1>
+  <p class="lead">Everything public on <a href="https://github.com/squirelworks">github.com/squirelworks</a> as of 28 October 2026. Twenty-six repositories. Private repositories are not listed.</p>
+</header>
+<main>
+  <h2>Books and courses</h2>
+  <a class="repo" href="https://github.com/squirelworks/Foolbook"><strong>Foolbook</strong><br>The reader. It opens .fbk and .tbk books, and .fsk and .sbk system books.<div class="meta">Python · updated 27 Oct 2026</div></a>
+  <a class="repo" href="https://github.com/squirelworks/FoolbookEditor"><strong>FoolbookEditor</strong><br>The editor. Foolbook is the reader. This repository is the window.<div class="meta">Python · updated 24 Oct 2026</div></a>
+  <a class="repo" href="https://github.com/squirelworks/Foolcourse"><strong>Foolcourse</strong><br>The general course program. Version 1.0.1r2.<div class="meta">Python · updated 27 Oct 2026</div></a>
+  <a class="repo" href="https://github.com/squirelworks/NIDA_ATT"><strong>NIDA_ATT</strong><br>The NIDA course: the curriculum, the shell, and the books. Foolcourse stays general.<div class="meta">Python · updated 27 Oct 2026</div></a>
+  <a class="repo" href="https://github.com/squirelworks/Foollege"><strong>Foollege</strong><br>Holds the students. It is not a running server. Foolversity writes the files. Foolcourse is the player.<div class="meta">updated 27 Oct 2026</div></a>
+  <a class="repo" href="https://github.com/squirelworks/Foolversity"><strong>Foolversity</strong><br>Companion to Foolcourse. Version 1.0.0. They meet at files. It generates student files.<div class="meta">Python · updated 27 Oct 2026</div></a>
+
+  <h2>ToolBook notes</h2>
+  <a class="repo" href="https://github.com/squirelworks/tbdecompile"><strong>tbdecompile</strong><br>ToolBook II 8.1 decompilation notes. Release v0.0.11. The record is in record/.<div class="meta">HTML · updated 28 Oct 2026</div></a>
+  <a class="repo" href="https://github.com/squirelworks/tbworldview"><strong>tbworldview</strong><br>Written record of the ToolBook 8 reverse-engineering work. Notes only. No binaries.<div class="meta">updated 20 Oct 2026</div></a>
+  <a class="repo" href="https://github.com/squirelworks/openscript_analysis"><strong>openscript_analysis</strong><br>OpenScript tools. Version 1.0.1. A dependency of Foolbook for ToolBook script.<div class="meta">Python · updated 27 Oct 2026</div></a>
+  <a class="repo" href="https://github.com/squirelworks/TBpipeline"><strong>TBpipeline</strong><br>A way to host ToolBook 8.0 on modern Linux or Windows.<div class="meta">Python · updated 16 Oct 2026</div></a>
+  <a class="repo" href="https://github.com/squirelworks/toolbookunpacker"><strong>toolbookunpacker</strong><br>ToolBook 8.0 OPTLOADER unpacker.<div class="meta">Python · updated 13 Oct 2026</div></a>
+  <a class="repo" href="https://github.com/squirelworks/win16-debug"><strong>win16-debug</strong><br>Win16 reverse engineering tools.<div class="meta">Python · updated 9 Oct 2026</div></a>
+
+  <h2>Language</h2>
+  <a class="repo" href="https://github.com/squirelworks/LanguageStudentDesk"><strong>LanguageStudentDesk</strong><br>Language learning tools and a desktop launcher.<div class="meta">HTML · updated 27 Oct 2026</div></a>
+  <a class="repo" href="https://github.com/squirelworks/squirrelator"><strong>squirrelator</strong><br>Core language engine for translating between human languages, programming languages, and pseudocode.<div class="meta">Python · updated 13 Oct 2026</div></a>
+
+  <h2>Graal</h2>
+  <a class="repo" href="https://github.com/squirelworks/Graal_analysis"><strong>Graal_analysis</strong><br>Notes on Graal formats, protocol, NPC scripting, and level design. No decompile material.<div class="meta">Python · updated 28 Oct 2026</div></a>
+  <a class="repo" href="https://github.com/squirelworks/seihai"><strong>seihai</strong><br>An open client for Graal Reborn listservers and gservers. Written in Rust.<div class="meta">Rust · updated 28 Oct 2026</div></a>
+
+  <h2>Squirrel OS</h2>
+  <a class="repo" href="https://github.com/squirelworks/squirrel-os2"><strong>squirrel-os2</strong><br>An original operating-system effort in the spirit of OS/2 Warp.<div class="meta">Assembly · updated 13 Oct 2026</div></a>
+  <a class="repo" href="https://github.com/squirelworks/squirrelbios"><strong>squirrelbios</strong><br>Platform-specific firmware for Squirrel-OS/2. Original code.<div class="meta">Assembly · updated 13 Oct 2026</div></a>
+  <a class="repo" href="https://github.com/squirelworks/squirreldra"><strong>squirreldra</strong><br>Personal tools, fixes, and patches for reverse engineering with Ghidra.<div class="meta">Java · updated 14 Oct 2026</div></a>
+
+  <h2>Game notes</h2>
+  <a class="repo" href="https://github.com/squirelworks/sgs1modding"><strong>sgs1modding</strong><br>Ship Graveyard Simulator 1. Unofficial modding notes.<div class="meta">updated 14 Oct 2026</div></a>
+  <a class="repo" href="https://github.com/squirelworks/sgs2modding"><strong>sgs2modding</strong><br>SGS2 modding. The repository has no further description.<div class="meta">updated 14 Oct 2026</div></a>
+  <a class="repo" href="https://github.com/squirelworks/sgs3modding"><strong>sgs3modding</strong><br>Ship Graveyard 3 modding documentation.<div class="meta">updated 14 Oct 2026</div></a>
+  <a class="repo" href="https://github.com/squirelworks/lbrmodding"><strong>lbrmodding</strong><br>Leaf Blower Revolution modding.<div class="meta">updated 14 Oct 2026</div></a>
+  <a class="repo" href="https://github.com/squirelworks/sn1modding"><strong>sn1modding</strong><br>SN1 modding. The repository has no further description.<div class="meta">updated 14 Oct 2026</div></a>
+  <a class="repo" href="https://github.com/squirelworks/hs_sbmodding"><strong>hs_sbmodding</strong><br>Hardspace: Shipbreaker.<div class="meta">updated 14 Oct 2026</div></a>
+
+  <h2>This site</h2>
+  <a class="repo" href="https://github.com/squirelworks/squirelworks.github.io"><strong>squirelworks.github.io</strong><br>This page, and the older course manager under coursemanager/.<div class="meta">HTML · updated 28 Oct 2026</div></a>
+</main>
 </body>
 </html>
