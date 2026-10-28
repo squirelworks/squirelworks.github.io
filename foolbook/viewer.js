@@ -1,8 +1,9 @@
 "use strict";
 
 const BOOKS = [
-  ["First light", "https://raw.githubusercontent.com/squirelworks/Foolbook/main/foolbook/books/first_light.fbk"],
-  ["Using Foolbook", "https://raw.githubusercontent.com/squirelworks/Foolbook/main/foolbook/books/using_foolbook.fbk"],
+  ["First light", "https://raw.githubusercontent.com/squirelworks/Foolbook/main/_books/first_light/first_light.fbk"],
+  ["Using Foolbook", "https://raw.githubusercontent.com/squirelworks/Foolbook/main/_books/using_foolbook/using_foolbook.fbk"],
+  ["Using Grok", "https://raw.githubusercontent.com/squirelworks/Foolbook/main/_books/using_grok/using_grok.fbk"],
   ["Filing taxes for 2026", "https://raw.githubusercontent.com/squirelworks/Foolcourse/main/_courses/Money/Filing%20taxes/file_2026.fbk"],
   ["Finding current tax information", "https://raw.githubusercontent.com/squirelworks/Foolcourse/main/_courses/Money/Filing%20taxes/find_current.fbk"],
   ["Phone", "https://raw.githubusercontent.com/squirelworks/Foolcourse/main/_courses/Getting%20around/Street%20sense/phone.fbk"],
