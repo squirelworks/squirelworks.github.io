@@ -20,13 +20,8 @@ body.embed header, body.embed #shelf, body.embed #pages { display: none; }
 #bar { display: flex; align-items: center; gap: 8px; padding: 8px; background: #efeae0; }
 #bar b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .stage { flex: 1; min-height: 0; overflow: auto; background: #8d887c; padding: 12px; }
-.fit { overflow: hidden; }
 .board { position: relative; transform-origin: top left; background: #fff; }
-body.embed.turned .stage {
-  position: relative;
-  overflow: hidden;
-  padding: 0;
-}
+body.turned .stage { overflow: visible; padding: 0; }
 @media (max-width: 700px) {
   #main { flex-direction: column; }
   #pages { width: auto; max-height: 28vh; border-right: 0; border-bottom: 1px solid #c8c0b0; }

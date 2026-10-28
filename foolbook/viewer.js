@@ -157,20 +157,21 @@ document.getElementById("file").addEventListener("change", () => {
   if (!file) return;
   file.arrayBuffer().then((buffer) => openBuffer(file.name, buffer));
 });
-function orient() {
-  const portrait = embed && window.innerWidth > 0 && window.innerHeight > window.innerWidth + 40;
-  document.body.classList.toggle("turned", portrait);
-  if (book) requestAnimationFrame(() => show(index));
+function applyTurn(on) {
+  document.body.classList.toggle("turned", !!on);
+  if (book) show(index);
 }
 
-window.addEventListener("resize", orient);
-window.addEventListener("orientationchange", orient);
-orient();
+window.addEventListener("resize", () => {
+  if (!embed) applyTurn(window.matchMedia("(max-width: 700px) and (orientation: portrait)").matches);
+  if (book) show(index);
+});
 window.addEventListener("message", (ev) => {
   const msg = ev.data;
   if (!msg || msg.type !== "foolbook") return;
   if (msg.cmd === "open" && msg.src) openURL(msg.title || "Book", msg.src, msg.page || 0);
   else if (msg.cmd === "page" && msg.page) show(msg.page);
+  else if (msg.cmd === "turn") applyTurn(msg.on);
   else if (msg.cmd === "ping") tell("ready");
 });
 

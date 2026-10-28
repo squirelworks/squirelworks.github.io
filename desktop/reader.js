@@ -531,26 +531,25 @@ function drawPage(stage, book, page, onJump, onPick) {
   const turned = document.body.classList.contains("turned");
   const boxW = stage.clientWidth || w;
   const boxH = stage.clientHeight || h;
-  const scale = turned
-    ? Math.min(1, boxH / w, boxW / h)
-    : Math.min(1, boxW / w);
-  const fit = document.createElement("div");
-  fit.className = "fit";
-  fit.style.width = Math.round(w * scale) + "px";
-  fit.style.height = Math.round(h * scale) + "px";
   const board = document.createElement("div");
   board.className = "board";
   board.style.width = w + "px";
   board.style.height = h + "px";
-  board.style.transform = "scale(" + scale + ")";
-  if (turned) {
-    fit.style.position = "absolute";
-    fit.style.left = "50%";
-    fit.style.top = "50%";
-    fit.style.transform = "translate(-50%, -50%) rotate(90deg)";
+  if (turned && boxW > 0 && boxH > 0) {
+    const scale = Math.min(boxW / h, boxH / w);
+    stage.style.position = "relative";
+    board.style.position = "absolute";
+    board.style.left = ((boxW - w) / 2) + "px";
+    board.style.top = ((boxH - h) / 2) + "px";
+    board.style.transformOrigin = "center center";
+    board.style.transform = "rotate(90deg) scale(" + scale + ")";
+  } else {
+    const scale = Math.min(1, boxW / w);
+    board.style.position = "relative";
+    board.style.transformOrigin = "top left";
+    board.style.transform = "scale(" + scale + ")";
   }
-  fit.appendChild(board);
-  stage.appendChild(fit);
+  stage.appendChild(board);
   shapes.forEach((shape, index) => {
     if (shape.visible === false) return;
     const kind = (shape.kind || "rect").toLowerCase();
