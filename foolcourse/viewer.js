@@ -75,7 +75,6 @@ function layout() {
       up.textContent = "Courses";
       where.textContent = subjects[subject].name + "  ·  " + subjects[subject].modules[module].name;
     }
-    tellTurn();
     return;
   }
   tree.hidden = false;
@@ -90,12 +89,6 @@ function layout() {
   else if (module == null) tree.style.width = (widths.subject + 220) + "px";
   else if (!picked) tree.style.width = (widths.subject + widths.module + 280) + "px";
   else tree.style.width = (widths.subject + widths.module + widths.course + 18) + "px";
-  tellTurn();
-}
-
-function tellTurn() {
-  const phone = window.matchMedia("(max-width: 700px) and (orientation: portrait)").matches;
-  tell({ cmd: "turn", on: phone && picked });
 }
 
 up.addEventListener("click", () => {

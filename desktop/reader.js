@@ -528,28 +528,12 @@ function drawPage(stage, book, page, onJump, onPick) {
   stage.replaceChildren();
   const shapes = withButtons(page);
   const [w, h] = pageSize({ size: page.size, shapes: shapes });
-  const turned = document.body.classList.contains("turned");
-  const boxW = stage.clientWidth || w;
-  const boxH = stage.clientHeight || h;
+  const scale = Math.min(1, (stage.clientWidth || 640) / w);
   const board = document.createElement("div");
   board.className = "board";
   board.style.width = w + "px";
   board.style.height = h + "px";
-  if (turned && boxW > 0 && boxH > 0) {
-    const scale = Math.min(boxW / h, boxH / w);
-    stage.style.position = "relative";
-    board.style.position = "absolute";
-    board.style.left = ((boxW - w) / 2) + "px";
-    board.style.top = ((boxH - h) / 2) + "px";
-    board.style.transformOrigin = "center center";
-    board.style.transform = "rotate(90deg) scale(" + scale + ")";
-  } else {
-    const scale = Math.min(1, boxW / w);
-    board.style.position = "relative";
-    board.style.transformOrigin = "top left";
-    board.style.transform = "scale(" + scale + ")";
-  }
-  stage.appendChild(board);
+  board.style.transform = "scale(" + scale + ")";
   shapes.forEach((shape, index) => {
     if (shape.visible === false) return;
     const kind = (shape.kind || "rect").toLowerCase();
@@ -660,6 +644,7 @@ function drawPage(stage, book, page, onJump, onPick) {
     }
     board.appendChild(el);
   });
+  stage.appendChild(board);
 }
 
 function mountReader(host, book, options) {

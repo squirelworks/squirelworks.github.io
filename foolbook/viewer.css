@@ -21,10 +21,8 @@ body.embed header, body.embed #shelf, body.embed #pages { display: none; }
 #bar b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .stage { flex: 1; min-height: 0; overflow: auto; background: #8d887c; padding: 12px; }
 .board { position: relative; transform-origin: top left; background: #fff; }
-body.turned .stage { overflow: visible; padding: 0; }
+.shape { position: absolute; box-sizing: border-box; }
 @media (max-width: 700px) {
   #main { flex-direction: column; }
   #pages { width: auto; max-height: 28vh; border-right: 0; border-bottom: 1px solid #c8c0b0; }
-  .stage { padding: 0; }
-  #bar { padding: 4px 6px; }
 }
