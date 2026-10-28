@@ -533,7 +533,7 @@ function drawPage(stage, book, page, onJump, onPick) {
   board.className = "board";
   board.style.width = w + "px";
   board.style.height = h + "px";
-  board.style.transform = "scale(" + scale + ")";
+  board.style.zoom = String(scale);
   shapes.forEach((shape, index) => {
     if (shape.visible === false) return;
     const kind = (shape.kind || "rect").toLowerCase();
