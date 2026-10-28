@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>39ster 2.1 — architecture diagrams</title>
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+  mermaid.initialize({ startOnLoad: true, theme: "neutral", securityLevel: "loose" });
+</script>
+<style>
+  :root { color-scheme: dark; }
+  body { font-family: ui-sans-serif, system-ui, sans-serif; margin: 0; background: #12141a; color: #e8e6df; }
+  header { padding: 1.5rem 2rem; border-bottom: 1px solid #2a2e38; }
+  header h1 { margin: 0 0 .25rem; font-size: 1.4rem; }
+  header p { margin: 0; color: #9aa3b2; }
+  nav { display: flex; flex-wrap: wrap; gap: .5rem 1rem; padding: 1rem 2rem; border-bottom: 1px solid #2a2e38; }
+  nav a { color: #8ec8ff; text-decoration: none; font-size: .9rem; }
+  section { padding: 1.5rem 2rem 2rem; border-bottom: 1px solid #2a2e38; }
+  h2 { margin-top: 0; }
+  .m { background: #1b1e27; padding: 1rem; border-radius: 8px; overflow-x: auto; }
+</style>
+</head>
+<body>
+<header>
+  <h1>39ster 2.1 GServer — diagrams</h1>
+  <p>Rendered from Ash/FLOWCHARTS.md. Source of truth: win32Gserver/*.cpp</p>
+</header>
+<nav>
+  <a href="#f1">Boot</a>
+  <a href="#f3">mainLoop</a>
+  <a href="#f4">Login</a>
+  <a href="#f5">Scramble</a>
+  <a href="#f6">Warp</a>
+  <a href="#f8">LoadGraal</a>
+  <a href="#f9">Tiles</a>
+  <a href="#f11">Animate</a>
+  <a href="#f14">Compress</a>
+  <a href="#f15">State</a>
+  <a href="#arch">System</a>
+</nav>
+
+<section id="arch">
+<h2>System context</h2>
+<div class="m">
+<pre class="mermaid">
+flowchart LR
+  P[Graal 2.* player] -->|TCP 14822 zlib| S[win32Gserver]
+  R[RC client] -->|TCP 14822 no scramble| S
+  S --> D[data/** maps gifs ganis]
+  S --> A[accounts/name stub]
+  S --> W[Weapons.txt]
+</pre>
+</div>
+</section>
+
+<section id="f1">
+<h2>F1 — Boot and dual-loop</h2>
+<div class="m">
+<pre class="mermaid">
+flowchart TD
+  A[main] --> B[WSAStartup if WIN32]
+  B --> C["getSubDirs data/"]
+  C --> D["tcplisten 14822 backlog 8"]
+  D -->|fail| X[exit]
+  D --> E[LoadWeapons]
+  E --> F[CreateThread PlayerThread]
+  F --> G{forever 1 Hz}
+  G --> H[acceptNewPlayers]
+  H --> I[gameTime++]
+  I --> J[newUsers mainLoop]
+  J --> M[idle kick 300s]
+  M --> P[animate LoadedMaps]
+  P --> Q[Sleep 1000]
+  Q --> G
+  F2[PlayerThread] --> R{forever}
+  R --> S[playerList mainLoop]
+  S --> V[Sleep 20]
+  V --> R
+</pre>
+</div>
+</section>
+
+<section id="f3">
+<h2>F3 — Per-player mainLoop</h2>
+<div class="m">
+<pre class="mermaid">
+flowchart TD
+  A[mainLoop] --> B[tcpReceive]
+  B -->|error| D[deleteme]
+  B --> C{bytesleft >= 2?}
+  C -->|no| W[sendFiles sendWeapons flush]
+  C -->|yes| E[raw u16 BE length]
+  E --> F{complete?}
+  F -->|no| D
+  F -->|yes| G[zlib inflate]
+  G -->|fail| D
+  G --> K{more lines?}
+  K -->|no| C
+  K -->|yes| M{firstpacket?}
+  M -->|yes| N[initialize]
+  M -->|no| O[parseMessage]
+  N --> K
+  O --> K
+</pre>
+</div>
+</section>
+
+<section id="f4">
+<h2>F4 — Login</h2>
+<div class="m">
+<pre class="mermaid">
+flowchart TD
+  A[initialize] --> C[type key version name pass]
+  C --> I[loadAccount stub]
+  I --> J{duplicate account?}
+  J -->|stale other| K[kick other]
+  J -->|fresh other| Z[reject newcomer]
+  J -->|none| L[generateId]
+  K --> L
+  L --> M[SPLAYERPROPS sendinit]
+  M --> N[exchange OTHERPLPROPS]
+  N --> O[PLAYERWARPED + warp]
+  O --> P[move newUsers to playerList]
+</pre>
+</div>
+</section>
+
+<section id="f5">
+<h2>F5 — Descramble and dispatch</h2>
+<div class="m">
+<pre class="mermaid">
+flowchart TD
+  A[parseMessage] --> B{CLIENTRC?}
+  B -->|no| C["iterator = iterator * 0x8088405 + key"]
+  C --> D["pos = (iterator and 0xFFFF) mod count + 1"]
+  D --> E[drop byte at pos-1]
+  B -->|yes| F[keep line]
+  E --> G[opcode = GCHAR]
+  F --> G
+  G --> I["msgFuncs opcode"]
+</pre>
+</div>
+</section>
+
+<section id="f6">
+<h2>F6 — warpPlayer</h2>
+<div class="m">
+<pre class="mermaid">
+flowchart TD
+  A[warpPlayer] --> B[OpenMap]
+  B -->|not opened| F[LEVELFAILED]
+  B --> D[leaveLevel + attach]
+  D --> G{mtime cache hit?}
+  G -->|yes| H[replay SBOARDMODIFY]
+  G -->|no| J[op 100 + 101 tiles]
+  J --> N[links signs chests npcs LEVELMODTIME]
+  H --> O[all SBADDYPROPS]
+  N --> O
+  O --> Q[ISLEADER if alone]
+  Q --> S[exchange prop 50 visibility]
+</pre>
+</div>
+</section>
+
+<section id="f8">
+<h2>F8 — LoadGraal sections</h2>
+<div class="m">
+<pre class="mermaid">
+flowchart TD
+  A[8-char magic] --> B{V1.02 or V1.03?}
+  B -->|yes| E[13-bit codes]
+  B -->|no| F[12-bit codes]
+  E --> G[4096 tiles]
+  F --> G
+  G --> H[links]
+  H --> I[baddies]
+  I --> J[npcs]
+  J --> K[chests]
+  K --> L[signs]
+</pre>
+</div>
+</section>
+
+<section id="f9">
+<h2>F9 — One bitstream code</h2>
+<div class="m">
+<pre class="mermaid">
+flowchart TD
+  C[code] --> D{high bit set?}
+  D -->|yes| E["count = code and 0xFF"]
+  E --> F{"code and 0x100?"}
+  F -->|yes| G[twicerepeat]
+  D -->|no| I{count == 1?}
+  I -->|yes| J[write one tile]
+  I -->|no| K{twicerepeat?}
+  K -->|first| L[stash firstcode]
+  K -->|second| M[write pair count times]
+  K -->|no| N[repeat tile count times]
+</pre>
+</div>
+</section>
+
+<section id="f11">
+<h2>F11 — 1 Hz animate</h2>
+<div class="m">
+<pre class="mermaid">
+flowchart TD
+  A[animate] --> B[boardchange counters]
+  B --> C{2x2 hit 0?}
+  C -->|yes| F[paint previous tiles]
+  C --> G[horse timers]
+  G --> K[item timers]
+  K --> O[baddy DIE]
+  O --> R{respawncount 0?}
+  R -->|yes| S[Reset + SBADDYPROPS]
+</pre>
+</div>
+</section>
+
+<section id="f14">
+<h2>F14 — Outbound compress</h2>
+<div class="m">
+<pre class="mermaid">
+flowchart TD
+  A[SendPacket] --> B["append msg + newline"]
+  B --> C{sendbuff >= 4 KiB?}
+  C -->|yes| D[zlib compress]
+  D --> G["prefix u16 BE"]
+  G --> H[outgoing]
+  H --> L[tcp send 1024 slices]
+</pre>
+</div>
+</section>
+
+<section id="f15">
+<h2>F15 — Session state</h2>
+<div class="m">
+<pre class="mermaid">
+stateDiagram-v2
+  [*] --> Accepted
+  Accepted --> Handshaking
+  Handshaking --> Dead
+  Handshaking --> InWorld
+  InWorld --> InWorld
+  InWorld --> Dead
+  Dead --> [*]
+</pre>
+</div>
+</section>
+
+<section>
+<h2>Class sketch</h2>
+<div class="m">
+<pre class="mermaid">
+classDiagram
+  class CPlayer {
+    sock key iterator id type
+    sendbuff outgoing
+    mainLoop()
+    initialize()
+    parseMessage()
+    warpPlayer()
+    msgFuncs[89]
+  }
+  class CLevel {
+    tiles[4096]
+    baddyids[256]
+    OpenMap()
+    LoadGraal()
+    animate()
+    changeBoard()
+  }
+  class CBaddy {
+    id x y type mode power
+    GetPropList()
+    SetProperties()
+    Reset()
+  }
+  class CNpc {
+    id x y clientcode
+    getPropList()
+  }
+  class CBuffer {
+    writebyte GCHAR
+    readbyte GCHAR
+  }
+  CPlayer --> CLevel
+  CLevel --> CBaddy
+  CLevel --> CNpc
+  CPlayer --> CBuffer
+</pre>
+</div>
+</section>
+</body>
+</html>
