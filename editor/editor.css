@@ -1,0 +1,30 @@
+html, body { margin: 0; height: 100%; overflow: hidden; background: #e6e2d8; color: #1a1a1a; font: 14px/1.35 Arial, Helvetica, sans-serif; }
+body { display: flex; flex-direction: column; }
+header { display: flex; align-items: center; gap: 16px; padding: 8px 14px; background: #071428; color: #fff; }
+header a { color: #fff; }
+header h1 { margin: 0; font-size: 18px; flex: 1; }
+header .build { font-size: 11px; letter-spacing: 0.14em; color: #9ec4e8; }
+#tools { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; padding: 6px 8px; background: #efeae0; border-bottom: 1px solid #c8c0b0; }
+#tools button, #tools label { font: inherit; }
+#tools button, #pages button { cursor: pointer; }
+#tools button.on { background: #071428; color: #fff; }
+#main { flex: 1; min-height: 0; display: flex; }
+#pages, #object { width: 220px; min-width: 140px; overflow: auto; background: #f7f4ee; }
+#pages { border-right: 1px solid #c8c0b0; }
+#object { border-left: 1px solid #c8c0b0; }
+.head { position: sticky; top: 0; padding: 6px 8px; background: #efeae0; font-size: 12px; letter-spacing: 0.04em; }
+#pagelist button, #props button { display: block; width: 100%; text-align: left; border: 0; background: transparent; padding: 6px 8px; font: inherit; cursor: pointer; }
+#pagelist button.on { background: #071428; color: #fff; }
+#stage { flex: 1; min-width: 0; overflow: auto; background: #8d887c; padding: 12px; }
+.board { position: relative; }
+.glass { position: absolute; inset: 0; }
+.pick { position: absolute; border: 2px solid #c60; pointer-events: none; box-sizing: border-box; }
+#props label { display: block; margin: 8px 8px 2px; }
+#props input, #props textarea, #props select { width: calc(100% - 16px); margin: 0 8px 4px; box-sizing: border-box; font: inherit; }
+#props textarea { min-height: 90px; }
+#row { display: flex; gap: 4px; padding: 6px; }
+#status { margin: 0; padding: 4px 14px; background: #efeae0; min-height: 1.2em; }
+@media (max-width: 800px) {
+  #main { flex-direction: column; }
+  #pages, #object { width: auto; max-height: 28vh; }
+}

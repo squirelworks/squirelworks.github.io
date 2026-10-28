@@ -86,7 +86,10 @@ function openIcon(id) {
     location.href = "foolbook/";
     return;
   }
-  if (id === "editor") openEditor();
+  if (id === "editor") {
+    location.href = "editor/";
+    return;
+  }
   if (id === "bytes") {
     location.href = "byteviewer/";
     return;
