@@ -9,6 +9,7 @@ const ICONS = [
   { id: "repos", name: "Repositories", x: 108, y: 12, color: "#400080", href: "repos/" },
   { id: "seihai", name: "Seihai", x: 108, y: 88, color: "#1a3a6a", href: "seihai/" },
   { id: "docs", name: "Documentation", x: 108, y: 164, color: "#800080", href: "documentation/" },
+  { id: "calc", name: "Calculator", x: 108, y: 240, color: "#804000", href: "calculators/" },
 ];
 
 const desk = document.getElementById("desk");
