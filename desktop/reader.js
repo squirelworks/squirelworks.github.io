@@ -520,7 +520,6 @@ function drawPage(stage, book, page, onJump, onPick) {
   board.style.width = w + "px";
   board.style.height = h + "px";
   board.style.transform = "scale(" + scale + ")";
-  stage.style.height = Math.ceil(h * scale) + 8 + "px";
   shapes.forEach((shape, index) => {
     if (shape.visible === false) return;
     const kind = (shape.kind || "rect").toLowerCase();
@@ -590,7 +589,14 @@ function drawPage(stage, book, page, onJump, onPick) {
         el.style.color = ink;
         el.style.fontWeight = shape.bold || kind === "button" ? "bold" : "normal";
         el.style.whiteSpace = "pre-wrap";
-        el.style.overflow = "hidden";
+        el.style.lineHeight = "1.35";
+        if (kind === "text") {
+          el.style.height = "auto";
+          el.style.minHeight = sh + "px";
+          el.style.overflow = "visible";
+        } else {
+          el.style.overflow = "hidden";
+        }
         if (kind === "button") {
           el.style.display = "flex";
           el.style.alignItems = "center";
