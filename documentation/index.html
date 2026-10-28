@@ -24,6 +24,7 @@ layout: null
     .md h2 { font: 18px/1.3 Georgia, serif; margin: 20px 0 8px; }
     .md p { margin: 0 0 12px; }
     .md code { background: #f0eee8; padding: 1px 4px; font: 13px Consolas, monospace; }
+    .md pre { white-space: pre-wrap; font: 13px/1.4 Consolas, monospace; background: #f8f6f2; padding: 12px; }
     .md table { border-collapse: collapse; margin: 8px 0 16px; font: 13px Tahoma, sans-serif; }
     .md th, .md td { border: 1px solid #ccc; padding: 4px 8px; text-align: left; }
     .bar { display: flex; gap: 8px; align-items: center; margin: 0 0 14px; font: 13px Tahoma, sans-serif; }
@@ -37,7 +38,7 @@ layout: null
 <div id="app">
   <div id="tree">
     <p class="back"><a href="../">Back to the desktop</a></p>
-    <h1>Documentation <span class="build">15.004</span></h1>
+    <h1>Documentation <span class="build">15.005</span></h1>
     <div class="sec">Books</div>
     <button type="button" onclick="openBook('gserver', 0)">GServerStory</button>
     <button type="button" onclick="openBook('glstory', 0)">GraalLStory</button>
@@ -49,12 +50,12 @@ layout: null
     <button type="button" onclick="openSet('linux')">LinuxMan2 / Seihai</button>
   </div>
   <div id="view">
-    <h1>Documentation <span class="build">15.004</span></h1>
+    <h1>Documentation <span class="build">15.005</span></h1>
     <p class="note">Pick a book or a notes set on the left.</p>
   </div>
 </div>
 <script>
-var B = "15.004";
+var B = "15.005";
 
 function range(a, b) {
   var o = [];
@@ -194,16 +195,28 @@ function openFile(path, label) {
 }
 
 function md(src) {
-  var out = src.replace(/&/g, "&").replace(/</g, "<").replace(/>/g, ">");
-  out = out.replace(/^### (.*)$/gm, "<h3>$1</h3>");
-  out = out.replace(/^## (.*)$/gm, "<h2>$1</h2>");
-  out = out.replace(/^# (.*)$/gm, "<h1>$1</h1>");
-  out = out.replace(/`([^`]+)`/g, "<code>$1</code>");
-  out = out.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
-  out = out.replace(/\n\n/g, "</p><p>");
-  out = "<p>" + out + "</p>";
-  out = out.replace(/<p>(<h[123]>)/g, "$1").replace(/(<\/h[123]>)</p>/g, "$1");
-  return out;
+  var out = src.split("&").join("&").split("<").join("<").split(">").join(">");
+  var lines = out.split("\n");
+  var html = [];
+  var para = [];
+  function flush() {
+    if (para.length) {
+      html.push("<p>" + para.join(" ") + "</p>");
+      para = [];
+    }
+  }
+  for (var i = 0; i < lines.length; i++) {
+    var line = lines[i];
+    if (line.indexOf("### ") === 0) { flush(); html.push("<h3>" + line.slice(4) + "</h3>"); continue; }
+    if (line.indexOf("## ") === 0) { flush(); html.push("<h2>" + line.slice(3) + "</h2>"); continue; }
+    if (line.indexOf("# ") === 0) { flush(); html.push("<h1>" + line.slice(2) + "</h1>"); continue; }
+    if (line.trim() === "") { flush(); continue; }
+    line = line.replace(/`([^`]+)`/g, "<code>$1</code>");
+    line = line.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+    para.push(line);
+  }
+  flush();
+  return html.join("");
 }
 </script>
 </body>
