@@ -84,7 +84,10 @@ function openIcon(id) {
   if (id === "foolbook") openFoolbook();
   if (id === "editor") openEditor();
   if (id === "bytes") openBytes();
-  if (id === "repos") openRepos();
+  if (id === "repos") {
+    location.href = "repos/";
+    return;
+  }
 }
 
 function windowFrame(key, title) {
