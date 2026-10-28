@@ -14,6 +14,9 @@ layout: null
     #view { flex: 1; overflow: auto; padding: 16px 20px; background: #fff; }
     h1 { font-size: 16px; margin: 0 0 8px; }
     .build { float: right; color: #666; font: 11px/1.2 Tahoma, sans-serif; letter-spacing: 0.12em; }
+    .back { margin: 0 0 8px; }
+    .back a { color: #000080; font-size: 13px; text-decoration: none; }
+    .back a:hover { text-decoration: underline; }
     button { display: block; width: 100%; text-align: left; border: 0; background: transparent; padding: 4px; cursor: pointer; font: inherit; }
     button:hover, button.on { background: #000080; color: #fff; }
     .folder { font-weight: bold; }
@@ -29,7 +32,8 @@ layout: null
 <body>
 <div id="app">
   <div id="tree">
-    <h1>Documentation <span class="build">15.001</span></h1>
+    <p class="back"><a href="../">Back to the desktop</a></p>
+    <h1>Documentation <span class="build">15.002</span></h1>
     <button class="folder" data-folder="Graal">Graal</button>
     <div id="graal-sets" class="sub" hidden>
       <button data-set="ash">39ster Ash / Phoenix</button>
@@ -39,7 +43,7 @@ layout: null
     </div>
   </div>
   <div id="view">
-    <h1>Documentation <span class="build">15.001</span></h1>
+    <h1>Documentation <span class="build">15.002</span></h1>
     <p class="note">Pick Graal, then a set, then a file.</p>
   </div>
 </div>
@@ -116,13 +120,13 @@ var view = document.getElementById("view");
 document.querySelector("[data-folder]").addEventListener("click", function () {
   var box = document.getElementById("graal-sets");
   box.hidden = !box.hidden;
-  view.innerHTML = "<h1>Graal <span class=\"build\">15.001</span></h1><p class=\"note\">Pick a set.</p>";
+  view.innerHTML = "<h1>Graal <span class=\"build\">15.002</span></h1><p class=\"note\">Pick a set.</p>";
 });
 
 document.querySelectorAll("[data-set]").forEach(function (btn) {
   btn.addEventListener("click", function () {
     var set = SETS[btn.getAttribute("data-set")];
-    var html = "<h1>" + set.title + " <span class=\"build\">15.001</span></h1>";
+    var html = "<h1>" + set.title + " <span class=\"build\">15.002</span></h1>";
     set.files.forEach(function (pair) {
       html += "<button data-file=\"" + set.path + pair[0] + "\" data-label=\"" + pair[1] + "\">" + pair[1] + "</button>";
     });
@@ -136,16 +140,16 @@ document.querySelectorAll("[data-set]").forEach(function (btn) {
 });
 
 function openFile(path, label) {
-  view.innerHTML = "<h1>" + label + " <span class=\"build\">15.001</span></h1><p class=\"note\">Loading...</p>";
+  view.innerHTML = "<h1>" + label + " <span class=\"build\">15.002</span></h1><p class=\"note\">Loading...</p>";
   fetch(path).then(function (res) {
     if (!res.ok) throw new Error(res.status);
     return res.text();
   }).then(function (text) {
     if (path.endsWith(".html")) {
-      view.innerHTML = "<h1>" + label + " <span class=\"build\">15.001</span></h1><iframe src=\"" + path + "\"></iframe>";
+      view.innerHTML = "<h1>" + label + " <span class=\"build\">15.002</span></h1><iframe src=\"" + path + "\"></iframe>";
       return;
     }
-    view.innerHTML = "<h1>" + label + " <span class=\"build\">15.001</span></h1><div class=\"md\">" + md(text) + "</div>";
+    view.innerHTML = "<h1>" + label + " <span class=\"build\">15.002</span></h1><div class=\"md\">" + md(text) + "</div>";
   }).catch(function (err) {
     view.innerHTML = "<h1>" + label + "</h1><p class=\"note\">Could not open " + path + ". " + err.message + "</p>";
   });
