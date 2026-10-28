@@ -1,12 +1,12 @@
 "use strict";
 
 const BOOKS = [
-  ["First light", "https://raw.githubusercontent.com/squirelworks/Foolbook/main/_books/first_light/first_light.fbk"],
-  ["Using Foolbook", "https://raw.githubusercontent.com/squirelworks/Foolbook/main/_books/using_foolbook/using_foolbook.fbk"],
-  ["Using Grok", "https://raw.githubusercontent.com/squirelworks/Foolbook/main/_books/using_grok/using_grok.fbk"],
-  ["Filing taxes for 2026", "https://raw.githubusercontent.com/squirelworks/Foolcourse/main/_courses/Money/Filing%20taxes/file_2026.fbk"],
-  ["Finding current tax information", "https://raw.githubusercontent.com/squirelworks/Foolcourse/main/_courses/Money/Filing%20taxes/find_current.fbk"],
-  ["Phone", "https://raw.githubusercontent.com/squirelworks/Foolcourse/main/_courses/Getting%20around/Street%20sense/phone.fbk"],
+  ["First light", "https://raw.githubusercontent.com/squirelworks/Foolbook/main/_books/first_light/first_light.fbk", "first_light"],
+  ["Using Foolbook", "https://raw.githubusercontent.com/squirelworks/Foolbook/main/_books/using_foolbook/using_foolbook.fbk", "using_foolbook"],
+  ["Using Grok", "https://raw.githubusercontent.com/squirelworks/Foolbook/main/_books/using_grok/using_grok.fbk", "using_grok"],
+  ["Filing taxes for 2026", "https://raw.githubusercontent.com/squirelworks/Foolcourse/main/_courses/Money/Filing%20taxes/file_2026.fbk", "file_2026"],
+  ["Finding current tax information", "https://raw.githubusercontent.com/squirelworks/Foolcourse/main/_courses/Money/Filing%20taxes/find_current.fbk", "find_current"],
+  ["Phone", "https://raw.githubusercontent.com/squirelworks/Foolcourse/main/_courses/Getting%20around/Street%20sense/phone.fbk", "phone"],
 ];
 
 const shelf = document.getElementById("shelf");
@@ -34,7 +34,10 @@ function show(next) {
   }
   const page = pages[index];
   where.textContent = (book.title || book.id || "Book") + "   " + (index + 1) + " / " + pages.length + "   " + page.id;
-  FoolReader.drawPage(stage, book, page, (dest) => show(dest));
+  FoolReader.drawPage(stage, book, page, (dest, other) => {
+    if (other) openNamed(other, dest);
+    else show(dest);
+  });
   pagesEl.replaceChildren();
   pages.forEach((item, i) => {
     const button = document.createElement("button");
@@ -48,14 +51,14 @@ function show(next) {
   if (current) current.scrollIntoView({ block: "nearest" });
 }
 
-async function openURL(name, url) {
+async function openURL(name, url, pageId) {
   status.textContent = "Opening " + name + "…";
   shelf.querySelectorAll("button").forEach((button) => button.classList.toggle("on", button.textContent === name));
   try {
     book = await FoolReader.fetchBook(url);
     index = 0;
     status.textContent = "";
-    show(0);
+    show(pageId || 0);
   } catch (err) {
     status.textContent = name + " did not open. " + err.message;
   }
@@ -71,6 +74,16 @@ async function openBuffer(name, buffer) {
   } catch (err) {
     status.textContent = name + " did not open. " + err.message;
   }
+}
+
+function openNamed(name, pageId) {
+  const want = String(name || "").toLowerCase().replace(/\.(fbk|json)$/i, "");
+  const found = BOOKS.find((row) => row[2] === want || row[0].toLowerCase() === want);
+  if (!found) {
+    status.textContent = "No book named " + name + " is on the shelf.";
+    return;
+  }
+  openURL(found[0], found[1], pageId);
 }
 
 BOOKS.forEach(([name, url]) => {

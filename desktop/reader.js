@@ -15,11 +15,70 @@ function pictureURL(book, shape) {
   return "data:image/" + kind + ";base64," + data;
 }
 
+function pale(color) {
+  const hex = String(color || "").replace("#", "");
+  if (hex.length < 6) return true;
+  const r = parseInt(hex.slice(0, 2), 16);
+  const g = parseInt(hex.slice(2, 4), 16);
+  const b = parseInt(hex.slice(4, 6), 16);
+  if (Number.isNaN(r) || Number.isNaN(g) || Number.isNaN(b)) return true;
+  return (r * 299 + g * 587 + b * 114) / 1000 > 170;
+}
+
+function jumpOf(shape) {
+  const item = shape.item || {};
+  let page = item.page || shape.page || "";
+  let other = item.book || shape.book || "";
+  if (!page) {
+    const found = /go to page\s*\(?\s*"([^"]+)"/i.exec(shape.script || "");
+    if (found) page = found[1];
+  }
+  return { page: page ? String(page) : "", book: other ? String(other) : "" };
+}
+
 function pageJump(shape) {
-  if (shape.item && shape.item.page) return String(shape.item.page);
-  const source = shape.script || "";
-  const found = /go to page\("([^"]+)"\)/i.exec(source);
-  return found ? found[1] : "";
+  return jumpOf(shape).page;
+}
+
+function withButtons(page) {
+  const shapes = (page.shapes || []).slice();
+  const have = new Set();
+  shapes.forEach((shape) => {
+    if ((shape.kind || "") !== "button" && !shape.item) return;
+    const label = shape.text || shape.name || (shape.item && shape.item.label) || "";
+    if (label) have.add(String(label).toLowerCase());
+  });
+  let y = 16;
+  shapes.forEach((shape) => {
+    y = Math.max(y, (Number(shape.y) || 0) + (Number(shape.h) || 0));
+  });
+  y += shapes.length ? 16 : 28;
+  let x = 28;
+  (page.items || []).forEach((item) => {
+    const label = String(item.label || item.page || "Go");
+    if (have.has(label.toLowerCase())) return;
+    const w = Math.max(120, Math.min(280, 9 * label.length + 28));
+    if (x > 28 && x + w > 700) {
+      x = 28;
+      y += 48;
+    }
+    shapes.push({
+      kind: "button",
+      name: label,
+      text: label,
+      x: x,
+      y: y,
+      w: w,
+      h: 40,
+      fill: "#0b1c3d",
+      outline: "#0b1c3d",
+      item: item,
+      visible: true,
+      size: 16,
+    });
+    x += w + 12;
+  });
+  return shapes;
 }
 
 function pageSize(page) {
@@ -75,7 +134,8 @@ function findPage(book, id) {
 
 function drawPage(stage, book, page, onJump, onPick) {
   stage.replaceChildren();
-  const [w, h] = pageSize(page);
+  const shapes = withButtons(page);
+  const [w, h] = pageSize({ size: page.size, shapes: shapes });
   const scale = Math.min(1, (stage.clientWidth || 640) / w);
   const board = document.createElement("div");
   board.className = "board";
@@ -83,7 +143,7 @@ function drawPage(stage, book, page, onJump, onPick) {
   board.style.height = h + "px";
   board.style.transform = "scale(" + scale + ")";
   stage.style.height = Math.ceil(h * scale) + 8 + "px";
-  (page.shapes || []).forEach((shape, index) => {
+  shapes.forEach((shape, index) => {
     if (shape.visible === false) return;
     const kind = (shape.kind || "rect").toLowerCase();
     const x = Number(shape.x) || 0;
@@ -135,25 +195,36 @@ function drawPage(stage, book, page, onJump, onPick) {
         el.style.background = shape.fill || "transparent";
         el.style.border = "1px solid " + (shape.outline || (kind === "button" ? "#000" : "transparent"));
       }
-      if (kind !== "rect" && shape.text) {
-        el.textContent = shape.text;
-        el.style.fontSize = (Number(shape.size) || (kind === "button" ? 12 : 12)) + "px";
-        el.style.color = shape.outline || "#000";
-        el.style.fontWeight = shape.bold ? "bold" : "normal";
+      if (kind !== "rect" && (shape.text || kind === "button")) {
+        const named = shape.name || (shape.item && shape.item.label) || "";
+        const label = shape.text ? shape.text : (kind === "button" && shape.text !== "" ? named : "");
+        el.textContent = label;
+        el.style.fontSize = (Number(shape.size) || (kind === "button" ? 16 : 12)) + "px";
+        let ink = shape.color || shape.outline || "#000";
+        if (kind === "button" && shape.fill && !pale(shape.fill)) ink = "#fff";
+        el.style.color = ink;
+        el.style.fontWeight = shape.bold || kind === "button" ? "bold" : "normal";
         el.style.whiteSpace = "pre-wrap";
         el.style.overflow = "hidden";
+        if (kind === "button") {
+          el.style.display = "flex";
+          el.style.alignItems = "center";
+          el.style.justifyContent = "center";
+          el.style.textAlign = "center";
+        }
       }
     }
     if (!el) return;
     el.dataset.index = String(index);
-    const dest = pageJump(shape);
-    if (dest) {
+    const dest = jumpOf(shape);
+    el.style.pointerEvents = dest.page || dest.book || kind === "button" ? "auto" : "none";
+    if (dest.page || dest.book) {
       el.style.cursor = "pointer";
       el.addEventListener("click", (ev) => {
         ev.stopPropagation();
-        onJump(dest);
+        onJump(dest.page, dest.book);
       });
-    } else if (onPick) {
+    } else if (onPick && kind === "button") {
       el.addEventListener("click", (ev) => {
         ev.stopPropagation();
         onPick(index);
@@ -198,13 +269,13 @@ function mountReader(host, book, options) {
     title.textContent = (book.title || book.id || "Book") + "  ·  " + page.id;
     drawPage(stage, book, page, (dest) => show(dest), options && options.onPick);
     jumps.replaceChildren();
-    (page.shapes || []).forEach((shape) => {
-      const dest = pageJump(shape);
-      if (!dest) return;
+    withButtons(page).forEach((shape) => {
+      const dest = jumpOf(shape);
+      if (!dest.page && !dest.book) return;
       const b = document.createElement("button");
       b.type = "button";
-      b.textContent = (shape.name || shape.text || "go") + " → " + dest;
-      b.addEventListener("click", () => show(dest));
+      b.textContent = (shape.name || shape.text || "go") + " → " + (dest.book ? dest.book + " " : "") + dest.page;
+      b.addEventListener("click", () => show(dest.page));
       jumps.appendChild(b);
     });
     if (options && options.onPage) options.onPage(page, index);
