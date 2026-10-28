@@ -16,7 +16,7 @@
     display: flex; align-items: center; justify-content: center; }
   canvas { image-rendering: pixelated; background: #000;
     box-shadow: 0 0 0 2px #000, 0 0 0 4px #808080; }
-  #hud { position: absolute; top: 36px; left: 8px; color: #fff; font-size: 12px;
+  #hud { position: absolute; top: 36px; left: 8px; color: #fff; font-size: 14px;
     text-shadow: 1px 1px 0 #000; pointer-events: none; }
   #chat { position: absolute; bottom: 0; left: 0; right: 0; height: 48px;
     background: #000080; color: #fff; display: flex; align-items: center;
@@ -30,7 +30,7 @@
 </style>
 </head>
 <body>
-<div id="bar">Seihai <span style="font-weight:normal;margin-left:8px">0.0.2.1</span>
+<div id="bar">Seihai <span style="font-weight:normal;margin-left:8px">0.0.2.2</span>
   <button id="back" type="button">Desktop</button></div>
 <div id="view"><canvas id="c" width="512" height="384"></canvas></div>
 <div id="hud">♥♥♥</div>
@@ -61,11 +61,14 @@ let board = [];
 let signs = [];
 let chests = [];
 let npcs = [];
+let objects = [];
 let px = 8, py = 16, dir = 2;
 let keys = {};
 let openSign = null;
 let signPage = 0;
 let chatLog = [];
+let swinging = 0;
+let carrying = null;
 
 function loadImg(src) {
   return new Promise((res, rej) => {
@@ -110,6 +113,10 @@ async function loadWorld() {
   for (const r of runs) {
     for (let k = 0; k < r.row.length; k++) board[r.y][r.x + k] = r.row[k];
   }
+  // place a few rocks and bushes to pick up
+  objects.push({ x: 10, y: 12, id: 48, kind: "rock" });
+  objects.push({ x: 14, y: 14, id: 50, kind: "bush" });
+  objects.push({ x: 18, y: 10, id: 49, kind: "rock" });
 }
 
 function blocked(tx, ty) {
@@ -129,10 +136,23 @@ function draw() {
       ctx.drawImage(pics, sx, sy, 16, 16, x * 16, y * 16, 16, 16);
     }
   }
+  for (const o of objects) {
+    const ox = (o.x - camX) * 16, oy = (o.y - camY) * 16;
+    const sx = (o.id % 128) * 16, sy = Math.floor(o.id / 128) * 16;
+    ctx.drawImage(pics, sx, sy, 16, 16, ox, oy, 16, 16);
+  }
   const pxp = (px - camX) * 16, pyp = (py - camY) * 16;
   const frame = dir * 32;
   ctx.drawImage(body, 0, frame, 32, 32, pxp - 8, pyp - 16, 32, 32);
   ctx.drawImage(head, 0, frame, 32, 32, pxp - 8, pyp - 16, 32, 32);
+  if (carrying) {
+    const sx = (carrying.id % 128) * 16, sy = Math.floor(carrying.id / 128) * 16;
+    ctx.drawImage(pics, sx, sy, 16, 16, pxp, pyp - 16, 16, 16);
+  }
+  if (swinging > 0) {
+    ctx.fillStyle = "#fff";
+    ctx.fillRect(pxp + [0,-16,0,16][dir], pyp + [-16,0,16,0][dir], 8, 8);
+  }
   for (const n of npcs) {
     const nx = (n.x - camX) * 16, ny = (n.y - camY) * 16;
     ctx.drawImage(head, 0, 64, 32, 32, nx - 8, ny - 16, 32, 32);
@@ -186,6 +206,21 @@ function interact() {
     setTimeout(() => msgEl.textContent = "", 2000);
     return;
   }
+  const o = objects.find(o => Math.abs(o.x - fx) <= 1 && Math.abs(o.y - fy) <= 1);
+  if (o && !carrying) {
+    carrying = o;
+    objects = objects.filter(x => x !== o);
+    msgEl.textContent = "Picked up " + o.kind;
+    setTimeout(() => msgEl.textContent = "", 1500);
+    return;
+  }
+  if (carrying) {
+    objects.push({ x: fx, y: fy, id: carrying.id, kind: carrying.kind });
+    msgEl.textContent = "Threw " + carrying.kind;
+    carrying = null;
+    setTimeout(() => msgEl.textContent = "", 1500);
+    return;
+  }
   const n = npcs.find(n => Math.abs(n.x - px) < 2 && Math.abs(n.y - py) < 2);
   if (n) { msgEl.textContent = "Hello from the mini world."; setTimeout(() => msgEl.textContent = "", 2000); }
 }
@@ -211,6 +246,7 @@ document.addEventListener("keydown", e => {
     else location.href = "../";
   }
   if (e.key === "a" || e.key === "A" || e.key === " ") interact();
+  if (e.key === "s" || e.key === "S") swinging = 8;
   if (e.key === "Enter") lineEl.focus();
 });
 document.addEventListener("keyup", e => { keys[e.key] = false; });
@@ -220,6 +256,7 @@ function loop(t) {
   if (!loop.last) loop.last = t;
   const dt = t - loop.last; loop.last = t;
   acc += dt;
+  if (swinging > 0) swinging--;
   const step = 180;
   while (acc >= step) {
     acc -= step;

@@ -7,7 +7,7 @@ const ICONS = [
   { id: "editor", name: "Foolbook Editor", x: 16, y: 240, color: "#008080", href: "editor/" },
   { id: "bytes", name: "Byte Viewer", x: 16, y: 316, color: "#808000", href: "byteviewer/" },
   { id: "repos", name: "Repositories", x: 108, y: 12, color: "#400080", href: "repos/" },
-  { id: "seihai", name: "Seihai", x: 108, y: 88, color: "#006400", href: "seihai/" },
+  { id: "seihai", name: "Seihai", x: 108, y: 88, color: "#1a3a6a", href: "seihai/" },
   { id: "docs", name: "Documentation", x: 108, y: 164, color: "#800080", href: "documentation/" },
 ];
 
