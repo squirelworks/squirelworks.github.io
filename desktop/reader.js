@@ -42,6 +42,20 @@ function pageJump(shape) {
 
 function withButtons(page) {
   const shapes = (page.shapes || []).slice();
+  const written = shapes.map((shape) => String(shape.text || "")).join("\n");
+  const missing = (page.text || []).map((line) => String(line).trim()).filter((line) => line && !written.includes(line));
+  if (missing.length && !shapes.some((shape) => shape.text)) {
+    const title = missing[0];
+    const body = missing.slice(1).join("\n\n");
+    shapes.unshift(
+      { kind: "rect", x: 0, y: 0, w: 700, h: 480, fill: "#f7f4ee", outline: "#f7f4ee" },
+      { kind: "rect", x: 0, y: 0, w: 700, h: 150, fill: "#0b1c3d", outline: "#0b1c3d" },
+      { kind: "text", name: "title", x: 36, y: 36, w: 620, h: 80, text: title, outline: "#ffffff", size: 28, bold: true }
+    );
+    if (body) {
+      shapes.push({ kind: "text", x: 36, y: 180, w: 620, h: 220, text: body, outline: "#1a1a1a", size: 16 });
+    }
+  }
   const have = new Set();
   shapes.forEach((shape) => {
     if ((shape.kind || "") !== "button" && !shape.item) return;
