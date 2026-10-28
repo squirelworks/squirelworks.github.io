@@ -7,7 +7,6 @@ const ICONS = [
   { id: "editor", name: "Foolbook Editor", x: 16, y: 240, color: "#008080" },
   { id: "bytes", name: "Byte Viewer", x: 16, y: 316, color: "#808000" },
   { id: "repos", name: "Repositories", x: 108, y: 12, color: "#400080" },
-  { id: "old", name: "Old viewers", x: 108, y: 88, color: "#404040" },
 ];
 
 const desk = document.getElementById("desk");
@@ -75,12 +74,11 @@ function selectIcon(el) {
 }
 
 function openIcon(id) {
-  if (id === "old") {
-    location.href = "coursemanager/viewer4/viewer.html";
+  if (id === "nida") openNida();
+  if (id === "foolcourse") {
+    location.href = "foolcourse/";
     return;
   }
-  if (id === "nida") openNida();
-  if (id === "foolcourse") openFoolcourse();
   if (id === "foolbook") {
     location.href = "foolbook/";
     return;
@@ -301,39 +299,6 @@ const FOOL_BOOKS = [
   { title: "How to find up-to-date information", path: "Money/Filing taxes/find_current.fbk" },
   { title: "How to not walk while using your phone", path: "Getting around/Street sense/phone.fbk" },
 ];
-
-function openFoolcourse() {
-  const win = windowFrame("foolcourse", "Foolcourse");
-  win.style.width = "780px";
-  win.style.height = "520px";
-  const body = win.querySelector(".body");
-  body.replaceChildren();
-  body.style.padding = "0";
-  const split = document.createElement("div");
-  split.className = "split";
-  const tree = document.createElement("div");
-  tree.className = "tree";
-  const detail = document.createElement("div");
-  detail.className = "detail";
-  const groups = [
-    { name: "Money / Filing taxes", paths: FOOL_BOOKS.slice(0, 2) },
-    { name: "Getting around / Street sense", paths: FOOL_BOOKS.slice(2) },
-  ];
-  groups.forEach((group) => {
-    tree.appendChild(btn(group.name, () => {
-      tree.querySelectorAll(".sub").forEach((n) => n.remove());
-      const box = document.createElement("div");
-      box.className = "sub";
-      group.paths.forEach((item) => {
-        box.appendChild(btn(item.title, () => openRemote(detail, FoolReader.COURSE_RAW + encodeURI(item.path), item.path.split("/").pop())));
-      });
-      tree.appendChild(box);
-    }));
-  });
-  detail.appendChild(Object.assign(document.createElement("p"), { className: "note", textContent: "The Foolcourse books, from the Foolcourse repository. Open a lesson." }));
-  split.append(tree, detail);
-  body.appendChild(split);
-}
 
 function openFoolbook() {
   const win = windowFrame("foolbook", "Foolbook");
@@ -733,7 +698,7 @@ document.getElementById("start").addEventListener("click", (ev) => {
     return;
   }
   menu.replaceChildren();
-  [["NIDA ATT", "nida"], ["Foolcourse", "foolcourse"], ["Foolbook", "foolbook"], ["Foolbook Editor", "editor"], ["Byte Viewer", "bytes"], ["Repositories", "repos"], ["Old viewers", "old"]].forEach(([label, id]) => {
+  [["NIDA ATT", "nida"], ["Foolcourse", "foolcourse"], ["Foolbook", "foolbook"], ["Foolbook Editor", "editor"], ["Byte Viewer", "bytes"], ["Repositories", "repos"]].forEach(([label, id]) => {
     menu.appendChild(btn(label, () => {
       menu.style.display = "none";
       openIcon(id);
