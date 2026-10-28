@@ -156,6 +156,7 @@ function isToolbook(u8) {
     const mark = u8[0xc00] | (u8[0xc01] << 8) | (u8[0xc02] << 16) | (u8[0xc03] << 24);
     if ((mark >>> 0) === 0x22222222) return true;
   }
+  if (findBytes(u8, [0x03, 0x4a, 0x42, 0x4f]) >= 0) return true;
   return findBytes(u8, [0x80, 0x65, 0x00, 0x05, 0x00, 0x02, 0x02]) >= 0 || findBytes(u8, [0x81, 0x65, 0x00, 0x05, 0x00, 0x02, 0x02]) >= 0;
 }
 
@@ -353,7 +354,9 @@ async function unpackBytes(u8) {
     payload = u8;
     magic = "JSON";
   } else if (isToolbook(u8)) {
-    const book = readToolbook(u8);
+    const stored = window.Toolbook && Toolbook.read(u8);
+    const book = stored && stored.pages && stored.pages.length ? stored : readToolbook(u8);
+    if (!book.pages || !book.pages.length) throw new Error("not a ToolBook book");
     book._magic = "TBK";
     return book;
   } else {
@@ -445,6 +448,11 @@ function drawPage(stage, book, page, onJump, onPick) {
         el.style.fontSize = (Number(shape.size) || (kind === "button" ? 16 : 12)) + "px";
         let ink = shape.color || shape.outline || "#000";
         if (kind === "button" && shape.fill && !pale(shape.fill)) ink = "#fff";
+        if (kind === "text" && shape.fill) {
+          el.style.background = shape.fill;
+          if (!pale(shape.fill) && !pale(ink)) ink = "#fff";
+          if (pale(shape.fill) && pale(ink)) ink = "#202020";
+        }
         el.style.color = ink;
         el.style.fontWeight = shape.bold || kind === "button" ? "bold" : "normal";
         el.style.whiteSpace = "pre-wrap";
