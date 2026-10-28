@@ -11,6 +11,7 @@ header button { background: #fff; color: #071428; border: 0; padding: 6px 10px; 
 #shelf button.on { background: #071428; color: #fff; }
 #status { margin: 0; padding: 0 14px; min-height: 0; color: #800000; }
 #status:empty { display: none; }
+body.embed header, body.embed #shelf { display: none; }
 #main { flex: 1; display: flex; min-height: 0; }
 #pages { width: 220px; overflow: auto; background: #f7f4ee; border-right: 1px solid #c8c0b0; }
 #pages button { display: block; width: 100%; text-align: left; border: 0; background: transparent; padding: 6px 8px; }

@@ -23,47 +23,42 @@ const CURRICULUM = [
 ];
 
 const tree = document.getElementById("tree");
-const stage = document.getElementById("stage");
-const where = document.getElementById("where");
+const frame = document.getElementById("book");
 const status = document.getElementById("status");
-let book = null;
-let index = 0;
-let current = "";
+let ready = false;
+const pending = [];
 
-function show(next) {
-  const pages = (book && book.pages) || [];
-  if (!pages.length) return;
-  if (typeof next === "string") {
-    const found = pages.findIndex((page) => String(page.id).toLowerCase() === next.toLowerCase());
-    if (found >= 0) index = found;
-  } else {
-    index = Math.max(0, Math.min(pages.length - 1, next));
-  }
-  const page = pages[index];
-  where.textContent = (book.title || "Lesson") + "   " + (index + 1) + " / " + pages.length + "   " + page.id;
-  FoolReader.drawPage(stage, book, page, (dest) => show(dest));
+function tell(message) {
+  message.type = "foolbook";
+  if (!ready || !frame.contentWindow) pending.push(message);
+  else frame.contentWindow.postMessage(message, "*");
 }
 
-async function openCourse(item, button) {
+window.addEventListener("message", (ev) => {
+  if (ev.source !== frame.contentWindow) return;
+  const msg = ev.data;
+  if (!msg || msg.type !== "foolbook") return;
+  if (msg.event === "ready") {
+    ready = true;
+    while (pending.length) frame.contentWindow.postMessage(pending.shift(), "*");
+  } else if (msg.event === "error") {
+    status.textContent = msg.message || "The book did not open.";
+  } else if (msg.event === "need" && msg.book) {
+    status.textContent = "That page is in " + msg.book + ". Open that book beside this one.";
+  } else if (msg.event === "page") {
+    status.textContent = "";
+  }
+});
+
+function openCourse(item, button) {
   tree.querySelectorAll("button").forEach((node) => node.classList.remove("on"));
   button.classList.add("on");
   if (!item.file) {
-    book = null;
-    stage.replaceChildren();
-    where.textContent = item.title;
     status.textContent = item.title + " is listed in the curriculum. The book is not in the course folder.";
     return;
   }
   status.textContent = "Opening " + item.title + "…";
-  current = item.file;
-  try {
-    book = await FoolReader.fetchBook(RAW + encodeURI(item.file));
-    index = 0;
-    status.textContent = "";
-    show(0);
-  } catch (err) {
-    status.textContent = item.title + " did not open. " + err.message;
-  }
+  tell({ cmd: "open", src: RAW + encodeURI(item.file), title: item.title });
 }
 
 CURRICULUM.forEach((group) => {
@@ -85,6 +80,8 @@ CURRICULUM.forEach((group) => {
   });
 });
 
-document.getElementById("prev").addEventListener("click", () => book && show(index - 1));
-document.getElementById("next").addEventListener("click", () => book && show(index + 1));
-window.addEventListener("resize", () => { if (book) show(index); });
+frame.addEventListener("load", () => {
+  ready = false;
+  if (frame.contentWindow) frame.contentWindow.postMessage({ type: "foolbook", cmd: "ping" }, "*");
+});
+if (frame.contentWindow) frame.contentWindow.postMessage({ type: "foolbook", cmd: "ping" }, "*");

@@ -13,11 +13,7 @@ header .build { font-size: 11px; letter-spacing: 0.14em; color: #9ec4e8; }
 #tree button.course { padding-left: 36px; }
 #tree button.on { background: #071428; color: #fff; }
 #tree button.missing { color: #888; }
-#view { flex: 1; min-width: 0; display: flex; flex-direction: column; }
-#bar { display: flex; align-items: center; gap: 8px; padding: 8px; background: #efeae0; }
-#bar button { font: inherit; cursor: pointer; }
-#bar b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.stage { flex: 1; overflow: auto; background: #8d887c; padding: 12px; }
+#book { flex: 1; min-width: 0; border: 0; background: #8d887c; }
 #status { margin: 0; padding: 4px 14px; min-height: 1.2em; color: #800000; background: #efeae0; }
 #status:empty { display: none; }
 @media (max-width: 700px) {

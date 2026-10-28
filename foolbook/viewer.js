@@ -1,5 +1,18 @@
 "use strict";
 
+/* Embed this page for Foolcourse or NIDA_ATT.
+   iframe src="https://squirelworks.github.io/foolbook/?embed=1"
+   Parent sends:
+     { type: "foolbook", cmd: "open", src, title, page }
+     { type: "foolbook", cmd: "page", page }
+   This page replies:
+     { type: "foolbook", event: "ready" }
+     { type: "foolbook", event: "page", id, index, count, title }
+     { type: "foolbook", event: "need", book, page }
+     { type: "foolbook", event: "error", message }
+   One address also works: ?embed=1&src=<url>&title=<name>&page=<id>
+*/
+
 const BOOKS = [
   ["First light", "https://raw.githubusercontent.com/squirelworks/Foolbook/main/_books/first_light/first_light.fbk", "first_light"],
   ["Using Foolbook", "https://raw.githubusercontent.com/squirelworks/Foolbook/main/_books/using_foolbook/using_foolbook.fbk", "using_foolbook"],
@@ -9,6 +22,8 @@ const BOOKS = [
   ["Phone", "https://raw.githubusercontent.com/squirelworks/Foolcourse/main/_courses/Getting%20around/Street%20sense/phone.fbk", "phone"],
 ];
 
+const query = new URLSearchParams(location.search);
+const embed = query.get("embed") === "1";
 const shelf = document.getElementById("shelf");
 const pagesEl = document.getElementById("pages");
 const stage = document.getElementById("stage");
@@ -18,6 +33,11 @@ let book = null;
 let index = 0;
 let wanted = "";
 const opened = [];
+
+function tell(event, extra) {
+  if (window.parent === window) return;
+  parent.postMessage(Object.assign({ type: "foolbook", event }, extra || {}), "*");
+}
 
 function pageLabel(page) {
   const shape = (page.shapes || []).find((item) => item.text && String(item.text).trim());
@@ -40,7 +60,8 @@ function show(next) {
       }
       wanted = next;
       status.textContent = "Page " + next + " is in another book. Open that file.";
-      document.getElementById("file").click();
+      if (!embed) document.getElementById("file").click();
+      tell("need", { book: "", page: next });
       return;
     }
   } else {
@@ -63,6 +84,7 @@ function show(next) {
   });
   const current = pagesEl.querySelector(".on");
   if (current) current.scrollIntoView({ block: "nearest" });
+  tell("page", { id: page.id, index, count: pages.length, title: book.title || "" });
 }
 
 async function openURL(name, url, pageId) {
@@ -70,11 +92,14 @@ async function openURL(name, url, pageId) {
   shelf.querySelectorAll("button").forEach((button) => button.classList.toggle("on", button.textContent === name));
   try {
     book = await FoolReader.fetchBook(url);
+    if (name && (!book.title || book.title === "ToolBook")) book.title = name;
     index = 0;
     status.textContent = "";
+    if (!opened.includes(book)) opened.push(book);
     show(pageId || 0);
   } catch (err) {
     status.textContent = name + " did not open. " + err.message;
+    tell("error", { message: status.textContent });
   }
 }
 
@@ -99,18 +124,22 @@ async function openBuffer(name, buffer) {
     show(0);
   } catch (err) {
     status.textContent = name + " did not open. " + err.message;
+    tell("error", { message: status.textContent });
   }
 }
 
 function openNamed(name, pageId) {
-  const want = String(name || "").toLowerCase().replace(/\.(fbk|json)$/i, "");
+  const want = String(name || "").toLowerCase().replace(/\.(fbk|fsk|tbk|sbk|json)$/i, "");
   const found = BOOKS.find((row) => row[2] === want || row[0].toLowerCase() === want);
   if (!found) {
-    status.textContent = "No book named " + name + " is on the shelf.";
+    status.textContent = "This page is in " + name + ".";
+    tell("need", { book: name, page: pageId || "" });
     return;
   }
   openURL(found[0], found[1], pageId);
 }
+
+if (embed) document.body.classList.add("embed");
 
 BOOKS.forEach(([name, url]) => {
   const button = document.createElement("button");
@@ -129,5 +158,18 @@ document.getElementById("file").addEventListener("change", () => {
   file.arrayBuffer().then((buffer) => openBuffer(file.name, buffer));
 });
 window.addEventListener("resize", () => { if (book) show(index); });
+window.addEventListener("message", (ev) => {
+  const msg = ev.data;
+  if (!msg || msg.type !== "foolbook") return;
+  if (msg.cmd === "open" && msg.src) openURL(msg.title || "Book", msg.src, msg.page || 0);
+  else if (msg.cmd === "page" && msg.page) show(msg.page);
+  else if (msg.cmd === "ping") tell("ready");
+});
 
-openURL(BOOKS[0][0], BOOKS[0][1]);
+if (embed) {
+  tell("ready");
+  if (query.get("src")) openURL(query.get("title") || "Book", query.get("src"), query.get("page") || 0);
+  else where.textContent = "Waiting for a book.";
+} else {
+  openURL(BOOKS[0][0], BOOKS[0][1]);
+}
