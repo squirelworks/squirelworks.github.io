@@ -35,13 +35,31 @@ const DEFAULTS = [
 const subjectsEl = document.getElementById("subjects");
 const modulesEl = document.getElementById("modules");
 const coursesEl = document.getElementById("courses");
+const colSubject = document.getElementById("col-subject");
+const colModule = document.getElementById("col-module");
+const colCourse = document.getElementById("col-course");
+const tree = document.getElementById("tree");
 const frame = document.getElementById("book");
 const status = document.getElementById("status");
 let subjects = DEFAULTS;
 let subject = null;
 let module = null;
+let picked = false;
 let ready = false;
 const pending = [];
+const widths = { subject: 220, module: 220, course: 240 };
+
+function layout() {
+  colModule.hidden = subject == null;
+  colCourse.hidden = module == null;
+  colSubject.style.flex = subject == null ? "1 1 auto" : "0 0 " + widths.subject + "px";
+  colModule.style.flex = module == null ? "1 1 auto" : "0 0 " + widths.module + "px";
+  colCourse.style.flex = picked ? "0 0 " + widths.course + "px" : "1 1 auto";
+  if (subject == null) tree.style.width = "280px";
+  else if (module == null) tree.style.width = (widths.subject + 220) + "px";
+  else if (!picked) tree.style.width = (widths.subject + widths.module + 280) + "px";
+  else tree.style.width = (widths.subject + widths.module + widths.course + 18) + "px";
+}
 
 function tell(message) {
   message.type = "foolbook";
@@ -90,21 +108,33 @@ function paint() {
     button(subjectsEl, item.name, () => {
       subject = index;
       module = null;
+      picked = false;
+      widths.subject = 150;
       paint();
     }, index === subject);
   });
-  if (subject == null) return;
+  if (subject == null) {
+    layout();
+    return;
+  }
   (subjects[subject].modules || []).forEach((item, index) => {
     button(modulesEl, item.name, () => {
       module = index;
+      picked = false;
+      widths.subject = 120;
+      widths.module = 160;
       paint();
     }, index === module);
   });
-  if (module == null) return;
+  if (module == null) {
+    layout();
+    return;
+  }
   (subjects[subject].modules[module].courses || []).forEach((item) => {
     const node = button(coursesEl, item.title, () => openCourse(item, node));
     if (!item.file) node.classList.add("missing");
   });
+  layout();
 }
 
 function openCourse(item, node) {
@@ -115,6 +145,11 @@ function openCourse(item, node) {
     return;
   }
   status.textContent = "Opening " + item.title + "…";
+  widths.subject = 108;
+  widths.module = 128;
+  widths.course = 160;
+  picked = true;
+  layout();
   tell({ cmd: "open", src: fileURL(item.file), title: item.title });
 }
 
@@ -149,6 +184,32 @@ frame.addEventListener("load", () => {
   if (frame.contentWindow) frame.contentWindow.postMessage({ type: "foolbook", cmd: "ping" }, "*");
 });
 if (frame.contentWindow) frame.contentWindow.postMessage({ type: "foolbook", cmd: "ping" }, "*");
+
+document.querySelectorAll(".grip").forEach((grip) => {
+  grip.addEventListener("pointerdown", (ev) => {
+    const which = grip.dataset.col;
+    const start = ev.clientX;
+    const base = which === "tree"
+      ? tree.getBoundingClientRect().width
+      : widths[which];
+    grip.setPointerCapture(ev.pointerId);
+    function move(e) {
+      const next = Math.max(72, base + e.clientX - start);
+      if (which === "tree") {
+        tree.style.width = next + "px";
+        return;
+      }
+      widths[which] = next;
+      layout();
+    }
+    function stop() {
+      grip.removeEventListener("pointermove", move);
+      grip.removeEventListener("pointerup", stop);
+    }
+    grip.addEventListener("pointermove", move);
+    grip.addEventListener("pointerup", stop);
+  });
+});
 
 if (!menuURL) {
   paint();

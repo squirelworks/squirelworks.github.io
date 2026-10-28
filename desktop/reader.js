@@ -120,10 +120,20 @@ function bytesToB64(bytes) {
   return btoa(s);
 }
 
-function bmpToPng(data) {
+function bmpToPng(data, punch) {
   const bytes = Uint8Array.from(atob(data), (c) => c.charCodeAt(0));
   const image = bmpPixels(bytes);
   if (!image) return "";
+  if (punch && image.rgba.length >= 4) {
+    const r = image.rgba[0];
+    const g = image.rgba[1];
+    const b = image.rgba[2];
+    for (let i = 0; i < image.rgba.length; i += 4) {
+      if (Math.abs(image.rgba[i] - r) < 18 && Math.abs(image.rgba[i + 1] - g) < 18 && Math.abs(image.rgba[i + 2] - b) < 18) {
+        image.rgba[i + 3] = 0;
+      }
+    }
+  }
   return "data:image/png;base64," + bytesToB64(pngBytes(image.width, image.height, image.rgba));
 }
 
@@ -138,7 +148,7 @@ function pictureURL(book, shape) {
   if (data.startsWith("iVBOR")) return "data:image/png;base64," + data;
   if (data.startsWith("/9j/")) return "data:image/jpeg;base64," + data;
   if (shape._png) return shape._png;
-  const png = bmpToPng(data);
+  const png = bmpToPng(data, !!shape.transparent);
   if (png) {
     shape._png = png;
     return png;
@@ -167,8 +177,11 @@ function jumpOf(shape) {
   return { page: page ? String(page) : "", book: other ? String(other) : "" };
 }
 
-function pageJump(shape) {
-  return jumpOf(shape).page;
+function neighbor(book, page, dir) {
+  const pages = (book && book.pages) || [];
+  const at = pages.findIndex((item) => item === page || String(item.id) === String(page && page.id));
+  const found = pages[at + dir];
+  return found ? String(found.id) : "";
 }
 
 function withButtons(page) {
@@ -608,6 +621,13 @@ function drawPage(stage, book, page, onJump, onPick) {
     if (!el) return;
     el.dataset.index = String(index);
     const dest = jumpOf(shape);
+    if (!dest.page && /send\s+next/i.test(shape.script || "")) dest.page = neighbor(book, page, 1);
+    if (!dest.page && /send\s+(previous|back)/i.test(shape.script || "")) dest.page = neighbor(book, page, -1);
+    if (!dest.page && /^(next|back)$/i.test(shape.name || "")) dest.page = neighbor(book, page, /next/i.test(shape.name) ? 1 : -1);
+    const cover = kind === "rect" && x <= 1 && y <= 1 && sw > 200 && sh > 200 && !shape.text;
+    if (!dest.page && cover && (page.shapes || []).some((item) => /send\s+next/i.test(item.script || "") || /^next$/i.test(item.name || ""))) {
+      dest.page = neighbor(book, page, 1);
+    }
     el.style.pointerEvents = dest.page || dest.book || kind === "button" ? "auto" : "none";
     if (dest.page || dest.book) {
       el.style.cursor = "pointer";
