@@ -86,7 +86,10 @@ function openIcon(id) {
     return;
   }
   if (id === "editor") openEditor();
-  if (id === "bytes") openBytes();
+  if (id === "bytes") {
+    location.href = "byteviewer/";
+    return;
+  }
   if (id === "repos") {
     location.href = "repos/";
     return;

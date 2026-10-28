@@ -1,0 +1,27 @@
+html, body { margin: 0; height: 100%; background: #f4f1ea; color: #1a1a1a; font: 16px/1.45 Georgia, "Times New Roman", serif; }
+body { display: flex; flex-direction: column; min-height: 100%; }
+header { display: flex; align-items: center; gap: 16px; padding: 10px 14px; background: #071428; color: #fff; font-family: Arial, Helvetica, sans-serif; }
+header a { color: #fff; }
+header h1 { margin: 0; font-size: 18px; flex: 1; font-family: Arial, Helvetica, sans-serif; }
+button, input { font: 15px Arial, Helvetica, sans-serif; }
+header button, .samples button { background: #fff; color: #071428; border: 0; padding: 6px 10px; cursor: pointer; }
+#status { margin: 0; padding: 8px 14px 0; color: #800000; font-family: Arial, Helvetica, sans-serif; }
+#status:empty { display: none; }
+#main { flex: 1; display: flex; min-height: 0; }
+#list { width: 280px; overflow: auto; background: #fff; border-right: 1px solid #d9d3c5; font-family: Arial, Helvetica, sans-serif; }
+#list button { display: block; width: 100%; text-align: left; border: 0; background: transparent; padding: 7px 12px; cursor: pointer; }
+#list button small { display: block; color: #5c564c; font-size: 12px; }
+#list button.on { background: #071428; color: #fff; }
+#list button.on small { color: #c9d7ea; }
+#list h2 { margin: 14px 12px 4px; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: #5c564c; }
+#detail { flex: 1; overflow: auto; padding: 28px 32px 48px; }
+#detail h2 { margin: 0 0 8px; font-weight: 500; font-size: 32px; }
+.kind { font-family: Arial, Helvetica, sans-serif; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #5c564c; margin: 0 0 8px; }
+#detail p { margin: 0 0 12px; max-width: 40rem; }
+pre, .hex { font: 13px/1.45 ui-monospace, Consolas, monospace; background: #fff; border: 1px solid #d9d3c5; padding: 12px; overflow: auto; max-width: 52rem; }
+img.preview { display: block; background: #fff; border: 1px solid #d9d3c5; max-width: min(100%, 640px); margin: 12px 0; }
+.samples { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+@media (max-width: 700px) {
+  #main { flex-direction: column; }
+  #list { width: auto; max-height: 32vh; border-right: 0; border-bottom: 1px solid #d9d3c5; }
+}
