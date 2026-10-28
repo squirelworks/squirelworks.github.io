@@ -55,8 +55,7 @@ function placeIcons() {
     const label = document.createElement("span");
     label.textContent = icon.name;
     el.appendChild(label);
-    el.addEventListener("click", () => selectIcon(el));
-    el.addEventListener("dblclick", () => openIcon(icon.id));
+    el.addEventListener("click", () => openIcon(icon.id));
     el.addEventListener("keydown", (ev) => {
       if (ev.key === "Enter") openIcon(icon.id);
     });
@@ -77,7 +76,7 @@ function selectIcon(el) {
 
 function openIcon(id) {
   if (id === "old") {
-    location.href = "coursemanager/index.html";
+    location.href = "coursemanager/viewer4/viewer.html";
     return;
   }
   if (id === "nida") openNida();
