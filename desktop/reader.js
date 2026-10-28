@@ -170,9 +170,10 @@ function jumpOf(shape) {
   const item = shape.item || {};
   let page = item.page || shape.page || "";
   let other = item.book || shape.book || "";
-  if (!page) {
-    const found = /go to page\s*\(?\s*"([^"]+)"/i.exec(shape.script || "");
-    if (found) page = found[1];
+  const found = /go\s+to\s+page\s*\(?\s*"([^"]+)"\s*\)?(?:\s+of\s+book\s*\(?\s*"([^"]+)")?/i.exec(shape.script || "");
+  if (found) {
+    if (!page) page = found[1];
+    if (!other && found[2]) other = found[2];
   }
   return { page: page ? String(page) : "", book: other ? String(other) : "" };
 }

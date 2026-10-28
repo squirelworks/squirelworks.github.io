@@ -68,7 +68,34 @@ function tell(message) {
 }
 
 function fileURL(file) {
-  return books + file.split("/").map(encodeURIComponent).join("/");
+  return books + String(file).split("/").map(encodeURIComponent).join("/");
+}
+
+function bookURLs(name) {
+  const stem = String(name).replace(/\.(fbk|fsk|tbk|sbk)$/i, "");
+  const parent = books.replace(/courses\/$/i, "");
+  const suffixes = /\.sbk$/i.test(name) ? [".fsk", ".fbk", ".sbk"] : [".fbk", ".fsk", ".tbk", ".sbk"];
+  const urls = [];
+  suffixes.forEach((suf) => {
+    urls.push(books + stem + suf);
+    urls.push(parent + stem + suf);
+  });
+  return urls;
+}
+
+async function openOther(name, page) {
+  status.textContent = "Opening " + name + "…";
+  for (const src of bookURLs(name)) {
+    try {
+      const res = await fetch(src, { method: "HEAD" });
+      if (!res.ok) continue;
+      tell({ cmd: "open", src, title: name, page: page || "" });
+      return;
+    } catch (err) {
+      /* try the next place */
+    }
+  }
+  status.textContent = name + " is not beside the lesson or in the course folder.";
 }
 
 window.addEventListener("message", (ev) => {
@@ -81,10 +108,7 @@ window.addEventListener("message", (ev) => {
   } else if (msg.event === "error") {
     status.textContent = msg.message || "The book did not open.";
   } else if (msg.event === "need" && msg.book) {
-    const named = String(msg.book);
-    const file = /\.(fbk|fsk|tbk|sbk)$/i.test(named) ? named : named + ".fbk";
-    status.textContent = "Opening " + named + "…";
-    tell({ cmd: "open", src: fileURL(file), title: named, page: msg.page || "" });
+    openOther(msg.book, msg.page || "");
   } else if (msg.event === "page") {
     status.textContent = "";
   }
