@@ -69,7 +69,7 @@ async function openBuffer(name, buffer) {
   shelf.querySelectorAll("button").forEach((button) => button.classList.remove("on"));
   try {
     book = await FoolReader.unpackBytes(new Uint8Array(buffer));
-    if (!book.title) book.title = name.replace(/\.(fbk|fsk|json)$/i, "");
+    if (!book.title) book.title = name.replace(/\.(fbk|fsk|tbk|sbk|json)$/i, "");
     show(0);
   } catch (err) {
     status.textContent = name + " did not open. " + err.message;

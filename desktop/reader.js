@@ -114,6 +114,231 @@ function pageSize(page) {
   return [w, h];
 }
 
+function u16(u8, off) {
+  return u8[off] | (u8[off + 1] << 8);
+}
+
+function i16(u8, off) {
+  const n = u16(u8, off);
+  return n & 0x8000 ? n - 0x10000 : n;
+}
+
+function toPixel(twip) {
+  const inch = 0x5a0;
+  const half = 0x2d0;
+  let value = twip * 96 + half;
+  if (value < 0) value -= inch;
+  if (value < 0) return -Math.floor(-value / inch);
+  return Math.floor(value / inch);
+}
+
+function findBytes(u8, seq, from) {
+  const start = from || 0;
+  outer: for (let i = start; i <= u8.length - seq.length; i++) {
+    for (let k = 0; k < seq.length; k++) if (u8[i + k] !== seq[k]) continue outer;
+    return i;
+  }
+  return -1;
+}
+
+function cstrAt(u8, off, n) {
+  let s = "";
+  for (let i = 0; i < n && off + i < u8.length; i++) {
+    const c = u8[off + i];
+    if (!c || c < 32 || c > 126) break;
+    s += String.fromCharCode(c);
+  }
+  return s;
+}
+
+function isToolbook(u8) {
+  if (u8.length >= 0xc04) {
+    const mark = u8[0xc00] | (u8[0xc01] << 8) | (u8[0xc02] << 16) | (u8[0xc03] << 24);
+    if ((mark >>> 0) === 0x22222222) return true;
+  }
+  return findBytes(u8, [0x80, 0x65, 0x00, 0x05, 0x00, 0x02, 0x02]) >= 0 || findBytes(u8, [0x81, 0x65, 0x00, 0x05, 0x00, 0x02, 0x02]) >= 0;
+}
+
+function fieldTexts(blob) {
+  const out = [];
+  let start = 0;
+  while (out.length < 40) {
+    const i = findBytes(blob, [0x54, 0x65, 0x78, 0x74, 0x00, 0x00], start);
+    if (i < 0) break;
+    start = i + 6;
+    if (i + 16 > blob.length) continue;
+    const length = u16(blob, i + 14);
+    if (length < 8 || i + 16 + length > blob.length) continue;
+    const raw = blob.subarray(i + 16, i + 16 + length);
+    if (raw[0] !== 0x0d && raw[0] !== 0x0a) continue;
+    let text = "";
+    for (const c of raw) {
+      if (c === 0x0d) continue;
+      text += c === 0x0a ? "\n" : String.fromCharCode(c);
+    }
+    text = text.trim();
+    if (text) out.push(text);
+  }
+  return out;
+}
+
+function pageJumps(blob) {
+  const jumps = [];
+  const text = Array.from(blob, (c) => (c >= 32 && c < 127 ? String.fromCharCode(c) : " ")).join("");
+  const re = /\("?(P[A-Za-z0-9]+)"?\)/g;
+  let match;
+  while ((match = re.exec(text))) {
+    const name = match[1];
+    if (!jumps.includes(name)) jumps.push(name);
+  }
+  return jumps;
+}
+
+function hasWord(blob, word) {
+  const bytes = Array.from(word).map((ch) => ch.charCodeAt(0));
+  for (let i = 0; i + bytes.length < blob.length; i++) {
+    let ok = true;
+    for (let k = 0; k < bytes.length; k++) if (blob[i + k] !== bytes[k]) ok = false;
+    if (!ok) continue;
+    const before = i ? blob[i - 1] : 0;
+    const after = blob[i + bytes.length] || 0;
+    if (before < 65 && (after === 0 || after < 65)) return true;
+  }
+  return false;
+}
+
+function geometry(blob) {
+  const shapes = [];
+  const spans = [];
+  let idx = 0;
+  while (shapes.length < 80) {
+    const i = findBytes(blob, [0x10, 0x00], idx);
+    if (i < 0) break;
+    const found = readPolygon(blob.subarray(i));
+    if (found) {
+      const end = i + 0x3a + found.count * 4;
+      spans.push([i, end]);
+      if (found.pixels.length >= 3) {
+        shapes.push({ kind: "polygon", points: found.pixels, fill: found.fill || "none", outline: "#000" });
+      }
+      idx = end;
+      continue;
+    }
+    idx = i + 1;
+  }
+  idx = 0;
+  while (shapes.length < 120) {
+    const i = findBytes(blob, [0x01, 0x00, 0x00, 0x04], idx);
+    if (i < 0) break;
+    if (spans.some(([start, end]) => i >= start && i < end)) { idx = i + 1; continue; }
+    if (i >= 20) {
+      const vals = [0, 2, 4, 6].map((k) => u16(blob, i - 16 + k));
+      if (vals.every((v) => v > 0 && v < 15000) && vals[2] > vals[0] && vals[3] > vals[1]) {
+        const x = toPixel(vals[0]);
+        const y = toPixel(vals[1]);
+        const b = blob[i - 4];
+        const g = blob[i - 3];
+        const r = blob[i - 2];
+        shapes.push({
+          kind: "rect", x, y,
+          w: Math.max(1, toPixel(vals[2]) - x),
+          h: Math.max(1, toPixel(vals[3]) - y),
+          fill: "#" + [r, g, b].map((n) => n.toString(16).padStart(2, "0")).join(""),
+          outline: "#000",
+        });
+      }
+    }
+    idx = i + 1;
+  }
+  return shapes;
+}
+
+function readPolygon(record) {
+  if (record.length < 0x3a + 4 || record[0] !== 0x10 || record[1] !== 0x00) return null;
+  if (record[0x24] !== 0x04 || record[0x25] !== 0x00) return null;
+  if (u16(record, 0x38) !== 0) return null;
+  const count = u16(record, 0x32);
+  if (count < 3 || 0x3a + count * 4 > record.length) return null;
+  const bounds = [0, 2, 4, 6].map((step) => i16(record, 0x11 + step));
+  if (bounds[2] <= bounds[0] || bounds[3] <= bounds[1]) return null;
+  const pairs = [];
+  for (let j = 0; j < count; j++) {
+    pairs.push([i16(record, 0x3a + j * 4), i16(record, 0x3a + j * 4 + 2)]);
+  }
+  const xs = pairs.map((p) => p[0]);
+  const ys = pairs.map((p) => p[1]);
+  const minx = Math.min(...xs);
+  const maxx = Math.max(...xs);
+  const miny = Math.min(...ys);
+  const maxy = Math.max(...ys);
+  const spanX = maxx - minx;
+  const spanY = maxy - miny;
+  const width = bounds[2] - bounds[0];
+  const height = bounds[3] - bounds[1];
+  const pixels = pairs.map(([x, y]) => {
+    const pageX = spanX === 0 ? bounds[0] : bounds[0] + ((x - minx) * width) / spanX;
+    const pageY = spanY === 0 ? bounds[1] : bounds[1] + ((y - miny) * height) / spanY;
+    return [toPixel(Math.round(pageX)), toPixel(Math.round(pageY))];
+  });
+  const pattern = record[0x27];
+  const fill = pattern === 0xfd ? "" : "#" + [record[0x1d], record[0x1e], record[0x1f]].map((n) => n.toString(16).padStart(2, "0")).join("");
+  return { count, pixels, fill };
+}
+
+function readToolbook(u8) {
+  const tail = [0x65, 0x00, 0x05, 0x00, 0x02, 0x02];
+  const hits = [];
+  let scan = 0;
+  while (hits.length < 2000) {
+    const at = findBytes(u8, tail, scan);
+    if (at < 1) break;
+    if (u8[at - 1] === 0x80 || u8[at - 1] === 0x81) hits.push(at - 1);
+    scan = at + 1;
+  }
+  const pages = hits.map((off, n) => {
+    const next = n + 1 < hits.length ? hits[n + 1] : u8.length;
+    const blob = u8.subarray(off, next);
+    const id = cstrAt(u8, off + 11, 32) || ("Page" + n);
+    const lines = fieldTexts(blob);
+    const targets = pageJumps(blob);
+    const items = [];
+    if (hasWord(blob, "Next") && hasWord(blob, "Back") && targets.length >= 2) {
+      items.push({ label: "Next", page: targets[0] }, { label: "Back", page: targets[1] });
+      targets.slice(2).forEach((name) => items.push({ label: name, page: name }));
+    } else {
+      targets.forEach((name) => items.push({ label: name, page: name }));
+    }
+    const shapes = geometry(blob);
+    let y = 20;
+    if (!lines.length) {
+      shapes.push({ kind: "text", name: "title", x: 24, y, w: 640, h: 36, text: id, outline: "#1a1a1a", size: 22, bold: true });
+      y += 48;
+    }
+    lines.forEach((line, index) => {
+      const rows = line.split("\n").length;
+      const h = Math.max(32, rows * 22 + 8);
+      shapes.push({
+        kind: "text", name: index === 0 ? "title" : "",
+        x: 24, y, w: 652, h, text: line, outline: "#1a1a1a", size: 16,
+      });
+      y += h + 10;
+    });
+    let x = 24;
+    items.forEach((item) => {
+      const w = Math.max(88, Math.min(220, item.label.length * 10 + 28));
+      shapes.push({
+        kind: "button", name: item.label, text: item.label,
+        x, y: y + 8, w, h: 36, fill: "#0b1c3d", outline: "#0b1c3d", item, size: 15,
+      });
+      x += w + 12;
+    });
+    const bottom = Math.max(480, y + 64);
+    shapes.unshift({ kind: "rect", x: 0, y: 0, w: 700, h: bottom, fill: "#f7f4ee", outline: "#f7f4ee" });
+    return { id, text: lines.length ? lines : [id], items, shapes };
+  });
+  return { id: "toolbook", title: "ToolBook", pages, format: "tbk" };
+}
+
 async function unpackBytes(u8) {
   const head = new TextDecoder().decode(u8.slice(0, 4));
   let payload = u8.slice(5);
@@ -127,8 +352,12 @@ async function unpackBytes(u8) {
   } else if (u8[0] === 0x7b || u8[0] === 0x5b) {
     payload = u8;
     magic = "JSON";
+  } else if (isToolbook(u8)) {
+    const book = readToolbook(u8);
+    book._magic = "TBK";
+    return book;
   } else {
-    throw new Error("not an FBK, FSK, or FSC");
+    throw new Error("not an FBK, FSK, TBK, or SBK");
   }
   const book = JSON.parse(new TextDecoder().decode(payload));
   book._magic = magic;
