@@ -528,7 +528,12 @@ function drawPage(stage, book, page, onJump, onPick) {
   stage.replaceChildren();
   const shapes = withButtons(page);
   const [w, h] = pageSize({ size: page.size, shapes: shapes });
-  const scale = Math.min(1, (stage.clientWidth || w) / w);
+  const turned = document.body.classList.contains("turned");
+  const boxW = stage.clientWidth || w;
+  const boxH = stage.clientHeight || h;
+  const scale = turned
+    ? Math.min(1, boxH / w, boxW / h)
+    : Math.min(1, boxW / w);
   const fit = document.createElement("div");
   fit.className = "fit";
   fit.style.width = Math.round(w * scale) + "px";
@@ -538,6 +543,12 @@ function drawPage(stage, book, page, onJump, onPick) {
   board.style.width = w + "px";
   board.style.height = h + "px";
   board.style.transform = "scale(" + scale + ")";
+  if (turned) {
+    fit.style.position = "absolute";
+    fit.style.left = "50%";
+    fit.style.top = "50%";
+    fit.style.transform = "translate(-50%, -50%) rotate(90deg)";
+  }
   fit.appendChild(board);
   stage.appendChild(fit);
   shapes.forEach((shape, index) => {

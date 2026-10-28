@@ -22,12 +22,10 @@ body.embed header, body.embed #shelf, body.embed #pages { display: none; }
 .stage { flex: 1; min-height: 0; overflow: auto; background: #8d887c; padding: 12px; }
 .fit { overflow: hidden; }
 .board { position: relative; transform-origin: top left; background: #fff; }
-body.embed.turned { overflow: hidden; }
-body.embed.turned #view {
-  position: fixed;
-  transform: rotate(90deg);
-  transform-origin: top left;
-  max-width: none;
+body.embed.turned .stage {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
 }
 @media (max-width: 700px) {
   #main { flex-direction: column; }

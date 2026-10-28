@@ -157,22 +157,9 @@ document.getElementById("file").addEventListener("change", () => {
   if (!file) return;
   file.arrayBuffer().then((buffer) => openBuffer(file.name, buffer));
 });
-const view = document.getElementById("view");
-
 function orient() {
-  const portrait = embed && window.innerHeight > window.innerWidth + 20;
+  const portrait = embed && window.innerWidth > 0 && window.innerHeight > window.innerWidth + 40;
   document.body.classList.toggle("turned", portrait);
-  if (portrait) {
-    view.style.width = window.innerHeight + "px";
-    view.style.height = window.innerWidth + "px";
-    view.style.left = window.innerWidth + "px";
-    view.style.top = "0";
-  } else {
-    view.style.width = "";
-    view.style.height = "";
-    view.style.left = "";
-    view.style.top = "";
-  }
   if (book) requestAnimationFrame(() => show(index));
 }
 
