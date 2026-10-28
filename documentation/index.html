@@ -8,148 +8,213 @@ layout: null
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Documentation</title>
   <style>
-    html, body { margin: 0; height: 100%; background: #f4f1ea; color: #1a1a1a; font: 14px/1.45 Tahoma, Arial, sans-serif; }
+    html, body { margin: 0; height: 100%; background: #f4f1ea; color: #1a1a1a; font: 15px/1.5 Georgia, serif; }
     #app { display: flex; height: 100%; }
-    #tree { width: 260px; min-width: 180px; overflow: auto; border-right: 2px solid #808080; background: #fff; padding: 8px; box-sizing: border-box; }
-    #view { flex: 1; overflow: auto; padding: 16px 20px; background: #fff; }
-    h1 { font-size: 16px; margin: 0 0 8px; }
-    .build { float: right; color: #666; font: 11px/1.2 Tahoma, sans-serif; letter-spacing: 0.12em; }
-    .back { margin: 0 0 8px; }
-    .back a { color: #000080; font-size: 13px; text-decoration: none; }
+    #tree { width: 240px; min-width: 180px; overflow: auto; border-right: 2px solid #808080; background: #fff; padding: 10px; box-sizing: border-box; font: 13px/1.4 Tahoma, sans-serif; }
+    #view { flex: 1; overflow: auto; padding: 20px 28px; background: #fff; }
+    h1 { font: 18px/1.3 Tahoma, sans-serif; margin: 0 0 8px; }
+    .build { float: right; color: #888; font: 11px/1.2 Tahoma, sans-serif; letter-spacing: 0.1em; }
+    .back { margin: 0 0 10px; }
+    .back a { color: #000080; font-size: 12px; text-decoration: none; }
     .back a:hover { text-decoration: underline; }
-    button { display: block; width: 100%; text-align: left; border: 0; background: transparent; padding: 4px; cursor: pointer; font: inherit; }
+    button { display: block; width: 100%; text-align: left; border: 0; background: transparent; padding: 3px 4px; cursor: pointer; font: inherit; }
     button:hover, button.on { background: #000080; color: #fff; }
-    .folder { font-weight: bold; }
-    .sub { padding-left: 12px; }
-    .md h1 { font-size: 20px; margin: 0 0 12px; }
-    .md h2 { font-size: 16px; margin: 18px 0 8px; }
-    .md p { margin: 0 0 10px; }
-    .md code { background: #f0eee8; padding: 1px 4px; }
-    .note { color: #555; font-size: 12px; margin: 4px 0 12px; }
-    iframe { border: 0; width: 100%; height: 100%; min-height: 480px; }
+    .sec { font-weight: bold; margin: 10px 0 2px; color: #333; }
+    .md h1 { font: 22px/1.3 Georgia, serif; margin: 0 0 14px; }
+    .md h2 { font: 18px/1.3 Georgia, serif; margin: 20px 0 8px; }
+    .md p { margin: 0 0 12px; }
+    .md code { background: #f0eee8; padding: 1px 4px; font: 13px Consolas, monospace; }
+    .md table { border-collapse: collapse; margin: 8px 0 16px; font: 13px Tahoma, sans-serif; }
+    .md th, .md td { border: 1px solid #ccc; padding: 4px 8px; text-align: left; }
+    .bar { display: flex; gap: 8px; align-items: center; margin: 0 0 14px; font: 13px Tahoma, sans-serif; }
+    .bar button { width: auto; padding: 4px 12px; border: 1px solid #000080; background: #000080; color: #fff; }
+    .bar button:disabled { opacity: 0.4; }
+    .note { color: #555; font: 13px Tahoma, sans-serif; }
+    iframe { border: 0; width: 100%; height: calc(100vh - 80px); }
   </style>
 </head>
 <body>
 <div id="app">
   <div id="tree">
     <p class="back"><a href="../">Back to the desktop</a></p>
-    <h1>Documentation <span class="build">15.002</span></h1>
-    <button class="folder" data-folder="Graal">Graal</button>
-    <div id="graal-sets" class="sub" hidden>
-      <button data-set="ash">39ster Ash / Phoenix</button>
-      <button data-set="npc">Classic NPC Ash</button>
-      <button data-set="gservers">GServers</button>
-      <button data-set="linux">LinuxMan2 / Seihai</button>
-    </div>
+    <h1>Documentation <span class="build">15.003</span></h1>
+    <div class="sec">Books</div>
+    <button data-book="gserver">GServerStory</button>
+    <button data-book="glstory">GraalLStory</button>
+    <button data-book="glstory2">GraalLStory 2</button>
+    <div class="sec">Notes</div>
+    <button data-set="ash">39ster Ash / Phoenix</button>
+    <button data-set="npc">Classic NPC Ash</button>
+    <button data-set="ember">Ember</button>
+    <button data-set="linux">LinuxMan2 / Seihai</button>
   </div>
   <div id="view">
-    <h1>Documentation <span class="build">15.002</span></h1>
-    <p class="note">Pick Graal, then a set, then a file.</p>
+    <h1>Documentation <span class="build">15.003</span></h1>
+    <p class="note">Pick a book or a notes set on the left.</p>
   </div>
 </div>
 <script>
 "use strict";
+var B = "15.003";
+
+var BOOKS = {
+  gserver: {
+    title: "GServerStory",
+    base: "Graal/graal-gservers/gserverstory/",
+    chapters: ["00-series.md"].concat(range(1, 39).map(ch)).concat(["command-index.md"]),
+    labels: ["Series"].concat(range(1, 39).map(function (n) { return "Chapter " + n; })).concat(["Command index"])
+  },
+  glstory: {
+    title: "GraalLStory",
+    base: "Graal/graal-linuxman2-seihai/graallstory/",
+    chapters: ["README.md", "chapter-01-the-first-line.md"],
+    labels: ["Readme", "Chapter 1"]
+  },
+  glstory2: {
+    title: "GraalLStory 2",
+    base: "Graal/graallstory2/",
+    chapters: ["README.md", "compilers-note.md"].concat(range(1, 18).map(function (n) { return "chapter-" + pad(n) + ".md"; })),
+    labels: ["Readme", "Compiler's note"].concat(range(1, 18).map(function (n) { return "Chapter " + n; }))
+  }
+};
 
 var SETS = {
   ash: {
     title: "39ster Ash / Phoenix",
-    path: "Graal/39ster-ash-phoenix/",
     files: [
-      ["INDEX.md", "Index"],
-      ["README.md", "Readme"],
-      ["ARCHITECTURE.md", "Architecture"],
-      ["PHOENIX-ARCHITECTURE.md", "Phoenix architecture"],
-      ["diagrams.html", "Diagrams"]
+      ["Graal/39ster-ash-phoenix/INDEX.md", "Index"],
+      ["Graal/39ster-ash-phoenix/README.md", "Readme"],
+      ["Graal/39ster-ash-phoenix/ARCHITECTURE.md", "Architecture"],
+      ["Graal/39ster-ash-phoenix/PHOENIX-ARCHITECTURE.md", "Phoenix architecture"],
+      ["Graal/39ster-ash-phoenix/diagrams.html", "Diagrams"]
     ]
   },
   npc: {
     title: "Classic NPC Ash",
-    path: "Graal/graal-classic-npc-ash/",
     files: [
-      ["INDEX.md", "Index"],
-      ["README.md", "Readme"],
-      ["PACKAGE-README.md", "Package"],
-      ["00-runtime/architecture.md", "Runtime - architecture"],
-      ["00-runtime/event-model.md", "Runtime - events"],
-      ["00-runtime/state-and-ids.md", "Runtime - state and IDs"],
-      ["00-runtime/algorithm-index.md", "Runtime - algorithms"],
-      ["01-larency/architecture.md", "Larency"],
-      ["02-phoenix/architecture.md", "Phoenix"],
-      ["03-meh/architecture.md", "Meh"],
-      ["04-unp/architecture.md", "Unp"],
-      ["05-standalone/architecture.md", "Standalone"]
+      ["Graal/graal-classic-npc-ash/INDEX.md", "Index"],
+      ["Graal/graal-classic-npc-ash/README.md", "Readme"],
+      ["Graal/graal-classic-npc-ash/PACKAGE-README.md", "Package"],
+      ["Graal/graal-classic-npc-ash/00-runtime/architecture.md", "Runtime - architecture"],
+      ["Graal/graal-classic-npc-ash/00-runtime/event-model.md", "Runtime - events"],
+      ["Graal/graal-classic-npc-ash/00-runtime/state-and-ids.md", "Runtime - state and IDs"],
+      ["Graal/graal-classic-npc-ash/00-runtime/algorithm-index.md", "Runtime - algorithms"],
+      ["Graal/graal-classic-npc-ash/01-larency/architecture.md", "Larency"],
+      ["Graal/graal-classic-npc-ash/02-phoenix/architecture.md", "Phoenix"],
+      ["Graal/graal-classic-npc-ash/03-meh/architecture.md", "Meh"],
+      ["Graal/graal-classic-npc-ash/04-unp/architecture.md", "Unp"],
+      ["Graal/graal-classic-npc-ash/05-standalone/architecture.md", "Standalone"]
     ]
   },
-  gservers: {
-    title: "GServers",
-    path: "Graal/graal-gservers/",
+  ember: {
+    title: "Ember",
     files: [
-      ["README.md", "Readme"],
-      ["ember/00-index.md", "Ember - index"],
-      ["ember/01-lineage.md", "Ember - lineage"],
-      ["ember/02-architecture.md", "Ember - architecture"],
-      ["ember/03-protocol.md", "Ember - protocol"],
-      ["ember/04-algorithms.md", "Ember - algorithms"],
-      ["ember/05-blueprints.md", "Ember - blueprints"],
-      ["ember/ATLAS.html", "Ember - atlas"],
-      ["gserverstory/00-series.md", "Story - series"],
-      ["gserverstory/chapter-01.md", "Story - chapter 1"],
-      ["gserverstory/chapter-02.md", "Story - chapter 2"],
-      ["gserverstory/chapter-03.md", "Story - chapter 3"],
-      ["gserverstory/command-index.md", "Story - command index"]
+      ["Graal/graal-gservers/README.md", "GServers readme"],
+      ["Graal/graal-gservers/ember/00-index.md", "Index"],
+      ["Graal/graal-gservers/ember/01-lineage.md", "Lineage"],
+      ["Graal/graal-gservers/ember/02-architecture.md", "Architecture"],
+      ["Graal/graal-gservers/ember/03-protocol.md", "Protocol"],
+      ["Graal/graal-gservers/ember/04-algorithms.md", "Algorithms"],
+      ["Graal/graal-gservers/ember/05-blueprints.md", "Blueprints"],
+      ["Graal/graal-gservers/ember/ATLAS.html", "Atlas"]
     ]
   },
   linux: {
     title: "LinuxMan2 / Seihai",
-    path: "Graal/graal-linuxman2-seihai/",
     files: [
-      ["README.md", "Readme"],
-      ["LinuxMan2-README.md", "LinuxMan2"],
-      ["GraalEditor-README.md", "GraalEditor"],
-      ["GraalShop-README.md", "GraalShop"],
-      ["GraalShop/Documentation/architecture.md", "GraalShop - architecture"],
-      ["GraalShop/Documentation/domain.md", "GraalShop - domain"],
-      ["GraalShop/Documentation/sprites.md", "GraalShop - sprites"],
-      ["GraalShop/Documentation/animation.md", "GraalShop - animation"]
+      ["Graal/graal-linuxman2-seihai/README.md", "Readme"],
+      ["Graal/graal-linuxman2-seihai/LinuxMan2-README.md", "LinuxMan2"],
+      ["Graal/graal-linuxman2-seihai/Seihai-README.md", "Seihai"],
+      ["Graal/graal-linuxman2-seihai/GraalEditor-README.md", "GraalEditor"],
+      ["Graal/graal-linuxman2-seihai/GraalShop-README.md", "GraalShop"],
+      ["Graal/graal-linuxman2-seihai/GraalShop/Documentation/architecture.md", "GraalShop - architecture"],
+      ["Graal/graal-linuxman2-seihai/GraalShop/Documentation/domain.md", "GraalShop - domain"],
+      ["Graal/graal-linuxman2-seihai/GraalShop/Documentation/sprites.md", "GraalShop - sprites"],
+      ["Graal/graal-linuxman2-seihai/GraalShop/Documentation/animation.md", "GraalShop - animation"]
     ]
   }
 };
 
-var view = document.getElementById("view");
+function range(a, b) { var o = []; for (var i = a; i <= b; i++) o.push(i); return o; }
+function pad(n) { return (n < 10 ? "0" : "") + n; }
+function ch(n) { return "chapter-" + pad(n) + ".md"; }
 
-document.querySelector("[data-folder]").addEventListener("click", function () {
-  var box = document.getElementById("graal-sets");
-  box.hidden = !box.hidden;
-  view.innerHTML = "<h1>Graal <span class=\"build\">15.002</span></h1><p class=\"note\">Pick a set.</p>";
+var view = document.getElementById("view");
+var currentBook = null;
+var currentIdx = 0;
+
+document.querySelectorAll("[data-book]").forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    document.querySelectorAll("#tree button").forEach(function (b) { b.classList.remove("on"); });
+    btn.classList.add("on");
+    openBook(btn.getAttribute("data-book"), 0);
+  });
 });
 
 document.querySelectorAll("[data-set]").forEach(function (btn) {
   btn.addEventListener("click", function () {
-    var set = SETS[btn.getAttribute("data-set")];
-    var html = "<h1>" + set.title + " <span class=\"build\">15.002</span></h1>";
-    set.files.forEach(function (pair) {
-      html += "<button data-file=\"" + set.path + pair[0] + "\" data-label=\"" + pair[1] + "\">" + pair[1] + "</button>";
-    });
-    view.innerHTML = html;
-    view.querySelectorAll("[data-file]").forEach(function (b) {
-      b.addEventListener("click", function () {
-        openFile(b.getAttribute("data-file"), b.getAttribute("data-label"));
-      });
-    });
+    document.querySelectorAll("#tree button").forEach(function (b) { b.classList.remove("on"); });
+    btn.classList.add("on");
+    openSet(btn.getAttribute("data-set"));
   });
 });
 
+function openBook(id, idx) {
+  currentBook = BOOKS[id];
+  currentIdx = idx;
+  var path = currentBook.base + currentBook.chapters[idx];
+  var label = currentBook.labels[idx];
+  view.innerHTML = "<h1>" + currentBook.title + " <span class=\"build\">" + B + "</span></h1><p class=\"note\">Loading...</p>";
+  fetch(path).then(function (res) {
+    if (!res.ok) throw new Error(res.status);
+    return res.text();
+  }).then(function (text) {
+    var prev = idx > 0 ? "<button id=\"prev\">Prev</button>" : "<button disabled>Prev</button>";
+    var next = idx < currentBook.chapters.length - 1 ? "<button id=\"next\">Next</button>" : "<button disabled>Next</button>";
+    var sel = "<select id=\"ch\">";
+    currentBook.labels.forEach(function (lab, i) {
+      sel += "<option value=\"" + i + "\"" + (i === idx ? " selected" : "") + ">" + lab + "</option>";
+    });
+    sel += "</select>";
+    view.innerHTML = "<h1>" + currentBook.title + " <span class=\"build\">" + B + "</span></h1>" +
+      "<div class=\"bar\">" + prev + sel + next + "</div>" +
+      "<div class=\"md\">" + md(text) + "</div>";
+    var p = document.getElementById("prev");
+    var n = document.getElementById("next");
+    var s = document.getElementById("ch");
+    if (p && !p.disabled) p.addEventListener("click", function () { openBook(id, idx - 1); });
+    if (n && !n.disabled) n.addEventListener("click", function () { openBook(id, idx + 1); });
+    if (s) s.addEventListener("change", function () { openBook(id, Number(s.value)); });
+  }).catch(function (err) {
+    view.innerHTML = "<h1>" + label + "</h1><p class=\"note\">Could not open " + path + ". " + err.message + "</p>";
+  });
+}
+
+function openSet(id) {
+  var set = SETS[id];
+  var html = "<h1>" + set.title + " <span class=\"build\">" + B + "</span></h1>";
+  set.files.forEach(function (pair) {
+    html += "<button data-file=\"" + pair[0] + "\" data-label=\"" + pair[1] + "\">" + pair[1] + "</button>";
+  });
+  view.innerHTML = html;
+  view.querySelectorAll("[data-file]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      openFile(b.getAttribute("data-file"), b.getAttribute("data-label"));
+    });
+  });
+}
+
 function openFile(path, label) {
-  view.innerHTML = "<h1>" + label + " <span class=\"build\">15.002</span></h1><p class=\"note\">Loading...</p>";
+  view.innerHTML = "<h1>" + label + " <span class=\"build\">" + B + "</span></h1><p class=\"note\">Loading...</p>";
   fetch(path).then(function (res) {
     if (!res.ok) throw new Error(res.status);
     return res.text();
   }).then(function (text) {
     if (path.endsWith(".html")) {
-      view.innerHTML = "<h1>" + label + " <span class=\"build\">15.002</span></h1><iframe src=\"" + path + "\"></iframe>";
+      view.innerHTML = "<h1>" + label + " <span class=\"build\">" + B + "</span></h1><iframe src=\"" + path + "\"></iframe>";
       return;
     }
-    view.innerHTML = "<h1>" + label + " <span class=\"build\">15.002</span></h1><div class=\"md\">" + md(text) + "</div>";
+    view.innerHTML = "<h1>" + label + " <span class=\"build\">" + B + "</span></h1><div class=\"md\">" + md(text) + "</div>";
   }).catch(function (err) {
     view.innerHTML = "<h1>" + label + "</h1><p class=\"note\">Could not open " + path + ". " + err.message + "</p>";
   });
