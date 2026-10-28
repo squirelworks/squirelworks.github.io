@@ -3,6 +3,130 @@
 const NIDA_RAW = "https://raw.githubusercontent.com/squirelworks/NIDA_ATT/main/";
 const COURSE_RAW = "https://raw.githubusercontent.com/squirelworks/Foolcourse/main/_courses/";
 
+function u32(u8, off) {
+  return (u8[off] | (u8[off + 1] << 8) | (u8[off + 2] << 16) | (u8[off + 3] << 24)) >>> 0;
+}
+
+function i32(u8, off) {
+  const n = u32(u8, off);
+  return n > 0x7fffffff ? n - 0x100000000 : n;
+}
+
+function bmpPixels(bytes) {
+  if (bytes.length < 54 || bytes[0] !== 0x42 || bytes[1] !== 0x4d) return null;
+  const offbits = u32(bytes, 10);
+  const header = u32(bytes, 14);
+  const width = i32(bytes, 18);
+  const height = i32(bytes, 22);
+  const bpp = bytes[28] | (bytes[29] << 8);
+  const compression = u32(bytes, 30);
+  const pixels = Math.abs(height);
+  if (compression !== 0 || width < 1 || pixels < 1 || width > 4000 || pixels > 4000) return null;
+  if (![1, 4, 8, 24, 32].includes(bpp)) return null;
+  const stride = Math.floor((width * bpp + 31) / 32) * 4;
+  const colors = bpp <= 8 ? (u32(bytes, 46) || (1 << bpp)) : 0;
+  const palette = 14 + header;
+  const bottomUp = height > 0;
+  const rgba = new Uint8Array(width * pixels * 4);
+  const bit = (row, col) => {
+    const at = offbits + row * stride + Math.floor((col * bpp) / 8);
+    if (at >= bytes.length) return 0;
+    if (bpp === 24) return [bytes[at + 2], bytes[at + 1], bytes[at], 255];
+    if (bpp === 32) return [bytes[at + 2], bytes[at + 1], bytes[at], bytes[at + 3] || 255];
+    const shift = bpp === 1 ? 7 - (col & 7) : bpp === 4 ? ((col & 1) ? 0 : 4) : 0;
+    const index = (bytes[at] >> shift) & ((1 << bpp) - 1);
+    const p = palette + index * 4;
+    return [bytes[p + 2] || 0, bytes[p + 1] || 0, bytes[p] || 0, 255];
+  };
+  for (let y = 0; y < pixels; y++) {
+    const row = bottomUp ? pixels - 1 - y : y;
+    for (let x = 0; x < width; x++) {
+      const px = bit(row, x);
+      const at = (y * width + x) * 4;
+      rgba[at] = px[0];
+      rgba[at + 1] = px[1];
+      rgba[at + 2] = px[2];
+      rgba[at + 3] = px[3];
+    }
+  }
+  return { width, height: pixels, rgba };
+}
+
+function crc32(bytes) {
+  let c = ~0;
+  for (let i = 0; i < bytes.length; i++) {
+    c ^= bytes[i];
+    for (let k = 0; k < 8; k++) c = (c >>> 1) ^ (0xedb88320 & -(c & 1));
+  }
+  return ~c >>> 0;
+}
+
+function pngChunk(type, data) {
+  const out = new Uint8Array(12 + data.length);
+  const view = new DataView(out.buffer);
+  view.setUint32(0, data.length);
+  out.set(type, 4);
+  out.set(data, 8);
+  const body = out.subarray(4, 8 + data.length);
+  view.setUint32(8 + data.length, crc32(body));
+  return out;
+}
+
+function pngBytes(width, height, rgba) {
+  const raw = new Uint8Array((width * 4 + 1) * height);
+  for (let y = 0; y < height; y++) {
+    const row = y * (width * 4 + 1);
+    raw[row] = 0;
+    raw.set(rgba.subarray(y * width * 4, (y + 1) * width * 4), row + 1);
+  }
+  const stored = [0x78, 0x01];
+  let pos = 0;
+  let a = 1;
+  let b = 0;
+  for (let i = 0; i < raw.length; i++) {
+    a = (a + raw[i]) % 65521;
+    b = (b + a) % 65521;
+  }
+  while (pos < raw.length) {
+    const n = Math.min(65535, raw.length - pos);
+    const last = pos + n >= raw.length;
+    stored.push(last ? 1 : 0, n & 255, (n >> 8) & 255, (~n) & 255, ((~n) >> 8) & 255);
+    for (let i = 0; i < n; i++) stored.push(raw[pos + i]);
+    pos += n;
+  }
+  const sum = ((b << 16) | a) >>> 0;
+  stored.push((sum >>> 24) & 255, (sum >>> 16) & 255, (sum >>> 8) & 255, sum & 255);
+  const ihdr = new Uint8Array(13);
+  const hv = new DataView(ihdr.buffer);
+  hv.setUint32(0, width);
+  hv.setUint32(4, height);
+  ihdr[8] = 8;
+  ihdr[9] = 6;
+  const sig = Uint8Array.from([137, 80, 78, 71, 13, 10, 26, 10]);
+  const parts = [sig, pngChunk([73, 72, 68, 82], ihdr), pngChunk([73, 68, 65, 84], Uint8Array.from(stored)), pngChunk([73, 69, 78, 68], new Uint8Array(0))];
+  const size = parts.reduce((n, part) => n + part.length, 0);
+  const out = new Uint8Array(size);
+  let at = 0;
+  parts.forEach((part) => {
+    out.set(part, at);
+    at += part.length;
+  });
+  return out;
+}
+
+function bytesToB64(bytes) {
+  let s = "";
+  for (let i = 0; i < bytes.length; i++) s += String.fromCharCode(bytes[i]);
+  return btoa(s);
+}
+
+function bmpToPng(data) {
+  const bytes = Uint8Array.from(atob(data), (c) => c.charCodeAt(0));
+  const image = bmpPixels(bytes);
+  if (!image) return "";
+  return "data:image/png;base64," + bytesToB64(pngBytes(image.width, image.height, image.rgba));
+}
+
 function pictureURL(book, shape) {
   let data = shape.data || shape.src || "";
   if (typeof data === "string" && data.startsWith("#")) {
@@ -11,8 +135,15 @@ function pictureURL(book, shape) {
   }
   if (typeof data !== "string" || data.length < 32) return "";
   if (data.startsWith("data:")) return data;
-  const kind = data.startsWith("iVBOR") ? "png" : data.startsWith("/9j/") ? "jpeg" : "bmp";
-  return "data:image/" + kind + ";base64," + data;
+  if (data.startsWith("iVBOR")) return "data:image/png;base64," + data;
+  if (data.startsWith("/9j/")) return "data:image/jpeg;base64," + data;
+  if (shape._png) return shape._png;
+  const png = bmpToPng(data);
+  if (png) {
+    shape._png = png;
+    return png;
+  }
+  return "data:image/bmp;base64," + data;
 }
 
 function pale(color) {
@@ -429,6 +560,8 @@ function drawPage(stage, book, page, onJump, onPick) {
       el.style.top = y + "px";
       el.style.width = sw + "px";
       el.style.height = sh + "px";
+      el.style.objectFit = "fill";
+      el.style.background = "transparent";
       const url = pictureURL(book, shape);
       if (url) el.src = url;
     } else if (kind === "text" || kind === "button" || kind === "rect") {
