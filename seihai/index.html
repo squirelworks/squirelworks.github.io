@@ -12,11 +12,18 @@
     padding: 0 8px; font-size: 13px; font-weight: bold; }
   #bar button { margin-left: auto; background: #c0c0c0; border: 2px outset #fff;
     font: inherit; padding: 0 8px; cursor: pointer; }
-  #view { position: absolute; top: 28px; left: 0; right: 0; bottom: 22px;
+  #view { position: absolute; top: 28px; left: 0; right: 0; bottom: 48px;
     display: flex; align-items: center; justify-content: center; }
   canvas { image-rendering: pixelated; background: #000;
     box-shadow: 0 0 0 2px #000, 0 0 0 4px #808080; }
-  #status { position: absolute; bottom: 0; left: 0; right: 0; height: 22px;
+  #hud { position: absolute; top: 36px; left: 8px; color: #fff; font-size: 12px;
+    text-shadow: 1px 1px 0 #000; pointer-events: none; }
+  #chat { position: absolute; bottom: 0; left: 0; right: 0; height: 48px;
+    background: #000080; color: #fff; display: flex; align-items: center;
+    padding: 0 8px; }
+  #chat input { flex: 1; background: #000; color: #fff; border: 1px solid #fff;
+    font: inherit; padding: 2px 6px; }
+  #status { position: absolute; bottom: 48px; left: 0; right: 0; height: 22px;
     background: #c0c0c0; color: #000; font-size: 12px; display: flex;
     align-items: center; padding: 0 8px; border-top: 1px solid #fff; }
   #msg { margin-left: 12px; color: #000080; }
@@ -26,7 +33,9 @@
 <div id="bar">Seihai <span style="font-weight:normal;margin-left:8px">mini</span>
   <button id="back" type="button">Desktop</button></div>
 <div id="view"><canvas id="c" width="512" height="384"></canvas></div>
+<div id="hud">♥♥♥</div>
 <div id="status"><span id="pos">loading</span><span id="msg"></span></div>
+<div id="chat"><input id="line" placeholder="chat" maxlength="80"></div>
 <script>
 "use strict";
 const TILE = 16, VIEW_W = 32, VIEW_H = 24;
@@ -36,7 +45,6 @@ function tid(a, b) {
   return (v(a) << 6) | v(b);
 }
 const WALL = new Set();
-// type >= 20 blocks; water 11 does not. From the default tiledefs.
 [16,17,48,49,50,54,64,65,66,67,68,69,70,71,80,81,82,83,84,85,86,87,96,97,98,99]
   .forEach(id => WALL.add(id));
 
@@ -45,6 +53,7 @@ const ctx = canvas.getContext("2d");
 ctx.imageSmoothingEnabled = false;
 const posEl = document.getElementById("pos");
 const msgEl = document.getElementById("msg");
+const lineEl = document.getElementById("line");
 document.getElementById("back").onclick = () => location.href = "../";
 
 let pics, body, head;
@@ -52,10 +61,11 @@ let board = [];
 let signs = [];
 let chests = [];
 let npcs = [];
-let px = 8, py = 16, dir = 2; // start on the path, facing down
+let px = 8, py = 16, dir = 2;
 let keys = {};
 let openSign = null;
 let signPage = 0;
+let chatLog = [];
 
 function loadImg(src) {
   return new Promise((res, rej) => {
@@ -98,39 +108,33 @@ async function loadWorld() {
   }
   board = Array.from({ length: yMax }, () => Array(xMax).fill(0));
   for (const r of runs) {
-    for (let i = 0; i < r.row.length; i++) board[r.y][r.x + i] = r.row[i];
+    for (let k = 0; k < r.row.length; k++) board[r.y][r.x + k] = r.row[k];
   }
 }
 
-function tileAt(x, y) {
-  if (y < 0 || y >= board.length || x < 0 || x >= board[0].length) return 16;
-  return board[y][x];
+function blocked(tx, ty) {
+  if (ty < 0 || ty >= board.length || tx < 0 || tx >= board[0].length) return true;
+  return WALL.has(board[ty][tx]);
 }
-function blocked(x, y) { return WALL.has(tileAt(x, y)); }
 
 function draw() {
   ctx.fillStyle = "#000";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-  const camX = Math.max(0, Math.min(px - VIEW_W / 2, board[0].length - VIEW_W));
-  const camY = Math.max(0, Math.min(py - VIEW_H / 2, board.length - VIEW_H));
-  for (let ty = 0; ty < VIEW_H; ty++) {
-    for (let tx = 0; tx < VIEW_W; tx++) {
-      const id = tileAt(Math.floor(camX) + tx, Math.floor(camY) + ty);
-      const col = id % 128, row = (id / 128) | 0;
-      ctx.drawImage(pics, col * 16, row * 16, 16, 16, tx * 16, ty * 16, 16, 16);
+  const camX = Math.max(0, Math.min(board[0].length - VIEW_W, Math.floor(px) - VIEW_W/2));
+  const camY = Math.max(0, Math.min(board.length - VIEW_H, Math.floor(py) - VIEW_H/2));
+  for (let y = 0; y < VIEW_H; y++) {
+    for (let x = 0; x < VIEW_W; x++) {
+      const id = board[camY + y]?.[camX + x] || 0;
+      const sx = (id % 128) * 16, sy = Math.floor(id / 128) * 16;
+      ctx.drawImage(pics, sx, sy, 16, 16, x * 16, y * 16, 16, 16);
     }
   }
-  // player: body 32x32 at column dir, head 32x32 at row dir
-  const dx = (px - camX) * 16 - 16;
-  const dy = (py - camY) * 16 - 24;
-  const bodyOff = [[8,16],[12,16],[8,16],[4,16]][dir];
-  const headOff = [[8,2],[12,2],[8,2],[4,2]][dir];
-  ctx.drawImage(body, dir * 32, 0, 32, 32, dx + bodyOff[0], dy + bodyOff[1], 32, 32);
-  ctx.drawImage(head, 0, dir * 32, 32, 32, dx + headOff[0], dy + headOff[1], 32, 32);
-  // npcs as a small head
+  const pxp = (px - camX) * 16, pyp = (py - camY) * 16;
+  const frame = dir * 32;
+  ctx.drawImage(body, 0, frame, 32, 32, pxp - 8, pyp - 16, 32, 32);
+  ctx.drawImage(head, 0, frame, 32, 32, pxp - 8, pyp - 16, 32, 32);
   for (const n of npcs) {
-    const nx = (n.x - camX) * 16;
-    const ny = (n.y - camY) * 16;
+    const nx = (n.x - camX) * 16, ny = (n.y - camY) * 16;
     ctx.drawImage(head, 0, 64, 32, 32, nx - 8, ny - 16, 32, 32);
   }
   if (openSign) drawSign();
@@ -167,7 +171,6 @@ function interact() {
     else openSign = null;
     return;
   }
-  // facing tile
   const fx = Math.floor(px) + [0,-1,0,1][dir];
   const fy = Math.floor(py) + [-1,0,1,0][dir];
   const s = signs.find(s => Math.abs(s.x - fx) <= 1 && Math.abs(s.y - fy) <= 1);
@@ -175,7 +178,6 @@ function interact() {
   const c = chests.find(c => Math.abs(c.x - fx) <= 1 && Math.abs(c.y - fy) <= 1);
   if (c && !c.open) {
     c.open = true;
-    // swap to open chest tiles
     if (board[c.y] && board[c.y][c.x] === 64) {
       board[c.y][c.x] = 66; board[c.y][c.x+1] = 67;
       board[c.y+1][c.x] = 82; board[c.y+1][c.x+1] = 83;
@@ -189,6 +191,19 @@ function interact() {
 }
 
 document.addEventListener("keydown", e => {
+  if (e.target === lineEl) {
+    if (e.key === "Enter") {
+      const t = lineEl.value.trim();
+      if (t) {
+        chatLog.push(t);
+        msgEl.textContent = t;
+        setTimeout(() => msgEl.textContent = "", 3000);
+      }
+      lineEl.value = "";
+      lineEl.blur();
+    }
+    return;
+  }
   keys[e.key] = true;
   if (["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"," "].includes(e.key)) e.preventDefault();
   if (e.key === "Escape") {
@@ -196,6 +211,7 @@ document.addEventListener("keydown", e => {
     else location.href = "../";
   }
   if (e.key === "a" || e.key === "A" || e.key === " ") interact();
+  if (e.key === "Enter") lineEl.focus();
 });
 document.addEventListener("keyup", e => { keys[e.key] = false; });
 
@@ -204,7 +220,7 @@ function loop(t) {
   if (!loop.last) loop.last = t;
   const dt = t - loop.last; loop.last = t;
   acc += dt;
-  const step = 180; // ms per half-tile
+  const step = 180;
   while (acc >= step) {
     acc -= step;
     if (keys["ArrowUp"] || keys["w"] || keys["W"]) tryMove(px, py - 0.5, 0);

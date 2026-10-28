@@ -5,6 +5,6 @@ window.DESK_ICONS.push({
   name: "Seihai",
   x: 108,
   y: 88,
-  color: "#006400",
+  color: "#1a3a6a",
   open() { location.href = "seihai/"; }
 });
