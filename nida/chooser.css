@@ -1,0 +1,8 @@
+html, body { margin: 0; min-height: 100%; background: #e6e2d8; color: #1a1a1a; font: 15px/1.4 Arial, Helvetica, sans-serif; }
+header { display: flex; align-items: center; gap: 16px; padding: 10px 14px; background: #071428; color: #fff; }
+header a { color: #fff; }
+header h1 { margin: 0; font-size: 18px; flex: 1; }
+header .build { font-size: 11px; letter-spacing: 0.14em; color: #9ec4e8; }
+.note, section { margin: 16px; }
+h2 { font-size: 15px; margin: 0 0 8px; }
+div a, div button { display: inline-block; margin: 0 8px 8px 0; padding: 8px 12px; background: #fff; color: #071428; border: 1px solid #071428; text-decoration: none; }

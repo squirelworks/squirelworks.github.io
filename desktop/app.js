@@ -74,7 +74,10 @@ function selectIcon(el) {
 }
 
 function openIcon(id) {
-  if (id === "nida") openNida();
+  if (id === "nida") {
+    location.href = "nida/";
+    return;
+  }
   if (id === "foolcourse") {
     location.href = "foolcourse/";
     return;

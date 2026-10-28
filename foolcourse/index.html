@@ -7,19 +7,23 @@ layout: null
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Foolcourse</title>
-  <link rel="stylesheet" href="viewer.css?v=2">
+  <link rel="stylesheet" href="viewer.css?v=3">
 </head>
 <body>
   <header>
-    <a href="../">Back to the desktop</a>
-    <h1>Foolcourse</h1>
-    <span class="build">4.186</span>
+    <a id="back" href="../">Back to the desktop</a>
+    <h1 id="title">Foolcourse</h1>
+    <span class="build">4.552</span>
   </header>
   <div id="main">
-    <aside id="tree"></aside>
+    <div id="tree">
+      <div class="col"><div class="head">Subject</div><div id="subjects"></div></div>
+      <div class="col"><div class="head">Module</div><div id="modules"></div></div>
+      <div class="col"><div class="head">Course</div><div id="courses"></div></div>
+    </div>
     <iframe id="book" title="Foolbook" src="../foolbook/?embed=1"></iframe>
   </div>
   <p id="status"></p>
-  <script src="viewer.js?v=2"></script>
+  <script src="viewer.js?v=3"></script>
 </body>
 </html>

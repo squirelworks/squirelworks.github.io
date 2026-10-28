@@ -5,12 +5,11 @@ header a { color: #fff; }
 header h1 { margin: 0; font-size: 18px; flex: 1; }
 header .build { font-size: 11px; letter-spacing: 0.14em; color: #9ec4e8; }
 #main { flex: 1; display: flex; min-height: 0; }
-#tree { width: 280px; overflow: auto; background: #f7f4ee; border-right: 1px solid #c8c0b0; padding: 8px 0; }
-#tree button { display: block; width: 100%; text-align: left; border: 0; background: transparent; padding: 6px 10px; cursor: pointer; font: inherit; }
-#tree .subject, #tree .module { display: block; padding: 6px 10px; }
-#tree .subject { font-weight: bold; }
-#tree .module { padding-left: 22px; color: #333; }
-#tree button.course { padding-left: 36px; }
+#tree { width: min(560px, 48vw); display: flex; overflow: hidden; background: #f7f4ee; border-right: 1px solid #c8c0b0; padding: 0; }
+#tree .col { flex: 1; min-width: 0; overflow: auto; border-right: 1px solid #e4ddd0; }
+#tree .col:last-child { border-right: 0; }
+#tree .head { position: sticky; top: 0; padding: 6px 8px; background: #efeae0; color: #333; font-size: 12px; letter-spacing: 0.04em; }
+#tree button { display: block; width: 100%; text-align: left; border: 0; background: transparent; padding: 6px 8px; cursor: pointer; font: inherit; }
 #tree button.on { background: #071428; color: #fff; }
 #tree button.missing { color: #888; }
 #book { flex: 1; min-width: 0; border: 0; background: #8d887c; }
@@ -18,5 +17,5 @@ header .build { font-size: 11px; letter-spacing: 0.14em; color: #9ec4e8; }
 #status:empty { display: none; }
 @media (max-width: 700px) {
   #main { flex-direction: column; }
-  #tree { width: auto; max-height: 32vh; border-right: 0; border-bottom: 1px solid #c8c0b0; }
+  #tree { width: auto; max-height: 40vh; }
 }
