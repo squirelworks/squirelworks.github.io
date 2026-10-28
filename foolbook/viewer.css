@@ -3,6 +3,7 @@ body { display: flex; flex-direction: column; min-height: 100%; }
 header { display: flex; align-items: center; gap: 16px; padding: 10px 14px; background: #071428; color: #fff; }
 header a { color: #fff; }
 header h1 { margin: 0; font-size: 18px; flex: 1; }
+header .build { font-size: 11px; letter-spacing: 0.14em; color: #9ec4e8; }
 header button, #bar button, #shelf button, #pages button { font: inherit; cursor: pointer; }
 header button { background: #fff; color: #071428; border: 0; padding: 6px 10px; }
 #shelf { display: flex; flex-wrap: wrap; gap: 6px; padding: 8px 14px; background: #d9d3c5; }

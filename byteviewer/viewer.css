@@ -3,6 +3,7 @@ body { display: flex; flex-direction: column; min-height: 100%; }
 header { display: flex; align-items: center; gap: 16px; padding: 8px 12px; background: #071428; color: #fff; font-family: Arial, Helvetica, sans-serif; }
 header a { color: #fff; }
 header h1 { margin: 0; flex: 1; font-size: 16px; }
+header .build { font-size: 11px; letter-spacing: 0.14em; color: #9ec4e8; }
 button, input { font: 13px Arial, Helvetica, sans-serif; }
 header button, .bar button { background: #c0c0c0; color: #000; border: 2px solid; border-color: #fff #404040 #404040 #fff; padding: 2px 8px; cursor: pointer; }
 #readout, .legend, .bar { font-family: Arial, Helvetica, sans-serif; background: #1b212b; }
