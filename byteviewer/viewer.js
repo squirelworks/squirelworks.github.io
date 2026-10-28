@@ -115,23 +115,40 @@ function classify(u8) {
     add(jbo, jbo + 4, "object", "Object. Object store. The bytes 03 4A 42 4F read as JBO.");
     mark("object store", jbo, "object");
   }
-  const pageMarks = [[0x80, 0x65, 0x00, 0x05, 0x00, 0x02, 0x02], [0x81, 0x65, 0x00, 0x05, 0x00, 0x02, 0x02]];
-  for (let i = 0; i + 16 < u8.length && marks.length < 500; i++) {
-    for (const sig of pageMarks) {
-      if (u8[i] !== sig[0]) continue;
-      let ok = true;
-      for (let k = 1; k < 7; k++) if (u8[i + k] !== sig[k]) ok = false;
-      const name = cstr(u8, i + 7, 32);
-      if (!ok || !name.startsWith("P")) continue;
-      const nested = sig[0] === 0x81;
-      add(i, i + 7 + name.length, "page", "Object. " + (nested ? "Nested page " : "Page ") + name + ". Mark " + (nested ? "81 65" : "80 65") + ".");
-      mark(name, i, "page");
-    }
+  const tail = [0x65, 0x00, 0x05, 0x00, 0x02, 0x02];
+  const hits = [];
+  let scan = 0;
+  while (hits.length < 2000) {
+    const at = findSeq(u8, tail, scan);
+    if (at < 1) break;
+    if (u8[at - 1] === 0x80 || u8[at - 1] === 0x81) hits.push(at - 1);
+    scan = at + 1;
+  }
+  hits.forEach((off, n) => {
+    const next = n + 1 < hits.length ? hits[n + 1] : u8.length;
+    const name = cstr(u8, off + 11, 32) || ("Page" + n);
+    const nested = u8[off] === 0x81;
+    add(off, next, "page", "Object. " + (nested ? "Nested page " : "Page ") + name + ". The name starts 11 bytes after the mark, same as Foolbook.");
+    mark(name, off, "page");
+  });
+  if (u8[0] === 0x7b) {
+    try {
+      const book = JSON.parse(new TextDecoder().decode(u8));
+      (book.pages || []).forEach((page) => {
+        const id = String(page.id || "");
+        if (!id) return;
+        const needle = new TextEncoder().encode('"id":"' + id + '"');
+        const at = findSeq(u8, needle);
+        if (at < 0) return;
+        add(at, at + needle.length, "page", "Object. Page " + id + ".");
+        mark(id, at, "page");
+      });
+    } catch (err) { /* not a book */ }
   }
   let from = 0;
   let scripts = 0;
   const handle = [0x74, 0x6f, 0x20, 0x68, 0x61, 0x6e, 0x64, 0x6c, 0x65];
-  while (scripts < 80) {
+  while (scripts < 400) {
     const at = findSeq(u8, handle, from);
     if (at < 0) break;
     let end = at;
@@ -143,7 +160,7 @@ function classify(u8) {
   }
   let bm = 0;
   let pictures = 0;
-  while (pictures < 40) {
+  while (pictures < 200) {
     const at = u8.indexOf(0x42, bm);
     if (at < 0) break;
     const size = bitmapSize(u8, at);
@@ -174,7 +191,7 @@ function covering(off) {
 function cls(off) {
   const hits = covering(off);
   if (!hits.length) return "";
-  const prefer = ["bitmap", "script", "page", "text", "object", "header", "stub"];
+  const prefer = ["bitmap", "script", "text", "page", "object", "header", "stub"];
   for (const kind of prefer) if (hits.some((range) => range[2] === kind)) return kind;
   return hits[hits.length - 1][2];
 }
@@ -226,7 +243,20 @@ function draw() {
   jumps.querySelectorAll("button").forEach((button) => button.classList.toggle("on", button._off === start));
 }
 
-function jump(off) {
+let inflated = null;
+
+function jump(off, view) {
+  if (view === "source" && source !== raw) {
+    raw = source;
+    classify(source);
+    if (inflated) marks.unshift({ name: "inflated book", off: 0, kind: "page", view: "inflated" });
+    showMarks();
+  } else if (view === "inflated" && inflated && inflated !== raw) {
+    raw = inflated;
+    classify(inflated);
+    marks.unshift({ name: "wrapper", off: 0, kind: "header", view: "source" });
+    showMarks();
+  }
   pinned = off;
   cursor = off;
   draw();
@@ -239,19 +269,31 @@ function showMarks() {
     button.type = "button";
     button._off = entry.off & ~15;
     button.textContent = entry.kind + "  " + entry.name;
-    button.addEventListener("click", () => jump(entry.off));
+    button.addEventListener("click", () => jump(entry.off, entry.view));
     jumps.appendChild(button);
   });
 }
 
-function load(name, bytes) {
+async function load(name, bytes) {
   source = bytes;
-  raw = bytes;
+  inflated = null;
   pinned = 0;
-  classify(bytes);
   const head = new TextDecoder().decode(bytes.slice(0, Math.min(4, bytes.length)));
-  document.getElementById("payload").disabled = !((head === "FBK1" || head === "FSK1" || head === "FSC1") && (bytes[4] & 1));
-  banner = name ? (name + ". " + bytes.length.toLocaleString() + " bytes. " + fileNote(bytes, name)) : "";
+  const compressed = (head === "FBK1" || head === "FSK1" || head === "FSC1") && (bytes[4] & 1);
+  document.getElementById("payload").disabled = !compressed;
+  let viewed = bytes;
+  if (compressed) {
+    try {
+      inflated = await inflate(bytes.slice(7, bytes.length - 4));
+      viewed = inflated;
+    } catch (err) {
+      inflated = null;
+    }
+  }
+  raw = viewed;
+  classify(viewed);
+  if (inflated && viewed === inflated) marks.unshift({ name: "wrapper", off: 0, kind: "header", view: "source" });
+  banner = name ? (name + ". " + viewed.length.toLocaleString() + " bytes. " + (viewed === inflated ? "Inflated, which is what Foolbook reads. " : "") + fileNote(viewed === inflated ? bytes : viewed, name)) : "";
   showMarks();
   cursor = 0;
   draw();
