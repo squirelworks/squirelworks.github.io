@@ -242,7 +242,7 @@ h1 { font-size: 14px; margin: 8px 8px 6px; }
 .repos a:hover { text-decoration: underline; }
 .repos .about { color: #1a1a1a; }
 .repos .meta { color: #444; font-size: 11px; }
-iframe.full { border: 0; width: 100%; height: 100%; background: #14181e; display: block; }
+iframe.full { border: 0; width: 100%; height: 100%; min-height: 0; flex: 1; background: #f4f1ea; display: block; }
 
 @media (max-width: 700px) {
   .window {
