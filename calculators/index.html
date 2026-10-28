@@ -1,0 +1,74 @@
+---
+layout: null
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculator</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #021433; color: #000; font: 14px Tahoma, Arial, sans-serif; }
+    .back { margin: 12px; }
+    .back a { color: #d6ecff; font-size: 13px; text-decoration: none; }
+    .back a:hover { text-decoration: underline; }
+    .build { float: right; color: #9ec4e8; font-size: 11px; letter-spacing: 0.12em; }
+    .calc { width: 220px; margin: 40px auto; background: #d4d4d4; border: 2px solid #000; outline: 1px solid #fff; outline-offset: -3px; box-shadow: 2px 2px 0 #000; padding: 8px; }
+    .title { background: linear-gradient(90deg, #000070, #2080d8 55%, #78c0ff); color: #fff; font-weight: bold; padding: 2px 6px; margin-bottom: 6px; }
+    .screen { background: #c8e8c8; border: 2px solid; border-color: #808080 #fff #fff #808080; padding: 6px 8px; text-align: right; font: 20px Consolas, monospace; min-height: 28px; margin-bottom: 6px; overflow: hidden; }
+    .keys { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+    button { height: 32px; border: 2px solid; border-color: #fff #404040 #404040 #fff; background: #d4d4d4; font: inherit; cursor: pointer; }
+    button:active { border-color: #404040 #fff #fff #404040; }
+    button.op { background: #c0d0e8; }
+    button.eq { background: #000080; color: #fff; }
+  </style>
+</head>
+<body>
+  <p class="back"><a href="../">Back to the desktop</a> <span class="build">16.001</span></p>
+  <div class="calc">
+    <div class="title">Calculator</div>
+    <div class="screen" id="screen">0</div>
+    <div class="keys">
+      <button type="button" onclick="clearAll()">C</button>
+      <button type="button" onclick="input('(')">(</button>
+      <button type="button" onclick="input(')')">)</button>
+      <button type="button" class="op" onclick="input('/')">/</button>
+      <button type="button" onclick="input('7')">7</button>
+      <button type="button" onclick="input('8')">8</button>
+      <button type="button" onclick="input('9')">9</button>
+      <button type="button" class="op" onclick="input('*')">*</button>
+      <button type="button" onclick="input('4')">4</button>
+      <button type="button" onclick="input('5')">5</button>
+      <button type="button" onclick="input('6')">6</button>
+      <button type="button" class="op" onclick="input('-')">-</button>
+      <button type="button" onclick="input('1')">1</button>
+      <button type="button" onclick="input('2')">2</button>
+      <button type="button" onclick="input('3')">3</button>
+      <button type="button" class="op" onclick="input('+')">+</button>
+      <button type="button" onclick="input('0')">0</button>
+      <button type="button" onclick="input('.')">.</button>
+      <button type="button" onclick="back()">←</button>
+      <button type="button" class="eq" onclick="equals()">=</button>
+    </div>
+  </div>
+  <script>
+    var expr = "";
+    var screen = document.getElementById("screen");
+    function show() { screen.textContent = expr || "0"; }
+    function input(ch) { expr += ch; show(); }
+    function clearAll() { expr = ""; show(); }
+    function back() { expr = expr.slice(0, -1); show(); }
+    function equals() {
+      try {
+        var clean = expr.replace(/[^0-9+\-*/().]/g, "");
+        var result = Function("return (" + clean + ")")();
+        expr = String(result);
+      } catch (e) {
+        expr = "Error";
+      }
+      show();
+      if (expr === "Error") expr = "";
+    }
+  </script>
+</body>
+</html>
