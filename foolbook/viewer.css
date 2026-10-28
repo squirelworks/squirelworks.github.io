@@ -22,7 +22,13 @@ body.embed header, body.embed #shelf, body.embed #pages { display: none; }
 .stage { flex: 1; min-height: 0; overflow: auto; background: #8d887c; padding: 12px; }
 .fit { overflow: hidden; }
 .board { position: relative; transform-origin: top left; background: #fff; }
-.shape { position: absolute; box-sizing: border-box; }
+body.embed.turned { overflow: hidden; }
+body.embed.turned #view {
+  position: fixed;
+  transform: rotate(90deg);
+  transform-origin: top left;
+  max-width: none;
+}
 @media (max-width: 700px) {
   #main { flex-direction: column; }
   #pages { width: auto; max-height: 28vh; border-right: 0; border-bottom: 1px solid #c8c0b0; }
