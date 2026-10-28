@@ -37,25 +37,32 @@ layout: null
 <div id="app">
   <div id="tree">
     <p class="back"><a href="../">Back to the desktop</a></p>
-    <h1>Documentation <span class="build">15.003</span></h1>
+    <h1>Documentation <span class="build">15.004</span></h1>
     <div class="sec">Books</div>
-    <button data-book="gserver">GServerStory</button>
-    <button data-book="glstory">GraalLStory</button>
-    <button data-book="glstory2">GraalLStory 2</button>
+    <button type="button" onclick="openBook('gserver', 0)">GServerStory</button>
+    <button type="button" onclick="openBook('glstory', 0)">GraalLStory</button>
+    <button type="button" onclick="openBook('glstory2', 0)">GraalLStory 2</button>
     <div class="sec">Notes</div>
-    <button data-set="ash">39ster Ash / Phoenix</button>
-    <button data-set="npc">Classic NPC Ash</button>
-    <button data-set="ember">Ember</button>
-    <button data-set="linux">LinuxMan2 / Seihai</button>
+    <button type="button" onclick="openSet('ash')">39ster Ash / Phoenix</button>
+    <button type="button" onclick="openSet('npc')">Classic NPC Ash</button>
+    <button type="button" onclick="openSet('ember')">Ember</button>
+    <button type="button" onclick="openSet('linux')">LinuxMan2 / Seihai</button>
   </div>
   <div id="view">
-    <h1>Documentation <span class="build">15.003</span></h1>
+    <h1>Documentation <span class="build">15.004</span></h1>
     <p class="note">Pick a book or a notes set on the left.</p>
   </div>
 </div>
 <script>
-"use strict";
-var B = "15.003";
+var B = "15.004";
+
+function range(a, b) {
+  var o = [];
+  for (var i = a; i <= b; i++) o.push(i);
+  return o;
+}
+function pad(n) { return (n < 10 ? "0" : "") + n; }
+function ch(n) { return "chapter-" + pad(n) + ".md"; }
 
 var BOOKS = {
   gserver: {
@@ -135,56 +142,27 @@ var SETS = {
   }
 };
 
-function range(a, b) { var o = []; for (var i = a; i <= b; i++) o.push(i); return o; }
-function pad(n) { return (n < 10 ? "0" : "") + n; }
-function ch(n) { return "chapter-" + pad(n) + ".md"; }
-
 var view = document.getElementById("view");
-var currentBook = null;
-var currentIdx = 0;
-
-document.querySelectorAll("[data-book]").forEach(function (btn) {
-  btn.addEventListener("click", function () {
-    document.querySelectorAll("#tree button").forEach(function (b) { b.classList.remove("on"); });
-    btn.classList.add("on");
-    openBook(btn.getAttribute("data-book"), 0);
-  });
-});
-
-document.querySelectorAll("[data-set]").forEach(function (btn) {
-  btn.addEventListener("click", function () {
-    document.querySelectorAll("#tree button").forEach(function (b) { b.classList.remove("on"); });
-    btn.classList.add("on");
-    openSet(btn.getAttribute("data-set"));
-  });
-});
 
 function openBook(id, idx) {
-  currentBook = BOOKS[id];
-  currentIdx = idx;
-  var path = currentBook.base + currentBook.chapters[idx];
-  var label = currentBook.labels[idx];
-  view.innerHTML = "<h1>" + currentBook.title + " <span class=\"build\">" + B + "</span></h1><p class=\"note\">Loading...</p>";
+  var book = BOOKS[id];
+  var path = book.base + book.chapters[idx];
+  var label = book.labels[idx];
+  view.innerHTML = "<h1>" + book.title + " <span class=\"build\">" + B + "</span></h1><p class=\"note\">Loading...</p>";
   fetch(path).then(function (res) {
     if (!res.ok) throw new Error(res.status);
     return res.text();
   }).then(function (text) {
-    var prev = idx > 0 ? "<button id=\"prev\">Prev</button>" : "<button disabled>Prev</button>";
-    var next = idx < currentBook.chapters.length - 1 ? "<button id=\"next\">Next</button>" : "<button disabled>Next</button>";
-    var sel = "<select id=\"ch\">";
-    currentBook.labels.forEach(function (lab, i) {
+    var prev = idx > 0 ? "<button type=\"button\" onclick=\"openBook('" + id + "', " + (idx - 1) + ")\">Prev</button>" : "<button type=\"button\" disabled>Prev</button>";
+    var next = idx < book.chapters.length - 1 ? "<button type=\"button\" onclick=\"openBook('" + id + "', " + (idx + 1) + ")\">Next</button>" : "<button type=\"button\" disabled>Next</button>";
+    var sel = "<select onchange=\"openBook('" + id + "', Number(this.value))\">";
+    book.labels.forEach(function (lab, i) {
       sel += "<option value=\"" + i + "\"" + (i === idx ? " selected" : "") + ">" + lab + "</option>";
     });
     sel += "</select>";
-    view.innerHTML = "<h1>" + currentBook.title + " <span class=\"build\">" + B + "</span></h1>" +
+    view.innerHTML = "<h1>" + book.title + " <span class=\"build\">" + B + "</span></h1>" +
       "<div class=\"bar\">" + prev + sel + next + "</div>" +
       "<div class=\"md\">" + md(text) + "</div>";
-    var p = document.getElementById("prev");
-    var n = document.getElementById("next");
-    var s = document.getElementById("ch");
-    if (p && !p.disabled) p.addEventListener("click", function () { openBook(id, idx - 1); });
-    if (n && !n.disabled) n.addEventListener("click", function () { openBook(id, idx + 1); });
-    if (s) s.addEventListener("change", function () { openBook(id, Number(s.value)); });
   }).catch(function (err) {
     view.innerHTML = "<h1>" + label + "</h1><p class=\"note\">Could not open " + path + ". " + err.message + "</p>";
   });
@@ -194,14 +172,9 @@ function openSet(id) {
   var set = SETS[id];
   var html = "<h1>" + set.title + " <span class=\"build\">" + B + "</span></h1>";
   set.files.forEach(function (pair) {
-    html += "<button data-file=\"" + pair[0] + "\" data-label=\"" + pair[1] + "\">" + pair[1] + "</button>";
+    html += "<button type=\"button\" onclick=\"openFile('" + pair[0] + "', '" + pair[1].replace(/'/g, "") + "')\">" + pair[1] + "</button>";
   });
   view.innerHTML = html;
-  view.querySelectorAll("[data-file]").forEach(function (b) {
-    b.addEventListener("click", function () {
-      openFile(b.getAttribute("data-file"), b.getAttribute("data-label"));
-    });
-  });
 }
 
 function openFile(path, label) {
