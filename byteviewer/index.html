@@ -16,11 +16,31 @@ layout: null
     <button id="open" type="button">Open a file</button>
     <input id="file" type="file" hidden>
   </header>
-  <p id="status"></p>
-  <div id="main">
-    <aside id="list"></aside>
-    <article id="detail"></article>
+  <p id="readout">Open a file. The bytes are the view.</p>
+  <div class="bar">
+    <button id="prev" type="button">Prev</button>
+    <button id="next" type="button">Next</button>
+    <label>offset <input id="goto" size="12" value="0"></label>
+    <button id="go" type="button">Go</button>
+    <label>find <input id="q" size="16" placeholder="hex or text"></label>
+    <button id="find" type="button">Find</button>
+    <button id="payload" type="button" disabled>Inflate</button>
+    <button id="sample" type="button">First Light</button>
+    <span id="stat"></span>
   </div>
-  <script src="viewer.js"></script>
+  <p class="legend">
+    <span class="sw header"></span>header
+    <span class="sw stub"></span>stub
+    <span class="sw object"></span>object
+    <span class="sw page"></span>page
+    <span class="sw bitmap"></span>bitmap
+    <span class="sw script"></span>script
+    <span class="sw text"></span>text
+  </p>
+  <div id="main">
+    <aside id="jumps"></aside>
+    <div id="view"></div>
+  </div>
+  <script src="viewer.js?v=2"></script>
 </body>
 </html>
