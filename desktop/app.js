@@ -6,7 +6,7 @@ const ICONS = [
   { id: "foolbook", name: "Foolbook", x: 16, y: 164, color: "#008000" },
   { id: "editor", name: "Foolbook Editor", x: 16, y: 240, color: "#008080" },
   { id: "bytes", name: "Byte Viewer", x: 16, y: 316, color: "#808000" },
-  { id: "repos", name: "Repos", x: 108, y: 12, color: "#400080" },
+  { id: "repos", name: "Repositories", x: 108, y: 12, color: "#400080" },
   { id: "old", name: "Old viewers", x: 108, y: 88, color: "#404040" },
 ];
 
@@ -494,55 +494,80 @@ function openEditor() {
 }
 
 function openRepos() {
-  const win = windowFrame("repos", "Repos");
+  const win = windowFrame("repos", "Public repositories");
+  win.style.width = "640px";
+  win.style.height = "520px";
   const body = win.querySelector(".body");
   body.replaceChildren();
+  body.style.padding = "0";
+  body.style.background = "#f4f1ea";
   const root = document.createElement("div");
   root.className = "repos";
+  const lead = document.createElement("p");
+  lead.textContent = "Everything public on github.com/squirelworks as of 28 October 2026. Twenty-six repositories. Private repositories are not listed.";
+  root.appendChild(lead);
   const groups = [
-    ["Reading", [
-      ["Foolbook", "The reader."],
-      ["FoolbookEditor", "The author window. Foolbook stays the reader."],
-      ["Foolcourse", "The general catalog and the sample courses."],
-      ["NIDA_ATT", "The NIDA shell, the system books, and courses/."],
+    ["Books and courses", [
+      ["Foolbook", "The reader. It opens .fbk and .tbk books, and .fsk and .sbk system books.", "Python · 27 Oct 2026"],
+      ["FoolbookEditor", "The editor. Foolbook is the reader. This repository is the window.", "Python · 24 Oct 2026"],
+      ["Foolcourse", "The general course program. Version 1.0.1r2.", "Python · 27 Oct 2026"],
+      ["NIDA_ATT", "The NIDA course: the curriculum, the shell, and the books. Foolcourse stays general.", "Python · 27 Oct 2026"],
+      ["Foollege", "Holds the students. It is not a running server. Foolversity writes the files. Foolcourse is the player.", "27 Oct 2026"],
+      ["Foolversity", "Companion to Foolcourse. Version 1.0.0. They meet at files. It generates student files.", "Python · 27 Oct 2026"],
     ]],
-    ["The record", [
-      ["tbdecompile", "The written record of the ToolBook work."],
-      ["tbworldview", "The field notes, frozen."],
-      ["openscript_analysis", "OpenScript, by file format."],
-      ["opentoolbook8", "The reader that is still open for an author mode."],
+    ["ToolBook notes", [
+      ["tbdecompile", "ToolBook II 8.1 decompilation notes. Release v0.0.11. The record is in record/.", "HTML · 28 Oct 2026"],
+      ["tbworldview", "Written record of the ToolBook 8 reverse-engineering work. Notes only. No binaries.", "20 Oct 2026"],
+      ["openscript_analysis", "OpenScript tools. Version 1.0.1. A dependency of Foolbook for ToolBook script.", "Python · 27 Oct 2026"],
+      ["TBpipeline", "A way to host ToolBook 8.0 on modern Linux or Windows.", "Python · 16 Oct 2026"],
+      ["toolbookunpacker", "ToolBook 8.0 OPTLOADER unpacker.", "Python · 13 Oct 2026"],
+      ["win16-debug", "Win16 reverse engineering tools.", "Python · 9 Oct 2026"],
     ]],
-    ["Tools", [
-      ["TBpipeline", "The host and the pass logs."],
-      ["toolbookunpacker", "Unpacking a book."],
-      ["win16-debug", "Win16 reverse engineering tools."],
+    ["Language", [
+      ["LanguageStudentDesk", "Language learning tools and a desktop launcher.", "HTML · 27 Oct 2026"],
+      ["squirrelator", "Core language engine for translating between human languages, programming languages, and pseudocode.", "Python · 13 Oct 2026"],
+    ]],
+    ["Graal", [
+      ["Graal_analysis", "Notes on Graal formats, protocol, NPC scripting, and level design. No decompile material.", "Python · 28 Oct 2026"],
+      ["seihai", "An open client for Graal Reborn listservers and gservers. Written in Rust.", "Rust · 28 Oct 2026"],
+    ]],
+    ["Squirrel OS", [
+      ["squirrel-os2", "An original operating-system effort in the spirit of OS/2 Warp.", "Assembly · 13 Oct 2026"],
+      ["squirrelbios", "Platform-specific firmware for Squirrel-OS/2. Original code.", "Assembly · 13 Oct 2026"],
+      ["squirreldra", "Personal tools, fixes, and patches for reverse engineering with Ghidra.", "Java · 14 Oct 2026"],
+    ]],
+    ["Game notes", [
+      ["sgs1modding", "Ship Graveyard Simulator 1. Unofficial modding notes.", "14 Oct 2026"],
+      ["sgs2modding", "SGS2 modding. The repository has no further description.", "14 Oct 2026"],
+      ["sgs3modding", "Ship Graveyard 3 modding documentation.", "14 Oct 2026"],
+      ["lbrmodding", "Leaf Blower Revolution modding.", "14 Oct 2026"],
+      ["sn1modding", "SN1 modding. The repository has no further description.", "14 Oct 2026"],
+      ["hs_sbmodding", "Hardspace: Shipbreaker.", "14 Oct 2026"],
+    ]],
+    ["This site", [
+      ["squirelworks.github.io", "This desktop, and the older course manager under coursemanager/.", "HTML · 28 Oct 2026"],
     ]],
   ];
   groups.forEach(([name, rows]) => {
-    const h = document.createElement("div");
-    h.className = "group";
+    const h = document.createElement("h2");
     h.textContent = name;
     root.appendChild(h);
-    rows.forEach(([repo, about]) => {
+    rows.forEach(([repo, about, meta]) => {
       const a = document.createElement("a");
       a.href = "https://github.com/squirelworks/" + repo;
       a.target = "_blank";
       a.rel = "noreferrer";
-      a.textContent = repo + " — " + about;
+      const strong = document.createElement("strong");
+      strong.textContent = repo;
+      const line = document.createElement("div");
+      line.className = "about";
+      line.textContent = about;
+      const when = document.createElement("div");
+      when.className = "meta";
+      when.textContent = meta;
+      a.append(strong, line, when);
       root.appendChild(a);
     });
-  });
-  const more = document.createElement("div");
-  more.className = "group";
-  more.textContent = "Also on the account";
-  root.appendChild(more);
-  ["Foollege", "Foolversity", "LanguageStudentDesk", "Graal_analysis", "seihai", "sgs1modding", "sgs2modding", "sgs3modding", "lbrmodding", "sn1modding", "hs_sbmodding", "squirreldra", "squirrelator", "squirrelbios", "squirrel-os2"].forEach((repo) => {
-    const a = document.createElement("a");
-    a.href = "https://github.com/squirelworks/" + repo;
-    a.target = "_blank";
-    a.rel = "noreferrer";
-    a.textContent = repo;
-    root.appendChild(a);
   });
   body.appendChild(root);
 }
@@ -761,7 +786,7 @@ document.getElementById("start").addEventListener("click", (ev) => {
     return;
   }
   menu.replaceChildren();
-  [["NIDA ATT", "nida"], ["Foolcourse", "foolcourse"], ["Foolbook", "foolbook"], ["Foolbook Editor", "editor"], ["Byte Viewer", "bytes"], ["Repos", "repos"], ["Old viewers", "old"]].forEach(([label, id]) => {
+  [["NIDA ATT", "nida"], ["Foolcourse", "foolcourse"], ["Foolbook", "foolbook"], ["Foolbook Editor", "editor"], ["Byte Viewer", "bytes"], ["Repositories", "repos"], ["Old viewers", "old"]].forEach(([label, id]) => {
     menu.appendChild(btn(label, () => {
       menu.style.display = "none";
       openIcon(id);

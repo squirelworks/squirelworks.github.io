@@ -1,7 +1,7 @@
 # squirelworks.github.io
 
-The site is a catalog of the public repositories: [squirelworks.github.io](https://squirelworks.github.io/).
+The site is the Squirrel OS/2 desktop: [squirelworks.github.io](https://squirelworks.github.io/). The page title is Squirelworks.
 
-Twenty-six public repositories, as of 28 October 2026. Private repositories are not listed.
+Repositories opens on the desktop. It lists the 26 public repositories. Private repositories are not listed.
 
-The older course manager is still at [coursemanager/coursemanager.html](coursemanager/coursemanager.html).
+The older course manager is still at [coursemanager/viewer4/viewer.html](coursemanager/viewer4/viewer.html).
