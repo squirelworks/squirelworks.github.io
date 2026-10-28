@@ -49,7 +49,37 @@ let ready = false;
 const pending = [];
 const widths = { subject: 220, module: 220, course: 240 };
 
+const crumb = document.getElementById("crumb");
+const up = document.getElementById("up");
+const where = document.getElementById("where");
+
 function layout() {
+  const narrow = window.matchMedia("(max-width: 700px)").matches;
+  document.body.classList.toggle("narrow", narrow);
+  if (narrow) {
+    tree.style.width = "";
+    const step = picked ? "book" : module != null ? "course" : subject != null ? "module" : "subject";
+    colSubject.hidden = step !== "subject";
+    colModule.hidden = step !== "module";
+    colCourse.hidden = step !== "course";
+    tree.hidden = step === "book";
+    frame.hidden = step !== "book";
+    crumb.hidden = step === "subject";
+    if (step === "module") {
+      up.textContent = "Subjects";
+      where.textContent = subjects[subject].name;
+    } else if (step === "course") {
+      up.textContent = "Modules";
+      where.textContent = subjects[subject].name + "  ·  " + subjects[subject].modules[module].name;
+    } else if (step === "book") {
+      up.textContent = "Courses";
+      where.textContent = subjects[subject].name + "  ·  " + subjects[subject].modules[module].name;
+    }
+    return;
+  }
+  tree.hidden = false;
+  frame.hidden = false;
+  crumb.hidden = true;
   colModule.hidden = subject == null;
   colCourse.hidden = module == null;
   colSubject.style.flex = subject == null ? "1 1 auto" : "0 0 " + widths.subject + "px";
@@ -60,6 +90,13 @@ function layout() {
   else if (!picked) tree.style.width = (widths.subject + widths.module + 280) + "px";
   else tree.style.width = (widths.subject + widths.module + widths.course + 18) + "px";
 }
+
+up.addEventListener("click", () => {
+  if (picked) picked = false;
+  else if (module != null) module = null;
+  else subject = null;
+  paint();
+});
 
 function tell(message) {
   message.type = "foolbook";
@@ -207,6 +244,8 @@ function fromXml(text) {
   if (!found.length) throw new Error("The menu has no courses.");
   return found;
 }
+
+window.matchMedia("(max-width: 700px)").addEventListener("change", () => layout());
 
 frame.addEventListener("load", () => {
   ready = true;

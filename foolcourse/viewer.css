@@ -18,7 +18,17 @@ header .build { font-size: 11px; letter-spacing: 0.14em; color: #9ec4e8; }
 #book { flex: 1; min-width: 0; min-height: 0; border: 0; background: #8d887c; }
 #status { margin: 0; padding: 4px 14px; min-height: 1.2em; color: #800000; background: #efeae0; }
 #status:empty { display: none; }
+#crumb { display: flex; align-items: center; gap: 10px; padding: 8px 10px; background: #efeae0; border-bottom: 1px solid #c8c0b0; }
+#crumb[hidden] { display: none; }
+#crumb button { font: inherit; padding: 8px 12px; }
+#crumb span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 @media (max-width: 700px) {
-  #main { flex-direction: column; }
-  #tree { width: auto !important; max-height: 40vh; }
+  header { gap: 8px; padding: 8px 10px; }
+  header h1 { font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  body.narrow #main { flex-direction: column; }
+  body.narrow #tree { width: auto !important; max-height: none; flex: 1; flex-direction: column; }
+  body.narrow #tree .col { flex: 1; width: auto; min-width: 0; }
+  body.narrow #tree button { padding: 12px 14px; font-size: 16px; }
+  body.narrow .grip { display: none; }
+  body.narrow #book { width: 100%; flex: 1; min-height: 0; }
 }

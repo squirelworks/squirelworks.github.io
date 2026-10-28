@@ -528,12 +528,18 @@ function drawPage(stage, book, page, onJump, onPick) {
   stage.replaceChildren();
   const shapes = withButtons(page);
   const [w, h] = pageSize({ size: page.size, shapes: shapes });
-  const scale = Math.min(1, (stage.clientWidth || 640) / w);
+  const scale = Math.min(1, (stage.clientWidth || w) / w);
+  const fit = document.createElement("div");
+  fit.className = "fit";
+  fit.style.width = Math.round(w * scale) + "px";
+  fit.style.height = Math.round(h * scale) + "px";
   const board = document.createElement("div");
   board.className = "board";
   board.style.width = w + "px";
   board.style.height = h + "px";
   board.style.transform = "scale(" + scale + ")";
+  fit.appendChild(board);
+  stage.appendChild(fit);
   shapes.forEach((shape, index) => {
     if (shape.visible === false) return;
     const kind = (shape.kind || "rect").toLowerCase();
@@ -644,7 +650,6 @@ function drawPage(stage, book, page, onJump, onPick) {
     }
     board.appendChild(el);
   });
-  stage.appendChild(board);
 }
 
 function mountReader(host, book, options) {
