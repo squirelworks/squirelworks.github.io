@@ -1,0 +1,35 @@
+---
+layout: null
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Foolbook</title>
+  <link rel="stylesheet" href="viewer.css">
+</head>
+<body>
+  <header>
+    <a href="../">Back to the desktop</a>
+    <h1>Foolbook</h1>
+    <button id="open" type="button">Open a book</button>
+    <input id="file" type="file" accept=".fbk,.fsk,.json,application/json" hidden>
+  </header>
+  <div id="shelf"></div>
+  <p id="status"></p>
+  <div id="main">
+    <aside id="pages"></aside>
+    <div id="view">
+      <div id="bar">
+        <button id="prev" type="button">Prev</button>
+        <button id="next" type="button">Next</button>
+        <b id="where"></b>
+      </div>
+      <div id="stage" class="stage"></div>
+    </div>
+  </div>
+  <script src="../desktop/reader.js"></script>
+  <script src="viewer.js"></script>
+</body>
+</html>

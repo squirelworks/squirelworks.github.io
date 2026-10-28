@@ -81,7 +81,10 @@ function openIcon(id) {
   }
   if (id === "nida") openNida();
   if (id === "foolcourse") openFoolcourse();
-  if (id === "foolbook") openFoolbook();
+  if (id === "foolbook") {
+    location.href = "foolbook/";
+    return;
+  }
   if (id === "editor") openEditor();
   if (id === "bytes") openBytes();
   if (id === "repos") {

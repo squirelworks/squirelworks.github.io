@@ -1,0 +1,26 @@
+html, body { margin: 0; height: 100%; background: #e6e2d8; color: #1a1a1a; font: 15px/1.4 Arial, Helvetica, sans-serif; }
+body { display: flex; flex-direction: column; min-height: 100%; }
+header { display: flex; align-items: center; gap: 16px; padding: 10px 14px; background: #071428; color: #fff; }
+header a { color: #fff; }
+header h1 { margin: 0; font-size: 18px; flex: 1; }
+header button, #bar button, #shelf button, #pages button { font: inherit; cursor: pointer; }
+header button { background: #fff; color: #071428; border: 0; padding: 6px 10px; }
+#shelf { display: flex; flex-wrap: wrap; gap: 6px; padding: 8px 14px; background: #d9d3c5; }
+#shelf button { border: 1px solid #071428; background: #fff; padding: 6px 10px; }
+#shelf button.on { background: #071428; color: #fff; }
+#status { margin: 0; padding: 0 14px; min-height: 0; color: #800000; }
+#status:empty { display: none; }
+#main { flex: 1; display: flex; min-height: 0; }
+#pages { width: 220px; overflow: auto; background: #f7f4ee; border-right: 1px solid #c8c0b0; }
+#pages button { display: block; width: 100%; text-align: left; border: 0; background: transparent; padding: 6px 8px; }
+#pages button.on { background: #071428; color: #fff; }
+#view { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+#bar { display: flex; align-items: center; gap: 8px; padding: 8px; background: #efeae0; }
+#bar b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.stage { flex: 1; overflow: auto; background: #8d887c; padding: 12px; }
+.board { position: relative; transform-origin: top left; background: #fff; }
+.shape { position: absolute; box-sizing: border-box; }
+@media (max-width: 700px) {
+  #main { flex-direction: column; }
+  #pages { width: auto; max-height: 28vh; border-right: 0; border-bottom: 1px solid #c8c0b0; }
+}
