@@ -504,7 +504,7 @@ function openRepos() {
   const root = document.createElement("div");
   root.className = "repos";
   const lead = document.createElement("p");
-  lead.textContent = "Everything public on github.com/squirelworks as of 28 October 2026. Twenty-six repositories. Private repositories are not listed.";
+  lead.textContent = "Everything public on github.com/squirelworks as of 28 October 2026. Twenty-six repositories.";
   root.appendChild(lead);
   const groups = [
     ["Books and courses", [
