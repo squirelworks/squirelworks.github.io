@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Byte Viewer</title>
+<style>
+  body { margin: 0; background: #14181e; color: #d7dee8; font: 13px/1.35 ui-monospace, Consolas, monospace; }
+  header { background: #000080; color: #fff; padding: 8px 12px; font-family: Tahoma, sans-serif; }
+  .legend, .bar { font-family: Tahoma, sans-serif; background: #1b212b; }
+  .legend { color: #9eb0c6; padding: 6px 12px; }
+  .bar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; padding: 8px 12px; }
+  input, button, select { font: 13px Tahoma, sans-serif; }
+  input { background: #0e1218; color: #d7dee8; border: 1px solid #3a4658; padding: 4px 6px; }
+  button { background: #c0c0c0; color: #000; border: 2px solid; border-color: #fff #404040 #404040 #fff; padding: 2px 8px; }
+  main { display: grid; grid-template-columns: 200px 1fr; min-height: calc(100vh - 118px); }
+  aside { border-right: 1px solid #2a3342; overflow: auto; max-height: calc(100vh - 118px); }
+  aside button { display: block; width: 100%; text-align: left; background: transparent; color: #c5d4e8; border: 0; padding: 2px 8px; }
+  aside button.on { background: #243044; }
+  #view { overflow: auto; padding: 8px 12px 24px; }
+  .row { white-space: pre; }
+  .b { display: inline-block; width: 1.6em; text-align: center; }
+  .off { color: #6d7d92; }
+  .ascii { color: #9eb0c6; margin-left: 8px; }
+  .tip { position: fixed; z-index: 5; max-width: 420px; background: #0e1218; border: 1px solid #8fb4de; padding: 8px 10px; display: none; font: 12px/1.4 Tahoma, sans-serif; }
+  .dos { background: #3a3428; } .pe { background: #3a2e28; } .loc { background: #5a4630; }
+  .magic { background: #6a4030; } .jbo { background: #2e4a38; } .mark { background: #6a3048; }
+  .name { background: #3d4a28; } .text { background: #1e5a3a; } .bmp { background: #1e4068; }
+  .flags { background: #28486a; } .payload { background: #262b33; }
+  .sw { display: inline-block; width: 10px; height: 10px; margin: 0 4px 0 8px; }
+</style>
+</head>
+<body>
+<header><b id="title">Byte Viewer</b> <span id="size"></span></header>
+<div class="legend">
+  Hover a byte. The color is the reading we can stand behind.
+  <span class="sw dos"></span>DOS <span class="sw pe"></span>PE <span class="sw loc"></span>shell
+  <span class="sw magic"></span>mark <span class="sw jbo"></span>JBO <span class="sw mark"></span>page
+  <span class="sw name"></span>name <span class="sw text"></span>text <span class="sw bmp"></span>BMP
+  <span class="sw flags"></span>flags <span class="sw payload"></span>payload
+</div>
+<div class="bar">
+  <input id="file" type="file">
+  <button id="sample" type="button">NIDA sample</button>
+  <button id="inflate" type="button">Payload</button>
+  <button id="prev" type="button">Prev</button>
+  <button id="next" type="button">Next</button>
+  <label>offset <input id="goto" size="12" value="0"></label>
+  <button id="go" type="button">Go</button>
+  <label>find <input id="q" size="16" placeholder="hex or text"></label>
+  <button id="find" type="button">Find</button>
+  <span id="stat"></span>
+</div>
+<main>
+  <aside id="pages"></aside>
+  <div id="view"></div>
+</main>
+<div id="tip" class="tip"></div>
+<script>
+const WINDOW = 512;
+let raw = new Uint8Array();
+let ranges = [];
+let pages = [];
+let cursor = 0;
+let source = new Uint8Array();
+const view = document.getElementById("view");
+const tip = document.getElementById("tip");
+
+function findSeq(u8, seq, limit) {
+  const end = Math.min(u8.length, limit || u8.length) - seq.length;
+  outer: for (let i = 0; i <= end; i++) {
+    for (let k = 0; k < seq.length; k++) if (u8[i + k] !== seq[k]) continue outer;
+    return i;
+  }
+  return -1;
+}
+
+function cstr(u8, off, n) {
+  let s = "";
+  for (let i = 0; i < n && off + i < u8.length; i++) {
+    const c = u8[off + i];
+    if (c === 0 || c < 32 || c > 126) break;
+    s += String.fromCharCode(c);
+  }
+  return s;
+}
+
+function add(list, a, b, kind, note) {
+  if (b > a) list.push([a, b, kind, note]);
+}
+
+function classify(u8) {
+  const list = [];
+  const pages = [];
+  const head = new TextDecoder().decode(u8.slice(0, 4));
+  if (u8[0] === 0x50 && u8[1] === 0x4b) {
+    const view = new DataView(u8.buffer, u8.byteOffset, u8.byteLength);
+    let i = 0;
+    while (i + 30 < u8.length && view.getUint32(i, true) === 0x04034b50 && pages.length < 300) {
+      const method = view.getUint16(i + 8, true);
+      const compSize = view.getUint32(i + 18, true);
+      const nameLen = view.getUint16(i + 26, true);
+      const extraLen = view.getUint16(i + 28, true);
+      const name = new TextDecoder().decode(u8.slice(i + 30, i + 30 + nameLen));
+      add(list, i, i + 30, "magic", "zip local header, method " + method);
+      add(list, i + 30, i + 30 + nameLen, "name", name);
+      pages.push({ name, off: i });
+      if (!compSize) break;
+      i = i + 30 + nameLen + extraLen + compSize;
+    }
+    add(list, 0, Math.min(4, u8.length), "magic", "TBKX or SBKX is this zip. Book.xml is the book. A .script file is the OpenScript.");
+    return { list, pages, fool: false };
+  }
+  if (head === "FBK1" || head === "FSK1" || head === "FSC1") {
+    const kind = head === "FSK1" ? "system book" : head === "FSC1" ? "course" : "book";
+    add(list, 0, 4, "magic", head + "  Foolbook " + kind);
+    add(list, 4, 5, "flags", "bit 0 set means the rest is zlib");
+    add(list, 5, u8.length, "payload", (u8[4] & 1) ? "zlib payload. Press Payload to see the JSON." : "JSON payload");
+    return { list, pages, fool: true };
+  }
+  if (u8[0] === 0x4d && u8[1] === 0x5a) add(list, 0, Math.min(0x80, u8.length), "dos", "DOS header");
+  const pe = findSeq(u8, [0x50, 0x45, 0, 0], 0x400);
+  if (pe >= 0) add(list, pe, pe + 4, "pe", "PE signature");
+  const view = new DataView(u8.buffer, u8.byteOffset, u8.byteLength);
+  if (u8.length >= 0xc04 && view.getUint32(0xc00, true) === 0x22222222) {
+    add(list, 0, 0xc00, "loc", "shell stub. The book starts at 0xC00.");
+    add(list, 0xc00, 0xc04, "magic", "book mark 22 22 22 22");
+  }
+  const jbo = findSeq(u8, [0x03, 0x4a, 0x42, 0x4f], 0x2000);
+  if (jbo >= 0) add(list, jbo, jbo + 4, "jbo", "object store, 03 4A 42 4F");
+  const marks = [[0x80, 0x65, 0x00, 0x05, 0x00, 0x02, 0x02, false], [0x81, 0x65, 0x00, 0x05, 0x00, 0x02, 0x02, true]];
+  for (let i = 0; i + 16 < u8.length && pages.length < 500; i++) {
+    for (const mark of marks) {
+      if (u8[i] !== mark[0]) continue;
+      let ok = true;
+      for (let k = 1; k < 7; k++) if (u8[i + k] !== mark[k]) ok = false;
+      if (!ok) continue;
+      const name = cstr(u8, i + 7, 32);
+      if (!name.startsWith("P")) continue;
+      add(list, i, i + 7, "mark", (mark[7] ? "nested page " : "page ") + name);
+      add(list, i + 7, i + 7 + name.length, "name", name);
+      pages.push({ name, off: i });
+    }
+  }
+  const textMark = [0x54, 0x65, 0x78, 0x74, 0, 0];
+  let from = 0;
+  let texts = 0;
+  while (texts < 80) {
+    const at = findSeq(u8.subarray(from), textMark);
+    if (at < 0) break;
+    const pos = from + at;
+    add(list, pos, pos + 6, "text", "field text marker");
+    texts += 1;
+    from = pos + 6;
+  }
+  let bm = 0;
+  let pictures = 0;
+  while (pictures < 40) {
+    const at = u8.indexOf(0x42, bm);
+    if (at < 0 || at + 1 >= u8.length) break;
+    if (u8[at + 1] === 0x4d) {
+      add(list, at, at + 2, "bmp", "BMP header");
+      pictures += 1;
+    }
+    bm = at + 1;
+  }
+  return { list, pages, fool: false };
+}
+
+function covering(off) {
+  return ranges.filter((r) => off >= r[0] && off < r[1]);
+}
+
+function cls(off) {
+  const hits = covering(off);
+  if (!hits.length) return "";
+  const prefer = ["bmp", "text", "mark", "name", "jbo", "magic", "flags", "pe", "dos", "loc", "payload"];
+  for (const kind of prefer) if (hits.some((r) => r[2] === kind)) return kind;
+  return hits[hits.length - 1][2];
+}
+
+function hex(n, w) { return n.toString(16).padStart(w, "0"); }
+
+function draw() {
+  const start = Math.max(0, Math.min(raw.length ? raw.length - 1 : 0, cursor)) & ~15;
+  cursor = start;
+  document.getElementById("goto").value = "0x" + start.toString(16);
+  document.getElementById("stat").textContent = raw.length ? ("0x" + start.toString(16)) : "";
+  view.replaceChildren();
+  const end = Math.min(raw.length, start + WINDOW);
+  for (let row = start; row < end; row += 16) {
+    const line = document.createElement("div");
+    line.className = "row";
+    const off = document.createElement("span");
+    off.className = "off";
+    off.textContent = hex(row, 6) + "  ";
+    line.appendChild(off);
+    let asc = "";
+    for (let col = 0; col < 16; col++) {
+      const i = row + col;
+      const cell = document.createElement("span");
+      cell.className = "b " + (i < raw.length ? cls(i) : "");
+      cell.dataset.off = String(i);
+      if (i < raw.length) {
+        cell.textContent = hex(raw[i], 2);
+        asc += raw[i] >= 32 && raw[i] < 127 ? String.fromCharCode(raw[i]) : ".";
+      } else cell.textContent = "  ";
+      line.appendChild(cell);
+      line.appendChild(document.createTextNode(col === 7 ? "  " : " "));
+    }
+    const ascii = document.createElement("span");
+    ascii.className = "ascii";
+    ascii.textContent = asc;
+    line.appendChild(ascii);
+    view.appendChild(line);
+  }
+}
+
+function jump(off) { cursor = off; draw(); }
+
+function showPages() {
+  const aside = document.getElementById("pages");
+  aside.replaceChildren();
+  pages.forEach((page) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.textContent = page.name + "  " + page.off.toString(16);
+    b.addEventListener("click", () => jump(page.off));
+    aside.appendChild(b);
+  });
+}
+
+function load(name, bytes) {
+  source = bytes;
+  raw = bytes;
+  const found = classify(bytes);
+  ranges = found.list;
+  pages = found.pages;
+  document.getElementById("title").textContent = name;
+  document.getElementById("size").textContent = bytes.length.toLocaleString() + " bytes";
+  document.getElementById("inflate").disabled = !(bytes.length > 5 && (bytes[4] & 1) && (new TextDecoder().decode(bytes.slice(0, 4)) === "FBK1" || new TextDecoder().decode(bytes.slice(0, 3)) === "FSK" || new TextDecoder().decode(bytes.slice(0, 3)) === "FSC"));
+  cursor = 0;
+  showPages();
+  draw();
+}
+
+view.addEventListener("mousemove", (ev) => {
+  const cell = ev.target.closest(".b");
+  if (!cell || cell.dataset.off == null) { tip.style.display = "none"; return; }
+  const off = Number(cell.dataset.off);
+  const hits = covering(off);
+  tip.style.display = "block";
+  tip.style.left = Math.min(ev.clientX + 12, window.innerWidth - 440) + "px";
+  tip.style.top = ev.clientY + 16 + "px";
+  tip.textContent = "0x" + off.toString(16) + "  " + (hits.length ? hits.map((r) => r[3]).join(" · ") : "not named");
+});
+view.addEventListener("mouseleave", () => { tip.style.display = "none"; });
+
+document.getElementById("prev").addEventListener("click", () => jump(cursor - WINDOW));
+document.getElementById("next").addEventListener("click", () => jump(cursor + WINDOW));
+document.getElementById("go").addEventListener("click", () => {
+  const text = document.getElementById("goto").value.trim();
+  jump(text.startsWith("0x") ? parseInt(text, 16) : parseInt(text, 10));
+});
+document.getElementById("find").addEventListener("click", () => {
+  const q = document.getElementById("q").value.trim();
+  if (!q) return;
+  let needle;
+  if (/^(?:[0-9a-f]{2}\s*)+$/i.test(q)) needle = new Uint8Array(q.split(/\s+/).map((h) => parseInt(h, 16)));
+  else needle = new TextEncoder().encode(q);
+  const at = findSeq(raw.subarray(cursor + 1), needle);
+  if (at >= 0) jump(cursor + 1 + at);
+  else document.getElementById("stat").textContent = "not found";
+});
+document.getElementById("file").addEventListener("change", async (ev) => {
+  const file = ev.target.files[0];
+  if (!file) return;
+  load(file.name, new Uint8Array(await file.arrayBuffer()));
+});
+document.getElementById("sample").addEventListener("click", async () => {
+  document.getElementById("stat").textContent = "loading";
+  const res = await fetch("https://raw.githubusercontent.com/squirelworks/NIDA_ATT/main/courses/93951100.fbk");
+  load("93951100.fbk", new Uint8Array(await res.arrayBuffer()));
+});
+document.getElementById("inflate").addEventListener("click", async () => {
+  if (source.length < 6 || !(source[4] & 1)) return;
+  const rawDeflate = source.slice(7, source.length - 4);
+  const stream = new Blob([rawDeflate]).stream().pipeThrough(new DecompressionStream("deflate-raw"));
+  const payload = new Uint8Array(await new Response(stream).arrayBuffer());
+  const book = JSON.parse(new TextDecoder().decode(payload));
+  load((document.getElementById("title").textContent || "book") + " payload", payload);
+  pages = (book.pages || []).map((page) => {
+    const needle = new TextEncoder().encode('"id":"' + page.id + '"');
+    const at = findSeq(payload, needle);
+    return { name: page.id, off: Math.max(0, at) };
+  }).filter((page) => page.off || page.name === (book.pages[0] && book.pages[0].id));
+  showPages();
+});
+
+document.body.addEventListener("dragover", (ev) => ev.preventDefault());
+document.body.addEventListener("drop", async (ev) => {
+  ev.preventDefault();
+  const file = ev.dataTransfer.files[0];
+  if (file) load(file.name, new Uint8Array(await file.arrayBuffer()));
+});
+</script>
+</body>
+</html>

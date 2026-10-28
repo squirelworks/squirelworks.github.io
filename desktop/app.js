@@ -1,11 +1,13 @@
 "use strict";
 
 const ICONS = [
-  { id: "nida", name: "NIDA ATT", x: 16, y: 16, color: "#000080" },
-  { id: "foolcourse", name: "Foolcourse", x: 16, y: 96, color: "#800000" },
-  { id: "foolbook", name: "Foolbook", x: 16, y: 176, color: "#008000" },
-  { id: "bytes", name: "Byte Viewer", x: 16, y: 256, color: "#808000" },
-  { id: "old", name: "Old viewers", x: 16, y: 336, color: "#404040" },
+  { id: "nida", name: "NIDA ATT", x: 16, y: 12, color: "#000080" },
+  { id: "foolcourse", name: "Foolcourse", x: 16, y: 88, color: "#800000" },
+  { id: "foolbook", name: "Foolbook", x: 16, y: 164, color: "#008000" },
+  { id: "editor", name: "Foolbook Editor", x: 16, y: 240, color: "#008080" },
+  { id: "bytes", name: "Byte Viewer", x: 16, y: 316, color: "#808000" },
+  { id: "repos", name: "Repos", x: 108, y: 12, color: "#400080" },
+  { id: "old", name: "Old viewers", x: 108, y: 88, color: "#404040" },
 ];
 
 const desk = document.getElementById("desk");
@@ -41,8 +43,8 @@ function placeIcons() {
     el.className = "icon";
     el.tabIndex = 0;
     if (narrow) {
-      const col = i % 3;
-      const row = Math.floor(i / 3);
+    const col = i % 4;
+    const row = Math.floor(i / 4);
       el.style.left = 12 + col * 96 + "px";
       el.style.top = 12 + row * 84 + "px";
     } else {
@@ -81,7 +83,9 @@ function openIcon(id) {
   if (id === "nida") openNida();
   if (id === "foolcourse") openFoolcourse();
   if (id === "foolbook") openFoolbook();
+  if (id === "editor") openEditor();
   if (id === "bytes") openBytes();
+  if (id === "repos") openRepos();
 }
 
 function windowFrame(key, title) {
@@ -222,12 +226,10 @@ function openNida() {
             h.textContent = mod.title;
             const p = document.createElement("p");
             p.className = "note";
-            p.textContent = subject.title + ". " + mod.courses.length + " courses. The books are in the NIDA_ATT release. This site lists them. It does not host the files.";
+            p.textContent = subject.title + ". " + mod.courses.length + " courses, from NIDA_ATT/courses.";
             detail.append(h, p);
             mod.courses.forEach((course) => {
-              const row = document.createElement("div");
-              row.textContent = course.title + "  (" + course.id + ")";
-              detail.appendChild(row);
+              detail.appendChild(btn(course.title, () => openRemote(detail, FoolReader.NIDA_RAW + "courses/" + course.file, course.file)));
             });
           }));
         });
@@ -239,7 +241,7 @@ function openNida() {
     h.textContent = "NIDA ATT";
     const p = document.createElement("p");
     p.className = "note";
-    p.textContent = catalog.nida.lessons + " lessons on the ATT master. Pick a subject, then a module.";
+    p.textContent = catalog.nida.lessons + " lessons. Pick a subject, then a module, then a course. The book is loaded from the NIDA_ATT course folder.";
     detail.append(h, p);
   }
 
@@ -250,46 +252,52 @@ function openNida() {
     h.textContent = word === "program" ? "Programs" : "Ratings";
     const p = document.createElement("p");
     p.className = "note";
-    p.textContent = "These are the groupings the NIDA disk used. The ATT master is the consolidated list.";
+    p.textContent = "The same lessons as the ATT master, in the grouping the NIDA disk used. Open a course from the master.";
     detail.append(h, p);
     rows.forEach((row) => {
       const line = document.createElement("div");
       line.textContent = row.name + "  (" + row.lessons + ")";
       detail.appendChild(line);
     });
+    if (word === "program") {
+      const shell = document.createElement("div");
+      shell.className = "note";
+      shell.textContent = "System books, from the NIDA_ATT root:";
+      detail.appendChild(shell);
+      ["nida81.fbk", "nc81base.fsk", "nc81recs.fsk", "nc81test.fsk", "nc81trnr.fsk", "NC81BANK.fsk"].forEach((file) => {
+        detail.appendChild(btn(file, () => openRemote(detail, FoolReader.NIDA_RAW + file, file)));
+      });
+    }
   }
   showMaster();
 }
 
-function bookView(book) {
-  const wrap = document.createElement("div");
-  const h = document.createElement("h1");
-  h.textContent = book.title;
-  const p = document.createElement("p");
-  p.className = "note";
-  p.textContent = book.subject + " / " + book.module + "  ·  " + book.file + "  ·  " + book.pages.length + " pages";
-  const pages = document.createElement("div");
-  pages.className = "pages";
-  const read = document.createElement("div");
-  book.pages.forEach((page, i) => {
-    pages.appendChild(btn(page.id + "  " + (page.lines[0] || ""), () => {
-      pages.querySelectorAll("button").forEach((n) => n.classList.remove("on"));
-      pages.children[i].classList.add("on");
-      read.replaceChildren();
-      page.lines.forEach((line) => {
-        const para = document.createElement("p");
-        para.textContent = line;
-        read.appendChild(para);
-      });
-    }));
-  });
-  wrap.append(h, p, pages, read);
-  if (book.pages[0]) pages.children[0].click();
-  return wrap;
+async function openRemote(host, url, name) {
+  host.replaceChildren();
+  const note = document.createElement("p");
+  note.className = "note";
+  note.textContent = "Loading " + name + "…";
+  host.appendChild(note);
+  try {
+    const book = await FoolReader.fetchBook(url);
+    window.FoolBook = { book, name };
+    host.replaceChildren();
+    FoolReader.mountReader(host, book, { onEdit: openEditor });
+  } catch (err) {
+    note.textContent = "Could not open " + name + ". " + err.message;
+  }
 }
+
+const FOOL_BOOKS = [
+  { title: "Filing taxes for 2026", path: "Money/Filing taxes/file_2026.fbk" },
+  { title: "How to find up-to-date information", path: "Money/Filing taxes/find_current.fbk" },
+  { title: "How to not walk while using your phone", path: "Getting around/Street sense/phone.fbk" },
+];
 
 function openFoolcourse() {
   const win = windowFrame("foolcourse", "Foolcourse");
+  win.style.width = "780px";
+  win.style.height = "520px";
   const body = win.querySelector(".body");
   body.replaceChildren();
   body.style.padding = "0";
@@ -300,102 +308,244 @@ function openFoolcourse() {
   const detail = document.createElement("div");
   detail.className = "detail";
   const groups = [
-    { subject: "Money", module: "Filing taxes", ids: ["file_2026", "find_current"] },
-    { subject: "Getting around", module: "Street sense", ids: ["phone"] },
+    { name: "Money / Filing taxes", paths: FOOL_BOOKS.slice(0, 2) },
+    { name: "Getting around / Street sense", paths: FOOL_BOOKS.slice(2) },
   ];
   groups.forEach((group) => {
-    tree.appendChild(btn(group.subject + " / " + group.module, () => {
+    tree.appendChild(btn(group.name, () => {
+      tree.querySelectorAll(".sub").forEach((n) => n.remove());
       const box = document.createElement("div");
       box.className = "sub";
-      group.ids.forEach((id) => {
-        const book = catalog.books.find((item) => item.id === id);
-        box.appendChild(btn(book.title, () => {
-          detail.replaceChildren(bookView(book));
-        }));
+      group.paths.forEach((item) => {
+        box.appendChild(btn(item.title, () => openRemote(detail, FoolReader.COURSE_RAW + encodeURI(item.path), item.path.split("/").pop())));
       });
-      tree.querySelectorAll(".sub").forEach((n) => n.remove());
       tree.appendChild(box);
     }));
   });
-  const intro = document.createElement("div");
-  const h = document.createElement("h1");
-  h.textContent = "Foolcourse";
-  const p = document.createElement("p");
-  p.className = "note";
-  p.textContent = "The general catalog. Two sample courses ship with it. Open a lesson to read the pages.";
-  intro.append(h, p);
-  detail.appendChild(intro);
+  detail.appendChild(Object.assign(document.createElement("p"), { className: "note", textContent: "The Foolcourse books, from the Foolcourse repository. Open a lesson." }));
   split.append(tree, detail);
   body.appendChild(split);
 }
 
 function openFoolbook() {
   const win = windowFrame("foolbook", "Foolbook");
+  win.style.width = "780px";
+  win.style.height = "520px";
   const body = win.querySelector(".body");
   body.replaceChildren();
-  const h = document.createElement("h1");
-  h.textContent = "Foolbook";
-  const p = document.createElement("p");
-  p.className = "note";
-  p.textContent = "The reader. It opens a ToolBook file by what is inside it, and a Foolbook file by the FBK1 or FSK1 envelope. A ToolBook renamed to .fbk is still a ToolBook. These sample books are Foolbook files.";
-  body.append(h, p);
-  catalog.books.forEach((book) => {
-    body.appendChild(btn(book.title + " (" + book.file + ")", () => {
-      const old = body.querySelector(".read");
-      if (old) old.remove();
-      const read = bookView(book);
-      read.className = "read";
-      body.appendChild(read);
-    }));
+  body.style.padding = "0";
+  const split = document.createElement("div");
+  split.className = "split";
+  const tree = document.createElement("div");
+  tree.className = "tree";
+  const detail = document.createElement("div");
+  detail.className = "detail";
+  const note = document.createElement("p");
+  note.className = "note";
+  note.textContent = "Foolbook reads the file by its bytes. These three are Foolbook books. A ToolBook file renamed to .fbk is still opened as ToolBook in the desktop program. Edit hands the open book to Foolbook Editor.";
+  tree.appendChild(note);
+  FOOL_BOOKS.forEach((item) => {
+    tree.appendChild(btn(item.title, () => openRemote(detail, FoolReader.COURSE_RAW + encodeURI(item.path), item.path.split("/").pop())));
   });
+  const file = document.createElement("input");
+  file.type = "file";
+  file.addEventListener("change", async () => {
+    if (!file.files[0]) return;
+    const u8 = new Uint8Array(await file.files[0].arrayBuffer());
+    const book = await FoolReader.unpackBytes(u8);
+    window.FoolBook = { book, name: file.files[0].name };
+    detail.replaceChildren();
+    FoolReader.mountReader(detail, book, { onEdit: openEditor });
+  });
+  tree.appendChild(file);
+  split.append(tree, detail);
+  body.appendChild(split);
 }
 
 function openBytes() {
   const win = windowFrame("bytes", "Byte Viewer");
+  win.style.width = "920px";
+  win.style.height = "560px";
   const body = win.querySelector(".body");
   body.replaceChildren();
-  const drop = document.createElement("div");
-  drop.id = "drop";
-  drop.textContent = "Drop a .tbk, .sbk, .xml, .zip, .fbk, .fsk, or .fsc here, or choose a file.";
-  const pick = document.createElement("input");
-  pick.type = "file";
-  const sample = btn("Sample FBK", async () => {
-    const json = JSON.stringify({ fbk: 1, foolbook: "sample", title: "Sample", pages: [{ id: "P0", text: ["A Foolbook envelope."] }] });
-    const payload = new TextEncoder().encode(json);
-    const bytes = new Uint8Array(5 + payload.length);
-    bytes.set(new TextEncoder().encode("FBK1"));
-    bytes[4] = 0;
-    bytes.set(payload, 5);
-    showBytes("sample.fbk", bytes.buffer);
-  });
-  const out = document.createElement("pre");
-  out.className = "region";
-  drop.addEventListener("dragover", (ev) => ev.preventDefault());
-  drop.addEventListener("drop", (ev) => {
-    ev.preventDefault();
-    const file = ev.dataTransfer.files[0];
-    if (file) readFile(file);
-  });
-  pick.addEventListener("change", () => {
-    if (pick.files[0]) readFile(pick.files[0]);
-  });
-  body.append(drop, pick, sample, out);
+  body.style.padding = "0";
+  const frame = document.createElement("iframe");
+  frame.className = "full";
+  frame.src = "byteviewer/index.html";
+  body.appendChild(frame);
+}
 
-  function readFile(file) {
-    const reader = new FileReader();
-    reader.onload = () => showBytes(file.name, reader.result);
-    reader.readAsArrayBuffer(file);
+function openEditor() {
+  const win = windowFrame("editor", "Foolbook Editor");
+  win.style.width = "920px";
+  win.style.height = "560px";
+  const body = win.querySelector(".body");
+  body.replaceChildren();
+  body.style.padding = "0";
+  const root = document.createElement("div");
+  root.className = "editor";
+  const side = document.createElement("div");
+  side.className = "side";
+  const mid = document.createElement("div");
+  mid.className = "mid";
+  const props = document.createElement("div");
+  props.className = "props";
+  root.append(side, mid, props);
+  body.appendChild(root);
+  const file = document.createElement("input");
+  file.type = "file";
+  const save = document.createElement("button");
+  save.type = "button";
+  save.textContent = "Download";
+  side.append(file, save);
+  let book = (window.FoolBook && window.FoolBook.book) || null;
+  let pageIndex = 0;
+  let shapeIndex = -1;
+
+  function paintProps() {
+    props.replaceChildren();
+    if (!book) return;
+    const page = book.pages[pageIndex];
+    const shape = shapeIndex >= 0 ? page.shapes[shapeIndex] : null;
+    const label = document.createElement("div");
+    label.className = "note";
+    label.textContent = shape ? (shape.kind + "  " + (shape.name || "")) : page.id + "  (page)";
+    props.appendChild(label);
+    const text = document.createElement("textarea");
+    text.rows = 6;
+    text.value = shape ? (shape.text || "") : "";
+    const script = document.createElement("textarea");
+    script.rows = 8;
+    script.value = shape ? (shape.script || "") : ((page.handlers || []).map((h) => "to handle " + h.name + h.source).join("\n"));
+    props.append("Text", text, "Script", script);
+    text.addEventListener("input", () => {
+      if (!shape) return;
+      shape.text = text.value;
+      draw();
+    });
+    script.addEventListener("input", () => {
+      if (shape) shape.script = script.value;
+    });
   }
 
-  async function showBytes(name, buffer) {
-    out.textContent = "Reading " + name + "…";
-    try {
-      const text = await describe(name, buffer);
-      out.textContent = text;
-    } catch (err) {
-      out.textContent = "Could not read " + name + ".\n" + err.message;
-    }
+  function draw() {
+    const page = book.pages[pageIndex];
+    FoolReader.drawPage(mid, book, page, (dest) => {
+      const found = book.pages.findIndex((item) => String(item.id).toLowerCase() === dest.toLowerCase());
+      if (found >= 0) {
+        pageIndex = found;
+        shapeIndex = -1;
+        listPages();
+        draw();
+      }
+    }, (index) => {
+      shapeIndex = index;
+      paintProps();
+    });
+    paintProps();
   }
+
+  function listPages() {
+    side.querySelectorAll("button.pg").forEach((n) => n.remove());
+    book.pages.forEach((page, i) => {
+      const b = btn(page.id, () => {
+        pageIndex = i;
+        shapeIndex = -1;
+        draw();
+      });
+      b.className = "pg" + (i === pageIndex ? " on" : "");
+      side.appendChild(b);
+    });
+  }
+
+  function use(next) {
+    book = next;
+    pageIndex = 0;
+    shapeIndex = -1;
+    listPages();
+    draw();
+  }
+
+  file.addEventListener("change", async () => {
+    if (!file.files[0]) return;
+    use(await FoolReader.unpackBytes(new Uint8Array(await file.files[0].arrayBuffer())));
+    window.FoolBook = { book, name: file.files[0].name };
+  });
+  save.addEventListener("click", () => {
+    if (!book) return;
+    const copy = Object.assign({}, book);
+    delete copy._magic;
+    const payload = new TextEncoder().encode(JSON.stringify(copy));
+    const out = new Uint8Array(5 + payload.length);
+    const magic = (book._magic === "FSK1" || book._magic === "FSC1") ? book._magic : "FBK1";
+    out.set(new TextEncoder().encode(magic));
+    out.set(payload, 5);
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([out]));
+    a.download = (window.FoolBook && window.FoolBook.name) || "book.fbk";
+    a.click();
+  });
+  if (book) use(book);
+  else {
+    const note = document.createElement("p");
+    note.className = "note";
+    note.textContent = "Open a book in NIDA ATT, Foolcourse, or Foolbook, then press Edit. Or choose a file here. Pages are on the left. The page is in the middle. The object and its script are on the right.";
+    props.appendChild(note);
+  }
+}
+
+function openRepos() {
+  const win = windowFrame("repos", "Repos");
+  const body = win.querySelector(".body");
+  body.replaceChildren();
+  const root = document.createElement("div");
+  root.className = "repos";
+  const groups = [
+    ["Reading", [
+      ["Foolbook", "The reader."],
+      ["FoolbookEditor", "The author window. Foolbook stays the reader."],
+      ["Foolcourse", "The general catalog and the sample courses."],
+      ["NIDA_ATT", "The NIDA shell, the system books, and courses/."],
+    ]],
+    ["The record", [
+      ["tbdecompile", "The written record of the ToolBook work."],
+      ["tbworldview", "The field notes, frozen."],
+      ["openscript_analysis", "OpenScript, by file format."],
+      ["opentoolbook8", "The reader that is still open for an author mode."],
+    ]],
+    ["Tools", [
+      ["TBpipeline", "The host and the pass logs."],
+      ["toolbookunpacker", "Unpacking a book."],
+      ["win16-debug", "Win16 reverse engineering tools."],
+    ]],
+  ];
+  groups.forEach(([name, rows]) => {
+    const h = document.createElement("div");
+    h.className = "group";
+    h.textContent = name;
+    root.appendChild(h);
+    rows.forEach(([repo, about]) => {
+      const a = document.createElement("a");
+      a.href = "https://github.com/squirelworks/" + repo;
+      a.target = "_blank";
+      a.rel = "noreferrer";
+      a.textContent = repo + " — " + about;
+      root.appendChild(a);
+    });
+  });
+  const more = document.createElement("div");
+  more.className = "group";
+  more.textContent = "Also on the account";
+  root.appendChild(more);
+  ["Foollege", "Foolversity", "LanguageStudentDesk", "Graal_analysis", "seihai", "sgs1modding", "sgs2modding", "sgs3modding", "lbrmodding", "sn1modding", "hs_sbmodding", "squirreldra", "squirrelator", "squirrelbios", "squirrel-os2"].forEach((repo) => {
+    const a = document.createElement("a");
+    a.href = "https://github.com/squirelworks/" + repo;
+    a.target = "_blank";
+    a.rel = "noreferrer";
+    a.textContent = repo;
+    root.appendChild(a);
+  });
+  body.appendChild(root);
 }
 
 function hex(u8, n) {
@@ -612,7 +762,7 @@ document.getElementById("start").addEventListener("click", (ev) => {
     return;
   }
   menu.replaceChildren();
-  [["NIDA ATT", "nida"], ["Foolcourse", "foolcourse"], ["Foolbook", "foolbook"], ["Byte Viewer", "bytes"], ["Old viewers", "old"]].forEach(([label, id]) => {
+  [["NIDA ATT", "nida"], ["Foolcourse", "foolcourse"], ["Foolbook", "foolbook"], ["Foolbook Editor", "editor"], ["Byte Viewer", "bytes"], ["Repos", "repos"], ["Old viewers", "old"]].forEach(([label, id]) => {
     menu.appendChild(btn(label, () => {
       menu.style.display = "none";
       openIcon(id);

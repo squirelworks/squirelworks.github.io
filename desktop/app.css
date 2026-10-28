@@ -8,7 +8,7 @@ html, body {
   overflow: hidden;
 }
 
-button, input { font: inherit; }
+button, input, textarea { font: inherit; }
 
 #desk {
   position: absolute;
@@ -67,10 +67,10 @@ button, input { font: inherit; }
 
 #start:active { border-color: #404040 #fff #fff #404040; }
 
-#tasks { display: flex; gap: 3px; flex: 1; min-width: 0; }
+#tasks { display: flex; gap: 3px; flex: 1; min-width: 0; overflow: hidden; }
 
 .task {
-  max-width: 160px;
+  max-width: 140px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -162,6 +162,7 @@ button, input { font: inherit; }
   border: 2px solid;
   border-color: #808080 #fff #fff #808080;
   padding: 6px;
+  min-height: 0;
 }
 
 .split { display: flex; height: 100%; min-height: 240px; }
@@ -172,7 +173,7 @@ button, input { font: inherit; }
   border-right: 2px solid #808080;
   background: #fff;
 }
-.detail { flex: 1; overflow: auto; padding: 8px; background: #fff; }
+.detail { flex: 1; overflow: auto; padding: 0; background: #fff; min-width: 0; }
 .tree button, .pages button {
   display: block;
   width: 100%;
@@ -183,24 +184,30 @@ button, input { font: inherit; }
 }
 .tree button.on, .pages button.on { background: #000080; color: #fff; }
 .tree .sub { padding-left: 12px; }
-.note { color: #333; margin: 0 0 8px; }
-h1 { font-size: 14px; margin: 0 0 6px; }
-.pages { margin-top: 8px; }
+.note { color: #333; margin: 8px; }
+h1 { font-size: 14px; margin: 8px 8px 6px; }
 
-#drop {
-  border: 2px dashed #808080;
-  padding: 12px;
-  text-align: center;
-  background: #fff;
-  margin-bottom: 8px;
+.stage { overflow: auto; background: #808080; }
+.board { position: relative; transform-origin: top left; background: #fff; }
+.shape { position: absolute; box-sizing: border-box; }
+.readerbar, .jumps { display: flex; gap: 4px; flex-wrap: wrap; align-items: center; padding: 4px; background: #c0c0c0; }
+.readerbar b { margin-left: 6px; }
+.jumps button, .readerbar button, .editor button, .repos a {
+  border: 2px solid;
+  border-color: #fff #404040 #404040 #fff;
+  background: #c0c0c0;
+  color: #000;
+  text-decoration: none;
 }
-
-.region {
-  font-family: "Courier New", monospace;
-  font-size: 12px;
-  white-space: pre-wrap;
-  margin: 0;
-}
+.editor { display: flex; height: 100%; min-height: 280px; }
+.editor .side, .editor .props { width: 26%; overflow: auto; background: #fff; }
+.editor .mid { flex: 1; min-width: 0; overflow: auto; background: #808080; }
+.editor label { display: block; margin: 6px 4px 2px; }
+.editor textarea, .editor input { width: calc(100% - 12px); margin: 0 4px 4px; box-sizing: border-box; }
+.repos { padding: 8px; }
+.repos a { display: block; margin: 4px 0; padding: 4px 6px; }
+.repos .group { margin: 10px 0 4px; font-weight: bold; }
+iframe.full { border: 0; width: 100%; height: 100%; background: #14181e; display: block; }
 
 @media (max-width: 700px) {
   .window {
@@ -209,6 +216,6 @@ h1 { font-size: 14px; margin: 0 0 6px; }
     width: calc(100vw - 4px) !important;
     height: calc(100% - 4px) !important;
   }
-  .split { flex-direction: column; }
-  .tree { width: auto; max-height: 40%; border-right: 0; border-bottom: 2px solid #808080; }
+  .split, .editor { flex-direction: column; }
+  .tree, .editor .side, .editor .props { width: auto; max-height: 32%; border-right: 0; border-bottom: 2px solid #808080; }
 }
