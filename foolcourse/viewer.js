@@ -98,13 +98,18 @@ async function openOther(name, page) {
   status.textContent = name + " is not beside the lesson or in the course folder.";
 }
 
+function flush() {
+  if (!frame.contentWindow) return;
+  while (pending.length) frame.contentWindow.postMessage(pending.shift(), "*");
+}
+
 window.addEventListener("message", (ev) => {
-  if (ev.source !== frame.contentWindow) return;
   const msg = ev.data;
   if (!msg || msg.type !== "foolbook") return;
+  if (frame.contentWindow && ev.source && ev.source !== frame.contentWindow) return;
   if (msg.event === "ready") {
     ready = true;
-    while (pending.length) frame.contentWindow.postMessage(pending.shift(), "*");
+    flush();
   } else if (msg.event === "error") {
     status.textContent = msg.message || "The book did not open.";
   } else if (msg.event === "need" && msg.book) {
@@ -204,7 +209,8 @@ function fromXml(text) {
 }
 
 frame.addEventListener("load", () => {
-  ready = false;
+  ready = true;
+  flush();
   if (frame.contentWindow) frame.contentWindow.postMessage({ type: "foolbook", cmd: "ping" }, "*");
 });
 if (frame.contentWindow) frame.contentWindow.postMessage({ type: "foolbook", cmd: "ping" }, "*");
