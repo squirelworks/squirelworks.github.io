@@ -1,0 +1,19 @@
+gs2emu class                 Ash name              File
+---------------------------------------------------------------
+main.cpp                     ashserver.main        ashserver.py
+TServer                      World                 ashserver.py
+TPlayer                      Player                ashserver.py
+TAccount                     Account               ashserver.py
+TLevel                       Level                 ashserver.py
+TMap                         extras.GMap           extras.py
+TLevelBaddy                  extras.Baddy          extras.py
+TServerList                  extras.ListServer     extras.py
+TPlayerRC msgPLI_RC_*        extras.handle_rc      extras.py
+TPlayerNC                    extras.handle_npcserver_query
+msgPLI_TRIGGERACTION         extras.handle_trigger extras.py
+CEncryption                  protocol.Encryption   protocol.py
+CString G-ints               g_char/g_short/…      protocol.py
+CFileQueue outbound          outbound_frame        protocol.py
+CSettings                    load_settings         ashserver.py
+IEnums.h                     PLI_/PLO_ constants   both
+versions.txt / IUtil.cpp     protocol.VERSIONS     protocol.py
