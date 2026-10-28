@@ -379,6 +379,7 @@ function findPage(book, id) {
 }
 
 function drawPage(stage, book, page, onJump, onPick) {
+  if (window.Toolbook && Toolbook.paintPage) Toolbook.paintPage(book, page);
   stage.replaceChildren();
   const shapes = withButtons(page);
   const [w, h] = pageSize({ size: page.size, shapes: shapes });

@@ -16,6 +16,8 @@ const where = document.getElementById("where");
 const status = document.getElementById("status");
 let book = null;
 let index = 0;
+let wanted = "";
+const opened = [];
 
 function pageLabel(page) {
   const shape = (page.shapes || []).find((item) => item.text && String(item.text).trim());
@@ -29,6 +31,18 @@ function show(next) {
   if (typeof next === "string") {
     const found = pages.findIndex((page) => String(page.id).toLowerCase() === next.toLowerCase());
     if (found >= 0) index = found;
+    else {
+      const other = opened.find((item) => item !== book && (item.pages || []).some((page) => String(page.id).toLowerCase() === next.toLowerCase()));
+      if (other) {
+        book = other;
+        show(next);
+        return;
+      }
+      wanted = next;
+      status.textContent = "Page " + next + " is in another book. Open that file.";
+      document.getElementById("file").click();
+      return;
+    }
   } else {
     index = Math.max(0, Math.min(pages.length - 1, next));
   }
@@ -69,7 +83,19 @@ async function openBuffer(name, buffer) {
   shelf.querySelectorAll("button").forEach((button) => button.classList.remove("on"));
   try {
     book = await FoolReader.unpackBytes(new Uint8Array(buffer));
-    if (!book.title) book.title = name.replace(/\.(fbk|fsk|tbk|sbk|json)$/i, "");
+    if (!book.title || book.title === "ToolBook") book.title = name.replace(/\.(fbk|fsk|tbk|sbk|json)$/i, "");
+    if (!opened.includes(book)) opened.push(book);
+    if (wanted) {
+      const found = (book.pages || []).findIndex((page) => String(page.id).toLowerCase() === wanted.toLowerCase());
+      if (found >= 0) {
+        const page = wanted;
+        wanted = "";
+        status.textContent = "";
+        show(page);
+        return;
+      }
+      status.textContent = name + " does not have page " + wanted + ".";
+    }
     show(0);
   } catch (err) {
     status.textContent = name + " did not open. " + err.message;

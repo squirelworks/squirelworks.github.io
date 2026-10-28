@@ -64,6 +64,15 @@ function tbCstr(u8, off, limit) {
   return s;
 }
 
+function findFrom(u8, seq, from) {
+  const start = from || 0;
+  outer: for (let i = start; i <= u8.length - seq.length; i++) {
+    for (let k = 0; k < seq.length; k++) if (u8[i + k] !== seq[k]) continue outer;
+    return i;
+  }
+  return -1;
+}
+
 function tbDecompress(blob, origin, keywords) {
   const out = [];
   let pos = origin || 0;
@@ -299,9 +308,20 @@ class ToolStore {
     const trailer = this.trailer(seg.segid);
     const ptr = tb16(this.d, rec + 0x24);
     const heap = trailer && trailer.heaps.get(0);
-    if (!heap || ptr + 4 > heap.length) return "";
+    if (!heap || ptr + 4 > heap.length) return { text: "", color: "" };
+    const runsHandle = heap[ptr] | (heap[ptr + 1] << 8);
     const textHandle = heap[ptr + 2] | (heap[ptr + 3] << 8);
-    return tbHtext(trailer, textHandle).replace(/\r\n/g, "\n").replace(/\r/g, "\n");
+    const text = tbHtext(trailer, textHandle).replace(/\r\n/g, "\n").replace(/\r/g, "\n");
+    const raw = tbItem(trailer, runsHandle);
+    let color = "";
+    if (raw) {
+      let pos = 4;
+      while (pos + 10 <= raw.length) {
+        if (raw[pos + 6] === 0x04) color = "#" + tbHex(raw[pos + 7]) + tbHex(raw[pos + 8]) + tbHex(raw[pos + 9]);
+        pos += 11;
+      }
+    }
+    return { text, color };
   }
 
   caption(seg, rec) {
@@ -356,8 +376,153 @@ class ToolStore {
     return this.bmpAt(tb32(this.d, row + 8));
   }
 
+  ref(handle) {
+    const seg = this.segs.get(handle >>> 16);
+    if (!seg) return [null, 0];
+    return [seg, seg.base + (handle & 0xffff)];
+  }
+
+  directory(kind) {
+    if (this.dirs.has(kind)) return this.dirs.get(kind);
+    const handle = tb32(this.d, this.H + 8 + (kind + 5) * 4);
+    const found = new Map();
+    const [seg, body] = this.ref(handle);
+    if (seg && body + 16 < this.d.length) {
+      const count = tb16(this.d, body + 2);
+      const table = tb16(this.d, body + 0x0e);
+      const base = seg.base;
+      for (let i = 0; i < count && i < 8000; i++) {
+        const at = base + table + i * 8;
+        if (at + 8 > this.d.length) break;
+        const off = tb16(this.d, at + 2);
+        const segid = tb16(this.d, at + 4);
+        const ident = tb16(this.d, at + 6);
+        const [owner, obj] = this.ref((segid << 16) | off);
+        if (owner) found.set(ident, { body: obj, base: owner.base });
+      }
+    }
+    this.dirs.set(kind, found);
+    return found;
+  }
+
   bitmap(ident) {
-    return this.storedBitmap(ident);
+    const entry = this.directory(1).get(ident);
+    if (!entry) return null;
+    const body = entry.body;
+    if (body + 11 > this.d.length) return null;
+    if (this.d[body + 8] & 1) return this.storedBitmap(tb16(this.d, body + 9));
+    return this.bmpAt(entry.base + tb16(this.d, body + 9));
+  }
+
+  paintBits(image) {
+    const table = tb32(this.d, this.H + 0x104);
+    if (!table || table + 12 > this.d.length) return null;
+    const count = tb16(this.d, table + 10);
+    let found = -1;
+    for (let i = 0; i < count; i++) {
+      const row = table + 12 + i * 12;
+      if (row + 12 > this.d.length) break;
+      const size = tb32(this.d, row);
+      const offset = tb32(this.d, row + 8);
+      if (size !== image || offset + image > this.d.length) continue;
+      if (found >= 0) return null;
+      found = offset;
+    }
+    if (found < 0) return null;
+    return this.d.subarray(found, found + image);
+  }
+
+  paintBmp(seg, rec) {
+    const ptr = tb32(this.d, rec + 0x51);
+    if (!ptr) return null;
+    const info = seg.base + ptr;
+    if (info < 0 || info + 40 > this.d.length || tb32(this.d, info) < 40) return null;
+    const header = tb32(this.d, info);
+    let width = tb32(this.d, info + 4);
+    let height = tb32(this.d, info + 8);
+    if (width & 0x80000000) width = width - 0x100000000;
+    if (height & 0x80000000) height = height - 0x100000000;
+    const planes = tb16(this.d, info + 12);
+    const bpp = tb16(this.d, info + 14);
+    const compression = tb32(this.d, info + 16);
+    const pixels = Math.abs(height);
+    if (planes !== 1 || compression !== 0 || width <= 0 || !pixels) return null;
+    if (width > 4000 || pixels > 4000 || ![1, 4, 8, 24, 32].includes(bpp)) return null;
+    const used = tb32(this.d, info + 32);
+    const colors = bpp > 8 ? used : (used || (1 << bpp));
+    const stride = Math.floor((width * bpp + 31) / 32) * 4;
+    let image = tb32(this.d, info + 20) || stride * pixels;
+    if (image < stride * pixels) image = stride * pixels;
+    const palette = colors * 4;
+    if (info + header + palette > this.d.length) return null;
+    const end = seg.filepos + seg.size;
+    const inline = info + header + palette;
+    const bits = inline + image <= end ? this.d.subarray(inline, inline + image) : this.paintBits(image);
+    if (!bits) return null;
+    const dib = new Uint8Array(header + palette + bits.length);
+    dib.set(this.d.subarray(info, info + header + palette), 0);
+    dib.set(bits, header + palette);
+    const offbits = 14 + header + palette;
+    const file = new Uint8Array(14 + dib.length);
+    file[0] = 0x42;
+    file[1] = 0x4d;
+    const size = file.length;
+    file[2] = size & 255;
+    file[3] = (size >> 8) & 255;
+    file[4] = (size >> 16) & 255;
+    file[5] = (size >> 24) & 255;
+    file[10] = offbits & 255;
+    file[11] = (offbits >> 8) & 255;
+    file[12] = (offbits >> 16) & 255;
+    file[13] = (offbits >> 24) & 255;
+    file.set(dib, 14);
+    return file;
+  }
+
+  points(seg, rec, countAt, ptrAt) {
+    const count = tb16(this.d, rec + countAt);
+    const ptr = tb16(this.d, rec + ptrAt);
+    const base = seg.base;
+    const end = seg.filepos + seg.size;
+    if (!(count > 0 && count < 500) || !ptr || base + ptr + 4 * count > end) return [];
+    const out = [];
+    for (let i = 0; i < count; i++) out.push([tb16s(this.d, base + ptr + 4 * i), tb16s(this.d, base + ptr + 4 * i + 2)]);
+    return out;
+  }
+
+  mapped(seg, rec, countAt, ptrAt, bounds) {
+    const pts = this.points(seg, rec, countAt, ptrAt);
+    if (pts.length < 2) return [];
+    const left = bounds[0];
+    const top = bounds[1];
+    const right = bounds[2];
+    const bottom = bounds[3];
+    const xs = pts.map((p) => p[0]);
+    const ys = pts.map((p) => p[1]);
+    const minx = Math.min(...xs);
+    const miny = Math.min(...ys);
+    const spanX = Math.max(...xs) - minx;
+    const spanY = Math.max(...ys) - miny;
+    const width = right - left;
+    const height = bottom - top;
+    return pts.map(([x, y]) => [
+      Math.round(spanX === 0 ? left : left + ((x - minx) * width) / spanX),
+      Math.round(spanY === 0 ? top : top + ((y - miny) * height) / spanY),
+    ]);
+  }
+
+  saysNext(seg) {
+    if (!seg) return false;
+    const blob = this.d.subarray(seg.filepos, Math.min(this.d.length, seg.filepos + seg.size));
+    let from = 0;
+    while (from < blob.length) {
+      const at = findFrom(blob, [0x54, 0x6f, 0x20, 0x81], from);
+      if (at < 0) break;
+      const text = tbDecompress(blob.subarray(at), 0, window.TB_KEYWORDS || []).toLowerCase();
+      if (text.includes("buttonclick") && text.includes("send next")) return true;
+      from = at + 4;
+    }
+    return false;
   }
 
   buttonBmp(seg, rec) {
@@ -371,12 +536,12 @@ class ToolStore {
     const up = word(0x15);
     const checked = word(0x4b);
     const flags = this.d[rec + 0x26];
-    const disabled = this.storedBitmap(word(0x39) > 1 ? word(0x39) - 1 : 0);
+    const disabled = this.bitmap(word(0x39) > 1 ? word(0x39) - 1 : 0);
     if ((flags & 0x01) === 0 && disabled) return disabled;
     let face = up;
     if (style === 1 && up > 1 && checked > 1 && checked < up) face = checked;
     if (face <= 1) return null;
-    return this.storedBitmap(face - 1);
+    return this.bitmap(face - 1);
   }
 
   children(seg, parent) {
@@ -435,7 +600,9 @@ class ToolStore {
     const pattern = [0x8, 0x0c, 0x0d, 0x0f, 0x10].includes(kind) ? this.d[rec + 0x25] : 0xfe;
     if (pattern === 0xfd) obj.fill = "";
     if (kind === 0x0a) {
-      obj.text = this.fieldText(seg, rec);
+      const field = this.fieldText(seg, rec);
+      obj.text = field.text || "";
+      if (field.color) obj.color = field.color;
       obj.border = this.d[rec + 0x36];
       const font = this.fontEntry(tb16(this.d, rec + 0x22));
       if (font.font) obj.font = font.font;
@@ -443,12 +610,21 @@ class ToolStore {
       obj.bold = !!font.bold;
       if (this.d[rec + 0x1f] & 0x02 || this.d[rec + 0x25] === 0xfd) obj.fill = "";
       if (!obj.text && !obj.name && obj.border === 1) return [];
+    } else if (kind === 0x0f || kind === 0x10) {
+      obj.points = this.mapped(seg, rec, 0x30, 0x32, bounds);
+      obj.kind = "polygon";
+    } else if (kind === 0x13) {
+      obj.points = this.mapped(seg, rec, 0x2d, 0x2f, bounds);
+      obj.kind = "line";
+    } else if (kind === 0x0e) {
+      obj.points = [[tb16s(this.d, rec + 0x26), tb16s(this.d, rec + 0x28)], [tb16s(this.d, rec + 0x2a), tb16s(this.d, rec + 0x2c)]];
+      obj.kind = "line";
     } else if (kind === 0x09) {
       obj.text = this.caption(seg, rec);
-      const bmp = this.buttonBmp(seg, rec);
-      if (bmp) obj.bmp = bmp;
-    } else if (kind === 0x15 || kind === 0x19) {
+      obj.later = ["button", seg.segid, rec];
+    } else if (kind === 0x15) {
       obj.kind = "image";
+      obj.later = ["paint", seg.segid, rec];
     }
     return [obj];
   }
@@ -527,7 +703,7 @@ class ToolStore {
       const parent = rec - seg.base;
       this.children(seg, parent).forEach((child) => objects.push(...this.emit(seg, child)));
       const id = tbCstr(this.d, rec + 6, 32) || ("Page" + pages.length);
-      pages.push({ id, objects, script: this.script(seg, rec) });
+      pages.push({ id, objects, script: this.script(seg, rec), bgNext: !!(bgSeg && this.saysNext(bgSeg)) });
     });
     return pages;
   }
@@ -563,7 +739,12 @@ function tbShape(obj) {
     size: obj.size || 0,
     bold: !!obj.bold,
     visible: !obj.hidden,
+    color: obj.color || "",
+    later: obj.later || null,
   };
+  if (obj.points && obj.points.length) {
+    shape.points = obj.points.map(([x, y]) => [tbPixel(x), tbPixel(y)]);
+  }
   if (obj.bmp && obj.bmp[0] === 0x42 && obj.bmp[1] === 0x4d) {
     shape.data = tbB64(obj.bmp);
     shape.kind = "image";
@@ -593,14 +774,29 @@ function readStoreBook(u8) {
         shape.item = item;
         items.push(item);
       }
+      if ((shape.name || "").toLowerCase() === "page#") shape.text = page.id;
       if (shape.kind === "text" && shape.text && shape.visible !== false) text.push(shape.text);
       shapes.push(shape);
     });
     const pageItem = tbItemFromScript(page.id, page.script, fallback);
     if (pageItem) items.push(pageItem);
+    if (page.bgNext && shapes[0] && fallback.next) shapes[0].item = { label: "next", page: fallback.next };
     return { id: page.id, text, items, shapes, script: page.script || "" };
   });
-  return { id: "toolbook", title: "ToolBook", pages, format: "tbk" };
+  const book = { id: "toolbook", title: "ToolBook", pages, format: "tbk", _bytes: u8, _store: store };
+  return book;
 }
 
-window.Toolbook = { read: readStoreBook };
+function paintPage(book, page) {
+  const store = book && (book._store || (book._bytes && (book._store = new ToolStore(book._bytes))));
+  if (!store || !page) return;
+  (page.shapes || []).forEach((shape) => {
+    if (!shape.later || shape.data) return;
+    const seg = store.segs.get(shape.later[1]);
+    if (!seg) return;
+    const bmp = shape.later[0] === "paint" ? store.paintBmp(seg, shape.later[2]) : store.buttonBmp(seg, shape.later[2]);
+    if (bmp && bmp[0] === 0x42 && bmp[1] === 0x4d) shape.data = tbB64(bmp);
+  });
+}
+
+window.Toolbook = { read: readStoreBook, paintPage };
