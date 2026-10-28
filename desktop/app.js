@@ -7,6 +7,7 @@ const ICONS = [
   { id: "editor", name: "Foolbook Editor", x: 16, y: 240, color: "#008080" },
   { id: "bytes", name: "Byte Viewer", x: 16, y: 316, color: "#808000" },
   { id: "repos", name: "Repositories", x: 108, y: 12, color: "#400080" },
+  { id: "seihai", name: "Seihai", x: 108, y: 88, color: "#006400" },
 ];
 
 const desk = document.getElementById("desk");
@@ -96,6 +97,10 @@ function openIcon(id) {
   }
   if (id === "repos") {
     location.href = "repos/";
+    return;
+  }
+  if (id === "seihai") {
+    location.href = "seihai/";
     return;
   }
 }

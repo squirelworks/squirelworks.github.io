@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seihai</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #021433; color: #d6ecff;
+    font-family: Arial, Helvetica, sans-serif; overflow: hidden; }
+  #bar { position: absolute; top: 0; left: 0; right: 0; height: 28px;
+    background: #000080; color: #fff; display: flex; align-items: center;
+    padding: 0 8px; font-size: 13px; font-weight: bold; }
+  #bar button { margin-left: auto; background: #c0c0c0; border: 2px outset #fff;
+    font: inherit; padding: 0 8px; cursor: pointer; }
+  #view { position: absolute; top: 28px; left: 0; right: 0; bottom: 22px;
+    display: flex; align-items: center; justify-content: center; }
+  canvas { image-rendering: pixelated; background: #000;
+    box-shadow: 0 0 0 2px #000, 0 0 0 4px #808080; }
+  #status { position: absolute; bottom: 0; left: 0; right: 0; height: 22px;
+    background: #c0c0c0; color: #000; font-size: 12px; display: flex;
+    align-items: center; padding: 0 8px; border-top: 1px solid #fff; }
+  #msg { margin-left: 12px; color: #000080; }
+</style>
+</head>
+<body>
+<div id="bar">Seihai <span style="font-weight:normal;margin-left:8px">mini</span>
+  <button id="back" type="button">Desktop</button></div>
+<div id="view"><canvas id="c" width="512" height="384"></canvas></div>
+<div id="status"><span id="pos">loading</span><span id="msg"></span></div>
+<script>
+"use strict";
+const TILE = 16, VIEW_W = 32, VIEW_H = 24;
+const B64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+function tid(a, b) {
+  const v = c => { const i = B64.indexOf(c); return i < 0 ? 0 : i; };
+  return (v(a) << 6) | v(b);
+}
+const WALL = new Set();
+// type >= 20 blocks; water 11 does not. From the default tiledefs.
+[16,17,48,49,50,54,64,65,66,67,68,69,70,71,80,81,82,83,84,85,86,87,96,97,98,99]
+  .forEach(id => WALL.add(id));
+
+const canvas = document.getElementById("c");
+const ctx = canvas.getContext("2d");
+ctx.imageSmoothingEnabled = false;
+const posEl = document.getElementById("pos");
+const msgEl = document.getElementById("msg");
+document.getElementById("back").onclick = () => location.href = "../";
+
+let pics, body, head;
+let board = [];
+let signs = [];
+let chests = [];
+let npcs = [];
+let px = 8, py = 16, dir = 2; // start on the path, facing down
+let keys = {};
+let openSign = null;
+let signPage = 0;
+
+function loadImg(src) {
+  return new Promise((res, rej) => {
+    const im = new Image();
+    im.onload = () => res(im);
+    im.onerror = rej;
+    im.src = src;
+  });
+}
+
+async function loadWorld() {
+  const text = await (await fetch("world.nw")).text();
+  const lines = text.split(/\r?\n/);
+  let yMax = 0, xMax = 0;
+  const runs = [];
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+    if (line.startsWith("BOARD ")) {
+      const p = line.split(" ");
+      const x = +p[1], y = +p[2], w = +p[3];
+      const tiles = p[5] || "";
+      const row = [];
+      for (let k = 0; k < tiles.length; k += 2) row.push(tid(tiles[k], tiles[k+1]));
+      runs.push({ x, y, row });
+      yMax = Math.max(yMax, y + 1);
+      xMax = Math.max(xMax, x + w);
+    } else if (line.startsWith("SIGN ")) {
+      const p = line.split(" ");
+      const sx = +p[1], sy = +p[2];
+      const text = [];
+      while (++i < lines.length && lines[i].trim() !== "SIGNEND") text.push(lines[i]);
+      signs.push({ x: sx, y: sy, text });
+    } else if (line.startsWith("CHEST ")) {
+      const p = line.split(" ");
+      chests.push({ x: +p[1], y: +p[2], item: p[3] || "", open: false });
+    } else if (line.startsWith("NPC ")) {
+      const p = line.split(" ");
+      npcs.push({ x: +p[1], y: +p[2], image: "head0.png" });
+    }
+  }
+  board = Array.from({ length: yMax }, () => Array(xMax).fill(0));
+  for (const r of runs) {
+    for (let i = 0; i < r.row.length; i++) board[r.y][r.x + i] = r.row[i];
+  }
+}
+
+function tileAt(x, y) {
+  if (y < 0 || y >= board.length || x < 0 || x >= board[0].length) return 16;
+  return board[y][x];
+}
+function blocked(x, y) { return WALL.has(tileAt(x, y)); }
+
+function draw() {
+  ctx.fillStyle = "#000";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  const camX = Math.max(0, Math.min(px - VIEW_W / 2, board[0].length - VIEW_W));
+  const camY = Math.max(0, Math.min(py - VIEW_H / 2, board.length - VIEW_H));
+  for (let ty = 0; ty < VIEW_H; ty++) {
+    for (let tx = 0; tx < VIEW_W; tx++) {
+      const id = tileAt(Math.floor(camX) + tx, Math.floor(camY) + ty);
+      const col = id % 128, row = (id / 128) | 0;
+      ctx.drawImage(pics, col * 16, row * 16, 16, 16, tx * 16, ty * 16, 16, 16);
+    }
+  }
+  // player: body 32x32 at column dir, head 32x32 at row dir
+  const dx = (px - camX) * 16 - 16;
+  const dy = (py - camY) * 16 - 24;
+  const bodyOff = [[8,16],[12,16],[8,16],[4,16]][dir];
+  const headOff = [[8,2],[12,2],[8,2],[4,2]][dir];
+  ctx.drawImage(body, dir * 32, 0, 32, 32, dx + bodyOff[0], dy + bodyOff[1], 32, 32);
+  ctx.drawImage(head, 0, dir * 32, 32, 32, dx + headOff[0], dy + headOff[1], 32, 32);
+  // npcs as a small head
+  for (const n of npcs) {
+    const nx = (n.x - camX) * 16;
+    const ny = (n.y - camY) * 16;
+    ctx.drawImage(head, 0, 64, 32, 32, nx - 8, ny - 16, 32, 32);
+  }
+  if (openSign) drawSign();
+  posEl.textContent = `${px.toFixed(1)}, ${py.toFixed(1)}  dir ${["up","left","down","right"][dir]}`;
+}
+
+function drawSign() {
+  const lines = openSign.text.slice(signPage * 3, signPage * 3 + 3);
+  const w = 280, h = 80;
+  const x = (canvas.width - w) / 2, y = canvas.height - h - 24;
+  ctx.fillStyle = "#f5e6c8";
+  ctx.fillRect(x, y, w, h);
+  ctx.strokeStyle = "#6b4f2a";
+  ctx.lineWidth = 3;
+  ctx.strokeRect(x, y, w, h);
+  ctx.fillStyle = "#1a3a1a";
+  ctx.font = "14px Arial";
+  lines.forEach((ln, i) => ctx.fillText(ln, x + 12, y + 22 + i * 18));
+  ctx.font = "11px Arial";
+  ctx.fillStyle = "#6b4f2a";
+  ctx.fillText("A next   Esc close", x + 12, y + h - 8);
+}
+
+function tryMove(nx, ny, nd) {
+  dir = nd;
+  if (openSign) return;
+  const tx = Math.floor(nx + 0.5), ty = Math.floor(ny + 0.5);
+  if (!blocked(tx, ty)) { px = nx; py = ny; }
+}
+
+function interact() {
+  if (openSign) {
+    if ((signPage + 1) * 3 < openSign.text.length) signPage++;
+    else openSign = null;
+    return;
+  }
+  // facing tile
+  const fx = Math.floor(px) + [0,-1,0,1][dir];
+  const fy = Math.floor(py) + [-1,0,1,0][dir];
+  const s = signs.find(s => Math.abs(s.x - fx) <= 1 && Math.abs(s.y - fy) <= 1);
+  if (s) { openSign = s; signPage = 0; return; }
+  const c = chests.find(c => Math.abs(c.x - fx) <= 1 && Math.abs(c.y - fy) <= 1);
+  if (c && !c.open) {
+    c.open = true;
+    // swap to open chest tiles
+    if (board[c.y] && board[c.y][c.x] === 64) {
+      board[c.y][c.x] = 66; board[c.y][c.x+1] = 67;
+      board[c.y+1][c.x] = 82; board[c.y+1][c.x+1] = 83;
+    }
+    msgEl.textContent = "Got " + c.item;
+    setTimeout(() => msgEl.textContent = "", 2000);
+    return;
+  }
+  const n = npcs.find(n => Math.abs(n.x - px) < 2 && Math.abs(n.y - py) < 2);
+  if (n) { msgEl.textContent = "Hello from the mini world."; setTimeout(() => msgEl.textContent = "", 2000); }
+}
+
+document.addEventListener("keydown", e => {
+  keys[e.key] = true;
+  if (["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"," "].includes(e.key)) e.preventDefault();
+  if (e.key === "Escape") {
+    if (openSign) openSign = null;
+    else location.href = "../";
+  }
+  if (e.key === "a" || e.key === "A" || e.key === " ") interact();
+});
+document.addEventListener("keyup", e => { keys[e.key] = false; });
+
+let acc = 0;
+function loop(t) {
+  if (!loop.last) loop.last = t;
+  const dt = t - loop.last; loop.last = t;
+  acc += dt;
+  const step = 180; // ms per half-tile
+  while (acc >= step) {
+    acc -= step;
+    if (keys["ArrowUp"] || keys["w"] || keys["W"]) tryMove(px, py - 0.5, 0);
+    else if (keys["ArrowDown"] || keys["s"] || keys["S"]) tryMove(px, py + 0.5, 2);
+    else if (keys["ArrowLeft"] || keys["a"] || keys["A"]) tryMove(px - 0.5, py, 1);
+    else if (keys["ArrowRight"] || keys["d"] || keys["D"]) tryMove(px + 0.5, py, 3);
+  }
+  draw();
+  requestAnimationFrame(loop);
+}
+
+(async () => {
+  [pics, body, head] = await Promise.all([
+    loadImg("assets/pics1.png"),
+    loadImg("assets/body.png"),
+    loadImg("assets/head0.png"),
+  ]);
+  await loadWorld();
+  posEl.textContent = "ready";
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
