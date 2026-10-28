@@ -1,0 +1,211 @@
+---
+layout: null
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Documentation</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #f4f1ea; color: #1a1a1a; font: 14px/1.45 Tahoma, Arial, sans-serif; }
+    #app { display: flex; height: 100%; }
+    #tree { width: 260px; min-width: 180px; overflow: auto; border-right: 2px solid #808080; background: #fff; padding: 8px; box-sizing: border-box; }
+    #view { flex: 1; overflow: auto; padding: 16px 20px; background: #fff; }
+    h1 { font-size: 16px; margin: 0 0 8px; }
+    h2 { font-size: 14px; margin: 16px 0 6px; }
+    button { display: block; width: 100%; text-align: left; border: 0; background: transparent; padding: 3px 4px; cursor: pointer; font: inherit; }
+    button:hover, button.on { background: #000080; color: #fff; }
+    .folder { font-weight: bold; }
+    .file { padding-left: 12px; color: #333; }
+    pre { white-space: pre-wrap; font: 13px/1.5 Consolas, monospace; background: #f8f6f2; padding: 12px; border: 1px solid #ddd; }
+    .md h1 { font-size: 20px; margin: 0 0 12px; }
+    .md h2 { font-size: 16px; margin: 18px 0 8px; }
+    .md p { margin: 0 0 10px; }
+    .md table { border-collapse: collapse; margin: 8px 0 16px; }
+    .md th, .md td { border: 1px solid #ccc; padding: 4px 8px; text-align: left; }
+    .md code { background: #f0eee8; padding: 1px 4px; }
+    .note { color: #555; font-size: 12px; margin: 4px 0 12px; }
+    iframe { border: 0; width: 100%; height: 100%; min-height: 480px; }
+    @media (max-width: 700px) {
+      #app { flex-direction: column; }
+      #tree { width: auto; max-height: 40%; border-right: 0; border-bottom: 2px solid #808080; }
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <div id="tree"></div>
+  <div id="view"><h1>Documentation</h1><p class="note">Pick a folder, then a file.</p></div>
+</div>
+<script>
+"use strict";
+
+const TREE = {
+  Graal: {
+    "39ster Ash / Phoenix": {
+      path: "Graal/39ster-ash-phoenix/",
+      files: [
+        ["INDEX.md", "Index"],
+        ["README.md", "Readme"],
+        ["ARCHITECTURE.md", "Architecture"],
+        ["PHOENIX-ARCHITECTURE.md", "Phoenix architecture"],
+        ["diagrams.html", "Diagrams"]
+      ]
+    },
+    "Classic NPC Ash": {
+      path: "Graal/graal-classic-npc-ash/",
+      files: [
+        ["INDEX.md", "Index"],
+        ["README.md", "Readme"],
+        ["PACKAGE-README.md", "Package"],
+        ["00-runtime/architecture.md", "Runtime — architecture"],
+        ["00-runtime/event-model.md", "Runtime — events"],
+        ["00-runtime/state-and-ids.md", "Runtime — state and IDs"],
+        ["00-runtime/algorithm-index.md", "Runtime — algorithms"],
+        ["01-larency/architecture.md", "Larency"],
+        ["02-phoenix/architecture.md", "Phoenix"],
+        ["03-meh/architecture.md", "Meh"],
+        ["04-unp/architecture.md", "Unp"],
+        ["05-standalone/architecture.md", "Standalone"]
+      ]
+    },
+    "GServers": {
+      path: "Graal/graal-gservers/",
+      files: [
+        ["README.md", "Readme"],
+        ["ember/00-index.md", "Ember — index"],
+        ["ember/01-lineage.md", "Ember — lineage"],
+        ["ember/02-architecture.md", "Ember — architecture"],
+        ["ember/03-protocol.md", "Ember — protocol"],
+        ["ember/04-algorithms.md", "Ember — algorithms"],
+        ["ember/05-blueprints.md", "Ember — blueprints"],
+        ["ember/ATLAS.html", "Ember — atlas"],
+        ["gserverstory/00-series.md", "Story — series"],
+        ["gserverstory/chapter-01.md", "Story — chapter 1"],
+        ["gserverstory/chapter-02.md", "Story — chapter 2"],
+        ["gserverstory/chapter-03.md", "Story — chapter 3"],
+        ["gserverstory/command-index.md", "Story — command index"]
+      ]
+    },
+    "LinuxMan2 / Seihai": {
+      path: "Graal/graal-linuxman2-seihai/",
+      files: [
+        ["README.md", "Readme"],
+        ["LinuxMan2-README.md", "LinuxMan2"],
+        ["GraalEditor-README.md", "GraalEditor"],
+        ["GraalShop-README.md", "GraalShop"],
+        ["GraalShop/Documentation/architecture.md", "GraalShop — architecture"],
+        ["GraalShop/Documentation/domain.md", "GraalShop — domain"],
+        ["GraalShop/Documentation/sprites.md", "GraalShop — sprites"],
+        ["GraalShop/Documentation/animation.md", "GraalShop — animation"]
+      ]
+    }
+  }
+};
+
+const tree = document.getElementById("tree");
+const view = document.getElementById("view");
+let current = null;
+
+function renderTree() {
+  tree.replaceChildren();
+  const h = document.createElement("h1");
+  h.textContent = "Documentation";
+  tree.appendChild(h);
+  Object.keys(TREE).forEach((folder) => {
+    const b = document.createElement("button");
+    b.className = "folder";
+    b.textContent = folder;
+    b.addEventListener("click", () => openFolder(folder));
+    tree.appendChild(b);
+    const box = document.createElement("div");
+    box.id = "f-" + folder;
+    box.hidden = true;
+    Object.keys(TREE[folder]).forEach((name) => {
+      const s = document.createElement("button");
+      s.className = "folder";
+      s.style.paddingLeft = "12px";
+      s.textContent = name;
+      s.addEventListener("click", () => openSet(folder, name));
+      box.appendChild(s);
+    });
+    tree.appendChild(box);
+  });
+}
+
+function openFolder(name) {
+  document.querySelectorAll("#tree div").forEach((n) => n.hidden = true);
+  const box = document.getElementById("f-" + name);
+  if (box) box.hidden = false;
+  view.replaceChildren();
+  const h = document.createElement("h1");
+  h.textContent = name;
+  const p = document.createElement("p");
+  p.className = "note";
+  p.textContent = "Pick a set.";
+  view.append(h, p);
+}
+
+function openSet(folder, name) {
+  const set = TREE[folder][name];
+  view.replaceChildren();
+  const h = document.createElement("h1");
+  h.textContent = name;
+  view.appendChild(h);
+  set.files.forEach(([file, label]) => {
+    const b = document.createElement("button");
+    b.textContent = label;
+    b.addEventListener("click", () => openFile(set.path + file, label));
+    view.appendChild(b);
+  });
+}
+
+async function openFile(path, label) {
+  view.replaceChildren();
+  const h = document.createElement("h1");
+  h.textContent = label;
+  view.appendChild(h);
+  const note = document.createElement("p");
+  note.className = "note";
+  note.textContent = "Loading…";
+  view.appendChild(note);
+  try {
+    const res = await fetch(path);
+    if (!res.ok) throw new Error(res.status);
+    const text = await res.text();
+    note.remove();
+    if (path.endsWith(".html")) {
+      const frame = document.createElement("iframe");
+      frame.src = path;
+      view.appendChild(frame);
+      return;
+    }
+    const box = document.createElement("div");
+    box.className = "md";
+    box.innerHTML = md(text);
+    view.appendChild(box);
+  } catch (err) {
+    note.textContent = "Could not open " + path + ". " + err.message;
+  }
+}
+
+function md(src) {
+  let out = src
+    .replace(/&/g, "&").replace(/</g, "<").replace(/>/g, ">");
+  out = out.replace(/^### (.*)$/gm, "<h3>$1</h3>");
+  out = out.replace(/^## (.*)$/gm, "<h2>$1</h2>");
+  out = out.replace(/^# (.*)$/gm, "<h1>$1</h1>");
+  out = out.replace(/`([^`]+)`/g, "<code>$1</code>");
+  out = out.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+  out = out.replace(/\n\n/g, "</p><p>");
+  out = "<p>" + out + "</p>";
+  out = out.replace(/<p>(<h[123]>)/g, "$1").replace(/(<\/h[123]>)</p>/g, "$1");
+  return out;
+}
+
+renderTree();
+openFolder("Graal");
+</script>
+</body>
+</html>
