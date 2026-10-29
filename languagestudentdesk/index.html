@@ -16,27 +16,24 @@ layout: null
     .build { float: right; color: #666; font-size: 11px; letter-spacing: 0.12em; }
     .lead { color: #444; margin: 0 0 16px; }
     .bar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin: 0 0 12px; }
-    select, button { font: inherit; padding: 6px 10px; }
-    button { border: 2px solid; border-color: #fff #404040 #404040 #fff; background: #d4d4d4; cursor: pointer; }
-    button:active { border-color: #404040 #fff #fff #404040; }
-    button.on { background: #000080; color: #fff; }
+    select { font: inherit; padding: 6px 10px; }
     .tools { border: 2px solid; border-color: #808080 #fff #fff #808080; background: #fff; }
-    .tool { display: block; width: 100%; text-align: left; border: 0; border-bottom: 1px solid #eee; background: transparent; padding: 10px 12px; cursor: pointer; }
-    .tool:hover, .tool.sel { background: #000080; color: #fff; }
-    .tool strong { display: block; }
-    .tool span { font-size: 12px; color: #555; }
-    .tool.sel span { color: #cce; }
+    a.tool { display: block; text-align: left; border: 0; border-bottom: 1px solid #eee; background: transparent; padding: 12px; text-decoration: none; color: inherit; }
+    a.tool:hover, a.tool:focus { background: #000080; color: #fff; }
+    a.tool strong { display: block; font-size: 15px; }
+    a.tool span { font-size: 12px; color: #555; }
+    a.tool:hover span, a.tool:focus span { color: #cce; }
     #status { margin-top: 12px; padding: 6px 8px; background: #e8e8e8; border: 1px solid #ccc; font-size: 12px; }
   </style>
 </head>
 <body>
 <header>
-  <p class="back"><a href="../">Back to the desktop</a> <span class="build">17.001</span></p>
+  <p class="back"><a href="../">Back to the desktop</a> <span class="build">17.002</span></p>
   <h1>Language Student Desk</h1>
-  <p class="lead">Scan and launch language tools. Select a tool, optionally scope a language, then open.</p>
+  <p class="lead">Tap a tool to open it. Scope a language first if you want.</p>
   <div class="bar">
     <label>Scope to language
-      <select id="lang">
+      <select id="lang" onchange="applyLang()">
         <option value="">(none)</option>
         <option value="klingon">klingon</option>
         <option value="japanese">japanese</option>
@@ -48,72 +45,48 @@ layout: null
         <option value="latin">latin</option>
         <option value="english">english</option>
         <option value="python">python</option>
-        <option value="quickbasic">quickbasic</option>
-        <option value="brainfood">brainfood</option>
-        <option value="delphi">delphi</option>
-        <option value="intercal">intercal</option>
-        <option value="lolcode">lolcode</option>
-        <option value="malbolge">malbolge</option>
-        <option value="piet">piet</option>
-        <option value="whitespace">whitespace</option>
-        <option value="win16">win16</option>
-        <option value="z80">z80</option>
       </select>
     </label>
-    <button type="button" id="open">Open</button>
   </div>
 </header>
 <main>
   <div class="tools" id="tools"></div>
-  <div id="status">Ready.</div>
+  <div id="status">Tap a tool to open it.</div>
 </main>
 <script>
-var BASE = "https://cdn.jsdelivr.net/gh/squirelworks/LanguageStudentDesk@main/";
+var CDN = "https://cdn.jsdelivr.net/gh/squirelworks/LanguageStudentDesk@main/";
 var TOOLS = [
-  { id: "klingon", name: "Klingon", about: "pIqaD script, lessons, quizzes, reader." },
-  { id: "resource-learner", name: "Resource Learner", about: "General resources and language lists." },
-  { id: "reference-learner", name: "Reference Learner", about: "Quick lookup for language facts." },
-  { id: "translation-learner", name: "Translation Learner", about: "Squirrelator-style translation practice." },
-  { id: "programming-learner", name: "Programming Learner", about: "Syntax, concepts, practice." },
-  { id: "language-learner", name: "Language Learner", about: "Language overview." },
-  { id: "grammar-learner", name: "Grammar Learner", about: "Grammar notes." },
-  { id: "vocabulary-learner", name: "Vocabulary Learner", about: "Vocabulary." },
-  { id: "character-learner", name: "Character Learner", about: "Scripts: hiragana, katakana, kanji, arabic, hangul, and more." }
+  { id: "klingon", name: "Klingon", about: "pIqaD script, lessons, quizzes, reader.", local: "klingon/" },
+  { id: "resource-learner", name: "Resource Learner", about: "General resources and language lists.", local: null },
+  { id: "reference-learner", name: "Reference Learner", about: "Quick lookup for language facts.", local: null },
+  { id: "translation-learner", name: "Translation Learner", about: "Squirrelator-style translation practice.", local: null },
+  { id: "programming-learner", name: "Programming Learner", about: "Syntax, concepts, practice.", local: null },
+  { id: "character-learner", name: "Character Learner", about: "Hiragana, katakana, kanji, arabic, hangul, and more.", local: null }
 ];
 var SCOPED = ["character-learner", "programming-learner", "resource-learner", "translation-learner", "reference-learner"];
-var selected = null;
 var box = document.getElementById("tools");
-var status = document.getElementById("status");
 
-TOOLS.forEach(function (tool) {
-  var b = document.createElement("button");
-  b.type = "button";
-  b.className = "tool";
-  b.innerHTML = "<strong>" + tool.name + "</strong><span>" + tool.about + "</span>";
-  b.addEventListener("click", function () {
-    document.querySelectorAll(".tool").forEach(function (n) { n.classList.remove("sel"); });
-    b.classList.add("sel");
-    selected = tool;
-    status.textContent = "Selected " + tool.name + ".";
-  });
-  b.addEventListener("dblclick", openTool);
-  box.appendChild(b);
-});
-
-function openTool() {
-  if (!selected) {
-    status.textContent = "Select a tool first.";
-    return;
-  }
-  var url = BASE + selected.id + "/index.html";
+function hrefFor(tool) {
   var lang = document.getElementById("lang").value;
-  if (lang && SCOPED.indexOf(selected.id) >= 0) url += "?lang=" + encodeURIComponent(lang);
-  status.textContent = "Opened " + selected.name + (lang && SCOPED.indexOf(selected.id) >= 0 ? " (lang=" + lang + ")" : "") + ".";
-  window.open(url, "_blank");
+  if (tool.local) return tool.local;
+  var url = CDN + tool.id + "/index.html";
+  if (lang && SCOPED.indexOf(tool.id) >= 0) url += "?lang=" + encodeURIComponent(lang);
+  return url;
 }
 
-document.getElementById("open").addEventListener("click", openTool);
-status.textContent = "Found " + TOOLS.length + " tool(s). Select one, then Open.";
+function draw() {
+  box.innerHTML = "";
+  TOOLS.forEach(function (tool) {
+    var a = document.createElement("a");
+    a.className = "tool";
+    a.href = hrefFor(tool);
+    a.innerHTML = "<strong>" + tool.name + "</strong><span>" + tool.about + "</span>";
+    box.appendChild(a);
+  });
+}
+
+function applyLang() { draw(); }
+draw();
 </script>
 </body>
 </html>
