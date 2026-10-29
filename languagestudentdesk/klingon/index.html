@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>tlhIngan Hol - Klingon Teacher</title>
+<style>
+  :root { --bg: #0d0d0d; --card: #1a1a1a; --accent: #c41e3a; --gold: #d4a017; --text: #e8e8e8; --muted: #888; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); margin: 0; line-height: 1.5; }
+  header { background: linear-gradient(135deg, #1a0000, #2a0a0a); padding: 1.5rem; text-align: center; border-bottom: 3px solid var(--accent); }
+  header h1 { margin: 0; color: var(--gold); font-size: 1.8rem; }
+  header p { margin: 0.3rem 0 0; color: var(--muted); }
+  .back { text-align: left; padding: 0.6rem 1rem; background: #111; }
+  .back a { color: var(--gold); font-size: 0.9rem; text-decoration: none; }
+  nav { display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 1rem; justify-content: center; background: #111; }
+  nav button { background: #222; color: var(--text); border: 1px solid #444; padding: 0.6rem 1rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; }
+  nav button:hover, nav button.active { background: var(--accent); border-color: var(--accent); }
+  main { max-width: 800px; margin: 0 auto; padding: 1.5rem; }
+  .card { background: var(--card); border-radius: 10px; padding: 1.5rem; margin-bottom: 1rem; border: 1px solid #333; }
+  .letter-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.8rem; }
+  .letter-card { background: #222; padding: 1rem; border-radius: 8px; text-align: center; cursor: pointer; border: 2px solid transparent; }
+  .letter-card:hover { border-color: var(--gold); }
+  .letter-card .piqaD { font-size: 2.2rem; color: var(--gold); display: block; }
+  .letter-card .roman { font-size: 0.9rem; color: var(--muted); }
+  #detail { display: none; }
+  #detail.show { display: block; }
+  .big-letter { font-size: 5rem; color: var(--gold); text-align: center; }
+  button.primary { background: var(--accent); color: white; border: none; padding: 0.7rem 1.4rem; border-radius: 6px; cursor: pointer; font-size: 1rem; }
+  .quiz-option { display: block; width: 100%; text-align: left; background: #222; border: 1px solid #444; color: var(--text); padding: 0.8rem; margin: 0.4rem 0; border-radius: 6px; cursor: pointer; }
+  .quiz-option.correct { background: #1a4a1a; border-color: #4caf50; }
+  .quiz-option.wrong { background: #4a1a1a; border-color: #f44336; }
+  .progress { height: 6px; background: #333; border-radius: 3px; margin: 1rem 0; }
+  .progress-bar { height: 100%; background: var(--accent); border-radius: 3px; }
+  .reader-text { font-size: 1.4rem; line-height: 1.8; color: var(--gold); white-space: pre-wrap; margin: 1rem 0; }
+  footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.85rem; }
+</style>
+</head>
+<body>
+<div class="back"><a href="../">Back to the Desk</a></div>
+<header>
+  <h1>tlhIngan Hol</h1>
+  <p>Klingon Language Teacher — Focus on the pIqaD Script</p>
+</header>
+<nav>
+  <button class="active" data-section="intro">Intro</button>
+  <button data-section="alphabet">pIqaD Alphabet</button>
+  <button data-section="vocab">Vocabulary</button>
+  <button data-section="grammar">Grammar</button>
+  <button data-section="reader">Reader</button>
+  <button data-section="quiz">Quiz</button>
+</nav>
+<main>
+  <section id="intro" class="section">
+    <div class="card">
+      <h2>Qapla'! Welcome, warrior.</h2>
+      <p>This app teaches <strong>tlhIngan Hol</strong> (the Klingon language) with a special emphasis on the <strong>pIqaD</strong> script.</p>
+      <p>Most apps stop at the Latin transcription. Here you learn to recognize and read the real characters.</p>
+      <h3>Why pIqaD matters</h3>
+      <ul>
+        <li>Authentic representation of the language</li>
+        <li>One-to-one sound-to-symbol mapping</li>
+        <li>The form used by the Klingon Language Institute (KLI)</li>
+      </ul>
+      <p>Start with the alphabet, then move to vocabulary and basic grammar (note the OVS word order).</p>
+    </div>
+  </section>
+  <section id="alphabet" class="section" style="display:none">
+    <div class="card">
+      <h2>pIqaD Alphabet</h2>
+      <p>Click any letter to see details. Each symbol represents one sound.</p>
+      <div class="letter-grid" id="letterGrid"></div>
+    </div>
+    <div class="card" id="detail">
+      <div class="big-letter" id="detailLetter"></div>
+      <h3 id="detailRoman" style="text-align:center"></h3>
+      <p id="detailInfo"></p>
+      <p><strong>Example:</strong> <span id="detailExample"></span></p>
+      <button class="primary" onclick="document.getElementById('detail').classList.remove('show')">Close</button>
+    </div>
+  </section>
+  <section id="vocab" class="section" style="display:none">
+    <div class="card"><h2>Core Vocabulary</h2><div id="vocabList"></div></div>
+  </section>
+  <section id="grammar" class="section" style="display:none">
+    <div class="card">
+      <h2>Basic Grammar</h2>
+      <h3>Word Order: OVS</h3>
+      <p>Klingon is Object-Verb-Subject. The object comes first, then the verb, then the subject.</p>
+      <p><strong>Example:</strong> <em>Duj legh HoD</em> = "The captain sees the ship"</p>
+      <h3>Verb Prefixes</h3>
+      <ul>
+        <li><strong>jI-</strong> = I (no object)</li>
+        <li><strong>bI-</strong> = you (no object)</li>
+        <li><strong>vI-</strong> = I (object is him/her/it)</li>
+      </ul>
+      <h3>Useful Phrases</h3>
+      <ul>
+        <li><strong>nuqneH</strong> — What do you want?</li>
+        <li><strong>Qapla'</strong> — Success!</li>
+        <li><strong>maj</strong> — Good.</li>
+        <li><strong>ghobe'</strong> — No.</li>
+        <li><strong>HIja'</strong> — Yes.</li>
+      </ul>
+    </div>
+  </section>
+  <section id="reader" class="section" style="display:none">
+    <div class="card">
+      <h2>Reader</h2>
+      <p>Practice reading continuous pIqaD text.</p>
+      <h3>The Star-Spangled Banner (first verse)</h3>
+      <div class="reader-text">ⱋⱘ ⱝⱏⱜ ⱟⱒⱋⱏ ⱛⱋⱋⱏⱝ ⱞⱋⱜⱝⱋⱋⱏⱝ
+ⱟⱒⱋⱏ ⱛⱋⱊ ⱛⱊⱏ ⱞⱊⱜⱝⱊⱊⱏⱝ</div>
+      <h3>The Pledge of Allegiance</h3>
+      <div class="reader-text">ⱋⱝⱏⱜⱒⱋⱛⱋ ⱝⱏⱛⱓⱒⱛⱋ ⱓⱘⱛⱤⱒⱋⱝ ⱓⱒⱝⱋⱞⱟ</div>
+    </div>
+  </section>
+  <section id="quiz" class="section" style="display:none">
+    <div class="card">
+      <h2>Script Recognition Quiz</h2>
+      <div class="progress"><div class="progress-bar" id="progressBar" style="width:0%"></div></div>
+      <div id="quizArea"><p id="quizQuestion">Loading...</p><div id="quizOptions"></div></div>
+      <p id="quizFeedback"></p>
+      <button class="primary" id="nextBtn" style="display:none" onclick="nextQuestion()">Next</button>
+    </div>
+  </section>
+</main>
+<footer>LanguageStudentDesk · tlhIngan Hol Teacher · Qapla'!</footer>
+<script>
+var alphabet = [
+  { piqaD: "ⱋ", roman: "a", info: "Like 'a' in father", example: "tlhIngan" },
+  { piqaD: "ⱌ", roman: "b", info: "Like English 'b'", example: "baH" },
+  { piqaD: "ⱍ", roman: "ch", info: "Like 'ch' in church", example: "choH" },
+  { piqaD: "ⱎ", roman: "D", info: "Like 'd' but more forceful", example: "Duj" },
+  { piqaD: "ⱏ", roman: "e", info: "Like 'e' in get", example: "legh" },
+  { piqaD: "ⱐ", roman: "gh", info: "Voiced version of H", example: "ghob" },
+  { piqaD: "ⱑ", roman: "H", info: "Harsh 'h' sound", example: "Hol" },
+  { piqaD: "ⱒ", roman: "I", info: "Like 'i' in machine", example: "jIH" },
+  { piqaD: "ⱓ", roman: "j", info: "Like 'j' in job", example: "jatlh" },
+  { piqaD: "ⱔ", roman: "l", info: "Like English 'l'", example: "legh" },
+  { piqaD: "ⱕ", roman: "m", info: "Like English 'm'", example: "maj" },
+  { piqaD: "ⱖ", roman: "n", info: "Like English 'n'", example: "nuq" },
+  { piqaD: "ⱗ", roman: "ng", info: "Like 'ng' in sing", example: "ngan" },
+  { piqaD: "ⱘ", roman: "o", info: "Like 'o' in go", example: "HoD" },
+  { piqaD: "ⱙ", roman: "p", info: "Like English 'p'", example: "puq" },
+  { piqaD: "ⱚ", roman: "q", info: "Like 'k' but further back", example: "qet" },
+  { piqaD: "ⱛ", roman: "Q", info: "Even further back than q", example: "Qapla'" },
+  { piqaD: "ⱜ", roman: "r", info: "Trilled or tapped", example: "ram" },
+  { piqaD: "ⱝ", roman: "S", info: "Like 'sh'", example: "SoH" },
+  { piqaD: "ⱞ", roman: "t", info: "Like English 't'", example: "tlhIngan" },
+  { piqaD: "ⱟ", roman: "tlh", info: "Like 'tl' in atlas", example: "tlhIngan" },
+  { piqaD: "Ⱡ", roman: "u", info: "Like 'oo' in boot", example: "Duj" },
+  { piqaD: "ⱡ", roman: "v", info: "Like English 'v'", example: "vav" },
+  { piqaD: "Ɫ", roman: "w", info: "Like English 'w'", example: "wa'" },
+  { piqaD: "Ᵽ", roman: "y", info: "Like English 'y'", example: "yIH" },
+  { piqaD: "Ɽ", roman: "'", info: "Glottal stop", example: "Qapla'" }
+];
+var vocab = [
+  { roman: "tlhIngan", meaning: "Klingon" },
+  { roman: "Hol", meaning: "language" },
+  { roman: "jIH", meaning: "I" },
+  { roman: "SoH", meaning: "you" },
+  { roman: "nuqneH", meaning: "What do you want?" },
+  { roman: "Qapla'", meaning: "Success!" },
+  { roman: "maj", meaning: "Good." },
+  { roman: "HIja'", meaning: "Yes." },
+  { roman: "ghobe'", meaning: "No." },
+  { roman: "Duj", meaning: "ship" },
+  { roman: "HoD", meaning: "captain" },
+  { roman: "puq", meaning: "child" },
+  { roman: "legh", meaning: "see" },
+  { roman: "jatlh", meaning: "speak" }
+];
+document.querySelectorAll("nav button").forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    document.querySelectorAll("nav button").forEach(function (b) { b.classList.remove("active"); });
+    btn.classList.add("active");
+    document.querySelectorAll(".section").forEach(function (s) { s.style.display = "none"; });
+    document.getElementById(btn.getAttribute("data-section")).style.display = "block";
+    if (btn.getAttribute("data-section") === "quiz") startQuiz();
+  });
+});
+function renderAlphabet() {
+  document.getElementById("letterGrid").innerHTML = alphabet.map(function (l) {
+    return "<div class=\"letter-card\" onclick=\"showDetail('" + l.roman + "')\"><span class=\"piqaD\">" + l.piqaD + "</span><span class=\"roman\">" + l.roman + "</span></div>";
+  }).join("");
+}
+function showDetail(roman) {
+  var l = alphabet.filter(function (x) { return x.roman === roman; })[0];
+  if (!l) return;
+  document.getElementById("detailLetter").textContent = l.piqaD;
+  document.getElementById("detailRoman").textContent = l.roman;
+  document.getElementById("detailInfo").textContent = l.info;
+  document.getElementById("detailExample").textContent = l.example;
+  document.getElementById("detail").classList.add("show");
+}
+function renderVocab() {
+  document.getElementById("vocabList").innerHTML = vocab.map(function (v) {
+    return "<div style=\"padding:0.6rem 0;border-bottom:1px solid #333\"><strong style=\"color:#d4a017;font-size:1.2rem\">" + v.roman + "</strong><div>" + v.meaning + "</div></div>";
+  }).join("");
+}
+var quizIndex = 0, quizScore = 0, currentAnswer = "";
+var quizQuestions = alphabet.slice(0, 10).map(function (l) {
+  var others = alphabet.filter(function (x) { return x.roman !== l.roman; }).slice(0, 3).map(function (x) { return x.piqaD; });
+  return { question: "Which symbol is \"" + l.roman + "\"?", answer: l.piqaD, options: [l.piqaD].concat(others) };
+});
+function startQuiz() { quizIndex = 0; quizScore = 0; showQuestion(); }
+function showQuestion() {
+  if (quizIndex >= quizQuestions.length) {
+    document.getElementById("quizArea").innerHTML = "<h3>Quiz complete!</h3><p>Score: " + quizScore + " / " + quizQuestions.length + "</p>";
+    document.getElementById("nextBtn").style.display = "none";
+    return;
+  }
+  var q = quizQuestions[quizIndex];
+  currentAnswer = q.answer;
+  document.getElementById("quizQuestion").textContent = q.question;
+  document.getElementById("quizOptions").innerHTML = q.options.map(function (opt) {
+    return "<button class=\"quiz-option\" onclick=\"checkAnswer(this, '" + opt + "')\">" + opt + "</button>";
+  }).join("");
+  document.getElementById("quizFeedback").textContent = "";
+  document.getElementById("nextBtn").style.display = "none";
+  document.getElementById("progressBar").style.width = ((quizIndex / quizQuestions.length) * 100) + "%";
+}
+function checkAnswer(btn, chosen) {
+  document.querySelectorAll(".quiz-option").forEach(function (b) { b.disabled = true; });
+  if (chosen === currentAnswer) {
+    btn.classList.add("correct");
+    document.getElementById("quizFeedback").textContent = "maj! Correct.";
+    quizScore++;
+  } else {
+    btn.classList.add("wrong");
+    document.getElementById("quizFeedback").textContent = "ghobe'. The correct symbol is " + currentAnswer + ".";
+  }
+  document.getElementById("nextBtn").style.display = "inline-block";
+}
+function nextQuestion() { quizIndex++; showQuestion(); }
+renderAlphabet();
+renderVocab();
+</script>
+</body>
+</html>
