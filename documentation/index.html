@@ -8,37 +8,43 @@ layout: null
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Documentation</title>
   <style>
-    html, body { margin: 0; height: 100%; background: #f4f1ea; color: #1a1a1a; font: 15px/1.5 Georgia, serif; }
-    #app { display: flex; height: 100%; }
-    #tree { width: 240px; min-width: 180px; overflow: auto; border-right: 2px solid #808080; background: #fff; padding: 10px; box-sizing: border-box; font: 13px/1.4 Tahoma, sans-serif; }
-    #view { flex: 1; overflow: auto; padding: 20px 28px; background: #fff; }
+    html, body { margin: 0; height: 100%; background: #f4f1ea; color: #1a1a1a; font: 15px/1.5 Georgia, serif; touch-action: manipulation; }
+    #app { display: flex; height: 100%; flex-direction: row; }
+    #tree { width: 240px; min-width: 48px; overflow: auto; background: #fff; padding: 10px; box-sizing: border-box; font: 13px/1.4 Tahoma, sans-serif; }
+    #split { width: 12px; flex: 0 0 12px; background: #c8c8c8; border-left: 2px solid #808080; border-right: 2px solid #fff; cursor: col-resize; touch-action: none; position: relative; }
+    #split::after { content: ""; position: absolute; left: 4px; top: 50%; width: 2px; height: 40px; margin-top: -20px; background: #666; }
+    #view { flex: 1; overflow: auto; padding: 20px 28px; background: #fff; min-width: 0; }
     h1 { font: 18px/1.3 Tahoma, sans-serif; margin: 0 0 8px; }
     .build { float: right; color: #888; font: 11px/1.2 Tahoma, sans-serif; letter-spacing: 0.1em; }
     .back { margin: 0 0 10px; }
     .back a { color: #000080; font-size: 12px; text-decoration: none; }
     .back a:hover { text-decoration: underline; }
-    button { display: block; width: 100%; text-align: left; border: 0; background: transparent; padding: 3px 4px; cursor: pointer; font: inherit; }
+    button { display: block; width: 100%; text-align: left; border: 0; background: transparent; padding: 6px 4px; cursor: pointer; font: inherit; }
     button:hover, button.on { background: #000080; color: #fff; }
     .sec { font-weight: bold; margin: 10px 0 2px; color: #333; }
     .md h1 { font: 22px/1.3 Georgia, serif; margin: 0 0 14px; }
     .md h2 { font: 18px/1.3 Georgia, serif; margin: 20px 0 8px; }
     .md p { margin: 0 0 12px; }
     .md code { background: #f0eee8; padding: 1px 4px; font: 13px Consolas, monospace; }
-    .md pre { white-space: pre-wrap; font: 13px/1.4 Consolas, monospace; background: #f8f6f2; padding: 12px; }
-    .md table { border-collapse: collapse; margin: 8px 0 16px; font: 13px Tahoma, sans-serif; }
-    .md th, .md td { border: 1px solid #ccc; padding: 4px 8px; text-align: left; }
-    .bar { display: flex; gap: 8px; align-items: center; margin: 0 0 14px; font: 13px Tahoma, sans-serif; }
-    .bar button { width: auto; padding: 4px 12px; border: 1px solid #000080; background: #000080; color: #fff; }
+    .bar { display: flex; gap: 8px; align-items: center; margin: 0 0 14px; font: 13px Tahoma, sans-serif; flex-wrap: wrap; }
+    .bar button { width: auto; padding: 6px 14px; border: 1px solid #000080; background: #000080; color: #fff; }
     .bar button:disabled { opacity: 0.4; }
     .note { color: #555; font: 13px Tahoma, sans-serif; }
     iframe { border: 0; width: 100%; height: calc(100vh - 80px); }
+    @media (max-width: 700px) {
+      #app { flex-direction: column; }
+      #tree { width: 100% !important; height: 36%; min-height: 80px; border-bottom: 0; }
+      #split { width: 100%; height: 16px; flex: 0 0 16px; cursor: row-resize; border-left: 0; border-right: 0; border-top: 2px solid #808080; border-bottom: 2px solid #fff; }
+      #split::after { left: 50%; top: 6px; width: 40px; height: 2px; margin-left: -20px; margin-top: 0; }
+      #view { padding: 12px; }
+    }
   </style>
 </head>
 <body>
 <div id="app">
   <div id="tree">
     <p class="back"><a href="../">Back to the desktop</a></p>
-    <h1>Documentation <span class="build">15.005</span></h1>
+    <h1>Documentation <span class="build">15.006</span></h1>
     <div class="sec">Books</div>
     <button type="button" onclick="openBook('gserver', 0)">GServerStory</button>
     <button type="button" onclick="openBook('glstory', 0)">GraalLStory</button>
@@ -49,13 +55,14 @@ layout: null
     <button type="button" onclick="openSet('ember')">Ember</button>
     <button type="button" onclick="openSet('linux')">LinuxMan2 / Seihai</button>
   </div>
+  <div id="split"></div>
   <div id="view">
-    <h1>Documentation <span class="build">15.005</span></h1>
-    <p class="note">Pick a book or a notes set on the left.</p>
+    <h1>Documentation <span class="build">15.006</span></h1>
+    <p class="note">Pick a book or a notes set on the left. Drag the bar to resize.</p>
   </div>
 </div>
 <script>
-var B = "15.005";
+var B = "15.006";
 
 function range(a, b) {
   var o = [];
@@ -144,6 +151,37 @@ var SETS = {
 };
 
 var view = document.getElementById("view");
+var tree = document.getElementById("tree");
+var split = document.getElementById("split");
+var dragging = false;
+
+function narrow() { return window.innerWidth < 700; }
+
+function onDown(ev) {
+  dragging = true;
+  ev.preventDefault();
+}
+function onMove(ev) {
+  if (!dragging) return;
+  var pt = ev.touches ? ev.touches[0] : ev;
+  if (narrow()) {
+    var h = Math.max(80, Math.min(window.innerHeight - 120, pt.clientY));
+    tree.style.height = h + "px";
+    tree.style.flex = "0 0 " + h + "px";
+  } else {
+    var w = Math.max(48, Math.min(window.innerWidth - 120, pt.clientX));
+    tree.style.width = w + "px";
+    tree.style.flex = "0 0 " + w + "px";
+  }
+}
+function onUp() { dragging = false; }
+
+split.addEventListener("mousedown", onDown);
+split.addEventListener("touchstart", onDown, { passive: false });
+window.addEventListener("mousemove", onMove);
+window.addEventListener("touchmove", onMove, { passive: false });
+window.addEventListener("mouseup", onUp);
+window.addEventListener("touchend", onUp);
 
 function openBook(id, idx) {
   var book = BOOKS[id];
