@@ -29,7 +29,7 @@ test("Every field the editor downloads is in schema.json", () => {
   page.press("Download");
   const book = JSON.parse(Buffer.from(page.blobs[page.blobs.length - 1].bytes().slice(5)).toString("utf8"));
   const stray = (where, obj, allowed) => Object.keys(obj).filter((key) => !allowed.includes(key)).map((key) => where + "." + key);
-  let found = stray("book", book, schema.book);
+  let found = stray("book", book, schema.book.concat(schema.envelope));
   book.pages.forEach((item) => {
     found = found.concat(stray("page", item, schema.page));
     item.shapes.forEach((shape) => {
@@ -38,4 +38,23 @@ test("Every field the editor downloads is in schema.json", () => {
   });
   assert.deepStrictEqual(found, [], "the desktop editor would drop these on save");
   assert.strictEqual(book.pages[0].shapes.length, 8, "paper plus seven tools");
+});
+
+test("Download stamps the book version from schema.json", async () => {
+  const page = loadEditor();
+  await page.settle();
+  page.press("Download");
+  const book = JSON.parse(Buffer.from(page.blobs[page.blobs.length - 1].bytes().slice(5)).toString("utf8"));
+  assert.strictEqual(book.fbk, 1);
+});
+
+test("Download refuses a book from a newer Foolbook and says the number", async () => {
+  const page = loadEditor({ opens: { fbk: 99, id: "far", title: "Far", pages: [{ id: "P0", shapes: [] }] } });
+  await page.settle();
+  await page.open("far.fbk");
+  const before = page.blobs.length;
+  page.press("Download");
+  assert.strictEqual(page.blobs.length, before, "nothing written");
+  assert.match(page.ids.status.textContent, /version 99/);
+  assert.match(page.ids.status.textContent, /writes version 1/);
 });

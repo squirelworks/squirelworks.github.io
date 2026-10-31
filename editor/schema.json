@@ -41,5 +41,11 @@
   },
   "not_written": [
     "_magic"
+  ],
+  "envelope": [
+    "format",
+    "format_version",
+    "fbk",
+    "foolbook"
   ]
 }

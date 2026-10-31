@@ -31,12 +31,14 @@ function element(tag) {
   return node;
 }
 
-function loadEditor() {
+function loadEditor(options) {
+  const opts = options || {};
   const ids = {};
+  const created = [];
   const blobs = [];
   const document = {
     getElementById(id) { return (ids[id] = ids[id] || element("div")); },
-    createElement: element,
+    createElement(tag) { const node = element(tag); created.push(node); return node; },
     createElementNS: (ns, tag) => element(tag),
   };
   class Blob {
@@ -57,7 +59,12 @@ function loadEditor() {
     TextDecoder,
     URL: { createObjectURL: () => "blob:test" },
     FileReader: function () {},
-    FoolReader: { drawPage() {}, unpackBytes: async () => ({ pages: [] }) },
+    FoolReader: { drawPage() {}, unpackBytes: async () => opts.opens || { pages: [] } },
+    fetch: async (url) => {
+      const file = path.join(ROOT, "editor", String(url).split("?")[0]);
+      const body = fs.readFileSync(file, "utf8");
+      return { ok: true, json: async () => JSON.parse(body) };
+    },
   };
   sandbox.window = sandbox;
   vm.createContext(sandbox);
@@ -70,7 +77,15 @@ function loadEditor() {
     if (!found) throw new Error("no " + label + " button");
     found.click();
   };
-  return { sandbox, ids, blobs, press, editor: sandbox.__editor };
+  // The Open button's hidden file input is the first input the page makes.
+  const open = async (name) => {
+    const opener = created.find((node) => node.tagName === "INPUT");
+    opener.files = [{ name: name, arrayBuffer: async () => new ArrayBuffer(0) }];
+    opener.dispatch("change");
+    await new Promise((done) => setImmediate(done));
+  };
+  const settle = () => new Promise((done) => setImmediate(done));
+  return { sandbox, ids, blobs, press, open, settle, editor: sandbox.__editor };
 }
 
 module.exports = { loadEditor, ROOT };

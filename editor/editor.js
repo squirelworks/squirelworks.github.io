@@ -30,6 +30,9 @@ let pageIndex = 0;
 let shapeIndex = -1;
 let drag = null;
 let book = blank();
+// The book version this editor writes. editor/schema.json says it; 1 until it loads.
+let known = 1;
+fetch("schema.json?v=2").then((res) => res.json()).then((schema) => { known = schema.fbk; }).catch(() => {});
 
 function blank() {
   return {
@@ -304,8 +307,13 @@ function fillProps() {
 }
 
 function download() {
+  if (typeof book.fbk === "number" && book.fbk > known) {
+    status.textContent = "This book is Foolbook book version " + book.fbk + ". This editor writes version " + known + ". It was not saved.";
+    return;
+  }
   const copy = JSON.parse(JSON.stringify(book));
   delete copy._magic;
+  copy.fbk = known;
   const payload = new TextEncoder().encode(JSON.stringify(copy));
   const out = new Uint8Array(5 + payload.length);
   out.set(new TextEncoder().encode("FBK1"));
