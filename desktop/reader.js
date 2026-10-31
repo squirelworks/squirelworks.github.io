@@ -523,6 +523,44 @@ function findPage(book, id) {
   return (book.pages || []).find((page) => String(page.id).toLowerCase() === want) || book.pages[0];
 }
 
+// Arc, pie, and chord outlines as an SVG path, the way the Foolbook reader
+// draws them: angles in degrees, zero east, a positive sweep turning
+// counterclockwise. A pie closes back to the centre, a chord closes straight.
+function arcPath(x, y, w, h, start, sweep, style) {
+  const rx = w / 2;
+  const ry = h / 2;
+  const cx = x + rx;
+  const cy = y + ry;
+  if (!(rx > 0 && ry > 0)) return "";
+  const at = (deg) => {
+    const rad = (deg * Math.PI) / 180;
+    return [+(cx + rx * Math.cos(rad)).toFixed(2), +(cy - ry * Math.sin(rad)).toFixed(2)];
+  };
+  if (Math.abs(sweep) >= 360) {
+    const [x0, y0] = at(start);
+    const [x1, y1] = at(start + 180);
+    const flag = sweep > 0 ? 0 : 1;
+    return "M " + x0 + " " + y0 + " A " + rx + " " + ry + " 0 1 " + flag + " " + x1 + " " + y1 +
+      " A " + rx + " " + ry + " 0 1 " + flag + " " + x0 + " " + y0 + " Z";
+  }
+  const [x0, y0] = at(start);
+  const [x1, y1] = at(start + sweep);
+  const large = Math.abs(sweep) > 180 ? 1 : 0;
+  // SVG's sweep flag 1 turns clockwise on screen; a positive sweep here turns the other way.
+  const turn = sweep > 0 ? 0 : 1;
+  const curve = "A " + rx + " " + ry + " 0 " + large + " " + turn + " " + x1 + " " + y1;
+  if (style === "pie") return "M " + cx + " " + cy + " L " + x0 + " " + y0 + " " + curve + " Z";
+  if (style === "chord") return "M " + x0 + " " + y0 + " " + curve + " Z";
+  return "M " + x0 + " " + y0 + " " + curve;
+}
+
+// A rectangle with quarter-circle corners. The radius is 8 when missing and
+// at most half the short side.
+function roundRadius(w, h, radius) {
+  const r = radius === undefined || radius === null ? 8 : Math.max(0, Number(radius) || 0);
+  return Math.min(r, w / 2, h / 2);
+}
+
 function drawPage(stage, book, page, onJump, onPick) {
   if (window.Toolbook && Toolbook.paintPage) Toolbook.paintPage(book, page);
   stage.replaceChildren();
@@ -555,6 +593,61 @@ function drawPage(stage, book, page, onJump, onPick) {
       node.setAttribute("fill", kind === "line" ? "none" : (shape.fill || "none"));
       node.setAttribute("stroke", shape.outline || "#000");
       el.appendChild(node);
+    } else if (kind === "curve" || kind === "roundrect" || kind === "arc" || kind === "pie" || kind === "chord") {
+      // A curve is a polyline through its points for now, as in the Foolbook reader.
+      el = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      el.setAttribute("class", "shape");
+      el.style.left = "0";
+      el.style.top = "0";
+      el.style.width = w + "px";
+      el.style.height = h + "px";
+      const svg = (tag) => document.createElementNS("http://www.w3.org/2000/svg", tag);
+      const pen = shape.stroke === undefined || shape.stroke === null ? 1 : Math.max(0, Number(shape.stroke) || 0);
+      let node;
+      if (kind === "curve") {
+        node = svg("polyline");
+        node.setAttribute("points", (shape.points || []).map((p) => p[0] + "," + p[1]).join(" "));
+        node.setAttribute("fill", "none");
+        node.setAttribute("stroke", shape.outline || shape.fill || "#000");
+      } else if (kind === "roundrect") {
+        node = svg("rect");
+        node.setAttribute("x", String(x));
+        node.setAttribute("y", String(y));
+        node.setAttribute("width", String(sw));
+        node.setAttribute("height", String(sh));
+        const r = roundRadius(sw, sh, shape.radius);
+        node.setAttribute("rx", String(r));
+        node.setAttribute("ry", String(r));
+        node.setAttribute("fill", shape.fill || "none");
+        node.setAttribute("stroke", "outline" in shape ? (shape.outline || "none") : "#000");
+      } else if (kind === "arc" && (shape.start === undefined || shape.sweep === undefined)) {
+        // An arc with no angles is still the ellipse of its bounds.
+        node = svg("ellipse");
+        node.setAttribute("cx", String(x + sw / 2));
+        node.setAttribute("cy", String(y + sh / 2));
+        node.setAttribute("rx", String(sw / 2));
+        node.setAttribute("ry", String(sh / 2));
+        node.setAttribute("fill", shape.fill || "none");
+        node.setAttribute("stroke", shape.outline || "#000");
+      } else {
+        const start = Number(shape.start === undefined ? 0 : shape.start) || 0;
+        const sweep = Number(shape.sweep === undefined ? 90 : shape.sweep) || 0;
+        node = svg("path");
+        node.setAttribute("d", arcPath(x, y, sw, sh, start, sweep, kind));
+        node.setAttribute("fill", kind === "arc" ? "none" : (shape.fill || "none"));
+        node.setAttribute("stroke", "outline" in shape ? (shape.outline || "none") : "#000");
+      }
+      node.setAttribute("stroke-width", String(pen));
+      el.appendChild(node);
+    } else if (kind === "hotspot") {
+      // A hotspot is never drawn. It is only the place a click follows its item.
+      el = document.createElement("div");
+      el.className = "shape hotspot";
+      el.style.left = x + "px";
+      el.style.top = y + "px";
+      el.style.width = sw + "px";
+      el.style.height = sh + "px";
+      el.style.background = "transparent";
     } else if (kind === "ellipse" || kind === "oval") {
       el = document.createElement("div");
       el.className = "shape";
@@ -702,4 +795,4 @@ function mountReader(host, book, options) {
   return { show };
 }
 
-window.FoolReader = { unpackBytes, fetchBook, mountReader, drawPage, findPage, NIDA_RAW, COURSE_RAW };
+window.FoolReader = { unpackBytes, fetchBook, mountReader, drawPage, findPage, arcPath, NIDA_RAW, COURSE_RAW };
