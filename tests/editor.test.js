@@ -132,3 +132,32 @@ test("The editor page says to use a wide window, and shows it only when the wind
   assert.match(css, /@media \(max-width: 800px\) \{\s*#wide \{ display: block; \}/);
 });
 
+test("The editor opens a book from the viewer's shelf, and opening it sends nothing back", async () => {
+  const shelfBook = { title: "Using Foolbook", pages: [{ id: "P1", shapes: [{ kind: "rect", name: "r", x: 1, y: 1, w: 9, h: 9 }] }] };
+  const page = loadEditor({ opens: shelfBook });
+  const select = page.ids.tools.children.find((node) => node.tagName === "SELECT");
+  assert.ok(select, "a Shelf list in the tool row");
+  const titles = select.children.slice(1).map((option) => option.textContent);
+  assert.deepStrictEqual(titles, Array.from(page.sandbox.FOOLBOOK_SHELF, (row) => row[0]));
+  const n = titles.indexOf("Using Foolbook");
+  select.value = String(n);
+  select.dispatch("change");
+  await page.settle();
+  assert.deepStrictEqual(Array.from(page.fetched), [page.sandbox.FOOLBOOK_SHELF[n][1]]);
+  assert.strictEqual(page.editor.book.title, "Using Foolbook");
+  assert.strictEqual(page.editor.book.pages[0].shapes[0].name, "r");
+  assert.match(page.ids.status.textContent, /from the shelf/);
+  assert.strictEqual(page.blobs.length, 0, "nothing is written or uploaded on open");
+});
+
+test("The viewer and the editor read one shelf", () => {
+  const fs = require("fs");
+  const path = require("path");
+  const root = path.join(__dirname, "..");
+  const viewer = fs.readFileSync(path.join(root, "foolbook", "viewer.js"), "utf8");
+  assert.doesNotMatch(viewer, /raw\.githubusercontent\.com/, "the viewer keeps no list of its own");
+  const order = (html, before, after) => html.indexOf(before) >= 0 && html.indexOf(before) < html.indexOf(after);
+  assert.ok(order(fs.readFileSync(path.join(root, "foolbook", "index.html"), "utf8"), "shelf.js", "viewer.js"));
+  assert.ok(order(fs.readFileSync(path.join(root, "editor", "index.html"), "utf8"), "../foolbook/shelf.js", "editor.js"));
+});
+

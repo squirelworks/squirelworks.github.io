@@ -45,6 +45,7 @@ function loadEditor(options) {
     stage.querySelector = (sel) => (sel === ".board" ? board : null);
   };
   const blobs = [];
+  const fetched = [];
   const document = {
     addEventListener(type, fn) { (docListeners[type] = docListeners[type] || []).push(fn); },
     getElementById(id) { return (ids[id] = ids[id] || element("div")); },
@@ -69,7 +70,11 @@ function loadEditor(options) {
     TextDecoder,
     URL: { createObjectURL: () => "blob:test" },
     FileReader: function () {},
-    FoolReader: { drawPage, unpackBytes: async () => opts.opens || { pages: [] } },
+    FoolReader: {
+      drawPage,
+      unpackBytes: async () => opts.opens || { pages: [] },
+      fetchBook: async (url) => { fetched.push(url); return opts.opens || { pages: [] }; },
+    },
     fetch: async (url) => {
       const file = path.join(ROOT, "editor", String(url).split("?")[0]);
       const body = fs.readFileSync(file, "utf8");
@@ -78,6 +83,8 @@ function loadEditor(options) {
   };
   sandbox.window = sandbox;
   vm.createContext(sandbox);
+  // The page loads the shared shelf before the editor, as editor/index.html does.
+  vm.runInContext(fs.readFileSync(path.join(ROOT, "foolbook", "shelf.js"), "utf8"), sandbox, { filename: "shelf.js" });
   const source = fs.readFileSync(path.join(ROOT, "editor", "editor.js"), "utf8");
   // Top-level let/const stay inside the script, so hand the state out on the way in.
   vm.runInContext(source + "\n;this.__editor = { get book() { return book; } };", sandbox, { filename: "editor.js" });
@@ -103,7 +110,7 @@ function loadEditor(options) {
   };
   const key = (k, ctrl) => (docListeners.keydown || []).forEach((fn) => fn({ key: k, ctrlKey: !!ctrl, metaKey: false, target: {}, preventDefault() {} }));
   const settle = () => new Promise((done) => setImmediate(done));
-  return { sandbox, ids, blobs, press, open, settle, drag, key, editor: sandbox.__editor };
+  return { sandbox, ids, blobs, fetched, created, press, open, settle, drag, key, editor: sandbox.__editor };
 }
 
 module.exports = { loadEditor, ROOT };

@@ -122,6 +122,27 @@ function button(label, on) {
 function buildTools() {
   tools.append(button("New", () => { book = blank(); pageIndex = 0; shapeIndex = -1; resetHistory(); render(); }));
   tools.append(button("Open", () => opener.click()));
+  const shelfBooks = window.FOOLBOOK_SHELF || [];
+  if (shelfBooks.length) {
+    const shelf = document.createElement("select");
+    shelf.title = "Open a book from the shelf";
+    const head = document.createElement("option");
+    head.value = "";
+    head.textContent = "Shelf…";
+    shelf.appendChild(head);
+    shelfBooks.forEach((row, n) => {
+      const option = document.createElement("option");
+      option.value = String(n);
+      option.textContent = row[0];
+      shelf.appendChild(option);
+    });
+    shelf.addEventListener("change", () => {
+      const row = shelfBooks[Number(shelf.value)];
+      shelf.value = "";
+      if (row) openShelf(row);
+    });
+    tools.appendChild(shelf);
+  }
   tools.append(button("Download", download));
   tools.append(button("Undo", undo), button("Redo", redo));
   TOOLS.forEach(([id, label]) => {
@@ -383,19 +404,35 @@ function download() {
   a.click();
 }
 
-opener.addEventListener("change", async () => {
-  const file = opener.files && opener.files[0];
-  if (!file) return;
-  book = await FoolReader.unpackBytes(new Uint8Array(await file.arrayBuffer()));
+// Open a book the reader has unpacked, from a file or from the shelf.
+// Editing a shelf book changes only this copy. Download is still the save.
+function openBook(opened, name, said) {
+  book = opened;
   if (!book.pages) book.pages = [];
   book.pages.forEach((item) => { if (!item.shapes) item.shapes = []; });
-  if (!book.title) book.title = file.name.replace(/\.(fbk|fsk|tbk|sbk)$/i, "");
+  if (!book.title) book.title = name.replace(/\.(fbk|fsk|tbk|sbk)$/i, "");
   pageIndex = 0;
   shapeIndex = -1;
   resetHistory();
-  status.textContent = file.name;
+  status.textContent = said;
   render();
+}
+
+opener.addEventListener("change", async () => {
+  const file = opener.files && opener.files[0];
+  if (!file) return;
+  openBook(await FoolReader.unpackBytes(new Uint8Array(await file.arrayBuffer())), file.name, file.name);
 });
+
+async function openShelf(row) {
+  status.textContent = "Opening " + row[0] + "…";
+  try {
+    openBook(await FoolReader.fetchBook(row[1]), row[0],
+      row[0] + ", from the shelf. Edits stay here until you download a copy. The shelf book is not changed.");
+  } catch (err) {
+    status.textContent = row[0] + " did not open. " + err.message;
+  }
+}
 
 picture.addEventListener("change", () => {
   const file = picture.files && picture.files[0];
