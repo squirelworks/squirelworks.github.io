@@ -35,8 +35,18 @@ function loadEditor(options) {
   const opts = options || {};
   const ids = {};
   const created = [];
+  const docListeners = {};
+  // drawPage stands in for the reader: one board, 640 by 480, at the stage's corner.
+  const drawPage = (stage) => {
+    const board = element("div");
+    board.style.width = "640px";
+    board.style.height = "480px";
+    board.getBoundingClientRect = () => ({ left: 0, top: 0, width: 640, height: 480 });
+    stage.querySelector = (sel) => (sel === ".board" ? board : null);
+  };
   const blobs = [];
   const document = {
+    addEventListener(type, fn) { (docListeners[type] = docListeners[type] || []).push(fn); },
     getElementById(id) { return (ids[id] = ids[id] || element("div")); },
     createElement(tag) { const node = element(tag); created.push(node); return node; },
     createElementNS: (ns, tag) => element(tag),
@@ -59,7 +69,7 @@ function loadEditor(options) {
     TextDecoder,
     URL: { createObjectURL: () => "blob:test" },
     FileReader: function () {},
-    FoolReader: { drawPage() {}, unpackBytes: async () => opts.opens || { pages: [] } },
+    FoolReader: { drawPage, unpackBytes: async () => opts.opens || { pages: [] } },
     fetch: async (url) => {
       const file = path.join(ROOT, "editor", String(url).split("?")[0]);
       const body = fs.readFileSync(file, "utf8");
@@ -84,8 +94,16 @@ function loadEditor(options) {
     opener.dispatch("change");
     await new Promise((done) => setImmediate(done));
   };
+  // Drag on the page with the current tool, the way a mouse would.
+  const drag = (x0, y0, x1, y1) => {
+    const glass = created.filter((node) => node.className === "glass").pop();
+    glass.dispatch("pointerdown", { clientX: x0, clientY: y0 });
+    ids.stage.dispatch("pointermove", { clientX: x1, clientY: y1 });
+    ids.stage.dispatch("pointerup", { clientX: x1, clientY: y1 });
+  };
+  const key = (k, ctrl) => (docListeners.keydown || []).forEach((fn) => fn({ key: k, ctrlKey: !!ctrl, metaKey: false, target: {}, preventDefault() {} }));
   const settle = () => new Promise((done) => setImmediate(done));
-  return { sandbox, ids, blobs, press, open, settle, editor: sandbox.__editor };
+  return { sandbox, ids, blobs, press, open, settle, drag, key, editor: sandbox.__editor };
 }
 
 module.exports = { loadEditor, ROOT };

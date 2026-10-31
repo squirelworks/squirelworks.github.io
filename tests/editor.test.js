@@ -58,3 +58,39 @@ test("Download refuses a book from a newer Foolbook and says the number", async 
   assert.match(page.ids.status.textContent, /version 99/);
   assert.match(page.ids.status.textContent, /writes version 1/);
 });
+
+const shapes = (page) => page.editor.book.pages[0].shapes.length;
+
+test("Undo takes back a drawn rectangle and Redo puts it back", () => {
+  const page = loadEditor();
+  page.press("Rectangle");
+  page.drag(20, 20, 120, 80);
+  assert.strictEqual(shapes(page), 2);
+  page.press("Undo");
+  assert.strictEqual(shapes(page), 1);
+  page.press("Redo");
+  assert.strictEqual(shapes(page), 2);
+  page.key("z", true);
+  assert.strictEqual(shapes(page), 1, "Ctrl+Z is Undo");
+  page.key("y", true);
+  assert.strictEqual(shapes(page), 2, "Ctrl+Y is Redo");
+});
+
+test("A click that changes nothing is not an undo step", () => {
+  const page = loadEditor();
+  page.press("Rectangle");
+  page.drag(20, 20, 120, 80);
+  page.press("Select");
+  page.drag(300, 300, 300, 300);
+  page.press("Undo");
+  assert.strictEqual(shapes(page), 1);
+});
+
+test("Undo goes back 50 steps and no further", () => {
+  const page = loadEditor();
+  page.press("Rectangle");
+  for (let n = 0; n < 60; n++) page.drag(n * 5, 10, n * 5 + 40, 50);
+  assert.strictEqual(shapes(page), 61);
+  for (let n = 0; n < 60; n++) page.press("Undo");
+  assert.strictEqual(shapes(page), 11, "the oldest ten stay, 50 were undone");
+});

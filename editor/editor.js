@@ -32,6 +32,57 @@ let drag = null;
 let book = blank();
 // The book version this editor writes. editor/schema.json says it; 1 until it loads.
 let known = 1;
+// Undo keeps whole-book snapshots, 50 steps deep, like the desktop editor's
+// author/history.py. A commit that changes nothing is not a step. Typing is
+// committed when the box loses focus, so a paragraph is one step.
+const DEPTH = 50;
+let past = [JSON.stringify(book)];
+let future = [];
+
+function commit() {
+  const now = JSON.stringify(book);
+  if (past[past.length - 1] === now) return false;
+  past.push(now);
+  future = [];
+  past.splice(0, Math.max(0, past.length - (DEPTH + 1)));
+  return true;
+}
+
+function resetHistory() {
+  past = [JSON.stringify(book)];
+  future = [];
+}
+
+function restore(state) {
+  book = JSON.parse(state);
+  pageIndex = Math.min(pageIndex, book.pages.length - 1);
+  shapeIndex = -1;
+  render();
+}
+
+function undo() {
+  commit();
+  if (past.length < 2) return;
+  future.push(past.pop());
+  restore(past[past.length - 1]);
+}
+
+function redo() {
+  if (!future.length) return;
+  const state = future.pop();
+  past.push(state);
+  restore(state);
+}
+
+document.addEventListener("keydown", (ev) => {
+  if (!(ev.ctrlKey || ev.metaKey)) return;
+  const tag = ev.target && ev.target.tagName;
+  if (tag === "INPUT" || tag === "TEXTAREA") return;
+  const k = String(ev.key).toLowerCase();
+  if (k === "z" && !ev.shiftKey) { ev.preventDefault(); undo(); }
+  else if (k === "y" || (k === "z" && ev.shiftKey)) { ev.preventDefault(); redo(); }
+});
+
 fetch("schema.json?v=2").then((res) => res.json()).then((schema) => { known = schema.fbk; }).catch(() => {});
 
 function blank() {
@@ -69,9 +120,10 @@ function button(label, on) {
 }
 
 function buildTools() {
-  tools.append(button("New", () => { book = blank(); pageIndex = 0; shapeIndex = -1; render(); }));
+  tools.append(button("New", () => { book = blank(); pageIndex = 0; shapeIndex = -1; resetHistory(); render(); }));
   tools.append(button("Open", () => opener.click()));
   tools.append(button("Download", download));
+  tools.append(button("Undo", undo), button("Redo", redo));
   TOOLS.forEach(([id, label]) => {
     const node = button(label, () => { tool = id; markTools(); });
     node.dataset.tool = id;
@@ -87,11 +139,13 @@ function buildTools() {
   fill.value = "#c0c0c0";
   fill.title = "Fill";
   fill.addEventListener("input", () => paintColor("fill", fill.value));
+  fill.addEventListener("change", commit);
   const line = document.createElement("input");
   line.type = "color";
   line.value = "#000000";
   line.title = "Line";
   line.addEventListener("input", () => paintColor("outline", line.value));
+  line.addEventListener("change", commit);
   tools.append(fill, line, button("Front", () => restack(1)), button("Back", () => restack(-1)));
   markTools();
 }
@@ -159,6 +213,7 @@ function restack(dir) {
   const [shape] = shapes.splice(shapeIndex, 1);
   shapes.splice(next, 0, shape);
   shapeIndex = next;
+  commit();
   draw();
 }
 
@@ -186,12 +241,14 @@ function listPages() {
     book.pages.push(freshPage(id));
     pageIndex = book.pages.length - 1;
     shapeIndex = -1;
+    commit();
     render();
   }), button("Delete", () => {
     if (book.pages.length < 2) return;
     book.pages.splice(pageIndex, 1);
     pageIndex = Math.max(0, pageIndex - 1);
     shapeIndex = -1;
+    commit();
     render();
   }));
   pagelist.appendChild(row);
@@ -276,6 +333,7 @@ function onUp(ev) {
   const at = point(ev);
   if (drag.mode === "new") place(tool, drag.x, drag.y, at.x, at.y);
   drag = null;
+  commit();
   status.textContent = page().id + (selected() ? "  ·  " + selected().name : "");
   render();
 }
@@ -286,7 +344,7 @@ function fillProps() {
   const id = document.createElement("input");
   id.value = current.id;
   props.append("Page id", id);
-  id.addEventListener("change", () => { current.id = id.value || current.id; listPages(); });
+  id.addEventListener("change", () => { current.id = id.value || current.id; commit(); listPages(); });
   const shape = selected();
   if (!shape) {
     const note = document.createElement("p");
@@ -304,6 +362,7 @@ function fillProps() {
   name.addEventListener("input", () => { shape.name = name.value; });
   text.addEventListener("input", () => { shape.text = text.value; draw(); });
   script.addEventListener("input", () => { shape.script = script.value; });
+  [name, text, script].forEach((box) => box.addEventListener("change", commit));
 }
 
 function download() {
@@ -333,6 +392,7 @@ opener.addEventListener("change", async () => {
   book.title = file.name.replace(/\.(fbk|fsk|tbk|sbk)$/i, "");
   pageIndex = 0;
   shapeIndex = -1;
+  resetHistory();
   status.textContent = file.name;
   render();
 });
@@ -347,6 +407,7 @@ picture.addEventListener("change", () => {
     const shape = place("picture", at.x, at.y, at.x + 120, at.y + 80);
     shape.data = reader.result;
     drag = null;
+    commit();
     render();
   };
   reader.readAsDataURL(file);
