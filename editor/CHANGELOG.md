@@ -5,3 +5,4 @@ The editor page has its own build number, shown in its header. Tests run headles
 ## 2026-10-31
 
 - 3.419: Download writes the book JSON after the `FBK1` header. It wrote the header and then zeros, so no reader could open a downloaded book.
+- editor/schema.json is the book, page, and shape field list, generated from FoolbookEditor `author/schema.py` (84606d7, branch schema-shape-fields) by `tools/editor_schema.py`. A test fails if Download writes a field the desktop editor would drop. The page does not load it yet, so the build stays 3.419.

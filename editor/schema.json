@@ -1,0 +1,45 @@
+{
+  "source": "FoolbookEditor author/schema.py",
+  "fbk": 1,
+  "book": [
+    "id",
+    "title",
+    "pages"
+  ],
+  "page": [
+    "id",
+    "text",
+    "items",
+    "shapes",
+    "script",
+    "name",
+    "size"
+  ],
+  "shape": [
+    "kind",
+    "name",
+    "text",
+    "x",
+    "y",
+    "w",
+    "h",
+    "fill",
+    "outline",
+    "size",
+    "points",
+    "item",
+    "script",
+    "src",
+    "data",
+    "visible",
+    "layer"
+  ],
+  "shape_extra": {
+    "arc": [
+      "ends"
+    ]
+  },
+  "not_written": [
+    "_magic"
+  ]
+}
