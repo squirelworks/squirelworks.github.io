@@ -30,6 +30,60 @@ let pageIndex = 0;
 let shapeIndex = -1;
 let drag = null;
 let book = blank();
+// The book version this editor writes. editor/schema.json says it; 1 until it loads.
+let known = 1;
+// Undo keeps whole-book snapshots, 50 steps deep, like the desktop editor's
+// author/history.py. A commit that changes nothing is not a step. Typing is
+// committed when the box loses focus, so a paragraph is one step.
+const DEPTH = 50;
+let past = [JSON.stringify(book)];
+let future = [];
+
+function commit() {
+  const now = JSON.stringify(book);
+  if (past[past.length - 1] === now) return false;
+  past.push(now);
+  future = [];
+  past.splice(0, Math.max(0, past.length - (DEPTH + 1)));
+  return true;
+}
+
+function resetHistory() {
+  past = [JSON.stringify(book)];
+  future = [];
+}
+
+function restore(state) {
+  book = JSON.parse(state);
+  pageIndex = Math.min(pageIndex, book.pages.length - 1);
+  shapeIndex = -1;
+  render();
+}
+
+function undo() {
+  commit();
+  if (past.length < 2) return;
+  future.push(past.pop());
+  restore(past[past.length - 1]);
+}
+
+function redo() {
+  if (!future.length) return;
+  const state = future.pop();
+  past.push(state);
+  restore(state);
+}
+
+document.addEventListener("keydown", (ev) => {
+  if (!(ev.ctrlKey || ev.metaKey)) return;
+  const tag = ev.target && ev.target.tagName;
+  if (tag === "INPUT" || tag === "TEXTAREA") return;
+  const k = String(ev.key).toLowerCase();
+  if (k === "z" && !ev.shiftKey) { ev.preventDefault(); undo(); }
+  else if (k === "y" || (k === "z" && ev.shiftKey)) { ev.preventDefault(); redo(); }
+});
+
+fetch("schema.json?v=2").then((res) => res.json()).then((schema) => { known = schema.fbk; }).catch(() => {});
 
 function blank() {
   return {
@@ -66,9 +120,31 @@ function button(label, on) {
 }
 
 function buildTools() {
-  tools.append(button("New", () => { book = blank(); pageIndex = 0; shapeIndex = -1; render(); }));
+  tools.append(button("New", () => { book = blank(); pageIndex = 0; shapeIndex = -1; resetHistory(); render(); }));
   tools.append(button("Open", () => opener.click()));
+  const shelfBooks = window.FOOLBOOK_SHELF || [];
+  if (shelfBooks.length) {
+    const shelf = document.createElement("select");
+    shelf.title = "Open a book from the shelf";
+    const head = document.createElement("option");
+    head.value = "";
+    head.textContent = "Shelf…";
+    shelf.appendChild(head);
+    shelfBooks.forEach((row, n) => {
+      const option = document.createElement("option");
+      option.value = String(n);
+      option.textContent = row[0];
+      shelf.appendChild(option);
+    });
+    shelf.addEventListener("change", () => {
+      const row = shelfBooks[Number(shelf.value)];
+      shelf.value = "";
+      if (row) openShelf(row);
+    });
+    tools.appendChild(shelf);
+  }
   tools.append(button("Download", download));
+  tools.append(button("Undo", undo), button("Redo", redo));
   TOOLS.forEach(([id, label]) => {
     const node = button(label, () => { tool = id; markTools(); });
     node.dataset.tool = id;
@@ -84,11 +160,13 @@ function buildTools() {
   fill.value = "#c0c0c0";
   fill.title = "Fill";
   fill.addEventListener("input", () => paintColor("fill", fill.value));
+  fill.addEventListener("change", commit);
   const line = document.createElement("input");
   line.type = "color";
   line.value = "#000000";
   line.title = "Line";
   line.addEventListener("input", () => paintColor("outline", line.value));
+  line.addEventListener("change", commit);
   tools.append(fill, line, button("Front", () => restack(1)), button("Back", () => restack(-1)));
   markTools();
 }
@@ -156,6 +234,7 @@ function restack(dir) {
   const [shape] = shapes.splice(shapeIndex, 1);
   shapes.splice(next, 0, shape);
   shapeIndex = next;
+  commit();
   draw();
 }
 
@@ -183,12 +262,14 @@ function listPages() {
     book.pages.push(freshPage(id));
     pageIndex = book.pages.length - 1;
     shapeIndex = -1;
+    commit();
     render();
   }), button("Delete", () => {
     if (book.pages.length < 2) return;
     book.pages.splice(pageIndex, 1);
     pageIndex = Math.max(0, pageIndex - 1);
     shapeIndex = -1;
+    commit();
     render();
   }));
   pagelist.appendChild(row);
@@ -273,6 +354,7 @@ function onUp(ev) {
   const at = point(ev);
   if (drag.mode === "new") place(tool, drag.x, drag.y, at.x, at.y);
   drag = null;
+  commit();
   status.textContent = page().id + (selected() ? "  ·  " + selected().name : "");
   render();
 }
@@ -283,7 +365,7 @@ function fillProps() {
   const id = document.createElement("input");
   id.value = current.id;
   props.append("Page id", id);
-  id.addEventListener("change", () => { current.id = id.value || current.id; listPages(); });
+  id.addEventListener("change", () => { current.id = id.value || current.id; commit(); listPages(); });
   const shape = selected();
   if (!shape) {
     const note = document.createElement("p");
@@ -291,42 +373,96 @@ function fillProps() {
     props.appendChild(note);
     return;
   }
-  const name = document.createElement("input");
-  name.value = shape.name || "";
-  const text = document.createElement("textarea");
-  text.value = shape.text || "";
+  // The same rows and rules as the desktop Properties pane (editor/properties.js).
+  // A value is applied when the box is left. Text that is not usable leaves the old value.
+  FoolProps.ROWS.forEach(([key, label, kind]) => {
+    let box;
+    if (kind === "flag") {
+      box = document.createElement("input");
+      box.type = "checkbox";
+      box.checked = FoolProps.read(shape, key) === "true";
+    } else if (kind === "choice") {
+      box = document.createElement("select");
+      FoolProps.CHOICES[key].forEach((word) => {
+        const option = document.createElement("option");
+        option.value = word;
+        option.textContent = word;
+        box.appendChild(option);
+      });
+      box.value = FoolProps.read(shape, key);
+    } else {
+      box = document.createElement(kind === "text" || kind === "pointlist" ? "textarea" : "input");
+      box.value = FoolProps.read(shape, key);
+    }
+    box.dataset.key = key;
+    box.addEventListener("change", () => {
+      const typed = kind === "flag" ? String(box.checked) : box.value;
+      if (FoolProps.write(shape, key, typed, current)) {
+        commit();
+        draw();
+        if (key === "name") listPages();
+      }
+      const shown = FoolProps.read(shape, key);
+      if (kind === "flag") box.checked = shown === "true";
+      else box.value = shown;
+    });
+    props.append(label, box);
+  });
   const script = document.createElement("textarea");
   script.value = shape.script || "";
-  props.append("Name", name, "Text", text, "Script", script);
-  name.addEventListener("input", () => { shape.name = name.value; });
-  text.addEventListener("input", () => { shape.text = text.value; draw(); });
+  script.dataset.key = "script";
+  props.append("Script", script);
   script.addEventListener("input", () => { shape.script = script.value; });
+  script.addEventListener("change", commit);
 }
 
 function download() {
+  if (typeof book.fbk === "number" && book.fbk > known) {
+    status.textContent = "This book is Foolbook book version " + book.fbk + ". This editor writes version " + known + ". It was not saved.";
+    return;
+  }
   const copy = JSON.parse(JSON.stringify(book));
   delete copy._magic;
+  copy.fbk = known;
   const payload = new TextEncoder().encode(JSON.stringify(copy));
   const out = new Uint8Array(5 + payload.length);
   out.set(new TextEncoder().encode("FBK1"));
+  out.set(payload, 5);
   const a = document.createElement("a");
   a.href = URL.createObjectURL(new Blob([out]));
   a.download = (book.title || "book") + ".fbk";
   a.click();
 }
 
+// Open a book the reader has unpacked, from a file or from the shelf.
+// Editing a shelf book changes only this copy. Download is still the save.
+function openBook(opened, name, said) {
+  book = opened;
+  if (!book.pages) book.pages = [];
+  book.pages.forEach((item) => { if (!item.shapes) item.shapes = []; });
+  if (!book.title) book.title = name.replace(/\.(fbk|fsk|tbk|sbk)$/i, "");
+  pageIndex = 0;
+  shapeIndex = -1;
+  resetHistory();
+  status.textContent = said;
+  render();
+}
+
 opener.addEventListener("change", async () => {
   const file = opener.files && opener.files[0];
   if (!file) return;
-  book = await FoolReader.unpackBytes(new Uint8Array(await file.arrayBuffer()));
-  if (!book.pages) book.pages = [];
-  book.pages.forEach((item) => { if (!item.shapes) item.shapes = []; });
-  book.title = file.name.replace(/\.(fbk|fsk|tbk|sbk)$/i, "");
-  pageIndex = 0;
-  shapeIndex = -1;
-  status.textContent = file.name;
-  render();
+  openBook(await FoolReader.unpackBytes(new Uint8Array(await file.arrayBuffer())), file.name, file.name);
 });
+
+async function openShelf(row) {
+  status.textContent = "Opening " + row[0] + "…";
+  try {
+    openBook(await FoolReader.fetchBook(row[1]), row[0],
+      row[0] + ", from the shelf. Edits stay here until you download a copy. The shelf book is not changed.");
+  } catch (err) {
+    status.textContent = row[0] + " did not open. " + err.message;
+  }
+}
 
 picture.addEventListener("change", () => {
   const file = picture.files && picture.files[0];
@@ -338,6 +474,7 @@ picture.addEventListener("change", () => {
     const shape = place("picture", at.x, at.y, at.x + 120, at.y + 80);
     shape.data = reader.result;
     drag = null;
+    commit();
     render();
   };
   reader.readAsDataURL(file);
