@@ -13,7 +13,7 @@ from pathlib import Path
 
 def build(editor_repo):
     sys.path.insert(0, str(Path(editor_repo).resolve()))
-    from author import document, files, schema
+    from author import document, files, properties, schema
 
     return {
         "source": "FoolbookEditor author/schema.py",
@@ -24,6 +24,7 @@ def build(editor_repo):
         "shape_kinds": list(schema.SHAPE_KINDS),
         "not_written": list(schema.NOT_WRITTEN),
         "envelope": list(files.ENVELOPE),
+        "properties": [list(row) for row in properties.ROWS],
     }
 
 

@@ -85,6 +85,7 @@ function loadEditor(options) {
   vm.createContext(sandbox);
   // The page loads the shared shelf before the editor, as editor/index.html does.
   vm.runInContext(fs.readFileSync(path.join(ROOT, "foolbook", "shelf.js"), "utf8"), sandbox, { filename: "shelf.js" });
+  vm.runInContext(fs.readFileSync(path.join(ROOT, "editor", "properties.js"), "utf8"), sandbox, { filename: "properties.js" });
   const source = fs.readFileSync(path.join(ROOT, "editor", "editor.js"), "utf8");
   // Top-level let/const stay inside the script, so hand the state out on the way in.
   vm.runInContext(source + "\n;this.__editor = { get book() { return book; } };", sandbox, { filename: "editor.js" });

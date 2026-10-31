@@ -85,5 +85,107 @@
     "format_version",
     "fbk",
     "foolbook"
+  ],
+  "properties": [
+    [
+      "name",
+      "Name",
+      "name"
+    ],
+    [
+      "text",
+      "Text",
+      "text"
+    ],
+    [
+      "fill",
+      "Fill",
+      "color"
+    ],
+    [
+      "outline",
+      "Outline",
+      "color"
+    ],
+    [
+      "stroke",
+      "Line width",
+      "width"
+    ],
+    [
+      "font",
+      "Font",
+      "face"
+    ],
+    [
+      "size",
+      "Size",
+      "points"
+    ],
+    [
+      "bold",
+      "Bold",
+      "flag"
+    ],
+    [
+      "italic",
+      "Italic",
+      "flag"
+    ],
+    [
+      "underline",
+      "Underline",
+      "flag"
+    ],
+    [
+      "align",
+      "Align",
+      "choice"
+    ],
+    [
+      "visible",
+      "Visible",
+      "flag"
+    ],
+    [
+      "x",
+      "Left",
+      "place"
+    ],
+    [
+      "y",
+      "Top",
+      "place"
+    ],
+    [
+      "w",
+      "Width",
+      "extent"
+    ],
+    [
+      "h",
+      "Height",
+      "extent"
+    ],
+    [
+      "points",
+      "Points",
+      "pointlist"
+    ],
+    [
+      "jump_page",
+      "Go to page",
+      "jump"
+    ],
+    [
+      "jump_book",
+      "In book",
+      "jump"
+    ],
+    [
+      "jump_label",
+      "Jump label",
+      "jump"
+    ]
   ]
 }

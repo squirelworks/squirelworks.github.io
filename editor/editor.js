@@ -373,17 +373,47 @@ function fillProps() {
     props.appendChild(note);
     return;
   }
-  const name = document.createElement("input");
-  name.value = shape.name || "";
-  const text = document.createElement("textarea");
-  text.value = shape.text || "";
+  // The same rows and rules as the desktop Properties pane (editor/properties.js).
+  // A value is applied when the box is left. Text that is not usable leaves the old value.
+  FoolProps.ROWS.forEach(([key, label, kind]) => {
+    let box;
+    if (kind === "flag") {
+      box = document.createElement("input");
+      box.type = "checkbox";
+      box.checked = FoolProps.read(shape, key) === "true";
+    } else if (kind === "choice") {
+      box = document.createElement("select");
+      FoolProps.CHOICES[key].forEach((word) => {
+        const option = document.createElement("option");
+        option.value = word;
+        option.textContent = word;
+        box.appendChild(option);
+      });
+      box.value = FoolProps.read(shape, key);
+    } else {
+      box = document.createElement(kind === "text" || kind === "pointlist" ? "textarea" : "input");
+      box.value = FoolProps.read(shape, key);
+    }
+    box.dataset.key = key;
+    box.addEventListener("change", () => {
+      const typed = kind === "flag" ? String(box.checked) : box.value;
+      if (FoolProps.write(shape, key, typed, current)) {
+        commit();
+        draw();
+        if (key === "name") listPages();
+      }
+      const shown = FoolProps.read(shape, key);
+      if (kind === "flag") box.checked = shown === "true";
+      else box.value = shown;
+    });
+    props.append(label, box);
+  });
   const script = document.createElement("textarea");
   script.value = shape.script || "";
-  props.append("Name", name, "Text", text, "Script", script);
-  name.addEventListener("input", () => { shape.name = name.value; });
-  text.addEventListener("input", () => { shape.text = text.value; draw(); });
+  script.dataset.key = "script";
+  props.append("Script", script);
   script.addEventListener("input", () => { shape.script = script.value; });
-  [name, text, script].forEach((box) => box.addEventListener("change", commit));
+  script.addEventListener("change", commit);
 }
 
 function download() {
