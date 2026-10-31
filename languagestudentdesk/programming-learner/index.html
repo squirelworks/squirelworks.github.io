@@ -1,32 +1,38 @@
----
-layout: null
----
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Programming Learner</title>
+  <title>Programming Learner — Language Student Desk</title>
   <style>
-    body { background: #0f0f12; color: #e8e8e8; font: 16px system-ui; margin: 2rem; }
+    body { font: 14px/1.45 system-ui, sans-serif; background: #0f0f12; color: #e8e8e8; margin: 0; }
+    header { background: #1a1a20; padding: 16px; border-bottom: 1px solid #333; }
+    h1 { margin: 0; color: #ffd54f; }
+    main { max-width: 800px; margin: 0 auto; padding: 16px; }
+    .card { background: #1a1a20; border-radius: 8px; padding: 16px; margin: 12px 0; }
     a { color: #ffd54f; }
-    h1 { color: #ffd54f; }
-    .card { background: #1a1a20; padding: 1rem; border-radius: 8px; margin: 1rem 0; }
+    .lang { display: block; padding: 12px; margin: 8px 0; background: #252530; border-radius: 6px; text-decoration: none; color: inherit; }
+    .lang:hover { background: #2a2a38; }
+    .lang strong { color: #ffd54f; }
   </style>
 </head>
 <body>
-  <p><a href="../">← Back to Desk</a></p>
+<header>
+  <p><a href="../">← Desk</a></p>
   <h1>Programming Learner</h1>
+  <p>Syntax, concepts and practice for programming languages. Based on LSD v0.0.3.</p>
+</header>
+<main>
   <div class="card">
-    <p>Local self-contained version (LSD v0.0.3 remake on Squirrel OS/2).</p>
-    <p>Syntax, concepts and practice for programming languages.</p>
-    <p>Select a language from the desk scope and reload, or explore examples:</p>
-    <ul>
-      <li>Python basics</li>
-      <li>JavaScript concepts</li>
-      <li>Esolangs overview</li>
-    </ul>
-    <p>Full interactive drills are being expanded.</p>
+    <h2>Languages</h2>
+    <a class="lang" href="#python"><strong>Python</strong><br>Modern, readable general-purpose language.</a>
+    <a class="lang" href="#quickbasic"><strong>QuickBASIC</strong><br>Classic structured BASIC for DOS.</a>
+    <a class="lang" href="#delphi"><strong>Delphi / Object Pascal</strong><br>Visual component library and strong typing.</a>
+    <a class="lang" href="#lolcode"><strong>LOLCODE</strong><br>Esolang based on lolspeak.</a>
+    <a class="lang" href="#malbolge"><strong>Malbolge</strong><br>Intentionally difficult esolang.</a>
+    <a class="lang" href="#whitespace"><strong>Whitespace</strong><br>Uses only spaces, tabs and newlines.</a>
+    <p>Full lessons and practice from the original LSD are available in the source repository. This is the self-contained SW.GH.IO version.</p>
   </div>
+</main>
 </body>
 </html>
