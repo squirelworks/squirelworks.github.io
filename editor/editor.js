@@ -389,7 +389,7 @@ opener.addEventListener("change", async () => {
   book = await FoolReader.unpackBytes(new Uint8Array(await file.arrayBuffer()));
   if (!book.pages) book.pages = [];
   book.pages.forEach((item) => { if (!item.shapes) item.shapes = []; });
-  book.title = file.name.replace(/\.(fbk|fsk|tbk|sbk)$/i, "");
+  if (!book.title) book.title = file.name.replace(/\.(fbk|fsk|tbk|sbk)$/i, "");
   pageIndex = 0;
   shapeIndex = -1;
   resetHistory();

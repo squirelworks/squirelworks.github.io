@@ -94,3 +94,21 @@ test("Undo goes back 50 steps and no further", () => {
   for (let n = 0; n < 60; n++) page.press("Undo");
   assert.strictEqual(shapes(page), 11, "the oldest ten stay, 50 were undone");
 });
+
+test("Open keeps the book's own title, so a desktop book comes back unchanged", async () => {
+  const page = loadEditor({ opens: { fbk: 1, id: "trip", title: "Trip", pages: [{ id: "P0", shapes: [] }] } });
+  await page.settle();
+  await page.open("desk.fbk");
+  page.press("Download");
+  const book = JSON.parse(Buffer.from(page.blobs[page.blobs.length - 1].bytes().slice(5)).toString("utf8"));
+  assert.strictEqual(book.title, "Trip");
+});
+
+test("Open names an untitled book after its file", async () => {
+  const page = loadEditor({ opens: { id: "x", pages: [{ id: "P0", shapes: [] }] } });
+  await page.settle();
+  await page.open("Lesson One.tbk");
+  page.press("Download");
+  const book = JSON.parse(Buffer.from(page.blobs[page.blobs.length - 1].bytes().slice(5)).toString("utf8"));
+  assert.strictEqual(book.title, "Lesson One");
+});
