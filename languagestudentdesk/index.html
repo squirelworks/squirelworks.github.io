@@ -16,8 +16,6 @@ layout: null
     h1 { font-size: 24px; margin: 8px 0 4px; color: #ffd54f; }
     .build { float: right; color: #888; font-size: 11px; letter-spacing: 0.12em; }
     .lead { color: #aaa; margin: 0 0 12px; }
-    .repo { margin: 0 0 16px; }
-    .repo a { color: #ffd54f; }
     .bar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin: 0 0 16px; }
     input, select, button { font: inherit; padding: 6px 10px; background: #1a1a20; color: #e8e8e8; border: 1px solid #444; border-radius: 4px; }
     button { cursor: pointer; }
@@ -26,7 +24,6 @@ layout: null
     a.tool:hover, a.tool:focus { background: #252530; }
     a.tool strong { display: block; font-size: 15px; color: #ffd54f; }
     a.tool span { font-size: 12px; color: #aaa; }
-    .apk { font-size: 11px; color: #888; }
     #viewer { display: none; }
     #viewer header { max-width: none; padding: 8px 16px; background: #1a1a20; border-bottom: 1px solid #333; }
     #frame { flex: 1; width: 100%; border: 0; background: #fff; }
@@ -36,10 +33,9 @@ layout: null
 <body>
 <div id="launcher">
   <header>
-    <p class="back"><a href="../">Back to the desktop</a> <span class="build">17.004</span></p>
+    <p class="back"><a href="../">Back to the desktop</a> <span class="build">17.005</span></p>
     <h1>Language Student Desk</h1>
-    <p class="lead">Tap a tool. It opens here on the site; content is pulled live from the LanguageStudentDesk repo.</p>
-    <p class="repo">Source: <a href="https://github.com/squirelworks/LanguageStudentDesk" target="_blank">github.com/squirelworks/LanguageStudentDesk</a> · <a href="https://github.com/squirelworks/LanguageStudentDesk/releases" target="_blank">Releases / APKs</a></p>
+    <p class="lead">Self-contained version based on LSD v0.0.3. Everything runs from this site.</p>
     <div class="bar">
       <input id="q" type="search" placeholder="Search tools…" oninput="draw()">
       <label>Scope to language
@@ -61,21 +57,20 @@ layout: null
   </header>
   <main>
     <div id="tools"></div>
-    <div id="status">Tap a tool to open it here.</div>
+    <div id="status">Select a tool. It opens here.</div>
   </main>
 </div>
 <div id="viewer">
   <header>
     <button type="button" onclick="closeTool()">← Back to desk</button>
     <span id="viewer-title" style="margin-left:12px; color:#ffd54f;"></span>
-    <span class="build" style="float:right;">17.004</span>
+    <span class="build" style="float:right;">17.005</span>
   </header>
   <iframe id="frame" title="Language tool"></iframe>
 </div>
 <script>
-var CDN = "https://cdn.jsdelivr.net/gh/squirelworks/LanguageStudentDesk@main/";
 var TOOLS = [
-  { group: "Desk tools", id: "klingon", path: "klingon/", name: "Klingon (tlhIngan Hol)", about: "pIqaD alphabet, type in pIqaD, handwriting, numbers, vocabulary, grammar, reader and quizzes.", scoped: false, local: "klingon/" },
+  { group: "Desk tools", id: "klingon", path: "klingon/", name: "Klingon (tlhIngan Hol)", about: "pIqaD alphabet, type in pIqaD, handwriting, numbers, vocabulary, grammar, reader and quizzes.", scoped: false },
   { group: "Desk tools", id: "character-learner", path: "character-learner/", name: "Character Learner", about: "Every script the Desk teaches: stroke order and a writing pad.", scoped: true },
   { group: "Desk tools", id: "resource-learner", path: "resource-learner/", name: "Resource Learner", about: "Curated learning resources, general and per language.", scoped: true },
   { group: "Desk tools", id: "reference-learner", path: "reference-learner/", name: "Reference Learner", about: "Quick lookup for language facts and notes.", scoped: true },
@@ -83,22 +78,14 @@ var TOOLS = [
   { group: "Desk tools", id: "programming-learner", path: "programming-learner/", name: "Programming Learner", about: "Syntax, concepts and practice for programming languages.", scoped: true },
   { group: "Desk tools", id: "language-learner", path: "language-learner/", name: "Language Learner", about: "Guided path per language: script, first words, grammar, practice.", scoped: true },
   { group: "Desk tools", id: "grammar-learner", path: "grammar-learner/", name: "Grammar Learner", about: "Short grammar lessons with explained drills.", scoped: true },
-  { group: "Desk tools", id: "vocabulary-learner", path: "vocabulary-learner/", name: "Vocabulary Learner", about: "Flashcards, spaced review and Anki export.", scoped: true },
-  { group: "SquirrelGo apps", id: "squirrelgo-kana", path: "SquirrelGo-Apps/squirrelgo-characters/squirrelgo-kana/", name: "SquirrelGo Kana", about: "Hiragana and katakana: lessons, charts, quizzes, flashcards, writing pad, audio.", scoped: false, apk: "https://github.com/squirelworks/LanguageStudentDesk/releases/download/squirrelgo-kana-latest/SquirrelGoKana-debug.apk" },
-  { group: "SquirrelGo apps", id: "squirrelgo-alphabets", path: "SquirrelGo-Apps/squirrelgo-characters/squirrelgo-alphabets/", name: "SquirrelGo Alphabets", about: "World alphabets: lessons, stroke order, writing pad, sounds.", scoped: false, apk: "https://github.com/squirelworks/LanguageStudentDesk/releases/download/squirrelgo-alphabets-latest/SquirrelGoAlphabets-debug.apk" },
-  { group: "SquirrelGo apps", id: "squirrelgo-klingon", path: "SquirrelGo-Apps/squirrelgo-characters/squirrelgo-klingon/", name: "SquirrelGo Klingon", about: "pIqaD on the phone: letters, stroke order, writing pad, quizzes.", scoped: false, apk: "https://github.com/squirelworks/LanguageStudentDesk/releases/download/squirrelgo-klingon-latest/SquirrelGoKlingon-debug.apk" },
-  { group: "SquirrelGo apps", id: "squirrelgo-kanji", path: "SquirrelGo-Apps/squirrelgo-characters/squirrelgo-kanji/", name: "SquirrelGo Kanji", about: "Kanji lessons, JLPT quizzes, dictionary, on-yomi, stroke order.", scoped: false, apk: "https://github.com/squirelworks/LanguageStudentDesk/releases/download/squirrelgo-kanji-latest/SquirrelGoKanji-debug.apk" },
-  { group: "SquirrelGo apps", id: "squirrelgo-dictionary", path: "SquirrelGo-Apps/squirrelgo-dictionary/", name: "SquirrelGo Japanese-English Dictionary", about: "Offline JMdict and KANJIDIC2 with radicals and examples.", scoped: false, apk: "https://github.com/squirelworks/LanguageStudentDesk/releases/download/squirrelgo-dictionary-latest/SquirrelGoDictionary.apk" },
-  { group: "SquirrelGo apps", id: "squirrelgo-phrasebook", path: "SquirrelGo-Apps/squirrelgo-phrasebook/", name: "SquirrelGo Phrasebook", about: "Japanese phrase packs with audio, search, favorites, flashcards.", scoped: false, apk: "https://github.com/squirelworks/LanguageStudentDesk/releases/download/squirrelgo-phrasebook-latest/SquirrelGoPhrasebook-debug.apk" },
-  { group: "SquirrelGo apps", id: "squirrelgo-orthodox-bible", path: "SquirrelGo-Apps/squirrelgo-orthodox-bible/", name: "SquirrelGo Orthodox Bible", about: "Septuagint canon, side-by-side languages, patristic commentary.", scoped: false, apk: "https://github.com/squirelworks/LanguageStudentDesk/releases/download/squirrelgo-orthodox-bible-latest/SquirrelGoOrthodoxBible-debug.apk" }
+  { group: "Desk tools", id: "vocabulary-learner", path: "vocabulary-learner/", name: "Vocabulary Learner", about: "Flashcards, spaced review and Anki export.", scoped: true }
 ];
-var GROUPS = ["Desk tools", "SquirrelGo apps"];
+var GROUPS = ["Desk tools"];
 var box = document.getElementById("tools");
 
 function hrefFor(tool) {
-  if (tool.local) return tool.local;
   var lang = document.getElementById("lang").value;
-  var url = CDN + tool.path + "index.html";
+  var url = tool.path + "index.html";
   if (lang && tool.scoped) url += "?lang=" + encodeURIComponent(lang);
   return url;
 }
@@ -135,12 +122,11 @@ function draw() {
       a.className = "tool";
       a.href = "#";
       a.onclick = function (e) { e.preventDefault(); openTool(tool); return false; };
-      var apk = tool.apk ? " <span class=\"apk\">· <a href=\"" + tool.apk + "\" target=\"_blank\" style=\"color:#aaa\" onclick=\"event.stopPropagation()\">APK</a></span>" : "";
-      a.innerHTML = "<strong>" + tool.name + "</strong><span>" + tool.about + apk + "</span>";
+      a.innerHTML = "<strong>" + tool.name + "</strong><span>" + tool.about + "</span>";
       box.appendChild(a);
     });
   });
-  document.getElementById("status").textContent = "Tap a tool to open it here. Content pulled from the LanguageStudentDesk repo.";
+  document.getElementById("status").textContent = "Select a tool. Everything is hosted on this site.";
 }
 draw();
 </script>
