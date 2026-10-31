@@ -309,6 +309,7 @@ function download() {
   const payload = new TextEncoder().encode(JSON.stringify(copy));
   const out = new Uint8Array(5 + payload.length);
   out.set(new TextEncoder().encode("FBK1"));
+  out.set(payload, 5);
   const a = document.createElement("a");
   a.href = URL.createObjectURL(new Blob([out]));
   a.download = (book.title || "book") + ".fbk";
