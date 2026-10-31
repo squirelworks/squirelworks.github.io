@@ -121,3 +121,14 @@ test("Open names an untitled book after its file", async () => {
   const book = JSON.parse(Buffer.from(page.blobs[page.blobs.length - 1].bytes().slice(5)).toString("utf8"));
   assert.strictEqual(book.title, "Lesson One");
 });
+
+test("The editor page says to use a wide window, and shows it only when the window is narrow", () => {
+  const fs = require("fs");
+  const path = require("path");
+  const html = fs.readFileSync(path.join(__dirname, "..", "editor", "index.html"), "utf8");
+  const css = fs.readFileSync(path.join(__dirname, "..", "editor", "editor.css"), "utf8");
+  assert.match(html, /<p id="wide">[^<]*wide window/);
+  assert.match(css, /#wide \{ display: none;/);
+  assert.match(css, /@media \(max-width: 800px\) \{\s*#wide \{ display: block; \}/);
+});
+

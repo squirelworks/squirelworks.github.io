@@ -23,8 +23,10 @@ header .build { font-size: 11px; letter-spacing: 0.14em; color: #9ec4e8; }
 #props input, #props textarea, #props select { width: calc(100% - 16px); margin: 0 8px 4px; box-sizing: border-box; font: inherit; }
 #props textarea { min-height: 90px; }
 #row { display: flex; gap: 4px; padding: 6px; }
+#wide { display: none; margin: 0; padding: 6px 14px; background: #fff3c4; }
 #status { margin: 0; padding: 4px 14px; background: #efeae0; min-height: 1.2em; }
 @media (max-width: 800px) {
+  #wide { display: block; }
   #main { flex-direction: column; }
   #pages, #object { width: auto; max-height: 28vh; }
 }
