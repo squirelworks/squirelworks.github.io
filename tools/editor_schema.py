@@ -21,7 +21,7 @@ def build(editor_repo):
         "book": list(schema.BOOK_FIELDS),
         "page": list(schema.PAGE_FIELDS),
         "shape": list(schema.SHAPE_FIELDS),
-        "shape_extra": {kind: list(fields) for kind, fields in schema.SHAPE_EXTRA.items()},
+        "shape_kinds": list(schema.SHAPE_KINDS),
         "not_written": list(schema.NOT_WRITTEN),
         "envelope": list(files.ENVELOPE),
     }

@@ -33,11 +33,20 @@ test("Every field the editor downloads is in schema.json", () => {
   book.pages.forEach((item) => {
     found = found.concat(stray("page", item, schema.page));
     item.shapes.forEach((shape) => {
-      found = found.concat(stray("shape(" + shape.kind + ")", shape, schema.shape.concat(schema.shape_extra[shape.kind] || [])));
+      found = found.concat(stray("shape(" + shape.kind + ")", shape, schema.shape));
     });
   });
   assert.deepStrictEqual(found, [], "the desktop editor would drop these on save");
   assert.strictEqual(book.pages[0].shapes.length, 8, "paper plus seven tools");
+});
+
+test("Every shape kind the editor places is a kind in schema.json", () => {
+  const fs = require("fs");
+  const path = require("path");
+  const schema = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "editor", "schema.json"), "utf8"));
+  const page = loadEditor();
+  const kinds = ["button", "text", "box", "line", "ellipse", "polygon", "picture"].map((tool, n) => page.sandbox.place(tool, 10 + n, 10, 100, 80).kind);
+  assert.deepStrictEqual(kinds.filter((kind) => !schema.shape_kinds.includes(kind)), []);
 });
 
 test("Download stamps the book version from schema.json", async () => {
