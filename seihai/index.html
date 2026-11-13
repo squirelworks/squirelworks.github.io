@@ -101,7 +101,8 @@ function tid(a, b) {
   return (v(a) << 6) | v(b);
 }
 const WALL = new Set();
-[16,17,48,49,50,54,64,65,66,67,68,69,70,71,80,81,82,83,84,85,86,87,96,97,98,99]
+// Tile ids follow Graal's pics1 layout: tree canopy, rock, chest (shut and open), sign.
+[26, 224, 1784, 1785, 1800, 1801, 829, 830, 845, 846, 712, 713, 728, 729]
   .forEach(id => WALL.add(id));
 
 const canvas = document.getElementById("c");
@@ -179,14 +180,22 @@ async function loadWorld() {
   for (const r of runs) {
     for (let k = 0; k < r.row.length; k++) board[r.y][r.x + k] = r.row[k];
   }
-  objects.push({ x: 10, y: 12, id: 48, kind: "rock" });
-  objects.push({ x: 14, y: 14, id: 50, kind: "bush" });
-  objects.push({ x: 18, y: 10, id: 49, kind: "rock" });
+  // Rock and bush are 2x2 pictures in pics1, drawn from their top-left id.
+  objects.push({ x: 10, y: 12, id: 34, kind: "rock" });
+  objects.push({ x: 14, y: 14, id: 2, kind: "bush" });
+  objects.push({ x: 18, y: 10, id: 34, kind: "rock" });
 }
 
 // Graal tile ids: pics1 is 128 x 32 tiles, read as eight 16-wide columns.
 function tileXY(id) {
   return [((id % 16) + Math.floor(id / 512) * 16) * 16, (Math.floor(id / 16) % 32) * 16];
+}
+
+function drawObject(id, x, y) {
+  for (const [dx, dy, o] of [[0, 0, 0], [1, 0, 1], [0, 1, 16], [1, 1, 17]]) {
+    const [sx, sy] = tileXY(id + o);
+    ctx.drawImage(pics, sx, sy, 16, 16, x + dx * 16, y + dy * 16, 16, 16);
+  }
 }
 
 function blocked(tx, ty) {
@@ -206,19 +215,12 @@ function draw() {
       ctx.drawImage(pics, sx, sy, 16, 16, x * 16, y * 16, 16, 16);
     }
   }
-  for (const o of objects) {
-    const ox = (o.x - camX) * 16, oy = (o.y - camY) * 16;
-    const [sx, sy] = tileXY(o.id);
-    ctx.drawImage(pics, sx, sy, 16, 16, ox, oy, 16, 16);
-  }
+  for (const o of objects) drawObject(o.id, (o.x - camX) * 16, (o.y - camY) * 16);
   const pxp = (px - camX) * 16, pyp = (py - camY) * 16;
   const frame = dir * 32;
   ctx.drawImage(body, 0, frame, 32, 32, pxp - 8, pyp - 16, 32, 32);
   ctx.drawImage(head, 0, frame, 32, 32, pxp - 8, pyp - 16, 32, 32);
-  if (carrying) {
-    const [sx, sy] = tileXY(carrying.id);
-    ctx.drawImage(pics, sx, sy, 16, 16, pxp, pyp - 16, 16, 16);
-  }
+  if (carrying) drawObject(carrying.id, pxp - 8, pyp - 32);
   if (swinging > 0) {
     ctx.fillStyle = "#fff";
     ctx.fillRect(pxp + [0,-16,0,16][dir], pyp + [-16,0,16,0][dir], 8, 8);
@@ -269,9 +271,9 @@ function interact() {
   const c = chests.find(c => Math.abs(c.x - fx) <= 1 && Math.abs(c.y - fy) <= 1);
   if (c && !c.open) {
     c.open = true;
-    if (board[c.y] && board[c.y][c.x] === 64) {
-      board[c.y][c.x] = 66; board[c.y][c.x+1] = 67;
-      board[c.y+1][c.x] = 82; board[c.y+1][c.x+1] = 83;
+    if (board[c.y] && board[c.y][c.x] === 1784) {
+      board[c.y][c.x] = 829; board[c.y][c.x+1] = 830;
+      board[c.y+1][c.x] = 845; board[c.y+1][c.x+1] = 846;
     }
     msgEl.textContent = "Got " + c.item;
     setTimeout(() => msgEl.textContent = "", 2000);
