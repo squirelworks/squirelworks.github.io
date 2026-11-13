@@ -82,8 +82,9 @@
       <tr><td><a href="https://github.com/squirelworks/graal-client-repro">graal-client-repro</a></td><td>Rebuilds of the classic Graal clients, one per build, in Delphi as the originals were. They are tested against the Seihai servers.</td><td class="lang">Pascal</td></tr>
   </table>
 
-  <h2>Demo keys</h2>
-  <p>The demo uses the classic client's keys. <kbd>Arrows</kbd> move. <kbd>A</kbd> reads signs, opens chests and talks. <kbd>S</kbd> swings the sword. <kbd>D</kbd> picks up a rock or bush, and throws it. <kbd>Tab</kbd> opens chat. <kbd>Esc</kbd> closes a sign, or goes back to the desktop.</p>
+  <h2>The demo</h2>
+  <p>Four small levels of our own, in the Graal <code>.nw</code> text format: a village, a meadow to the east, an old wood to the south, and a house in the village. Walk off the edge of an outdoor level to go on to the next one, and walk in at the door to go inside. The tiles are Seihai's own original pics1, in Graal's tile layout.</p>
+  <p>It uses the classic client's keys. <kbd>Arrows</kbd> move. <kbd>A</kbd> reads signs, opens chests and talks. <kbd>S</kbd> swings the sword and cuts bushes. <kbd>D</kbd> lifts a bush or rock, and throws it. <kbd>Tab</kbd> opens chat. <kbd>Esc</kbd> closes a sign, or goes back to the desktop.</p>
 
   <p class="note">Seihai is an independent fan project. It is not affiliated with or endorsed by GraalOnline. "Graal" and related names belong to their owners.</p>
   <button id="playbtn" class="play" type="button">Play the demo</button>
@@ -92,18 +93,24 @@
 <div id="hud">♥♥♥  R:0  B:0  A:0</div>
 <div id="status"><span id="pos">loading</span><span id="msg"></span></div>
 <div id="chat"><input id="line" placeholder="Tab to chat" maxlength="80"></div>
+<script src="tiletypes.js"></script>
 <script>
 "use strict";
-const TILE = 16, VIEW_W = 32, VIEW_H = 24;
+const VIEW_W = 32, VIEW_H = 24, START = "village.nw";
 const B64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-function tid(a, b) {
-  const v = c => { const i = B64.indexOf(c); return i < 0 ? 0 : i; };
-  return (v(a) << 6) | v(b);
-}
+const tid = (a, b) => (Math.max(0, B64.indexOf(a)) << 6) | Math.max(0, B64.indexOf(b));
+
+// Which tile ids block walking, from tiletypes.js ("a-b,c,...").
 const WALL = new Set();
-// Tile ids follow Graal's pics1 layout: tree canopy, rock, chest (shut and open), sign.
-[26, 224, 1784, 1785, 1800, 1801, 829, 830, 845, 846, 712, 713, 728, 729]
-  .forEach(id => WALL.add(id));
+for (const run of BLOCKING.split(",")) {
+  const [a, b] = run.split("-").map(Number);
+  for (let i = a; i <= (b === undefined ? a : b); i++) WALL.add(i);
+}
+// 2x2 pictures you can lift, and what each leaves behind.
+const LIFT = { 2: { kind: "bush", leaves: 420 }, 34: { kind: "rock", leaves: 677 } };
+const CHEST_SHUT = 1784, CHEST_OPEN = 829;
+const ITEMS = { greenrupee: ["rupees", 1, "a green rupee"], bombs: ["bombs", 5, "five bombs"],
+  arrows: ["arrows", 5, "five arrows"], heart: ["hearts", 1, "a heart container"] };
 
 const canvas = document.getElementById("c");
 const ctx = canvas.getContext("2d");
@@ -123,19 +130,22 @@ document.getElementById("playbtn").onclick = () => showAbout(false);
 try { if (!localStorage.getItem("seihai.aboutSeen")) showAbout(true); } catch (e) { showAbout(true); }
 
 let pics, body, head;
-let board = [];
-let signs = [];
-let chests = [];
-let npcs = [];
-let objects = [];
-let px = 8, py = 16, dir = 2;
+const levels = {};          // name -> level, kept so chests and lifted bushes stay changed
+let lv = null;
+let px = 30, py = 34, dir = 2;
 let keys = {};
-let openSign = null;
-let signPage = 0;
-let chatLog = [];
+let openSign = null, signPage = 0;
 let swinging = 0;
 let carrying = null;
-let rupees = 0, bombs = 0, arrows = 0;
+let fade = 0;
+const inv = { hearts: 3, rupees: 0, bombs: 0, arrows: 0 };
+let msgTimer = 0;
+
+function say(text, ms) {
+  msgEl.textContent = text;
+  clearTimeout(msgTimer);
+  msgTimer = setTimeout(() => msgEl.textContent = "", ms || 2500);
+}
 
 function loadImg(src) {
   return new Promise((res, rej) => {
@@ -146,48 +156,47 @@ function loadImg(src) {
   });
 }
 
-async function loadWorld() {
-  const text = await (await fetch("world.nw")).text();
+// A level in the Graal .nw text form: BOARD rows, LINK, SIGN, CHEST and NPC.
+async function loadLevel(name) {
+  if (levels[name]) return levels[name];
+  const text = await (await fetch("levels/" + name)).text();
   const lines = text.split(/\r?\n/);
-  let yMax = 0, xMax = 0;
-  const runs = [];
+  const L = { name, board: Array.from({ length: 64 }, () => Array(64).fill(0)),
+    links: [], signs: [], chests: [], npcs: [] };
   for (let i = 0; i < lines.length; i++) {
-    const line = lines[i].trim();
-    if (line.startsWith("BOARD ")) {
-      const p = line.split(" ");
-      const x = +p[1], y = +p[2], w = +p[3];
-      const tiles = p[5] || "";
-      const row = [];
-      for (let k = 0; k < tiles.length; k += 2) row.push(tid(tiles[k], tiles[k+1]));
-      runs.push({ x, y, row });
-      yMax = Math.max(yMax, y + 1);
-      xMax = Math.max(xMax, x + w);
-    } else if (line.startsWith("SIGN ")) {
-      const p = line.split(" ");
-      const sx = +p[1], sy = +p[2];
+    const p = lines[i].trim().split(" ");
+    if (p[0] === "BOARD") {
+      const x = +p[1], y = +p[2], tiles = p[5] || "";
+      for (let k = 0; k < tiles.length; k += 2) L.board[y][x + k / 2] = tid(tiles[k], tiles[k + 1]);
+    } else if (p[0] === "LINK") {
+      L.links.push({ dest: p[1], x: +p[2], y: +p[3], w: +p[4], h: +p[5], nx: p[6], ny: p[7] });
+    } else if (p[0] === "SIGN") {
       const text = [];
       while (++i < lines.length && lines[i].trim() !== "SIGNEND") text.push(lines[i]);
-      signs.push({ x: sx, y: sy, text });
-    } else if (line.startsWith("CHEST ")) {
-      const p = line.split(" ");
-      chests.push({ x: +p[1], y: +p[2], item: p[3] || "", open: false });
-    } else if (line.startsWith("NPC ")) {
-      const p = line.split(" ");
-      npcs.push({ x: +p[1], y: +p[2], image: "head0.png" });
+      L.signs.push({ x: +p[1], y: +p[2], text });
+    } else if (p[0] === "CHEST") {
+      L.chests.push({ x: +p[1], y: +p[2], item: p[3], open: false });
+    } else if (p[0] === "NPC") {
+      let script = "";
+      while (++i < lines.length && lines[i].trim() !== "NPCEND") script += lines[i] + "\n";
+      const m = script.match(/message\s+([^;]*);/);
+      L.npcs.push({ x: +p[2], y: +p[3], text: m ? m[1] : "" });
     }
   }
-  board = Array.from({ length: yMax }, () => Array(xMax).fill(0));
-  for (const r of runs) {
-    for (let k = 0; k < r.row.length; k++) board[r.y][r.x + k] = r.row[k];
-  }
-  // Rock and bush are 2x2 pictures in pics1, drawn from their top-left id.
-  objects.push({ x: 10, y: 12, id: 34, kind: "rock" });
-  objects.push({ x: 14, y: 14, id: 2, kind: "bush" });
-  objects.push({ x: 18, y: 10, id: 34, kind: "rock" });
+  levels[name] = L;
+  return L;
 }
 
-// Graal tile ids: pics1 is 128 x 32 tiles, read as eight 16-wide columns.
+async function warp(link) {
+  const dest = await loadLevel(link.dest);
+  const nx = link.nx === "playerx" ? px : +link.nx;
+  const ny = link.ny === "playery" ? py : +link.ny;
+  lv = dest; px = nx; py = ny; fade = 8;
+  openSign = null;
+}
+
 function tileXY(id) {
+  // pics1 is 128 x 32 tiles, read as eight 16-wide columns of 512 ids.
   return [((id % 16) + Math.floor(id / 512) * 16) * 16, (Math.floor(id / 16) % 32) * 16];
 }
 
@@ -198,45 +207,65 @@ function drawObject(id, x, y) {
   }
 }
 
+const at = (x, y) => lv.board[y] ? lv.board[y][x] : undefined;
 function blocked(tx, ty) {
-  if (ty < 0 || ty >= board.length || tx < 0 || tx >= board[0].length) return true;
-  return WALL.has(board[ty][tx]);
+  if (ty < 0 || ty >= 64 || tx < 0 || tx >= 64) return true;
+  if (lv.npcs.some(n => tx >= n.x && tx < n.x + 2 && ty >= n.y && ty < n.y + 2)) return true;
+  return WALL.has(lv.board[ty][tx]);
+}
+function linkAt(tx, ty) {
+  return lv.links.find(l => tx >= l.x && tx < l.x + l.w && ty >= l.y && ty < l.y + l.h);
+}
+
+// The 2x2 picture (bush, rock or chest) that covers a tile: its base id and top-left.
+function pictureAt(tx, ty) {
+  const id = at(tx, ty);
+  if (id === undefined) return null;
+  for (const base of [2, 34, CHEST_SHUT, CHEST_OPEN]) {
+    const k = [0, 1, 16, 17].indexOf(id - base);
+    if (k >= 0) return { base, x: tx - (k & 1), y: ty - (k >= 2 ? 1 : 0) };
+  }
+  return null;
+}
+function setPicture(x, y, base) {
+  lv.board[y][x] = base; lv.board[y][x + 1] = base + 1;
+  lv.board[y + 1][x] = base + 16; lv.board[y + 1][x + 1] = base + 17;
 }
 
 function draw() {
   ctx.fillStyle = "#000";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-  const camX = Math.max(0, Math.min(board[0].length - VIEW_W, Math.floor(px) - VIEW_W/2));
-  const camY = Math.max(0, Math.min(board.length - VIEW_H, Math.floor(py) - VIEW_H/2));
+  const camX = Math.max(0, Math.min(64 - VIEW_W, Math.floor(px) - VIEW_W / 2));
+  const camY = Math.max(0, Math.min(64 - VIEW_H, Math.floor(py) - VIEW_H / 2));
   for (let y = 0; y < VIEW_H; y++) {
     for (let x = 0; x < VIEW_W; x++) {
-      const id = board[camY + y]?.[camX + x] || 0;
-      const [sx, sy] = tileXY(id);
+      const [sx, sy] = tileXY(lv.board[camY + y][camX + x]);
       ctx.drawImage(pics, sx, sy, 16, 16, x * 16, y * 16, 16, 16);
     }
   }
-  for (const o of objects) drawObject(o.id, (o.x - camX) * 16, (o.y - camY) * 16);
+  for (const n of lv.npcs) ctx.drawImage(head, 0, 64, 32, 32, (n.x - camX) * 16, (n.y - camY) * 16 - 8, 32, 32);
   const pxp = (px - camX) * 16, pyp = (py - camY) * 16;
   const frame = dir * 32;
   ctx.drawImage(body, 0, frame, 32, 32, pxp - 8, pyp - 16, 32, 32);
   ctx.drawImage(head, 0, frame, 32, 32, pxp - 8, pyp - 16, 32, 32);
-  if (carrying) drawObject(carrying.id, pxp - 8, pyp - 32);
+  if (carrying) drawObject(carrying.base, pxp - 8, pyp - 40);
   if (swinging > 0) {
     ctx.fillStyle = "#fff";
-    ctx.fillRect(pxp + [0,-16,0,16][dir], pyp + [-16,0,16,0][dir], 8, 8);
-  }
-  for (const n of npcs) {
-    const nx = (n.x - camX) * 16, ny = (n.y - camY) * 16;
-    ctx.drawImage(head, 0, 64, 32, 32, nx - 8, ny - 16, 32, 32);
+    ctx.fillRect(pxp + 4 + [0, -16, 0, 16][dir], pyp + [-14, 0, 16, 0][dir], 8, 8);
   }
   if (openSign) drawSign();
-  posEl.textContent = `${px.toFixed(1)}, ${py.toFixed(1)}  dir ${["up","left","down","right"][dir]}`;
-  hudEl.textContent = "♥♥♥  R:" + rupees + "  B:" + bombs + "  A:" + arrows;
+  if (fade > 0) {
+    ctx.fillStyle = "rgba(0,0,0," + (fade / 8) + ")";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    fade--;
+  }
+  posEl.textContent = lv.name + "  " + px.toFixed(1) + ", " + py.toFixed(1);
+  hudEl.textContent = "\u2665".repeat(inv.hearts) + "  R:" + inv.rupees + "  B:" + inv.bombs + "  A:" + inv.arrows;
 }
 
 function drawSign() {
   const lines = openSign.text.slice(signPage * 3, signPage * 3 + 3);
-  const w = 280, h = 80;
+  const w = 300, h = 80;
   const x = (canvas.width - w) / 2, y = canvas.height - h - 24;
   ctx.fillStyle = "#f5e6c8";
   ctx.fillRect(x, y, w, h);
@@ -251,11 +280,18 @@ function drawSign() {
   ctx.fillText("A next   Esc close", x + 12, y + h - 8);
 }
 
+let warping = false;
 function tryMove(nx, ny, nd) {
   dir = nd;
-  if (openSign) return;
+  if (openSign || warping) return;
   const tx = Math.floor(nx + 0.5), ty = Math.floor(ny + 0.5);
+  const link = linkAt(tx, ty);
+  if (link) { warping = true; warp(link).finally(() => warping = false); return; }
   if (!blocked(tx, ty)) { px = nx; py = ny; }
+}
+
+function facing() {
+  return [Math.floor(px + 0.5) + [0, -1, 0, 1][dir], Math.floor(py + 0.5) + [-1, 0, 1, 0][dir]];
 }
 
 function interact() {
@@ -264,42 +300,45 @@ function interact() {
     else openSign = null;
     return;
   }
-  const fx = Math.floor(px) + [0,-1,0,1][dir];
-  const fy = Math.floor(py) + [-1,0,1,0][dir];
-  const s = signs.find(s => Math.abs(s.x - fx) <= 1 && Math.abs(s.y - fy) <= 1);
+  const [fx, fy] = facing();
+  const s = lv.signs.find(s => Math.abs(s.x - fx) <= 1 && Math.abs(s.y - fy) <= 1);
   if (s) { openSign = s; signPage = 0; return; }
-  const c = chests.find(c => Math.abs(c.x - fx) <= 1 && Math.abs(c.y - fy) <= 1);
-  if (c && !c.open) {
-    c.open = true;
-    if (board[c.y] && board[c.y][c.x] === 1784) {
-      board[c.y][c.x] = 829; board[c.y][c.x+1] = 830;
-      board[c.y+1][c.x] = 845; board[c.y+1][c.x+1] = 846;
+  const pic = pictureAt(fx, fy);
+  if (pic && pic.base === CHEST_SHUT) {
+    const c = lv.chests.find(c => c.x === pic.x && c.y === pic.y);
+    setPicture(pic.x, pic.y, CHEST_OPEN);
+    if (c && !c.open) {
+      c.open = true;
+      const it = ITEMS[c.item];
+      if (it) { inv[it[0]] += it[1]; say("You got " + it[2] + "!"); }
     }
-    msgEl.textContent = "Got " + c.item;
-    setTimeout(() => msgEl.textContent = "", 2000);
     return;
   }
-  const n = npcs.find(n => Math.abs(n.x - px) < 2 && Math.abs(n.y - py) < 2);
-  if (n) { msgEl.textContent = "Hello. This is the Seihai web demo."; setTimeout(() => msgEl.textContent = "", 2000); }
+  if (pic && pic.base === CHEST_OPEN) { say("The chest is empty."); return; }
+  const n = lv.npcs.find(n => fx >= n.x - 1 && fx <= n.x + 2 && fy >= n.y - 1 && fy <= n.y + 2);
+  if (n) say(n.text + ".", 4000);
 }
 
 function useItem() {
-  const fx = Math.floor(px) + [0,-1,0,1][dir];
-  const fy = Math.floor(py) + [-1,0,1,0][dir];
-  const o = objects.find(o => Math.abs(o.x - fx) <= 1 && Math.abs(o.y - fy) <= 1);
-  if (o && !carrying) {
-    carrying = o;
-    objects = objects.filter(x => x !== o);
-    msgEl.textContent = "Picked up " + o.kind;
-    setTimeout(() => msgEl.textContent = "", 1500);
+  const [fx, fy] = facing();
+  if (carrying) {
+    say("You threw the " + carrying.kind + ". It broke.", 1500);
+    carrying = null;
     return;
   }
-  if (carrying) {
-    objects.push({ x: fx, y: fy, id: carrying.id, kind: carrying.kind });
-    msgEl.textContent = "Threw " + carrying.kind;
-    carrying = null;
-    setTimeout(() => msgEl.textContent = "", 1500);
+  const pic = pictureAt(fx, fy);
+  if (pic && LIFT[pic.base]) {
+    carrying = { base: pic.base, kind: LIFT[pic.base].kind };
+    setPicture(pic.x, pic.y, LIFT[pic.base].leaves);
+    say("You lifted a " + carrying.kind + ".", 1500);
   }
+}
+
+function swing() {
+  swinging = 8;
+  const [fx, fy] = facing();
+  const pic = pictureAt(fx, fy);
+  if (pic && pic.base === 2) setPicture(pic.x, pic.y, LIFT[2].leaves);
 }
 
 document.addEventListener("keydown", e => {
@@ -310,24 +349,20 @@ document.addEventListener("keydown", e => {
   if (e.target === lineEl) {
     if (e.key === "Enter") {
       const t = lineEl.value.trim();
-      if (t) {
-        chatLog.push(t);
-        msgEl.textContent = t;
-        setTimeout(() => msgEl.textContent = "", 3000);
-      }
+      if (t) say(t, 3000);
       lineEl.value = "";
       lineEl.blur();
     }
     return;
   }
   keys[e.key] = true;
-  if (["ArrowUp","ArrowDown","ArrowLeft","ArrowRight","Tab"].includes(e.key)) e.preventDefault();
+  if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Tab"].includes(e.key)) e.preventDefault();
   if (e.key === "Escape") {
     if (openSign) openSign = null;
     else location.href = "../";
   }
   if (e.key === "a" || e.key === "A") interact();
-  if (e.key === "s" || e.key === "S") swinging = 8;
+  if (e.key === "s" || e.key === "S") swing();
   if (e.key === "d" || e.key === "D") useItem();
   if (e.key === "Tab") lineEl.focus();
 });
@@ -336,10 +371,9 @@ document.addEventListener("keyup", e => { keys[e.key] = false; });
 let acc = 0;
 function loop(t) {
   if (!loop.last) loop.last = t;
-  const dt = t - loop.last; loop.last = t;
-  acc += dt;
+  acc += Math.min(t - loop.last, 250); loop.last = t;
   if (swinging > 0) swinging--;
-  const step = 180;
+  const step = 60;
   while (acc >= step) {
     acc -= step;
     if (keys["ArrowUp"]) tryMove(px, py - 0.5, 0);
@@ -357,8 +391,7 @@ function loop(t) {
     loadImg("assets/body.png"),
     loadImg("assets/head0.png"),
   ]);
-  await loadWorld();
-  posEl.textContent = "ready";
+  lv = await loadLevel(START);
   requestAnimationFrame(loop);
 })();
 </script>
