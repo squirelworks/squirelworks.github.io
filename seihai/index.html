@@ -27,11 +27,67 @@
     background: #c0c0c0; color: #000; font-size: 12px; display: flex;
     align-items: center; padding: 0 8px; border-top: 1px solid #fff; }
   #msg { margin-left: 12px; color: #000080; }
+  #bar .tb { margin-left: 6px; }
+  #bar .tb:first-of-type { margin-left: auto; }
+  #about { position: absolute; top: 28px; left: 0; right: 0; bottom: 0; overflow-y: auto;
+    background: rgba(2, 20, 51, 0.97); color: #d6ecff; z-index: 10; display: none; }
+  #about.open { display: block; }
+  #about .page { max-width: 760px; margin: 0 auto; padding: 16px 18px 40px; font-size: 14px; line-height: 1.45; }
+  #about h1 { font-size: 22px; margin: 4px 0 6px; color: #fff; }
+  #about h2 { font-size: 15px; margin: 20px 0 6px; color: #fff; border-bottom: 1px solid #4a6a9a; padding-bottom: 2px; }
+  #about a { color: #8fd0ff; }
+  #about table { border-collapse: collapse; width: 100%; }
+  #about td { vertical-align: top; padding: 5px 8px 5px 0; border-bottom: 1px solid #1c3a66; }
+  #about td:first-child { white-space: nowrap; font-weight: bold; }
+  #about .lang { color: #9ab; font-size: 12px; white-space: nowrap; }
+  #about .note { color: #9ab; font-size: 12px; }
+  #about kbd { background: #c0c0c0; color: #000; border: 1px outset #fff; padding: 0 4px; font: 12px Arial, sans-serif; }
+  #about .play { background: #c0c0c0; border: 2px outset #fff; font: bold 13px Arial, sans-serif; padding: 2px 12px; cursor: pointer; margin-top: 14px; }
 </style>
 </head>
 <body>
-<div id="bar">Seihai <span style="font-weight:normal;margin-left:8px">0.0.2.3</span>
-  <button id="back" type="button">Desktop</button></div>
+<div id="bar">Seihai <span style="font-weight:normal;margin-left:8px">0.0.2.4</span>
+  <button id="aboutbtn" class="tb" type="button">About</button>
+  <button id="back" class="tb" type="button">Desktop</button></div>
+<div id="about" role="dialog" aria-label="About Seihai"><div class="page">
+  <h1>Seihai</h1>
+  <p>Seihai is an open client and server suite for Graal, the top-down online adventure game. The client plays offline levels and connects to Graal Reborn listservers and gservers. The servers serve classic clients from 1.33 onward, and Seihai itself. The suite is written in Rust, apart from two GPL forks in C++ and the Delphi client rebuilds.</p>
+  <p>This page is a small browser demo of one level. It is not the Seihai client. To play for real, build <a href="https://github.com/squirelworks/seihai">seihai</a> from its README.</p>
+
+  <h2>Client</h2>
+  <table>
+      <tr><td><a href="https://github.com/squirelworks/seihai">seihai</a></td><td>The Seihai program. It opens a start window, plays offline levels, reads server lists and logs into gservers.</td><td class="lang">Rust</td></tr>
+      <tr><td><a href="https://github.com/squirelworks/seihai-core">seihai-core</a></td><td>The shared library: protocol, assets, scripting (GS1 and GS2), the offline simulation, the version profiles for each client build, and the connection code. It draws nothing. Every other Rust repo pins one of its tags.</td><td class="lang">Rust</td></tr>
+  </table>
+
+  <h2>Servers</h2>
+  <table>
+      <tr><td><a href="https://github.com/squirelworks/seihai-gserver">seihai-gserver</a></td><td>A new game server on seihai-core, for classic clients (1.33 to 2.31 first) and Seihai: logins for every protocol generation, shared levels and gmaps, files, weapons and board changes.</td><td class="lang">Rust</td></tr>
+      <tr><td><a href="https://github.com/squirelworks/seihai-npcserver">seihai-npcserver</a></td><td>The NPC-server. It logs into seihai-gserver and runs server-side NPC scripts.</td><td class="lang">Rust</td></tr>
+      <tr><td><a href="https://github.com/squirelworks/seihai-listserver">seihai-listserver</a></td><td>The listserver. It gives clients, Seihai and RCs their server list, and lets gservers register and verify accounts.</td><td class="lang">Rust</td></tr>
+      <tr><td><a href="https://github.com/squirelworks/seihai-rc">seihai-rc</a></td><td>A Remote Control client for server staff: players, accounts, options, files and NPC Control.</td><td class="lang">Rust</td></tr>
+      <tr><td><a href="https://github.com/squirelworks/seihai-servertools">seihai-servertools</a></td><td>A lab world in one command, a setup wizard for going public, a world checker, and the LAT level and gani editors.</td><td class="lang">Rust</td></tr>
+  </table>
+
+  <h2>GPL forks</h2>
+  <table>
+      <tr><td><a href="https://github.com/squirelworks/seihai-gserver-v2">seihai-gserver-v2</a></td><td>The Seihai fork of GServer-v2, with fixes for real 1.33 to 2.31 clients. It ships first, while the Rust server catches up.</td><td class="lang">C++</td></tr>
+      <tr><td><a href="https://github.com/squirelworks/seihai-gs2lib">seihai-gs2lib</a></td><td>The Seihai fork of gs2lib, which seihai-gserver-v2 builds on.</td><td class="lang">C++</td></tr>
+  </table>
+  <p class="note">The forks keep their GPL licence. No code from them goes into the Rust repos.</p>
+
+  <h2>Research</h2>
+  <table>
+      <tr><td><a href="https://github.com/squirelworks/Graal_analysis">Graal_analysis</a></td><td>Cleaned notes on Graal formats, the wire protocol, NPC scripting and level design, by client version. No raw decompiles, code or binary addresses.</td><td class="lang">Python</td></tr>
+      <tr><td><a href="https://github.com/squirelworks/graal-client-repro">graal-client-repro</a></td><td>Rebuilds of the classic Graal clients, one per build, in Delphi as the originals were. They are tested against the Seihai servers.</td><td class="lang">Pascal</td></tr>
+  </table>
+
+  <h2>Demo keys</h2>
+  <p>The demo uses the classic client's keys. <kbd>Arrows</kbd> move. <kbd>A</kbd> reads signs, opens chests and talks. <kbd>S</kbd> swings the sword. <kbd>D</kbd> picks up a rock or bush, and throws it. <kbd>Tab</kbd> opens chat. <kbd>Esc</kbd> closes a sign, or goes back to the desktop.</p>
+
+  <p class="note">Seihai is an independent fan project. It is not affiliated with or endorsed by GraalOnline. "Graal" and related names belong to their owners.</p>
+  <button id="playbtn" class="play" type="button">Play the demo</button>
+</div></div>
 <div id="view"><canvas id="c" width="512" height="384"></canvas></div>
 <div id="hud">♥♥♥  R:0  B:0  A:0</div>
 <div id="status"><span id="pos">loading</span><span id="msg"></span></div>
@@ -56,6 +112,14 @@ const msgEl = document.getElementById("msg");
 const lineEl = document.getElementById("line");
 const hudEl = document.getElementById("hud");
 document.getElementById("back").onclick = () => location.href = "../";
+const aboutEl = document.getElementById("about");
+function showAbout(on) {
+  aboutEl.classList.toggle("open", on);
+  try { localStorage.setItem("seihai.aboutSeen", "1"); } catch (e) {}
+}
+document.getElementById("aboutbtn").onclick = () => showAbout(!aboutEl.classList.contains("open"));
+document.getElementById("playbtn").onclick = () => showAbout(false);
+try { if (!localStorage.getItem("seihai.aboutSeen")) showAbout(true); } catch (e) { showAbout(true); }
 
 let pics, body, head;
 let board = [];
@@ -120,6 +184,11 @@ async function loadWorld() {
   objects.push({ x: 18, y: 10, id: 49, kind: "rock" });
 }
 
+// Graal tile ids: pics1 is 128 x 32 tiles, read as eight 16-wide columns.
+function tileXY(id) {
+  return [((id % 16) + Math.floor(id / 512) * 16) * 16, (Math.floor(id / 16) % 32) * 16];
+}
+
 function blocked(tx, ty) {
   if (ty < 0 || ty >= board.length || tx < 0 || tx >= board[0].length) return true;
   return WALL.has(board[ty][tx]);
@@ -133,13 +202,13 @@ function draw() {
   for (let y = 0; y < VIEW_H; y++) {
     for (let x = 0; x < VIEW_W; x++) {
       const id = board[camY + y]?.[camX + x] || 0;
-      const sx = (id % 128) * 16, sy = Math.floor(id / 128) * 16;
+      const [sx, sy] = tileXY(id);
       ctx.drawImage(pics, sx, sy, 16, 16, x * 16, y * 16, 16, 16);
     }
   }
   for (const o of objects) {
     const ox = (o.x - camX) * 16, oy = (o.y - camY) * 16;
-    const sx = (o.id % 128) * 16, sy = Math.floor(o.id / 128) * 16;
+    const [sx, sy] = tileXY(o.id);
     ctx.drawImage(pics, sx, sy, 16, 16, ox, oy, 16, 16);
   }
   const pxp = (px - camX) * 16, pyp = (py - camY) * 16;
@@ -147,7 +216,7 @@ function draw() {
   ctx.drawImage(body, 0, frame, 32, 32, pxp - 8, pyp - 16, 32, 32);
   ctx.drawImage(head, 0, frame, 32, 32, pxp - 8, pyp - 16, 32, 32);
   if (carrying) {
-    const sx = (carrying.id % 128) * 16, sy = Math.floor(carrying.id / 128) * 16;
+    const [sx, sy] = tileXY(carrying.id);
     ctx.drawImage(pics, sx, sy, 16, 16, pxp, pyp - 16, 16, 16);
   }
   if (swinging > 0) {
@@ -209,7 +278,7 @@ function interact() {
     return;
   }
   const n = npcs.find(n => Math.abs(n.x - px) < 2 && Math.abs(n.y - py) < 2);
-  if (n) { msgEl.textContent = "Hello from the mini world."; setTimeout(() => msgEl.textContent = "", 2000); }
+  if (n) { msgEl.textContent = "Hello. This is the Seihai web demo."; setTimeout(() => msgEl.textContent = "", 2000); }
 }
 
 function useItem() {
@@ -232,6 +301,10 @@ function useItem() {
 }
 
 document.addEventListener("keydown", e => {
+  if (aboutEl.classList.contains("open")) {
+    if (e.key === "Escape" || e.key === "Enter") { showAbout(false); e.preventDefault(); }
+    return;
+  }
   if (e.target === lineEl) {
     if (e.key === "Enter") {
       const t = lineEl.value.trim();
