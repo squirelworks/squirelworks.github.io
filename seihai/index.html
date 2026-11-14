@@ -17,7 +17,8 @@
   canvas { image-rendering: pixelated; background: #000;
     box-shadow: 0 0 0 2px #000, 0 0 0 4px #808080; }
   #hud { position: absolute; top: 36px; left: 8px; color: #fff; font-size: 13px;
-    text-shadow: 1px 1px 0 #000; pointer-events: none; line-height: 1.4; }
+    text-shadow: 1px 1px 0 #000; pointer-events: none; line-height: 1.4; white-space: pre; }
+  #hud img { image-rendering: pixelated; vertical-align: -3px; filter: drop-shadow(1px 1px 0 #000); }
   #chat { position: absolute; bottom: 0; left: 0; right: 0; height: 48px;
     background: #000080; color: #fff; display: flex; align-items: center;
     padding: 0 8px; }
@@ -90,7 +91,7 @@
   <button id="playbtn" class="play" type="button">Play the demo</button>
 </div></div>
 <div id="view"><canvas id="c" width="512" height="384"></canvas></div>
-<div id="hud">♥♥♥  R:0  B:0  A:0</div>
+<div id="hud"><span id="hearts">♥♥♥</span>  <img src="assets/acorn.png" alt="acorns" width="11" height="16"> <span id="acorns">0</span>  <span id="ammo">B:0  A:0</span></div>
 <div id="status"><span id="pos">loading</span><span id="msg"></span></div>
 <div id="chat"><input id="line" placeholder="Tab to chat" maxlength="80"></div>
 <script src="tiletypes.js"></script>
@@ -109,7 +110,7 @@ for (const run of BLOCKING.split(",")) {
 // 2x2 pictures you can lift, and what each leaves behind.
 const LIFT = { 2: { kind: "bush", leaves: 420 }, 34: { kind: "rock", leaves: 677 } };
 const CHEST_SHUT = 1784, CHEST_OPEN = 829;
-const ITEMS = { greenrupee: ["rupees", 1, "a green rupee"], bombs: ["bombs", 5, "five bombs"],
+const ITEMS = { greenrupee: ["rupees", 1, "an acorn"], bombs: ["bombs", 5, "five bombs"],
   arrows: ["arrows", 5, "five arrows"], heart: ["hearts", 1, "a heart container"] };
 
 const canvas = document.getElementById("c");
@@ -118,7 +119,7 @@ ctx.imageSmoothingEnabled = false;
 const posEl = document.getElementById("pos");
 const msgEl = document.getElementById("msg");
 const lineEl = document.getElementById("line");
-const hudEl = document.getElementById("hud");
+const heartsEl = document.getElementById("hearts"), acornsEl = document.getElementById("acorns"), ammoEl = document.getElementById("ammo");
 document.getElementById("back").onclick = () => location.href = "../";
 const aboutEl = document.getElementById("about");
 function showAbout(on) {
@@ -243,11 +244,16 @@ function draw() {
       ctx.drawImage(pics, sx, sy, 16, 16, x * 16, y * 16, 16, 16);
     }
   }
-  for (const n of lv.npcs) ctx.drawImage(head, 0, 64, 32, 32, (n.x - camX) * 16, (n.y - camY) * 16 - 8, 32, 32);
+  // Graal's idle pose: body.png has one column per direction, head0.png one row
+  // per direction, and the body sits 16 pixels below the head.
+  for (const n of lv.npcs) {
+    const nx = (n.x - camX) * 16, ny = (n.y - camY) * 16 - 8;
+    ctx.drawImage(body, 64, 0, 32, 32, nx, ny + 16, 32, 32);
+    ctx.drawImage(head, 0, 64, 32, 32, nx, ny, 32, 32);
+  }
   const pxp = (px - camX) * 16, pyp = (py - camY) * 16;
-  const frame = dir * 32;
-  ctx.drawImage(body, 0, frame, 32, 32, pxp - 8, pyp - 16, 32, 32);
-  ctx.drawImage(head, 0, frame, 32, 32, pxp - 8, pyp - 16, 32, 32);
+  ctx.drawImage(body, dir * 32, 0, 32, 32, pxp - 8, pyp, 32, 32);
+  ctx.drawImage(head, 0, dir * 32, 32, 32, pxp - 8, pyp - 16, 32, 32);
   if (carrying) drawObject(carrying.base, pxp - 8, pyp - 40);
   if (swinging > 0) {
     ctx.fillStyle = "#fff";
@@ -260,7 +266,9 @@ function draw() {
     fade--;
   }
   posEl.textContent = lv.name + "  " + px.toFixed(1) + ", " + py.toFixed(1);
-  hudEl.textContent = "\u2665".repeat(inv.hearts) + "  R:" + inv.rupees + "  B:" + inv.bombs + "  A:" + inv.arrows;
+  heartsEl.textContent = "\u2665".repeat(inv.hearts);
+  acornsEl.textContent = inv.rupees;
+  ammoEl.textContent = "B:" + inv.bombs + "  A:" + inv.arrows;
 }
 
 function drawSign() {
